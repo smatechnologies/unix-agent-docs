@@ -1,36 +1,6 @@
 ---
 slug: '/'
-sidebar_label: 'Product Name'
+sidebar_label: 'Unix Agent'
 ---
 
-# Tutorial Intro
-
-Let's discover **Docusaurus in less than 5 minutes**.
-
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[new.docusaurus.io](https://new.docusaurus.io)**.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**:
-
-```shell
-npx @docusaurus/init@latest init my-website classic
-```
-
-## Start your site
-
-Run the development server:
-
-```shell
-cd my-website
-
-npx docusaurus start
-```
-
-Your site starts at `http://localhost:3000`.
-
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and display your changes.
+The UNIX LSAM, Version 21.2.0, is an OpCon agent that allows OpCon to schedule UNIX jobs within a UNIX environment.

@@ -1,14 +1,14 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'SMA Technologies Help',
-  tagline: 'Template - Product Name',
+  tagline: 'Unix Agent',
   url: 'https://help.smatechnologies.com',
-  baseUrl: '/product/path/',
+  baseUrl: '/opcon/agents/unix/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'smatechnologies',
-  projectName: 'template-product-repo-name',
+  projectName: 'unix-agent-docs',
   themeConfig: {
     navbar: {
       title: 'Help',
@@ -32,10 +32,14 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/smatechnologies/template-product-repo-name/blob/main',
+            'https://github.com/smatechnologies/unix-agents-docs/blob/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-7XYMFXX81Y',
+          anonymizeIP: false,
         },
       },
     ],

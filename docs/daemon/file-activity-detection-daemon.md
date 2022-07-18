@@ -1,0 +1,3 @@
+# Introduction
+
+The SMA File Activity Detection Daemon (SMA FAD) monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. The Control File contains the directories to be monitored and contains the external events to be forwarded to the SAM. SMA FAD writes all logging information through the sma_log process. For information on sma_log, refer to [sma_log](/operations/components#sma_log).

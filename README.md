@@ -1,6 +1,6 @@
-# SMA OpCon Template Repo Docs
+# SMA OpCon Unix Agent Docs
 
-This repository contains the content behind the SMA OpCon Template Repo documentation hosted at <https://help.smatechnologies.com/opcon/template>.
+This repository contains the content behind the SMA OpCon UNIX Agent documentation hosted at <https://help.smatechnologies.com/opcon/unix-agent-docs>.
 
 ## Disclaimer
 
@@ -12,7 +12,7 @@ SMA Technologies assumes no liability for damage caused by the usage of any of t
 
 Copyright 2021 SMA Technologies
 
-This SMA OpCon Template Repo documentation is [Creative Commons licensed](LICENSE).
+This SMA OpCon Deploy documentation is [Creative Commons licensed](LICENSE).
 
 ## Contribution
 
@@ -22,3 +22,4 @@ Please see <https://help.smatechnologies.com/opcon/contributor-guide> for inform
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md)
 SMA Technologies has adopted the [Contributor Covenant](CODE_OF_CONDUCT.md) as its Code of Conduct, and we expect project participants to adhere to it. Please read the [full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+
