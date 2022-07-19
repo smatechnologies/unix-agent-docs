@@ -128,13 +128,13 @@ UNIX LSAM Release Notes
 
 :eight_spoked_asterisk:  Added the following job meta-data to STDOUT files:
 
-JOB_ID
-SCHEDULE_DATE
-SCHEDULE_NAME
-SCHEDULE_FREQ
-START_IMAGE
-UNIX_LSAM_ROOT_DIR
-JOB_START_TIME
+* JOB_ID
+* SCHEDULE_DATE
+* SCHEDULE_NAME
+* SCHEDULE_FREQ
+* START_IMAGE
+* UNIX_LSAM_ROOT_DIR
+* JOB_START_TIME
 
 :eight_spoked_asterisk:  Removed the max_burst parameter from the LSAM configuration file.
 
