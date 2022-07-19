@@ -32,7 +32,7 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/smatechnologies/unix-agents-docs/blob/main',
+            'https://github.com/smatechnologies/unix-agent-docs/blob/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
