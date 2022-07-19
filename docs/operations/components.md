@@ -6,7 +6,7 @@ All of the LSAM components have the following characteristics:
 
 * The processes read the LSAM configuration file to initialize system parameters.
 * The processes run as daemon processes with root authority.
-* The processes should always be started from within the LSAM Control Script with the start argument. For information on LSAM commands, refer to [UNIX LSAM Commands](unix-lsam-commands).
+* The processes should always be started from within the LSAM Control Script with the start argument. For information on LSAM commands, refer to [UNIX LSAM Commands](/operations/unix-lsam-commands).
 * All output bound for the terminal is redirected to file ```"LSAM_output_<SAM_socket>"``` in the LSAM root directory.
 
 The table below lists the continuous processes of the LSAM with a short description of each component. Click on the link for a more in-depth discussion of the component.
@@ -67,12 +67,12 @@ The sma_log process provides continuous and dependable logging of the LSAM.
 
 ### sma_fad
 
-The sma_fad process enables the LSAM to send external events to the SAM when certain files meet defined criteria. Additionally, sma_fad offers more features and a dramatic increase in event throughput. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help. For more information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](file-activity-detection-daemon).
+The sma_fad process enables the LSAM to send external events to the SAM when certain files meet defined criteria. Additionally, sma_fad offers more features and a dramatic increase in event throughput. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help. For more information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](/daemon/file-activity-detection-daemon).
 
 
 #### Characteristics
 
-This process is optional. For information on [Deactivating LSAM Components](/reference/deactivating-lsam-components), refer to Deactivating LSAM Components. It reads all of the file dependency criteria and events from a Control File:
+This process is optional. For information on [Deactivating LSAM Components](/reference/system-modification/deactivating-lsam-components), refer to Deactivating LSAM Components. It reads all of the file dependency criteria and events from a Control File:
 
 ```LSAM_ROOT/fad/<SMA_LSAM_INSTANCE>/control/<Control file>```
 
@@ -92,7 +92,7 @@ The sma_filein process watches the MSGIN directory for any text file. Following 
 
 #### Characteristics
 
-* The sma_filein process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/deactivating-lsam-components).
+* The sma_filein process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/system-modification/deactivating-lsam-components).
 * Reads the sma_filein_sleep_time from the configuration file to determine the time to wait between file checks.
 * Processes and deletes all files in the MSGIN directory.
 * After sma_filein reads the file, the sma_disp process sends the event to the SAM.
@@ -106,7 +106,7 @@ The cronmon.conf file contains all cron search strings and events. When editing 
 ```<regular expression search string>#e#<event string>```
 
 Characteristics
-The sma_cronmon process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/deactivating-lsam-components).
+The sma_cronmon process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/system-modification/deactivating-lsam-components).
 Reads all of the process dependency criteria from the cronmon.conf file:
 ```<LSAM root path>/config/<SMA_LSAM_INSTANCE>/cronmon.conf```
 Searches for the ```<regular expression search string>``` in the following possible locations for the cron log: ```/var/log/cron```, ```/var/cron/log```, and ```/var/adm/cron/log```.
@@ -134,7 +134,7 @@ The sma_JORS (Job Output Retrieval System) process allows the user to view UNIX 
 #### Characteristics
 
 * Regarding job output, the only available output files are for the last execution.
-* If the UNIX LSAM is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on LSAM STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](jors-and-smaft-paramters).
+* If the UNIX LSAM is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on LSAM STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](/configuration/parameters/jors-and-smaft-parameters).
 * The socket number specified in the configuration file must match both the JORS Port Number and the File Transfer Port Number specified in the Enterprise Manager.
 
 ##### Configure the JORS and File Transfer Ports in the Enterprise Manager
@@ -157,7 +157,7 @@ By default, the LSAM sets the JORS_FT Socket number to the sum of ten plus the L
 8. Click on Open Advanced Settings Panel. The Advanced Machine Properties window displays.
 9. Click on the Communication Settings tab.
 10. Click the JORS Port Number parameter.
-11. Enter the same value entered for the JORS Socket in the LSAM Configuration in the Modify Parameter frame at the bottom of the screen. For information on the JORS Socket in the LSAM Configuration, refer to [JORS_FT socket number](jors-ft-socket-number).
+11. Enter the same value entered for the JORS Socket in the LSAM Configuration in the Modify Parameter frame at the bottom of the screen. For information on the JORS Socket in the LSAM Configuration, refer to [JORS_FT socket number](/configuration/parameters/jors-and-smaft-parameters#jors-ft-socket-number).
 
 :::caution 
 
@@ -197,7 +197,7 @@ For JORS and a File Transfer job to function properly, ensure that any firewall 
 
 ### sma_RN
 
-The sma_RM process enables the LSAM to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](resource-monitor).
+The sma_RM process enables the LSAM to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](/smarm/introduction).
 
 :::info Note 
 
@@ -207,7 +207,7 @@ The SMA Resource Monitor is a beta program.
 
 #### Characteristics
 
-This process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/deactivating-lsam-components). It reads all of the file dependency criteria and events from its Control File:
+This process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](/reference/system-modification/deactivating-lsam-components). It reads all of the file dependency criteria and events from its Control File:
 
 ```LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/SMA_RM.conf```
 

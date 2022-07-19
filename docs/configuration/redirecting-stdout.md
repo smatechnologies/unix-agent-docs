@@ -6,7 +6,7 @@ If the parameter ```path_to_su``` is set to No, redirecting ```STDOUT``` must ta
 
 SMA Technologies provides a generic script ```captureSTDOUT``` that redirects ```STDOUT``` for any script. The ```captureSTDOUT``` script resides in the ```<LSAM root path>/bin``` directory. This script is a working template, and is open to modification by a system programmer to contain more detailed information. The template is for use with the Korn shell; therefore, be sure to adjust the script according to the shell in use.
 
-For information on analyzing standard out to determine exit conditions, refer to [sma_ppscript](sma-ppscript).
+For information on analyzing standard out to determine exit conditions, refer to [sma_ppscript](/operations/utilities/sma-ppscript).
 
 ## Syntax
 
@@ -28,4 +28,4 @@ Parameters: ```/usr/local/payroll/finished/timecalc.datetime/usr/local/payroll/t
 
 :::
 
-For more information, refer to [UNIX Job Details](unix-job-details) in the Concepts online help.
+For more information, refer to [UNIX Job Details](https://help.smatechnologies.com/opcon/core/job-types/unix) in the Concepts online help.

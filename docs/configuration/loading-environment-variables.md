@@ -196,7 +196,7 @@ On a Solaris 5.7 machine, edit the script to contain the boldface information be
 
 ### Enter the Start Image in OpCon
 
-The Start Image line on the UNIX Details screen (in the Enterprise Manager's Job Master) must contain either the full or relative path to the user_setup script or job. To specify relative path, use "." or "~username" (provided that path_to_su is enabled). For information on defining a job in the Enterprise Manager, refer to [Adding Jobs](adding-jobs) in the Enterprise Manager online help.
+The Start Image line on the UNIX Details screen (in the Enterprise Manager's Job Master) must contain either the full or relative path to the user_setup script or job. To specify relative path, use "." or "~username" (provided that path_to_su is enabled). For information on defining a job in the Enterprise Manager, refer to [Adding Jobs](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Adding-Jobs) in the Enterprise Manager online help.
 
 
 :::tip Example

@@ -48,7 +48,7 @@ Execution of this script should not be necessary if the Advanced Machine paramet
 
 :::
 
-For information on this parameter, refer to [Administrative Machine Information](administrative-machine-information) in the Concepts online help. Additionally, users may also define a ```$JOB:KILL``` event. For information on this event, refer to [Job-Related Events](job-related-events) in the OpCon Events online help.
+For information on this parameter, refer to [Administrative Machine Information](https://help.smatechnologies.com/opcon/core/objects/machines#administrative-machine-information) in the Concepts online help. Additionally, users may also define a ```$JOB:KILL``` event. For information on this event, refer to [Job-Related Events](https://help.smatechnologies.com/opcon/core/job-components/events) in the OpCon Events online help.
 
 ## Syntax
 

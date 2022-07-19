@@ -1,4 +1,4 @@
-# JORS and SMAFT Paramters
+# JORS and SMAFT Parameters
 
 The following parameters reference the settings to control how the LSAM handles STDOUT and STDERR, and defines capabilities and operating parameters for the Job Output Retrieval System (JORS) and SMA File Transfer (SMAFT).
 
@@ -71,7 +71,7 @@ For JORS to function properly, ensure that any firewall on the UNIX machine allo
 
 * Sets the socket (port) number for SMA File Transfer (SMAFT).
 * The value can be the same number as JORS_FT or a different number.
-* The SMAFT socket number must be configured on the Administration > Machines > Advanced screen in the Enterprise Manager. For information on configuration of JORS in the Enterprise Manager, refer to [Configuring Advanced Machine Parameters and Properties](configuring-advanced-machine-parameters) in the Enterprise Manager online help.
+* The SMAFT socket number must be configured on the Administration > Machines > Advanced screen in the Enterprise Manager. For information on configuration of JORS in the Enterprise Manager, refer to [Configuring Advanced Machine Parameters and Properties](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Configuring-Advanced-Machine-Properties) in the Enterprise Manager online help.
 
 :::caution 
 
@@ -94,7 +94,7 @@ For a File Transfer job to function properly, ensure that any firewall on the UN
 
 **Description**:
 
-* For both JORS and SMAFT, sets the maximum wait time in seconds for a response during a file transfer. For information on sma_JORS, refer to sma_JORS.
+* For both JORS and SMAFT, sets the maximum wait time in seconds for a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](/operations/components#sma_jors).
 * During performance of the JORS function, if the peer (SAM) side does not respond within this wait time, JORS logs the error in the LSAM log and error file.
 * During execution of a SMAFT job, if the peer (FTAgent) side does not respond within this wait time, FTServer logs the error in the LSAM log and error file.
 * During execution of a SMAFT job, if the peer (FTServer) side does not respond within this wait time, FTAgent exits with an error.
@@ -111,18 +111,18 @@ SMA Technologies does not recommend changing this parameter to less than 60 beca
 
 **Description**:
 
-* For both JORS and SMAFT, sets the maximum number of times a message is sent without getting a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](sma-jors).
+* For both JORS and SMAFT, sets the maximum number of times a message is sent without getting a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](/operations/components#sma_jors).
 * If a message is sent this many times without receipt of a response, on the next attempt to send, JORS logs the error in the LSAM log and error file.
 * If a message is sent this many times without receipt of a response, on the next attempt to send, FTAgent exits with an error.
 
 ### encryption_support
 
-**Default Value**: All supported capabilities - Refer to [File Encryption](file-encryption)
+**Default Value**: All supported capabilities - Refer to [File Encryption](/smaft/file-encryption)
 
 **Description**:
 
 * Indicates if encryption is available for use during execution of a SMAFT job.
-* If encryption is available, also indicates the preferred priority order of supported capabilities. Refer to [File Encryption](file-encryption) for a complete discussion on entering this value.
+* If encryption is available, also indicates the preferred priority order of supported capabilities. Refer to [File Encryption](/smaft/file-encryption) for a complete discussion on entering this value.
 * Before the file transfer, the FTServer encrypts the file. The FTAgent, on the peer side, decrypts the file before saving it to the specified location.
 * If set to zero, encryption is not available.
 

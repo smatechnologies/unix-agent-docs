@@ -173,7 +173,7 @@ The log_break command writes a line of asterisks (*) in the log file to delimit 
 
 ### lsam refresh
 
-The refresh command causes the LSAM to reread the configuration file following modification. To modify the configuration, run the LSAM Configuration program. For information on LSAM configuration, refer to [UNIX LSAM Configuration](unix-lsam-configuration). After saving the changes to the LSAM configuration file, execute the refresh command for the LSAM to recognize the changes.
+The refresh command causes the LSAM to reread the configuration file following modification. To modify the configuration, run the LSAM Configuration program. For information on LSAM configuration, refer to [UNIX LSAM Configuration](/configuration/unix-lsam-configuration). After saving the changes to the LSAM configuration file, execute the refresh command for the LSAM to recognize the changes.
 
 :::info Note
 
@@ -411,7 +411,7 @@ The start command systematically executes the sma_log, sma_lsam, sma_disp, sma_c
 
 ### lsam start_fad
 
-The start_fad command starts the SMA File Activity Detection Daemon(s) (SMA FAD). SMA FAD monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](sma-file-activity-detection-daemon).
+The start_fad command starts the SMA File Activity Detection Daemon(s) (SMA FAD). SMA FAD monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](/daemon/file-activity-detection-daemon).
 
 #### Syntax
 
@@ -435,7 +435,7 @@ The stop command systematically stops all of the LSAM processes.
 
 ### lsam stop_fad
 
-The stop_fad command stops the SMA File Activity Detection Daemon(s) (SMA FAD). For information on the SMA File Activity Detection Daemon, refer to S[MA File Activity Detection Daemon](sma-file-activity-detection-daemon).
+The stop_fad command stops the SMA File Activity Detection Daemon(s) (SMA FAD). For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](/daemon/file-activity-detection-daemon).
 
 #### Syntax
 

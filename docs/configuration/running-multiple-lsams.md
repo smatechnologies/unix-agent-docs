@@ -22,4 +22,4 @@ The environment variable ```$SMA_BINDIR``` is defined within each instance of an
 
 ## OpCon Central Components
 
-From the point of view of the OpCon central components, multiple instances of an LSAM are different machines. Each instance of an LSAM must be identified in the Enterprise Manager on the Machines Screen (Navigation path: Administration>Machines). This requires all machine names associated with the same IP address to be listed in the DNS or to be in the "hosts" file on the OpCon server. For more information, refer to the [Machines](machines) section in the Concepts online help.
+From the point of view of the OpCon central components, multiple instances of an LSAM are different machines. Each instance of an LSAM must be identified in the Enterprise Manager on the Machines Screen (Navigation path: Administration>Machines). This requires all machine names associated with the same IP address to be listed in the DNS or to be in the "hosts" file on the OpCon server. For more information, refer to the [Machines](https://help.smatechnologies.com/opcon/core/objects/machines) section in the Concepts online help.

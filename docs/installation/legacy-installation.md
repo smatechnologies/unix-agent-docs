@@ -192,7 +192,7 @@ The following example shows the command for setting the SAM Socket Number to 310
 
 :::info Note
 
-The installation process generates and executes the lsam<SAM_Socket> script (e.g., lsam3100). The script searches for the tar and gzip compression utilities on the system. If the search is unsuccessful, the script prompts the user for the utilities' location(s) or instructs the user to edit the LSAM configuration file. If the search is successful, the scripts execute the LSAM configuration program to set the SMAFT compression_support parameter and STDOUT/STDERR file capture (for use with the JORS).
+The installation process generates and executes the ```lsam<SAM_Socket>``` script (e.g., lsam3100). The script searches for the tar and gzip compression utilities on the system. If the search is unsuccessful, the script prompts the user for the utilities' location(s) or instructs the user to edit the LSAM configuration file. If the search is successful, the scripts execute the LSAM configuration program to set the SMAFT compression_support parameter and STDOUT/STDERR file capture (for use with the JORS).
 
 :::
 
@@ -208,7 +208,7 @@ The following example shows the command for creating the symbolic links for star
 
 :::
 
-8. Start the LSAM Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the LSAM, refer to [UNIX LSAM Configuration](configuration). Use the following syntax:
+8. Start the LSAM Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the LSAM, refer to [UNIX LSAM Configuration](/configuration/unix-lsam-configuration). Use the following syntax:
 
 ```bin/lsam<SAM_Socket> config```
 
