@@ -111,9 +111,9 @@ UNIX LSAM Release Notes
 
 ### 2018 September
 
-:white_check_mark:Fixed an issue with File Transfer jobs where files containing a wildcard going to a single file failed with an exit code 14099 "compression not supported" error.
+:white_check_mark:  Fixed an issue with File Transfer jobs where files containing a wildcard going to a single file failed with an exit code 14099 "compression not supported" error.
 
-:white_check_mark:Fixed an issue in the Job Output Retriever where logfiles and errfiles were not written to the correct path.
+:white_check_mark:  Fixed an issue in the Job Output Retriever where logfiles and errfiles were not written to the correct path.
 
  
 ## Version 18.1.0
