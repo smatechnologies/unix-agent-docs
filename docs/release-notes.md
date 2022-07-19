@@ -3,8 +3,6 @@ sidebar_label: 'Release notes'
 ---
 
 # Unix Agent Release Notes
-
-UNIX LSAM Release Notes
  
 ## Version 21.2
 
