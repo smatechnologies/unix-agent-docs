@@ -1,6 +1,6 @@
 # SMA OpCon Unix Agent Docs
 
-This repository contains the content behind the SMA OpCon UNIX Agent documentation hosted at <https://help.smatechnologies.com/opcon/unix-agent-docs>.
+This repository contains the content behind the SMA OpCon UNIX Agent documentation hosted at <https://help.smatechnologies.com/opcon/unix>.
 
 ## Disclaimer
 
