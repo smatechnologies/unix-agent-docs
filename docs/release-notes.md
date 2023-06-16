@@ -3,7 +3,9 @@ sidebar_label: 'Release notes'
 ---
 
 # Unix Agent Release Notes
- 
+
+## Version 22.0.0
+
 ## Version 21.2
 
 ### 2021 August
