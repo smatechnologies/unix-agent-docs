@@ -6,6 +6,8 @@ sidebar_label: 'Release notes'
 
 ## Version 22.0.0
 
+:white_check_mark: **UNIX-392**: Fixed an issue in UNIX agent where LSAM shuts down after "Data has not arrived in 600 seconds".
+
 ## Version 21.2
 
 ### 2021 August
