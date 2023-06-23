@@ -2,7 +2,7 @@
 
 :::info Note
 
-The procedures in this section describe the preferred method for installing the UNIX LSAM. For the legacy method, refer to [Legacy Installation Procedures](/installation/legacy-installation).
+The procedures in this section describe the preferred method for installing the UNIX LSAM. For the legacy method, refer to [Legacy Installation Procedures](../installation/legacy-installation).
 
 :::
 
@@ -12,7 +12,7 @@ The UNIX LSAM installation is initiated by the install_agent script. The script 
 
 Transferring the installation files is the preferred installation method. For the initial release, you will need to transfer the script to the target machine. Follow the steps provided in this section to do so.
 
-1. Transfer the script and binary tar file (e.g., ```LSAM_15.00.01.24_Redhat_AS_5_0.tar```) to the UNIX machine. For the recommended file transfer procedures, refer to [Fetching the LSAM Installation File](/installation/fetch-install-file).
+1. Transfer the script and binary tar file (e.g., ```LSAM_15.00.01.24_Redhat_AS_5_0.tar```) to the UNIX machine. For the recommended file transfer procedures, refer to [Fetching the LSAM Installation File](../installation/fetch-install-file).
 
 :::info Note
 

@@ -23,8 +23,8 @@ The following example shows the syntax for starting the LSAM configuration progr
 
 :::
 
-4. Select an option from the menu and make any necessary modifications to the displayed values. For complete information on the lsam.conf settings, refer to the [TCP/IP Configuration Parameters](/configuration/parameters/tcp-ip-configuration) tables.
+4. Select an option from the menu and make any necessary modifications to the displayed values. For complete information on the lsam.conf settings, refer to the [TCP/IP Configuration Parameters](../configuration/parameters/tcp-ip-configuration) tables.
 5. Repeat step 3 until all LSAM options are set correctly.
 6. Enter s to save the configuration changes.
 7. Enter q to quit the configuration program.
-8. If the LSAM was running when performing step 3, refresh the LSAM after saving the configuration file. For information on refreshing the LSAM, refer to [lsam refresh](/operations/unix-lsam-commands#lsam-refresh).
+8. If the LSAM was running when performing step 3, refresh the LSAM after saving the configuration file. For information on refreshing the LSAM, refer to [lsam refresh](../operations/unix-lsam-commands#lsam-refresh).

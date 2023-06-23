@@ -97,7 +97,7 @@ root 1927 1 0 Oct 20 ? 0:12 /usr/local/prod/lsam/bin/sma_filein
 
 :::info Note
 
-If the LSAM processes do not start as expected, examine the logfile, the errfile and the Terminal Output File files for error messages. Use the file path defined in the ```SMA_LOG_DIRECTORY``` variable. For information on the ```SMA_LOG_DIRECTORY``` variable, refer to [SMA_LOG_DIRECTORY](/configuration/updating-lsam-control-script#sma-log-directory).
+If the LSAM processes do not start as expected, examine the logfile, the errfile and the Terminal Output File files for error messages. Use the file path defined in the ```SMA_LOG_DIRECTORY``` variable. For information on the ```SMA_LOG_DIRECTORY``` variable, refer to [SMA_LOG_DIRECTORY](../configuration/updating-lsam-control-script#sma-log-directory).
 
 :::
 

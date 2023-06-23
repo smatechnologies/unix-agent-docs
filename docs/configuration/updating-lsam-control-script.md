@@ -1,6 +1,6 @@
 # Updating the LSAM Control Script
 
-The LSAM Control Script contains several variables necessary for the proper processing of LSAM commands and of LSAM components. Since the installation script "install_lsam" easily creates a new UNIX LSAM (and updates the LSAM Control Script), further modification of the LSAM Control Script is not necessary. For information on the install_lsam script, refer to [install_lsam](/operations/utilities/install-lsam). SMA Technologies recommends confirming that the following variables are set to the correct values for the environment after executing install_lsam. If changes need to be made, proceed as directed below under "Editing the LSAM Control Script."
+The LSAM Control Script contains several variables necessary for the proper processing of LSAM commands and of LSAM components. Since the installation script "install_lsam" easily creates a new UNIX LSAM (and updates the LSAM Control Script), further modification of the LSAM Control Script is not necessary. For information on the install_lsam script, refer to [install_lsam](../operations/utilities/install-lsam). SMA Technologies recommends confirming that the following variables are set to the correct values for the environment after executing install_lsam. If changes need to be made, proceed as directed below under "Editing the LSAM Control Script."
 
 ## LSAM Control Script Variables
 
@@ -93,7 +93,7 @@ If you add or remove the path to the 'tar' or 'gzip' utilities from the PATH var
 
     ```rm SMAFTScript<SAM_Socket>```
 
-    * Issue an LSAM 'status' command (refer to [lsam status](/operations/unix-lsam-commands#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
+    * Issue an LSAM 'status' command (refer to [lsam status](../operations/unix-lsam-commands#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
 
     ```lsam<SAM_Socket> status```
 

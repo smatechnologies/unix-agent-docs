@@ -16,7 +16,7 @@ Assuming a ```<SAM_Socket>``` of 3100 and an ```<LSAM_instance>``` of "prod", th
 :::
 
 2. Start the LSAM. Use the following syntax: ```bin/lsam<SAM_Socket>``` start.
-For information on operating the LSAM, refer to [Operating the LSAM](/operations/operating-the-lsam).
+For information on operating the LSAM, refer to [Operating the LSAM](../operations/operating-the-lsam).
 
 :::tip Example
 
@@ -83,9 +83,9 @@ root 1929 1 0 Oct 20 ? 0:00 /usr/local/prod/lsam/bin/sma_JORS
 
 :::info Note
 
-If the LSAM processes do not start as expected, examine the logfile and the errfile files for error messages. Use the file path defined in the SMA_LOG_DIRECTORY variable in the LSAM Control Script. For information on editing the LSAM Control Script, refer to [Updating the LSAM Control Script](/configuration/updating-lsam-control-script).
+If the LSAM processes do not start as expected, examine the logfile and the errfile files for error messages. Use the file path defined in the SMA_LOG_DIRECTORY variable in the LSAM Control Script. For information on editing the LSAM Control Script, refer to [Updating the LSAM Control Script](../configuration/updating-lsam-control-script).
 
 :::
 
-4. To begin using the LSAM, refer to [UNIX LSAM Configuration](/configuration/unix-lsam-configuration) to configure and operate the LSAM.
+4. To begin using the LSAM, refer to [UNIX LSAM Configuration](../configuration/unix-lsam-configuration) to configure and operate the LSAM.
 
