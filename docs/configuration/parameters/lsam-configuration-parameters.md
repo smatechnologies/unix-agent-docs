@@ -20,7 +20,7 @@ The machine's capabilities (e.g., memory, processor speed, and so forth) determi
 :::
 
 * Typical customer usage ranges from 10 to 30 jobs.
-* The LSAM can detect a change to this setting when the LSAM is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the LSAM refresh command, refer to [lsam refresh](/operations/unix-lsam-commands#lsam-refresh).
+* The LSAM can detect a change to this setting when the LSAM is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the LSAM refresh command, refer to [lsam refresh](../../operations/unix-lsam-commands#lsam-refresh).
 
 :::warning
 
@@ -112,7 +112,7 @@ When switching the value for path_to _su, be sure to retest all jobs running thr
 
 :::
 
-When path_to_su is set to No, the LSAM will not load the user profile when a job is executed. The LSAM will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](/configuration/loading-environment-variables#edit-user_setup-script).
+When path_to_su is set to No, the LSAM will not load the user profile when a job is executed. The LSAM will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
 
 If you set path_to_su to yes, the LSAM will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will execute calling "su -" to perform the user impersonation. The LSAM will load the profile for the user's default shell as well as the user's full group list. The su utility will then handle all command line interpretation, including special characters. Since the LSAM is not running as a logged in user, any command in the profile that requires a console to be logged in may not execute successfully.
 

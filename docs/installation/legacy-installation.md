@@ -2,7 +2,7 @@
 
 :::info Note
 
-The procedures in this section describe the legacy method for installing the UNIX LSAM. For the preferred method, refer to [Preferred Installation Procedures](/installation/preferred-installation).
+The procedures in this section describe the legacy method for installing the UNIX LSAM. For the preferred method, refer to [Preferred Installation Procedures](../installation/preferred-installation).
 
 :::
 
@@ -208,7 +208,7 @@ The following example shows the command for creating the symbolic links for star
 
 :::
 
-8. Start the LSAM Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the LSAM, refer to [UNIX LSAM Configuration](/configuration/unix-lsam-configuration). Use the following syntax:
+8. Start the LSAM Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the LSAM, refer to [UNIX LSAM Configuration](../configuration/unix-lsam-configuration). Use the following syntax:
 
 ```bin/lsam<SAM_Socket> config```
 

@@ -42,7 +42,7 @@ The following example shows the definition of a file's condition that initiates 
 
 :::
 
-* ```<mintimetowait></mintimetowait>```: (Optional) Defines the minimum amount of time in seconds the SMA FAD waits before determining if a file is still being modified (e.g., a file arriving through FTP). Between two consecutive passes, when the daemon sees that a file is modified, it uses the mintimetowait element to determine if the file is still changing. If the file changes within this time period, SMA FAD does not initiate the events. This element supplements the CREATE, MODIFY, GROWTH, and SHRINK conditions. If omitted, SMA FAD uses the value from the waittimebetweenpasses configuration element. For information on waittimebetweenpasses, refer to [Configuration](/configuration/unix-lsam-configuration) in this topic.
+* ```<mintimetowait></mintimetowait>```: (Optional) Defines the minimum amount of time in seconds the SMA FAD waits before determining if a file is still being modified (e.g., a file arriving through FTP). Between two consecutive passes, when the daemon sees that a file is modified, it uses the mintimetowait element to determine if the file is still changing. If the file changes within this time period, SMA FAD does not initiate the events. This element supplements the CREATE, MODIFY, GROWTH, and SHRINK conditions. If omitted, SMA FAD uses the value from the waittimebetweenpasses configuration element. For information on waittimebetweenpasses, refer to [Configuration](../../configuration/unix-lsam-configuration) in this topic.
 
 :::tip Example
 

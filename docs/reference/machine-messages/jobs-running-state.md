@@ -4,7 +4,7 @@ Once jobs are built, the Enterprise Manager Operation screen contains different 
 
 :::info Note
 
-Scripts using the sma_status utility can use the 20-character message area to display any desired text; otherwise, the PID displays in the message area. For further information, refer to the example that shows a script using the sma_status utility on [sma_status](/operations/utilities/sma-status).
+Scripts using the sma_status utility can use the 20-character message area to display any desired text; otherwise, the PID displays in the message area. For further information, refer to the example that shows a script using the sma_status utility on [sma_status](../../operations/utilities/sma-status).
 
 :::
 

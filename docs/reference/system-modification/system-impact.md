@@ -8,4 +8,4 @@ The initial execution of the LSAM creates these directories and files.
 
 :::
 
-![System Impact](/img/systemimpact.png)
+![System Impact](../../../static/img/systemimpact.png)

@@ -4,7 +4,7 @@ By default, the SMA File Transfer (SMAFT) Server does not encrypt the Source Fil
 
 By default, the SMA File Transfer (SMAFT) Server does not encrypt the Source File prior to its transfer to the Agent. Two additional options are available: PREFERRED and REQUIRED. If PREFERRED is selected, the file is transferred without encryption if the Server and Agent are unable to negotiate a compatible method of encrypting the file. If REQUIRED is selected and if an encryption method cannot be negotiated, the transfer is not performed and the job fails.
 
-During the LSAM installation, the LSAM is configured with support for all available encryption capabilities as outlined below. Each installation of the LSAM may subsequently be configured for encryption in SMAFT jobs (refer to [Updating the SMA File Transfer (SMAFT) Control Script)](/configuration/updating-smaft-control-script). Encryption support applies to both Server and Agent for an LSAM.
+During the LSAM installation, the LSAM is configured with support for all available encryption capabilities as outlined below. Each installation of the LSAM may subsequently be configured for encryption in SMAFT jobs (refer to [Updating the SMA File Transfer (SMAFT) Control Script)](../configuration/updating-smaft-control-script). Encryption support applies to both Server and Agent for an LSAM.
 
 Configuring encryption support involves entering a string of one or more comma-separated numbers. A simple zero disables encryption. If no encryption support is enabled, all SMAFT jobs which reference the LSAM (as either Source machine or Destination machine) FAIL(s) if encryption is REQUIRED or FAIL-PREFERRED.
 
