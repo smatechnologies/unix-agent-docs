@@ -2,15 +2,15 @@
 
 | Operating Systems | Processor Type |
 | ----------------- | -------------- |
-| AIX 5.3 to 7.2 | Power |
+| AIX 7.3 | Power |
+| CentOS 7 to 8 | x64 architecture |
 | Debian 8 and higher | x86 architecture |
-| HPUX 11 | Itanium |
-| Redhat RHEL 4.3 and higher | x86 architecture |
-| Redhat RHEL 5.3 | Itanium |
-| Redhat RHEL 5.5 | Power | 
-| Redhat RHEL 7.3 | Power Little Endian |
-| Solaris 10 to 11 | x86 architecture |
-| Solaris 10 to 11 | Sparc |
-| SUSE 11 and higher | x86 architecture |
-| Ubuntu 14.4 | x86 architecture |
+| Fedora 37 and higher | x64 architecture |
+| Oracle 7.9 | x64 architecture |
+| Redhat RHEL 6, 7, 8, 9 | x64 architecture |
+| Open SUSE 15.1 | x64 architecture |
+| Solaris 10 | x86 architecture |
+| SUSE SLE 15.1 and 15.4 | x64 architecture |
+| SUSE 11 and higher | x64 architecture |
+| Ubuntu 14, 18, and 22 | x64 architecture |
 
