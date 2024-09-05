@@ -1,5 +1,9 @@
 # Known Issues
 
+### Version 24.0.0
+
+:white_check_mark: **UNIX-462**: LSAM does not clean up zombie processes under some conditions.
+
 ### Version 17.1.0
 
 When transferring large files on the order of gigabytes from UNIX to Windows, the UNIX job starting at the source will fail approximately halfway through. The error from Windows will indicate that there was a socket connection failure.
