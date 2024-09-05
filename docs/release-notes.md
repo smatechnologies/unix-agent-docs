@@ -4,6 +4,25 @@ sidebar_label: 'Release notes'
 
 # Unix Agent Release Notes
 
+## Version 24.0.0
+
+### 2024 September
+
+:white_check_mark: **UNIX-395**: Removed options for enabling and configuring SFTP transfers.
+
+:white_check_mark: **UNIX-398**: lsamport.service file now contain correct LF line endings instead of CRLF.
+
+:white_check_mark: **UNIX-416**: Updated agent by reenabling legacy providers for SMAFT transfers.
+
+:white_check_mark: **UNIX-418**: systemd service now installs correctly even if /etc/init.d directory exists.
+
+:white_check_mark: **UNIX-420**: TLS version settings now respect system-wide OpenSSL config.
+
+:white_check_mark: **UNIX-453**: Internal logging ports LSAM_PORT+5 and LSAM_PORT+6 now use local UNIX sockets instead of TCP sockets to mitigate inadvertent DoS from TLS security scans.
+
+:white_check_mark: **UNIX-426**: Added support for Debian12.
+
+
 ## Version 22.0.0
 
 ### 2023 June
