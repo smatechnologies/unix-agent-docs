@@ -14,3 +14,8 @@
 | SUSE 11 and higher | x64 architecture |
 | Ubuntu 14, 18, and 22 | x64 architecture |
 
+:::info Note
+
+If you require a **custom UNIX agent build**, please contact **Continuous Support** for guidance and next steps.
+
+:::
