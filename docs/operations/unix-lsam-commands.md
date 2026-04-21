@@ -1,35 +1,65 @@
-# UNIX LSAM Commands
+---
+sidebar_label: 'Unix agent commands'
+title: Unix Agent Commands
+description: "Complete reference of all Unix Agent control script parameters, including start, stop, status, certificate management, and troubleshooting commands."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The LSAM Control Script ```<LSAM root path>/bin/lsam<SAM_Socket Number>``` accepts many parameters to support the various LSAM commands. The parameters below reference a list of all supported LSAM commands and descriptions.
+# Unix Agent commands
 
-## Commands and Short Descriptions
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Complete reference of all Unix Agent control script parameters, including start, stop, status, certificate management, and troubleshooting commands.
+
+The agent Control Script ```<LSAM root path>/bin/lsam<SAM_Socket Number>``` accepts many parameters to support the various agent commands. The parameters below reference a list of all supported agent commands and descriptions.
+
+## Command quick reference by task
+
+| Task | Command(s) |
+| ---- | ---------- |
+| Start/stop agent | `start`, `stop`, `restart` |
+| Check agent status | `status`, `version` |
+| Diagnose issues | `SMASUP`, `config_check`, `dumptracking` |
+| Manage log files | `log_break`, `delete_logs` |
+| Manage certificates | `create_cert`, `show_cert` |
+| Manage configuration | `config`, `refresh` |
+| Manage jobs | `kill_jobs`, `command` |
+| Manage file activity detection | `start_fad`, `stop_fad` |
+
+## Commands and short descriptions
 
 
-| LSAM Command | Short Description |
+| agent Command | Short Description |
 | ------------ | ----------------- |
 | ```lsam<SAM_Socket> command '<Event String>'``` | Send an OpCon event back to the SAM through the sma_disp process |
-| ```lsam<SAM_Socket> config``` | Modify the LSAM configuration file |
-| ```lsam<SAM_Socket> config_check``` | Verify the integrity of the LSAM's configuration file |
+| ```lsam<SAM_Socket> config``` | Modify the agent configuration file |
+| ```lsam<SAM_Socket> config_check``` | Verify the integrity of the agent's configuration file |
 | ```lsam<SAM_Socket> create_cert [certificate validity date]``` | Create a self-signed certificate for the date specified |
 | ```lsam<SAM_Socket> delete_logs``` | Delete all but the current log files and error files |
-| ```lsam<SAM_Socket> dumptracking``` | Display the contents of LSAM's tracking file on the console |
+| ```lsam<SAM_Socket> dumptracking``` | Display the contents of agent's tracking file on the console |
 | ```lsam<SAM_Socket> kill_jobs``` | Terminate any running jobs |
-| ```lsam<SAM_Socket> log_break``` | Insert a date/time-stamped divider into the LSAM's current log file and error file |
-| ```lsam<SAM_Socket> refresh``` | Cause the LSAM to reread the configuration file |
-| ```lsam<SAM_Socket> restart [newlog]``` | Stops and then starts the LSAM - Specifying the newlog parameter causes the LSAM to archive and save the current logfile and errfile and create a new logfile and errfile |
+| ```lsam<SAM_Socket> log_break``` | Insert a date/time-stamped divider into the agent's current log file and error file |
+| ```lsam<SAM_Socket> refresh``` | Cause the agent to reread the configuration file |
+| ```lsam<SAM_Socket> restart [newlog]``` | Stops and then starts the agent - Specifying the newlog parameter causes the agent to archive and save the current logfile and errfile and create a new logfile and errfile |
 | ```lsam<SAM_Socket> show_cert certificate_file``` | Displays the certificate in a user-friendly format |
 | ```lsam<SAM_Socket> SMASUP``` | Gather troubleshooting information into a compressed file |
-| ```lsam<SAM_Socket> start [newlog]``` | Start the LSAM. Specifying the newlog parameter causes the LSAM to archive and save the current logfile and errfile and create a new logfile and errfile |
+| ```lsam<SAM_Socket> start [newlog]``` | Start the agent. Specifying the newlog parameter causes the agent to archive and save the current logfile and errfile and create a new logfile and errfile |
 | ```lsam<SAM_Socket> start_fad``` | Start the lsam_fad process(es) |
-| ```lsam<SAM_Socket> status``` | Check if the LSAM's primary processes are running |
-| ```lsam<SAM_Socket> stop``` | Stop the LSAM |
+| ```lsam<SAM_Socket> status``` | Check if the agent's primary processes are running |
+| ```lsam<SAM_Socket> stop``` | Stop the agent |
 | ```lsam<SAM_Socket> stop_fad``` | Stop the lsam_fad process(es) |
-| ```lsam<SAM_Socket> version``` | Display the version of the LSAM |
+| ```lsam<SAM_Socket> version``` | Display the version of the agent |
 
 
 ### lsam command
 
-The lsam command sends an OpCon event back to the SAM through the sma_disp process. Execute this command from the command line or from within a script. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help.
+The lsam command sends an OpCon event back to the SAM through the sma_disp process. Run this command from the command line or from within a script. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help.
 
 When entering the event, either do not include the dollar sign (```$```) at the beginning of the event, or enclose the event in single quotes as shown below in the syntax. Although a dollar sign is required for OpCon events, the UNIX shell tries to process a dollar sign as a variable if it is not quoted. The sma_command program automatically inserts the dollar sign when it receives the event string. Additionally, if OpCon tokens are in an un-quoted event, escape (```\```) the dollar sign as shown in the example below.
 
@@ -61,7 +91,7 @@ The config command starts an interactive LSAM configuration program. Use file pa
 
 ### lsam config_check
 
-The config_check command verifies the integrity of the LSAM configuration file. SMA Technologies recommends executing this command if the LSAM configuration file is manually modified.
+The config_check command verifies the integrity of the agent configuration file. SMA Technologies recommends running this command if the agent configuration file is manually modified.
 
 If errors exist in the configuration file, the command prints the erroneous line to the screen.
 If errors do not exist in the configuration file, the command outputs text indicating the command completed successfully.
@@ -149,7 +179,7 @@ The delete_logs command removes all but the current log file and error files. Fo
 
 ### lsam dumptracking
 
-The dumptracking command reads the LSAM's job tracking directory and displays the contents on the console of each job tracking file found. No data is lost by running this command.
+The dumptracking command reads the agent's job tracking directory and displays the contents on the console of each job tracking file found. No data is lost by running this command.
 
 #### Syntax
 
@@ -157,7 +187,7 @@ The dumptracking command reads the LSAM's job tracking directory and displays th
 
 ### lsam kill_jobs
 
-The kill_jobs command terminates any running jobs. This command may be used when the LSAM is active or inactive; however, logging of a job killed occurs only when LSAM is active. Once SAM receives the job status update from the LSAM, the Enterprise Manager displays the status "Failed: Killed by Sys Admin" for all killed jobs. If the LSAM is inactive when the job is killed, the job's status is updated when an LSAM is restarted.
+The kill_jobs command terminates any running jobs. You can use this command when the LSAM is active or inactive; however, logging of a job killed occurs only when LSAM is active. Once SAM receives the job status update from the LSAM, the Enterprise Manager displays the status "Failed: Killed by Sys Admin" for all killed jobs. If the LSAM is inactive when the job is killed, the job's status is updated when an LSAM is restarted.
 
 #### Syntax
 
@@ -173,7 +203,7 @@ The log_break command writes a line of asterisks (*) in the log file to delimit 
 
 ### lsam refresh
 
-The refresh command causes the LSAM to reread the configuration file following modification. To modify the configuration, run the LSAM Configuration program. For information on LSAM configuration, refer to [UNIX LSAM Configuration](../configuration/unix-lsam-configuration). After saving the changes to the LSAM configuration file, execute the refresh command for the LSAM to recognize the changes.
+The refresh command causes the LSAM to reread the configuration file following modification. To modify the configuration, run the LSAM Configuration program. For information on LSAM configuration, refer to [UNIX LSAM Configuration](../configuration/unix-lsam-configuration). After saving the changes to the LSAM configuration file, run the refresh command for the LSAM to recognize the changes.
 
 :::info Note
 
@@ -187,7 +217,7 @@ This command only refreshes the LSAM processes "sma_lsam" and "sma_JORS", and th
 
 ### lsam restart
 
-The restart command systematically stops all of the LSAM processes, then executes the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the LSAM to a fully operational status.
+The restart command systematically stops all of the agent processes, then runs the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the agent to a fully operational status.
 
 #### Syntax
 
@@ -195,7 +225,7 @@ The restart command systematically stops all of the LSAM processes, then execute
 
 ### lsam show_cert certificate_file
 
-The show_cert command can be used to display the certificate in a user-friendly format.
+The show_cert command lets you display the certificate in a user-friendly format.
 
 #### Syntax
 
@@ -402,7 +432,7 @@ The command places all troubleshooting information in a compressed tar file in t
 
 ### lsam start
 
-The start command systematically executes the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the LSAM to a fully operational status.
+The start command systematically runs the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the LSAM to a fully operational status.
 
 #### Syntax
 
@@ -427,7 +457,7 @@ The status command displays currently active LSAM components and LSAM-initiated 
 
 ### lsam stop
 
-The stop command systematically stops all of the LSAM processes.
+The stop command systematically stops all of the agent processes.
 
 #### Syntax
 
@@ -443,9 +473,8 @@ The stop_fad command stops the SMA File Activity Detection Daemon(s) (SMA FAD). 
 
 ### lsam version
 
-The version command displays the version of the LSAM installed on the specified socket.
+The version command displays the version of the agent installed on the specified socket.
 
 #### Syntax
 
 ```lsam<SAM_Socket> version```
-

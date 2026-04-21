@@ -1,4 +1,30 @@
+---
+title: CONFIG Section
+description: "Reference for the required SMA_RM CONFIG section, which sets global parameters such as scan interval, CPU alarm thresholds, user-defined monitor timeouts, and log event behavior."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # CONFIG Section
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the required SMA_RM CONFIG section, which sets global parameters such as scan interval, CPU alarm thresholds, user-defined monitor timeouts, and log event behavior.
+
+The `<config>` section is the only required section in an SMA_RM configuration file and contains global parameters that control how SMA_RM operates across all monitoring sections. It sets values such as the scan interval, CPU alarm thresholds, user-defined monitor timeouts, and whether OpCon events are logged as they are sent to SAM. All entities within `<config>` are optional, so the section can be left empty to effectively disable SMA_RM without removing the configuration file.
+
+## When would you use it?
+
+- Modify `<scan_interval>` when the default one-second scan interval is too frequent for the monitored environment and you need to reduce the number of scans per minute to lower system overhead.
+- Modify `<C_alarm>` and `<T_alarm>` when the default global CPU-hog thresholds (MAX 10 and MAX 20, respectively) generate too many or too few events for the processes running on the system, and you need to tune the sensitivity before configuring individual `<process>` sections.
+- Modify `<user_defined_monitor>` to set a `<max_run_time>` and associated `<event>` when user-defined monitor scripts are expected to complete quickly and you want SMA_RM to send an event to SAM if one runs longer than the allowed time.
+- Set `<log_events>` to YES when you need a record in the SMA_RM log file of every OpCon event string sent to SAM, including the values substituted for event variables, for auditing or troubleshooting purposes.
+- Replace the `<config>` section contents with an empty block to temporarily disable SMA_RM without deleting the configuration file or restarting the agent, then restore the full configuration when monitoring should resume.
 
 A template ```<config>``` section follows:
 
@@ -60,22 +86,22 @@ All entities within the ```<config>``` are optional, and defaults will be as not
 
 ```</config>```
 
-Thus, this "empty" config file can be used to effectively disable execution of SMA_RM without needing to delete the SMA_RM config file and re-start the entire LSAM. To resume normal operation of SMA_RM, simply overwrite the empty file with the normal one.
+Thus, this "empty" config file lets you effectively disable execution of SMA_RM without needing to delete the SMA_RM config file and re-start the entire agent. To resume normal operation of SMA_RM, simply overwrite the empty file with the normal one.
 
 For the four entities which may include a MIN or MAX designator, at least one space must appear between the MIN or MAX and the value. MAX is the default.
 
-```<scan_interval>``` is an integer number of seconds, with a default of 1. SMA_RM will execute each ```<disk>```, ```<process>```, and ```<user_defined>``` specification every ```<scan_interval>``` number of seconds.
+```<scan_interval>``` is an integer number of seconds, with a default of 1. SMA_RM will run each ```<disk>```, ```<process>```, and ```<user_defined>``` specification every ```<scan_interval>``` number of seconds.
 
-```<log_events>``` determines whether or not SMA_RM-generated OpCon events from ```<event>``` entities will be logged in the SMA_RM log file as they are sent to SAM. The default setting is NO. If set to YES, the SMA_RM log file will contain all events sent to SAM, i.e., the event strings defined by ```<event>``` entities with the event variables replaced by the referenced scanned values. It will also contain indications of each ```<sleep>``` entity as it is executed.
+```<log_events>``` determines whether or not SMA_RM-generated OpCon events from ```<event>``` entities will be logged in the SMA_RM log file as they are sent to SAM. The default setting is NO. If set to YES, the SMA_RM log file will contain all events sent to SAM, i.e., the event strings defined by ```<event>``` entities with the event variables replaced by the referenced scanned values. It will also contain indications of each ```<sleep>``` entity as it runs.
 
 ```<C_alarm>``` and ```<T_alarm>``` are global process alarm values, and will be discussed with local entities of the same name within the ```<process>``` specification. MIN or MAX may be included with the value to set the type of the value. Their default values are MAX 10 and MAX 20, respectively.
 
-```<user_defined_monitor>``` defines what is a reasonable amount of time that a user-defined monitor may take to complete one scan, and the event to be sent to SAM if one should fail to complete within the allotted time. They are expected to run for only milliseconds, and SMA_RM waits for them to complete. The default behavior is that no checking of execution time will be performed for user-defined monitors. If ```<user_defined_monitor>``` is specified, then both```<max_run_time>``` and ```<event>``` must also be included. ```<max_run_time>``` specifies the maximum amount of time, in seconds, that a user-defined monitor should take to complete one scan. ```<event>``` is triggered if a user-defined monitor continues to execute after ```<max_run_time>``` has elapsed, and it is coded as described for other ```<event>``` entities as covered later under "Exception Handling". The single event variable available within ```<event>``` is %LOG_NAME%, which is the contents of the ```<log_name>``` entity in the to-be-discussed ```<user-defined>``` specification. Note that except for issuance of the event to SAM, a run-away user-defined monitor will still continue to execute and cause SMA_RM to hang. User intervention will be required to address a run-away.
+```<user_defined_monitor>``` defines what is a reasonable amount of time that a user-defined monitor may take to complete one scan, and the event to be sent to SAM if one should fail to complete within the allotted time. They are expected to run for only milliseconds, and SMA_RM waits for them to complete. The default behavior is that no checking of execution time will be performed for user-defined monitors. If ```<user_defined_monitor>``` is specified, then both```<max_run_time>``` and ```<event>``` must also be included. ```<max_run_time>``` specifies the maximum amount of time, in seconds, that a user-defined monitor should take to complete one scan. ```<event>``` is triggered if a user-defined monitor continues to run after ```<max_run_time>``` has elapsed, and it is coded as described for other ```<event>``` entities as covered later under "Exception Handling". The single event variable available within ```<event>``` is %LOG_NAME%, which is the contents of the ```<log_name>``` entity in the to-be-discussed ```<user-defined>``` specification. Note that except for issuance of the event to SAM, a run-away user-defined monitor will still continue to run and cause SMA_RM to hang. User intervention will be required to address a run-away.
 
 ```<CPU_hogs>``` is the percentage of the number of CPU-hog processes to the total number of processes in the system which constitutes an alarm condition. (Processes which qualify as CPU-hogs are specified in ```<process>``` sections, and include non-working processes as caught with a MIN comparison of the specified boundary value.) Likewise, ```<total_processes>``` is the point at which the total number of processes is considered to constitute an alarm condition. MIN or MAX may be included with each value to set the type of the value. Defaults for these, which are both integers, are MAX 25 for ```<CPU_hogs>``` and MAX 1000 for ```<total_processes>```. ```<log>``` specifies what, if any, values for the count of CPU-hogs and total processes in the system will be logged. ```<alarm>``` defines what is to occur when an alarm has been noted, and will be discussed later under "Exception Handling". Likewise with ```<normal>``` which defines what is to occur upon a return to normal. The event variables available within the ```<alarm>``` and ```<normal>``` specifications are as follows:
 
 * ```%CPU_HOGS%``` = the percentage of processes which are CPU-hogs.
 * ```%TOTAL_PROCESSES%``` = the total number of processes in the system.
 
-```<window>``` defines when ```<CPU_hogs>``` and ```<total_processes>``` will be monitored and ```<alarm>``` and ```<normal>``` executed.
+```<window>``` defines when ```<CPU_hogs>``` and ```<total_processes>``` will be monitored and ```<alarm>``` and ```<normal>``` run.
 

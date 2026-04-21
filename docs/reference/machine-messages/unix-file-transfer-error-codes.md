@@ -1,8 +1,31 @@
-# UNIX File Transfer Error Codes
+---
+title: UNIX File Transfer Error Codes
+description: "Reference for UNIX SMAFT exit codes returned by the Unix Agent and Server during SMA file transfer operations."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-File transfer errors received by STDOUT/STDERR may be viewed in the Enterprise Manager's Job Output Retrieval System (JORS). The messages in this section are output by the UNIX Agent and Server; messages output by a non-UNIX Agent or Server will be different, and the user is referred to the documentation for the appropriate LSAM.
+# UNIX file transfer error codes
 
-## UNIX SMAFT Exit Codes
+**Theme:** Troubleshoot  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for UNIX SMAFT exit codes returned by the Unix Agent and Server during SMA file transfer operations.
+
+File transfer errors received by STDOUT/STDERR may be viewed in the Enterprise Manager's Job Output Retrieval System (JORS). The messages in this section are output by the UNIX Agent and Server; messages output by a non-UNIX Agent or Server will be different, and you is referred to the documentation for the appropriate agent.
+
+## When would you use it?
+
+- A UNIX SMA File Transfer job fails and you need to identify the meaning of the SMAFT exit code returned.
+- You are reviewing JORS output for a file transfer job and need to interpret a numeric exit code.
+- A transfer fails with an encryption, compression, network, or file operation error and you need to confirm the corresponding exit code.
+- You need to distinguish a successful transfer (exit code 0) from a specific failure category.
+
+## UNIX SMAFT exit codes
 
 | Exit Code | Description |
 | --------- | ----------- |
@@ -23,4 +46,3 @@ File transfer errors received by STDOUT/STDERR may be viewed in the Enterprise M
 | 14 | Disk space error | 
 | 15 | Error in prepping source file for transfer | 
 | 16 | Error in post-processing destination file |
-

@@ -1,6 +1,28 @@
-# sma_filein Parameters
+---
+sidebar_label: 'sma_filein Parameters'
+title: sma_filein Parameters
+description: "Reference for the Unix Agent sma_filein parameter that defines the sleep interval between checks of the MSGIN directory."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The following parameters reference the sma_filein setting for the sleep time.
+# sma_filein parameters
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the Unix Agent sma_filein parameter that defines the sleep interval between checks of the MSGIN directory.
+
+The following parameters reference the sma_filein setting for the sleep time. This setting controls how frequently the agent checks the MSGIN directory for incoming messages.
+
+## When would you use it?
+
+- When configuring the interval at which the agent polls the MSGIN directory for incoming OpCon events
+- When tuning agent responsiveness to external event messages
 
 ## sma_filein_sleep_time
 

@@ -1,8 +1,38 @@
+---
+title: Exception Handling/Alarm Levels
+description: "Reference for SMA_RM exception-handling specifications, covering event, action, and sleep tags, as well as multi-level alarm processing for disk, process, and user-defined monitors."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # Exception Handling/Alarm Levels
 
-## Exception Handling
+**Theme:** Configure  
+**Who Is It For?** System Administrator
 
-The various exception-handling specifications define what is to be done when an alarm occurs and when conditions return to normal, as discussed in the preceding sections. Each exception-handling specification may contain any number, and in any order, of ```<event>```, ```<action>```, and ```<sleep>``` specifications, to be executed from top-to-bottom within the exception-handling specification.
+## What is it?
+
+Reference for SMA_RM exception-handling specifications, covering event, action, and sleep tags, as well as multi-level alarm processing for disk, process, and user-defined monitors.
+
+## When exception handling fires
+
+- Exception handling fires when a monitored disk's usage meets or crosses the threshold defined in a `<disk>` section — for example, when disk usage exceeds 80 percent — causing SMA_RM to transition the resource from NORMAL to ALARM and run the associated `<alarm>` specification.
+- Exception handling fires when a monitored process violates its defined condition: for MUST_RUN, when a required process is absent; for MUST_NOT_RUN, when a prohibited process is detected; and for CPU_CHECK, when a process's CPU usage meets or exceeds the defined alarm boundary values.
+- Exception handling fires when a user-defined monitor's `<start_image>` returns ALARM on a scan where the previous result was NORMAL (or on the initial scan if the first result is ALARM), causing SMA_RM to run the associated `<alarm>` specification.
+- Exception handling also fires in the return direction: when a resource transitions from ALARM back to NORMAL, the associated `<normal>` specification runs, enabling all-clear notifications or cleanup actions to be sent.
+
+## Why would you use it?
+
+- Configuring exception handling for both alarm and return-to-normal transitions ensures that operators receive feedback in both directions — they are notified when a condition becomes critical and again when it resolves, preventing wasted effort or detrimental action taken after a condition has already cleared.
+- Using `<event>` tags in exception-handling specifications sends OpCon events directly to SAM, which allows SMA_RM alarms to trigger automated job chains — for example, launching a cleanup job when disk usage crosses 80 percent and notifying an operator via `$CONSOLE:DISPLAY` if usage reaches 90 percent.
+- Using `<action>` tags in exception-handling specifications initiates local shell scripts or programs in response to an alarm, enabling on-host remediation such as archiving or deleting files without requiring a full OpCon job definition.
+- Using `<sleep>` tags introduces deliberate delays between `<event>` and `<action>` steps, allowing time-sensitive sequences within a single exception-handling specification to pace correctly.
+
+## Exception handling
+
+The various exception-handling specifications define what is to be done when an alarm occurs and when conditions return to normal, as discussed in the preceding sections. Each exception-handling specification may contain any number, and in any order, of ```<event>```, ```<action>```, and ```<sleep>``` specifications, to run from top to bottom within the exception-handling specification.
 
 "```<event> event_string </event>```" specifies an OpCon event to be sent to SAM. Event_string extends from the first non-space/tab/line-feed past "```<event>```" to the last non-space/tab/line-feed before "```</event>```". Any embedded line-feeds will be discarded. If event_string contains no percent signs ('%'), it is sent exactly as specified.
 
@@ -16,11 +46,11 @@ Would get sent to SAM as:
 
 Assuming ```%MOUNT_POINT% = "/usr" ```and ```%USAGE% = "80"```.
 
-"```<action> filename [ parameter(s) ] </action>```" specifies local processing to be initiated. Filename is the complete pathname of a Shell script or program to be executed. Parameter(s) is text that is to be passed to the Shell script or program as it is launched. 
+"```<action> filename [ parameter(s) ] </action>```" specifies local processing to be initiated. Filename is the complete pathname of a Shell script or program to run. Parameter(s) is text that is to be passed to the Shell script or program as it is launched. 
 
-As with an event_string, the '%' character must either be doubled to have a single '%' passed to the script/program, or two are used to reference an event variable. 
+As with an event_string, the '%' character must either be doubled to have a single '%' passed to the script/program, or two '%' characters reference an event variable. 
 
-Embedded blanks/tabs within parameter(s) are used to break it into the actual start parameters to be passed to the script/program. The time stamp associated with the current scan will be appended to the call. For example:
+Embedded blanks/tabs within parameter(s) break it into the actual start parameters to be passed to the script/program. The time stamp associated with the current scan will be appended to the call. For example:
 
 ```<action>/usr/act/disk %MOUNT_POINT% "Status = ALARM" %USAGE%%%<action> ```
 
@@ -44,9 +74,9 @@ $4 = Wed Mar 12 09:50:27 CDT 2017
 
 ```
 
-An action is normally executed synchronously, i.e., SMA_RM will wait for it to complete. They can also be made to run asynchronously, by placing an ampersand ('&') at the very end of parameter(s), in which case the ampersand will be replaced by the time stamp and SMA_RM will not wait for the script/program to complete. 
+An action normally runs synchronously, i.e., SMA_RM will wait for it to complete. They can also be made to run asynchronously, by placing an ampersand ('&') at the very end of parameter(s), in which case the ampersand will be replaced by the time stamp and SMA_RM will not wait for the script/program to complete. 
 
-It is analogous to using the ampersand on a UNIX Shell command line to run something in the background. The above action, coded to be executed synchronously, would be:
+It is analogous to using the ampersand on a UNIX Shell command line to run something in the background. The above action, coded to run synchronously, would be:
 
 ```<action>/usr/act/disk %MOUNT_POINT% "Status = ALARM" %USAGE%%% &<action>```
 
@@ -56,21 +86,21 @@ Other than to launch it and to wait on it to terminate if it is not run asynchro
 
 An exception-handling specification must include at least one ```<event>``` or ```<action>``` tag.
 
-## Multiple Alarm Levels
+## Multiple alarm levels
 
-It may be desirable to have SMA_RM generate different events to SAM based on multiple conditions for the same monitored resource(s). For example, disk "/usr" is referenced in one ```<disk>``` specification to send one event if the usage exceeds 80 percent and in a second ```<disk>``` to send a different event if the usage exceeds 90 percent. In the first case, it may be a $JOB event to perform some clean-up, and assuming that was not sufficient and the disk's free space continued to shrink, the second event could be a $CONSOLE event to notify an operator that immediate human intervention is required. This behavior is made possible via the ```<alarm_level>``` entity.
+It may be desirable to have SMA_RM generate different events to SAM based on multiple conditions for the same monitored resource(s). For example, disk "/usr" is referenced in one ```<disk>``` specification to send one event if the usage exceeds 80 percent and in a second ```<disk>``` to send a different event if the usage exceeds 90 percent. In the first case, it may be a $JOB event to perform some clean-up, and assuming that was not sufficient and the disk's free space continued to shrink, the second event could be a $CONSOLE event to notify an operator that the situation requires immediate human intervention. This behavior is made possible via the ```<alarm_level>``` entity.
 
 ```<alarm_level>``` is a positive integer which allows for multiple ```<disk>```, ```<process>,``` and ```<user_defined>``` sections which reference the same disk, process, or user-defined resource(s) to have events generated in a severity-based hierarchy. Such sections must appear within the SMA_RM Config File in ascending ```<alarm_level>```, with a slight change for ```<user_defined> ```sections as will be explained below.
 
 The values chosen for ```<alarm_level>``` are arbitrary, with the provisos that a more severe condition be given a higher alarm level than a less severe condition and that alarm levels be unique within each resource. For example, two sections which reference disk "/usr" must have unique alarm levels; but, one section which references "/usr" and another section which references "/data" may both be defined to be alarm level 2. At present, SMA_RM performs no consistency checks.
 
-Alarm level processing works as follows: when SMA_RM starts up, all resources are assumed to have an alarm level of 0 (zero – not in alarm). As each applicable ```<disk>```, ```<process>```, or ```<user_defined>``` section is executed, the resource's current alarm level is compared to that defined for the section. If the alarm level defined for the section is lower than the resource's current alarm level, any additional processing defined for this section is aborted. 
+Alarm level processing works as follows: when SMA_RM starts up, all resources are assumed to have an alarm level of 0 (zero – not in alarm). As each applicable ```<disk>```, ```<process>```, or ```<user_defined>``` section runs, the resource's current alarm level is compared to that defined for the section. If the alarm level defined for the section is lower than the resource's current alarm level, any additional processing defined for this section is aborted. 
 
-If, however, the alarm level defined for this section is at-or-above the current alarm level for the resource, then the NORMAL/ALARM status (per this section) of the resource is determined and any associated exception handling executed if the status changes. Also, if its new status is ALARM, the resource's alarm level will be set to the section's alarm level, and if it is NORMAL, the resource's alarm level will be reset to its previous setting.
+If, however, the alarm level defined for this section is at-or-above the current alarm level for the resource, then the NORMAL/ALARM status (per this section) of the resource is determined and any associated exception handling runs if the status changes. Also, if its new status is ALARM, the resource's alarm level will be set to the section's alarm level, and if it is NORMAL, the resource's alarm level will be reset to its previous setting.
 
 Once an alarm/normal transition has occurred for any given multi-level alarm resource, further processing of that resource will be inhibited for the remainder of the current scan cycle. To see what this means, suppose that a disk is set to alarm when usage hits 70% and again at 80%. Further suppose that the current usage is at 67% (normal) and a user creates a monster file which within one scan cycle brings the usage to 82%. 
 
-On the first scan cycle after creation of the file, SMA_RM will see disk usage as 82% and execute the 70% alarm. Assuming that disk usage remains at-or-above 80%, the 80% alarm will get executed during the following scan cycle. A similar scenario would unfold if that monster file was deleted, the 80% all-clear would be executed on the next scan, and the 70% all-clear (return to normal) on the scan after that.
+On the first scan cycle after creation of the file, SMA_RM will see disk usage as 82% and run the 70% alarm. Assuming that disk usage remains at-or-above 80%, the 80% alarm will run during the following scan cycle. A similar scenario would unfold if that monster file was deleted, the 80% all-clear would run on the next scan, and the 70% all-clear (return to normal) on the scan after that.
 
 Continuing with the example for disk "/usr", the applicable ```<disk>``` sections might resemble:
 
@@ -128,7 +158,7 @@ When usage hits 80%, the $JOB and 80+ $CONSOLE events gets sent. If usage hits 9
 
 If the usage drops from 90+ to under 80 in the same scan, only the sub-90 $CONSOLE will be sent because the alarm level 1 ```<disk>``` will be skipped since the disk's alarm level is still at 2. 
 
-If the usage remains below 80% for at least one more scan, the alarm level 1 ```<disk>``` will be executed during the next scan, at which point the sub-80 $CONSOLE will be sent to SAM. And, if it happens that the usage stays above 80%, but meanders above and below 90%, then the 90+ and sub-90 $CONSOLE events will be alternately sent until the usage drops below 80%.
+If the usage remains below 80% for at least one more scan, the alarm level 1 ```<disk>``` will run during the next scan, at which point the sub-80 $CONSOLE will be sent to SAM. And, if it happens that the usage stays above 80%, but meanders above and below 90%, then the 90+ and sub-90 $CONSOLE events will be alternately sent until the usage drops below 80%.
 
 It should be noted that as already inferred by the second paragraph in this section, ```<alarm_level>``` applies to the monitored resource and not to the disk ```<name> ```or ```<mount_point>```, or the process ```<name>``` or ```<UID>```. This means that two ```<disk>``` or ```<process> ```sections do not need to contain identical ```<name>```, ```<mount_point>```, or ```<UID>``` tags to reference the same resource. 
 
@@ -282,7 +312,7 @@ If it had been intended that a second event be generated for any "/usr*" reachin
 
 Now, multiple sections which reference the same resource are defined at unique alarm levels.
 
-Please note that for processes, ```<alarm_level>``` only applies if ```<condition> = CPU_CHECK```. Processes defined as IGNORE cannot produce any [further] alarms. Processes defined as MUST_EXIST or MUST_NOT_EXIST either violate the condition or they do not – there are no levels of partial existence. So, it makes sense that multi-level alarms only applies to a process being a CPU-hog, and the alarm level is used to rate a process's CPU-hogging from nuisance to nightmare.
+Please note that for processes, ```<alarm_level>``` only applies if ```<condition> = CPU_CHECK```. Processes defined as IGNORE cannot produce any [further] alarms. Processes defined as MUST_EXIST or MUST_NOT_EXIST either violate the condition or they do not – there are no levels of partial existence. So, it makes sense that multi-level alarms only applies to a process being a CPU-hog, and the alarm level lets you rate a process's CPU-hogging from nuisance to nightmare.
 
 It needs to be understood that alarm level need not bare any relationship to the specified alarm boundary value. This is best understood when both MIN and MAX boundary values are defined for a disk or process. Suppose that it is desirable to keep disk "/data4" at just under half-full and to get two levels of alarm as it goes towards full or empty. The elements below could be used to accomplish this.
 
@@ -382,7 +412,7 @@ Notice that the alarm levels bear no direct relationship to the boundary values.
 
 That the MIN's are given a higher alarm level than the MAX's is a non-issue because they are mutually-exclusive, i.e., they can never occur on the same side of "normal". The MIN's could have been specified first and given the lower alarm levels. 
 
-It is very important to notice that the 40% section appears before the 30% section. If they were swapped, both sections would still get executed as usage fell from above-40 to below-30; but, in the order of 30% alarm and then the 40% alarm, and upon return-to-normal, the 40% all-clear and then the 30% all-clear.
+It is very important to notice that the 40% section appears before the 30% section. If they were swapped, both sections would still run as usage fell from above-40 to below-30; but, in the order of 30% alarm and then the 40% alarm, and upon return-to-normal, the 40% all-clear and then the 30% all-clear.
 
 Before moving on to a discussion specific to ```<user_defined>```, one last point can be drawn from the examples provided so far. And that is that while it is not necessary to have both alarm and return-to-normal (all-clear per this alarm level) exception handling defined for each alarm level (or in any section, regardless of alarm level also being defined), if ```$CONSOLE:DISPLAY``` or other events which provide feedback to humans are used, it is good practice to provide feedback in both directions. 
 
@@ -394,13 +424,13 @@ However, as with multiple ```<disk>``` and ```<process> ```sections which refere
 
 Monitoring of a resource(s) for multiple alarm levels will normally be done by invoking the same start image, but with parameters appropriate to effect an ALARM/NORMAL indication at the specified alarm level. And, ```<outputs>``` should be consistent within the alarm group. But, SMA_RM does not do any consistency checking within an alarm group for ```<start_image>``` or ```<outputs>```, and this "feature" may either be exploited or a cause for double-checking of the SMA_RM config file.
 
-To be consistent with monitoring of disks and processes, user-defined monitors within each alarm group must perform only one scan of the resource per SMA_RM scan cycle. This means that the first call to the resource monitor (the ```<start_image>```) within a scan cycle—from the section with the lowest alarm level—should be coded to allow the script/program to recognize that a full scan is to be executed, and subsequent calls should be coded to use the data gathered during the first call and base their returned ALARM/NORMAL statuses on that data. 
+To be consistent with monitoring of disks and processes, user-defined monitors within each alarm group must perform only one scan of the resource per SMA_RM scan cycle. This means that the first call to the resource monitor (the ```<start_image>```) within a scan cycle—from the section with the lowest alarm level—should be coded to allow the script/program to recognize that a full scan is to run, and subsequent calls should be coded to use the data gathered during the first call and base their returned ALARM/NORMAL statuses on that data. 
 
 This ensures that data will be consistent during the entire SMA_RM scan cycle as well as to keep monitoring activities from using excessive amounts of system resources. If returned data values are to be logged, the placement of ```<log>``` entities depends on what is to be logged. If data are to be logged with each scan, to prevent redundant log entries, a single "```<log>SCAN</log>```" is included in the first (lowest alarm level) ```<user_defined>```, and either no ```<log>``` entities or "```<log>NONE</log```" in higher alarm level sections. But, if data are to be logged only on NORMAL/ALARM transitions, then each ```<user_defined>``` must contain a "```<log>EVENTS</log>```".
 
-As with ```<disk>``` and ```<process>``` resources, SMA_RM at start-up assumes that each user-defined alarm group is at alarm level zero, i.e., not in alarm. As each ```<user_defined>``` section is executed within a scan cycle, its ```<start_image>``` will be executed.
+As with ```<disk>``` and ```<process>``` resources, SMA_RM at start-up assumes that each user-defined alarm group is at alarm level zero, i.e., not in alarm. As each ```<user_defined>``` section runs within a scan cycle, its ```<start_image>``` will run.
 
-If the alarm level defined for the section is lower than the group's current alarm level, any additional processing defined for this section is aborted. If, however, the alarm level defined for this section is at-or-above the current alarm level for the group, the NORMAL/ALARM status returned by ```<start_image>``` is inspected and any associated exception handling executed if the status changes. Also, if its new status is ALARM, the alarm group's alarm level will be set to the section's alarm level, and if it is NORMAL, the group's alarm level will be reset to its previous setting. An example follows:
+If the alarm level defined for the section is lower than the group's current alarm level, any additional processing defined for this section is aborted. If, however, the alarm level defined for this section is at-or-above the current alarm level for the group, the NORMAL/ALARM status returned by ```<start_image>``` is inspected and any associated exception handling runs if the status changes. Also, if its new status is ALARM, the alarm group's alarm level will be set to the section's alarm level, and if it is NORMAL, the group's alarm level will be reset to its previous setting. An example follows:
 
 ```
 

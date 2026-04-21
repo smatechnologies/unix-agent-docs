@@ -1,6 +1,30 @@
-# JORS and SMAFT Parameters
+---
+sidebar_label: 'JORS and SMAFT Parameters'
+title: JORS and SMAFT Parameters
+description: "Reference for Unix Agent JORS and SMAFT parameters, including settings that control STDOUT and STDERR redirection and Job Output Retrieval System and SMA File Transfer behavior."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The following parameters reference the settings to control how the LSAM handles STDOUT and STDERR, and defines capabilities and operating parameters for the Job Output Retrieval System (JORS) and SMA File Transfer (SMAFT).
+# JORS and SMAFT parameters
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for Unix Agent JORS and SMAFT parameters, including settings that control STDOUT and STDERR redirection and Job Output Retrieval System and SMA File Transfer behavior.
+
+The following parameters reference the settings to control how the agent handles STDOUT and STDERR, and defines capabilities and operating parameters for the Job Output Retrieval System (JORS) and SMA File Transfer (SMAFT). These settings include socket port numbers, file transfer bandwidth limits, encryption support, and output file retention.
+
+## When would you use it?
+
+- When configuring JORS or SMAFT socket port numbers for communication with the Enterprise Manager
+- When setting STDOUT and STDERR redirection behavior or output file retention policies
+- When enabling or configuring encryption and bandwidth limits for file transfers
+- When troubleshooting JORS or SMAFT timeout and retry behavior
 
 ### redirect_stdout
 
@@ -25,8 +49,8 @@ The following parameters reference the settings to control how the LSAM handles 
 ```<LSAM root path>/STDERR/<SMA_LSAM_INSTANCE>/<yyyymmdd>/<job name>_<Internal Number>.<hhmmss>```
 * If set to zero, STDERR is not redirected.
 * If set to one:
-    * The LSAM redirects STDERR messages for each job.
-    * The LSAM adds an environment variable to each job called SMA_STDERR. The value for SMA_STDERR is the complete path to the file containing this job's standard error.
+    * The agent redirects STDERR messages for each job.
+    * The agent adds an environment variable to each job called SMA_STDERR. The value for SMA_STDERR is the complete path to the file containing this job's standard error.
 
 ### days_of_output_to_keep
 
@@ -34,8 +58,8 @@ The following parameters reference the settings to control how the LSAM handles 
 
 **Description**:
 
-* The sma_logging process will execute maintain_ofiles to clean up STDOUT and STDERR files that were created from job executions. The value specified by days_of_output_to_keep will be used as the argument to maintain_ofiles.
-* Setting the value to 0 will disable this feature. This means no clean-up of STDOUT and STDERR files will be performed by the agent. The user is responsible for its maintenance and disk usage. SMA Technologies does not recommend setting this option to 0.
+* The sma_logging process will run maintain_ofiles to clean up STDOUT and STDERR files that were created from job executions. The value specified by days_of_output_to_keep will be used as the argument to maintain_ofiles.
+* Setting the value to 0 will disable this feature. This means the agent will not perform any clean-up of STDOUT and STDERR files. You is responsible for its maintenance and disk usage. SMA Technologies does not recommend setting this option to 0.
 
 ### restrict_output_file
 
@@ -44,8 +68,8 @@ The following parameters reference the settings to control how the LSAM handles 
 **Description**:
 
 * Enables/disables restricting access to job STDOUT and STDERR output files upon a job's termination.
-* Value is a standard 3-digit octal number as used on UNIX systems to set access permissions, i.e., 'ogw', where 'o', 'g', and 'w' are octal digits (digits in the range of 0 to 7) and correspond to the permissions for the file's owner, the group to which it is assigned, and everyone else. Within each octal digit, setting the 4-bit allows reading the file, setting the 2-bit allows writing to the file (including truncation and deletion), and setting the 1-bit tags the file as being executable (e.g., '764' would result in the file's owner having complete access, members of the group would be able to do everything except execute it, while everyone else would only be able to read the file).
-* The default value of '000' disables access restriction, and a job's output files will be readable and writable by everyone, while the user/group will continue to be root/root – which are the settings used to create the files when the job is launched.
+* Value is a standard 3-digit octal number as used on UNIX systems to set access permissions, i.e., 'ogw', where 'o', 'g', and 'w' are octal digits (digits in the range of 0 to 7) and correspond to the permissions for the file's owner, the group to which it is assigned, and everyone else. Within each octal digit, setting the 4-bit allows reading the file, setting the 2-bit allows writing to the file (including truncation and deletion), and setting the 1-bit tags the file as being executable (e.g., '764' would result in the file's owner having complete access, members of the group would be able to do everything except run it, while everyone else would only be able to read the file).
+* The default value of '000' disables access restriction, and a job's output files will be readable and writable by everyone, while you/group will continue to be root/root – which are the settings used to create the files when the job is launched.
 * A value other than '000' will result in a job's output files access permissions being set upon its termination to this value, and their user/group will be set to the User and Group specified for the job in the Enterprise Manager's Job Details screen.
 
 ### JORS_FT socket number
@@ -95,8 +119,8 @@ For a File Transfer job to function properly, ensure that any firewall on the UN
 **Description**:
 
 * For both JORS and SMAFT, sets the maximum wait time in seconds for a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components#sma_jors).
-* During performance of the JORS function, if the peer (SAM) side does not respond within this wait time, JORS logs the error in the LSAM log and error file.
-* During execution of a SMAFT job, if the peer (FTAgent) side does not respond within this wait time, FTServer logs the error in the LSAM log and error file.
+* During performance of the JORS function, if the peer (SAM) side does not respond within this wait time, JORS logs the error in the agent log and error file.
+* During execution of a SMAFT job, if the peer (FTAgent) side does not respond within this wait time, FTServer logs the error in the agent log and error file.
 * During execution of a SMAFT job, if the peer (FTServer) side does not respond within this wait time, FTAgent exits with an error.
 
 :::caution 
@@ -112,7 +136,7 @@ SMA Technologies does not recommend changing this parameter to less than 60 beca
 **Description**:
 
 * For both JORS and SMAFT, sets the maximum number of times a message is sent without getting a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components#sma_jors).
-* If a message is sent this many times without receipt of a response, on the next attempt to send, JORS logs the error in the LSAM log and error file.
+* If a message is sent this many times without receipt of a response, on the next attempt to send, JORS logs the error in the agent log and error file.
 * If a message is sent this many times without receipt of a response, on the next attempt to send, FTAgent exits with an error.
 
 ### encryption_support

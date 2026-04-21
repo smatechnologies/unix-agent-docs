@@ -1,6 +1,31 @@
+---
+title: Control File Elements
+description: "Reference for all supported SMA FAD Control File XML elements, their nesting structure, required versus optional status, valid values, and a complete annotated example."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # Control File Elements
 
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for all supported SMA FAD Control File XML elements, their nesting structure, required versus optional status, valid values, and a complete annotated example.
+
 The bulleted outlines in this section present the supported Control File elements and their descriptions. The outline itself indicates the nested structure of elements for the files. Not all elements define data items for storage in the database. Some elements merely group a set of logically related elements together.
+
+## When would you use it?
+
+- Configure `<waittimebetweenpasses>` when the default one-second polling interval is too frequent or too slow for your environment — for example, set it to a higher value to reduce system load in directories with infrequent file activity.
+- Configure `<window>` when events must only be forwarded to the SAM during a defined time period — for example, restricting monitoring to business hours so that file arrivals outside that window do not trigger events.
+- Configure `<mintimetowait>` when a file may still be arriving (for example, via FTP) and you need the SMA FAD to confirm the file has stopped changing before initiating events. Use this element with CREATE, MODIFY, GROWTH, or SHRINK conditions.
+- Configure `<eofindicator>` when a specific string embedded in the file, rather than elapsed time, is the reliable signal that a complete file has arrived. Use this element with CREATE, MODIFY, or GROWTH conditions. Note that `<eofindicator>` and `<mintimetowait>` are mutually exclusive.
+- Configure `<maxtimetowait>` only when `<eofindicator>` is also specified — it sets the upper bound on how long the SMA FAD waits for the end-of-file string before writing an error.
+- Configure `<sleep>` within `<eventinfo>` when a record block contains multiple events and you need a pause between them so the SAM can process them in the intended order.
 
 ## Configuration
 
@@ -8,7 +33,7 @@ The bulleted outlines in this section present the supported Control File element
     * ```<waittimebetweenpasses></waittimebetweenpasses>```: (Optional) In seconds, specifies the time interval between successive reads of the Control File. Valid data for this element is an integer ranging from 1 to 9999. If omitted, the data defaults to 1.
 * ```</config>```
 
-## File Activity
+## File activity
 
 * ```<fileactivity>```: (Required) Contains the child elements required for describing one record block to the SMA FAD.
     * ```<id></id>```: (Required) This is a unique ID for each block of records in the control file that identify the parameters associated with monitoring one file name or file mask. It is user-defined, but they have to be unique. A check for uniqueness is made each time the daemon processes this file. Duplicates are signaled as an error. This ID is used as the name for the snapshot file containing the updated linked-list of files to be monitored and their information-like file size, modification time, etc. The location of this snapshot file is in ```LSAM_ROOT/fad/<SMA_LSAM_INSTANCE>/snapshot/<Control File>/IDn```. Record ID is a required element.
@@ -85,6 +110,14 @@ The following example shows the definition of the maximum time to wait:
     * ```<sleep></sleep>```: (Optional) Defines the amount of time to wait before SMA FAD initiates the next event in the same record block. The SMA FAD uses the sleep value to determine the wait time after processing the eventstr element defined on the line before the sleep element. After an event is initiated, the process waits "sleep" amount of seconds before initiating the next event in line. Although SMA Technologies does not guarantee the sequence in which events get processed by the SAM, employing the sleep element can separate the events long enough that the SAM processes the events in the desired order.
     * ```</eventinfo>```
 * ```</fileactivity>```
+
+## Examples
+
+The following scenario illustrates a Control File with three record blocks, each using a different combination of elements:
+
+- **Record block one** uses `<filemask>` with a wildcard (`/usr/local/test/*.txt`), a `<window>` restricting monitoring to 8:00 AM–5:00 PM, a CREATE `<condition>`, and `<mintimetowait>` set to 5 seconds to confirm the file has finished arriving. The `<eventinfo>` block contains two `<event>` elements separated by a `<sleep>` of 5 seconds, so the SAM receives a console display first and a threshold update 5 seconds later.
+- **Record block two** uses an ABSOLUTE `<condition>` targeting an exact file size of 5000 bytes, with `%FILEEXT%` and `%FILEROOT%` variables in the event strings so the forwarded events include dynamic file name information.
+- **Record block three** uses a MODIFY `<condition>` with `<eofindicator>` set to a specific string ("end of record") and `<maxtimetowait>` set to 1000 seconds. If the end-of-file string appears within 1000 seconds, the SMA FAD forwards the events; if not, it writes an error to the log file and error file.
 
 In the example below, the SMA FAD performs the following actions:
 

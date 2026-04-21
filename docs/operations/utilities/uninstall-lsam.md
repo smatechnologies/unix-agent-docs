@@ -1,6 +1,23 @@
+---
+sidebar_label: 'uninstall_lsam'
+title: uninstall_lsam
+description: "Reference for the uninstall_lsam script, which removes a Unix Agent instance by deleting its output, tracking, and log directories along with its startup and SMAFT scripts."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # uninstall_lsam
 
-The uninstall_lsam script quickly removes an LSAM. According to the specified LSAM-socket combination, the script removes an LSAM's output, tracking, and log directories in addition to the LSAM startup and SMA File Transfer (SMAFT) scripts.
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the uninstall_lsam script, which removes a Unix Agent instance by deleting its output, tracking, and log directories along with its startup and SMAFT scripts.
+
+The uninstall_lsam script quickly removes an agent. According to the specified agent-socket combination, the script removes an agent's output, tracking, and log directories in addition to the agent startup and SMA File Transfer (SMAFT) scripts.
 
 ## Syntax
 

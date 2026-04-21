@@ -1,8 +1,35 @@
+---
+sidebar_label: 'lsam_killjob'
+title: lsam_killjob
+description: "Reference for the lsam_killjob command, which forcibly terminates a running OpCon job on the Unix Agent by sending a SIGKILL signal to the identified process."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # lsam_killjob
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the lsam_killjob command, which forcibly terminates a running OpCon job on the Unix Agent by sending a SIGKILL signal to the identified process.
+
+## When would you use it?
+
+- A running job must be terminated immediately and the Advanced Machine parameter "Allow Kill Job" is not set to TRUE, so termination through the Enterprise Manager Operation view is not available.
+- You need to terminate an SMA File Transfer (SMAFT) job that cannot be stopped through the normal OpCon job kill mechanism.
+
+## Why would you use it?
+
+- The command targets only jobs that were started by sma_lsam, reducing the risk of accidentally killing unrelated system processes.
+- lsam_killjob presents an interactive confirmation prompt for each matching process before sending the SIGKILL signal, giving you the opportunity to confirm the correct process before terminating it.
 
 The lsam_killjob command forcibly terminates a job. The Enterprise Manager displays the status "Failed: Killed by Sys Admin" for the terminated job.
 
-The lsam_killjob command executes a "ps –ef" command to display every running process on the system and captures that display. For each line of the display in which the ```<Search_Text> ```appears and the associated process is determined to be the top-level process of an OpCon job, the user is presented with the line of output from the "ps" command followed by the prompt "Kill? (*n/y) =>". Respond with "y" to have the corresponding OpCon job terminated; or with "n" (or a blank line) to allow the job to continue executing. If multiple jobs with the same ```<Search_Text>``` are running concurrently, a separate display and prompt is issued for each job. Refer to the example below.
+The lsam_killjob command runs a "ps –ef" command to display every running process on the system and captures that display. For each line of the display in which the ```<Search_Text> ```appears and the associated process is determined to be the top-level process of an OpCon job, you is presented with the line of output from the "ps" command followed by the prompt "Kill? (*n/y) =>". Respond with "y" to have the corresponding OpCon job terminated; or with "n" (or a blank line) to allow the job to continue running. If multiple jobs with the same ```<Search_Text>``` are running concurrently, a separate display and prompt is issued for each job. Refer to the example below.
 
 :::tip Example
 
@@ -44,7 +71,7 @@ No processes found (that were started by sma_lsam)
 
 :::info Note
 
-Execution of this script should not be necessary if the Advanced Machine parameter "Allow Kill Job" is set to TRUE. If TRUE, users may terminate jobs via Enterprise Manager Operation.
+Running this script should not be necessary if the Advanced Machine parameter "Allow Kill Job" is set to TRUE. If TRUE, users may terminate jobs via Enterprise Manager Operation.
 
 :::
 

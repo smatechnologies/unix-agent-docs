@@ -1,8 +1,35 @@
+---
+sidebar_label: 'sma_ppscript'
+title: sma_ppscript
+description: "Reference for the sma_ppscript utility, which registers a post-processing analysis script to determine job success or failure after the job's executable finishes."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # sma_ppscript
 
-The sma_ppscript utility provides an alternative method to the Job Details screen's "Failure Criteria" for determining a job's success or failure. A Job's executable invokes sma_ppscript telling the LSAM the job needs post-processing with a user-supplied analysis script. 
+**Theme:** Configure  
+**Who Is It For?** System Administrator
 
-When the job finishes, the LSAM executes the script. After analysis, the script returns a zero for success and a non-zero value for failure. The LSAM simply returns the success or failure of the job without specific details; however, the script may call the utility sma_status to provide further details to the Enterprise Manager.
+## What is it?
+
+Reference for the sma_ppscript utility, which registers a post-processing analysis script to determine job success or failure after the job's executable finishes.
+
+## When would you use it?
+
+- A job's success or failure cannot be determined solely by its exit code, and the content of the job's STDOUT or STDERR output must be analyzed to make that determination.
+- The standard Failure Criteria in the OpCon Job Details screen does not provide sufficient flexibility for the specific analysis the job requires.
+
+## Why would you use it?
+
+- sma_ppscript separates the job's executable from the logic used to evaluate its outcome, allowing you to update the analysis script independently without modifying the job's main program.
+- The analysis script receives the pathnames of the job's redirected STDOUT and STDERR files as arguments, giving it direct access to the job's output for detailed inspection.
+
+The sma_ppscript utility provides an alternative method to the Job Details screen's "Failure Criteria" for determining a job's success or failure. A Job's executable invokes sma_ppscript telling the agent the job needs post-processing with a user-supplied analysis script. 
+
+When the job finishes, the agent runs the script. After analysis, the script returns a zero for success and a non-zero value for failure. The agent simply returns the success or failure of the job without specific details; however, the script may call the utility sma_status to provide further details to the Enterprise Manager.
 
 ## Syntax
 
@@ -10,13 +37,13 @@ When the job finishes, the LSAM executes the script. After analysis, the script 
 
 :::info Note
 
-The environment variable $SMA_BINDIR is defined for use within OpCon jobs. If executed from a context other than an OpCon job, "$SMA_BINDIR/" must be replaced by the appropriate path.
+The environment variable $SMA_BINDIR is defined for use within OpCon jobs. If run from a context other than an OpCon job, "$SMA_BINDIR/" must be replaced by the appropriate path.
 
 :::
 
-## Analysis Script
+## Analysis script
 
-To create an Analysis Script, write a shell script (or compiled program) to do the analysis. It may take any start parameters desired, and has the pathnames of the job's redirected STDOUT and STDERR files appended to the user-supplied list of start parameters. The script/program may do whatever it wishes to determine success or failure, to be indicated by its exit status.
+To create an Analysis Script, write a shell script (or compiled program) to do the analysis. It may take any start parameters desired, and has the pathnames of the job's redirected STDOUT and STDERR files appended to you-supplied list of start parameters. The script/program may do whatever it wishes to determine success or failure, to be indicated by its exit status.
 
 :::info Note
 
@@ -54,7 +81,7 @@ exit $?
 
 :::
 
-## Invocation of the Analysis Script
+## Invocation of the analysis script
 
 Insert sma_ppscript into the job's executable for invocation of analysis script. Once the analysis script has been written, embed the command "$SMA_BINDIR/sma_ppscript ```<script_command>```" anywhere within the job's top-level script/program. For example, assuming the script is named "/usr/home/john/check_results", "$SMA_BINDIR/sma_ppscript /usr/home/john/check_results 1 a".
 

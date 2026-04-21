@@ -1,8 +1,32 @@
-# LSAM Configuration Parameters
+---
+sidebar_label: 'Agent Configuration Parameters'
+title: agent Configuration Parameters
+description: "Reference for Unix Agent configuration parameters covering job handling, user impersonation, health monitoring, and privilege settings."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-## Configuration Parameters
+# Agent configuration parameters
 
-The following parameters reference basic LSAM settings for job handling.
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for Unix Agent configuration parameters covering job handling, user impersonation, health monitoring, and privilege settings.
+
+## When would you use it?
+
+- When configuring the maximum number of jobs the agent can simultaneously manage
+- When setting job submission permissions, such as allowing or restricting root-level job runs
+- When enabling agent self-monitoring or defining the action taken upon detection of a malfunction
+- When configuring user impersonation behavior for job execution
+
+## Configuration parameters
+
+The following parameters reference basic agent settings for job handling, user impersonation, health monitoring, and privilege configuration.
 
 ### max_number_of_jobs_to_run
 
@@ -10,7 +34,7 @@ The following parameters reference basic LSAM settings for job handling.
 
 **Description**:
 	
-* Defines the maximum number of jobs the LSAM can simultaneously manage.
+* Defines the maximum number of jobs the agent can simultaneously manage.
 * The value for this parameter must be numeric and greater than zero.
 
 :::info Note 
@@ -20,7 +44,7 @@ The machine's capabilities (e.g., memory, processor speed, and so forth) determi
 :::
 
 * Typical customer usage ranges from 10 to 30 jobs.
-* The LSAM can detect a change to this setting when the LSAM is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the LSAM refresh command, refer to [lsam refresh](../../operations/unix-lsam-commands#lsam-refresh).
+* The agent can detect a change to this setting when the agent is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the agent refresh command, refer to [lsam refresh](../../operations/unix-lsam-commands#lsam-refresh).
 
 :::warning
 
@@ -35,8 +59,8 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 **Description**:
 
 * Enables/Disables the processing of jobs submitted as root ```(0/0)```.
-* If set to zero, the LSAM does not process jobs submitted as root ```(0/0)```.
-* If set to one, the LSAM processes jobs submitted as root ```(0/0)```.
+* If set to zero, the agent does not process jobs submitted as root ```(0/0)```.
+* If set to one, the agent processes jobs submitted as root ```(0/0)```.
 
 ### require_HOME_directory
 
@@ -45,8 +69,8 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 **Description**: 
 
 * Enables/Disables the requirement that all users who submit OpCon jobs have $HOME directories on the system.
-* If set to zero, the LSAM attempts to issue a UNIX "cd $HOME" command before starting a job. The job proceeds without indicating if the "cd" command was successful. This is the traditional behavior of the LSAM. If the "cd" command fails, the job executes at the root ("/").
-* If set to one, the LSAM aborts jobs submitted by a user with no $HOME directory (i.e., the "cd $HOME" command fails).
+* If set to zero, the agent attempts to issue a UNIX "cd $HOME" command before starting a job. The job proceeds without indicating if the "cd" command was successful. This is the traditional behavior of the agent. If the "cd" command fails, the job executes at the root ("/").
+* If set to one, the agent aborts jobs submitted by a user with no $HOME directory (i.e., the "cd $HOME" command fails).
 
 ### LSAM_job_statistics
 
@@ -55,8 +79,8 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 **Description**:
 
 * Enables/Disables reporting of resource-usage statistics for users' jobs.
-* If set to zero, the LSAM does not report resource-usage statistics for users' jobs.
-* If set to one, the LSAM reports resource-usage statistics for users' jobs.
+* If set to zero, the agent does not report resource-usage statistics for users' jobs.
+* If set to one, the agent reports resource-usage statistics for users' jobs.
 * This applies to all jobs. Note that this can result in creation of a large amount of data on the SAM machine, which can adversely affect SAM's performance.
 
 ### monitor_LSAM_health
@@ -65,8 +89,8 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 
 **Description**:
 
-* The period (in seconds) the LSAM performs self-monitoring for signs of malfunction.
-* Zero disables LSAM self-monitoring.
+* The period (in seconds) the agent performs self-monitoring for signs of malfunction.
+* Zero disables agent self-monitoring.
 * The parameter requires a minimum of 30 seconds.
 
 ### LSAM_malfunction_action
@@ -75,11 +99,11 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 
 **Description**: 
 
-* This parameter determines, if self-monitoring is enabled (refer to above), the action to be taken upon detection of an LSAM malfunction:
-* If set to one, the LSAM terminates itself.
-* If set to two, the LSAM sends an event (i.e., the first line of file "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/LSAM_malfunction_event```") to the SAM-SS.
+* This parameter determines, if self-monitoring is enabled (refer to above), the action to be taken upon detection of an agent malfunction:
+* If set to one, the agent terminates itself.
+* If set to two, the agent sends an event (i.e., the first line of file "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/LSAM_malfunction_event```") to the SAM-SS.
     * Ensure that "LSAM_malfunction_event" contains a valid OpCon event. For more information, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help.
-    * To prevent the generation of recurring events, the LSAM disables self-monitoring upon detection of a malfunction.
+    * To prevent the generation of recurring events, the agent disables self-monitoring upon detection of a malfunction.
 
 ### LSAM_0_255
 
@@ -87,14 +111,14 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 
 **Description**:
 
-This is the global configuration setting for how the LSAM will impersonate users when executing jobs. For a full discussion of the options, please refer to "Considerations for path_to_su" below this table.
+This is the global configuration setting for how the agent will impersonate users when running jobs. For a full discussion of the options, please refer to "Considerations for path_to_su" below this table.
 
  
 
 The options for this setting include:
 
-* no: Setting the value to no causes the LSAM to use the legacy method of user impersonation for all jobs.
-* yes or the full path to the su program: Setting the value to yes or the full path to su causes the LSAM to use the su method of user impersonation for all jobs.
+* no: Setting the value to no causes the agent to use the legacy method of user impersonation for all jobs.
+* yes or the full path to the su program: Setting the value to yes or the full path to su causes the agent to use the su method of user impersonation for all jobs.
 
 Full path Examples:
 
@@ -112,9 +136,9 @@ When switching the value for path_to _su, be sure to retest all jobs running thr
 
 :::
 
-When path_to_su is set to No, the LSAM will not load the user profile when a job is executed. The LSAM will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
+When path_to_su is set to No, the LSAM will not load you profile when a job runs. The LSAM will use only you name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure you_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit you_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
 
-If you set path_to_su to yes, the LSAM will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will execute calling "su -" to perform the user impersonation. The LSAM will load the profile for the user's default shell as well as the user's full group list. The su utility will then handle all command line interpretation, including special characters. Since the LSAM is not running as a logged in user, any command in the profile that requires a console to be logged in may not execute successfully.
+If you set path_to_su to yes, the LSAM will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will run calling "su -" to perform you impersonation. The LSAM will load the profile for your default shell as well as your full group list. The su utility will then handle all command line interpretation, including special characters. Since the LSAM is not running as a logged in user, any command in the profile that requires a console to be logged in may not run successfully.
 
 :::tip Example
 

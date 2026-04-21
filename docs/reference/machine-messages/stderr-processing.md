@@ -1,4 +1,27 @@
-# STDERR - Processing Errors
+---
+title: STDERR - Processing Errors
+description: "Reference for STDERR processing error messages output by FTServer and FTAgent during active file transfer operations, including network, file, and communication errors."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
+# STDERR - Processing errors
+
+**Theme:** Troubleshoot  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for STDERR processing error messages output by FTServer and FTAgent during active file transfer operations, including network, file, and communication errors.
+
+## When would you use it?
+
+- A file transfer job fails or completes with warnings during the active transfer, and you need to identify the error written to the job's STDERR file.
+- You are diagnosing network, file I/O, or communication errors reported by FTServer or FTAgent during a transfer.
+- A transfer completes but STDERR contains messages indicating marginal operating conditions.
+- You need to understand the meaning of an indicator field included in a processing error message.
 
 :::info Note
 
@@ -116,14 +139,14 @@ No value was supplied for the indicated XML tag.
 
 **Origination**: FTServer or FTAgent
 
-* The indicated operation could not be performed due to inability to execute a fork() call.
+* The indicated operation could not be performed due to inability to run a fork() call.
 * The indicator field provides the specific reason.
 
 ### Could not wait() for [operation] (indicator)
 
 **Origination**: FTServer or FTAgent
 
-* The indicated operation could not be performed due to inability to execute a wait() call.
+* The indicated operation could not be performed due to inability to run a wait() call.
 * The indicator field provides the specific reason.
 
 ### Processing error in [operation] (indicator)
@@ -206,7 +229,7 @@ The file which maps Source and Destination files to temporary files for processi
 
 **Origination**: FTAgent
 
-FTAgent received the wrong number of startup parameters from the LSAM.
+FTAgent received the wrong number of startup parameters from the agent.
 
 ### Unknown host name [computer]	
 
@@ -239,7 +262,7 @@ FTAgent has lost communications with FTServer.
 
 **Origination**: FTServer
 
-FTServer could not set the GID/UID as indicated to determine if the user has access to the Source File.
+FTServer could not set the GID/UID as indicated to determine if you has access to the Source File.
 
 ### Error reading Temp File [file]
 ### Error writing Temp File [file]	
@@ -280,28 +303,28 @@ FTAgent could not create a zero-length destination file to match the zero-length
 
 **Origination**: FTAgent
 
-The length of the received file was not as expected, when the user specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
+The length of the received file was not as expected, when you specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
 
 ### Invalid RECORD-LENGTH indicator	
 
 **Origination**: FTAgent
 
-The data format from the FTServer was not as expected, when the user specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
+The data format from the FTServer was not as expected, when you specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
 
 ### Missing/Invalid ```<RecordFormat>``` in XML-header	
 
 **Origination**: FTAgent
 
-The data format from the FTServer was not as expected, when the user specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
+The data format from the FTServer was not as expected, when you specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name).
 
 ### Invalid ```<RecordSep> [RS]``` in XML-header	
 
 **Origination**: FTAgent
 
-The data format from the FTServer was not as expected, when the user specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name). RS indicates the erroneous data.
+The data format from the FTServer was not as expected, when you specified that the file be saved in a record-oriented format (by pre-pending a '=' to the destination file name). RS indicates the erroneous data.
 
 ### XFER RECORDS and bad/missing Index File [%s]	
 
 **Origination**: FTServer
 
-The user specified that the file be sent in a record-oriented format (by pre-pending a '=' to the source file name), and the associated index file (which contains the record structure) could not be found or was corrupted. The most likely cause for a missing index file is either that the source file was not previously saved by the FTAgent as a record-oriented destination file, or that the index file was accidentally deleted. A native, stream format, file cannot be sent as a record-oriented file unless it is first transferred to itself/another file/another UNIX system as a record-oriented destination file.
+You specified that the file be sent in a record-oriented format (by pre-pending a '=' to the source file name), and the associated index file (which contains the record structure) could not be found or was corrupted. The most likely cause for a missing index file is either that the source file was not previously saved by the FTAgent as a record-oriented destination file, or that the index file was accidentally deleted. A native, stream format, file cannot be sent as a record-oriented file unless it is first transferred to itself/another file/another UNIX system as a record-oriented destination file.

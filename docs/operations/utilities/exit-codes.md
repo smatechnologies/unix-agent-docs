@@ -1,6 +1,28 @@
+---
+sidebar_label: 'exit_codes'
+title: exit_codes
+description: "Reference for the exit_codes utility, which executes a job and displays its return values, exit code, exit signal, and core image status for debugging purposes."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # exit_codes
 
-The exit_codes utility executes a job and displays the return values. Helpful for debugging, this information aids in determining the expected results for a job in OpCon.
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the exit_codes utility, which executes a job and displays its return values, exit code, exit signal, and core image status for debugging purposes.
+
+## When would you use it?
+
+- You are configuring Failure Criteria for a job in OpCon and need to confirm what exit code the job's executable returns under normal and error conditions.
+- You are debugging a job that is reporting an unexpected status and want to verify the numeric exit code, exit signal, and whether a core image was created.
+
+The exit_codes utility runs a job and displays the return values. Helpful for debugging, this information aids in determining the expected results for a job in OpCon.
 
 This utility displays the following information when a job completes:
 
@@ -25,7 +47,7 @@ For dependable results, the job specified in the Start Image must explicitly per
 
 :::tip Example
 
-The following example shows the command to execute the LSAM's generic program, genericpgm, from the /usr/local/lsam/bin directory. The generic program's parameters cause the job to run for two seconds and to terminate with an exit code of three:
+The following example shows the command to run the agent's generic program, genericpgm, from the /usr/local/lsam/bin directory. The generic program's parameters cause the job to run for two seconds and to terminate with an exit code of three:
 
 ```
 exit_codes -u0 -g0 -s"/usr/local/lsam/bin/genericpgm -t2 -e3"

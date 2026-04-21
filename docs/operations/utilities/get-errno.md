@@ -1,4 +1,21 @@
+---
+sidebar_label: 'get_errno'
+title: get_errno
+description: "Reference for the get_errno utility, which translates a numeric UNIX error code into its symbolic constant and descriptive text for use in job debugging."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # get_errno
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the get_errno utility, which translates a numeric UNIX error code into its symbolic constant and descriptive text for use in job debugging.
 
 The get_errno program translates the numeric error indicator (returned by UNIX system calls) into meaningful text. Text includes the standard symbolic constant # defined for the error and a brief description. Output is written to STDOUT. 
 
@@ -12,7 +29,7 @@ Additionally, if run as an OpCon job, the utility writes to the Enterprise Manag
 
 :::info Note
 
- If executed from within a user's OpCon job, "```$SMA_BINDIR/```" must be preface the command (e.g., "```$SMA_BINDIR/get_errno error_number```").
+ If run from within a user's OpCon job, "```$SMA_BINDIR/```" must be preface the command (e.g., "```$SMA_BINDIR/get_errno error_number```").
 
 :::
 

@@ -1,18 +1,41 @@
-# STDOUT Error Codes
+---
+title: STDOUT Error Codes
+description: "Reference for STDOUT messages output by the Unix Agent FTAgent component during file transfer operations, including backup, transfer result, and completion messages."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-## Original Destination File [dest] backed-up to [backup]
+# STDOUT error codes
+
+**Theme:** Troubleshoot  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for STDOUT messages output by the Unix Agent FTAgent component during file transfer operations, including backup, transfer result, and completion messages.
+
+## When would you use it?
+
+- A file transfer job completes or fails and you need to interpret the STDOUT messages written by FTAgent.
+- You need to confirm whether a destination file was backed up, overwritten, appended to, or created during a transfer.
+- A transfer reports "File transfer did not complete!" and you need to know to check the STDERR output for additional detail.
+- You are reviewing JORS output and need to understand the transfer result messages produced by FTAgent.
+
+## Original destination file [dest] backed-up to [backup]
 
 **Origination**: FTAgent
 
 Per the job's "Overwrite" option, the FTAgent backed up the Destination File prior to starting the file transfer.
 
-## Original Destination File [file] did not exist to back-up
+## Original destination file [file] did not exist to back-up
 
 **Origination**: FTAgent
 
 At the job's startup, no Destination File existed to backup.
 
-## Could not change default access permissions for Destination File [dest]
+## Could not change default access permissions for destination file [dest]
 
 **Origination**: FTAgent
 

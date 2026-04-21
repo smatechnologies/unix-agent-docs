@@ -1,6 +1,29 @@
-# Trace Option Parameters
+---
+sidebar_label: 'Trace Option Parameters'
+title: Trace Option Parameters
+description: "Reference for Unix Agent trace option parameters that enable or disable diagnostic tracing for the dispatcher, agent, and other internal processes."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The following parameters reference the trace settings for troubleshooting the UNIX LSAM.
+# Trace option parameters
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for Unix Agent trace option parameters that enable or disable diagnostic tracing for the dispatcher, agent, and other internal processes.
+
+The following parameters reference the trace settings for troubleshooting the Unix Agent. These settings enable or disable diagnostic tracing for the dispatcher, internal agent process, JORS and SMAFT activities, Resource Monitor, and File Activity Daemon (FAD).
+
+## When would you use it?
+
+- When directed by SMA Technologies Support to enable diagnostic tracing for a specific agent process
+- When troubleshooting communication issues between the agent and SAM
+- When investigating JORS, SMAFT, Resource Monitor, or FAD behavior
 
 :::caution
 
@@ -14,7 +37,7 @@ Always leave the following flags set to zero unless otherwise instructed by SMA 
 
 **Description**:
 
-* Enables/Disables tracing of communication and processing steps from the LSAM (via process 'sma_disp') to the SAM.
+* Enables/Disables tracing of communication and processing steps from the agent (via process 'sma_disp') to the SAM.
 * If set to zero, tracing does not occur.
 * If set to non-zero, tracing occurs.
 * Trace file name is "sma_disp.trace".
@@ -25,7 +48,7 @@ Always leave the following flags set to zero unless otherwise instructed by SMA 
 
 **Description**:
 
-* Enables/Disables tracing of communication and processing steps internal to the LSAM, specifically, the process named 'sma_lsam'.
+* Enables/Disables tracing of communication and processing steps internal to the agent, specifically, the process named 'sma_lsam'.
 * If set to zero, tracing does not occur.
 * If set to non-zero, tracing.
 * Trace file name is "sma_lsam.trace".
@@ -61,7 +84,7 @@ Always leave the following flags set to zero unless otherwise instructed by SMA 
 * Enables/Disables tracing of communication and processing steps related to the File Activity Daemon (FAD) activities.
 * If set to zero, tracing does not occur.
 * If set to non-zero, tracing occurs.
-* Trace setting applies to all FAD processes started with the LSAM.
+* Trace setting applies to all FAD processes started with the agent.
 * Trace file name is "sma_FAD.trace".
 
 

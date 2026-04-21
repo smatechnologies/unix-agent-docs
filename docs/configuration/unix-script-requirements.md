@@ -1,6 +1,35 @@
-# UNIX Script Requirements
+---
+sidebar_label: 'UNIX script requirements'
+title: UNIX Script Requirements
+description: "Reference for the script formatting rules that OpCon jobs executed by the Unix Agent must follow, including shell invocation, child process handling, and exit codes."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-Scripts executed as OpCon jobs must meet the following requirements:
+# UNIX script requirements
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the script formatting rules that OpCon jobs executed by the Unix Agent must follow, including shell invocation, child process handling, and exit codes.
+
+## When these requirements apply
+
+These requirements apply when:
+
+- A script is defined as a Start Image in the Enterprise Manager and will be run by the Unix Agent as an OpCon job.
+- A script starts child scripts or processes that must complete before the parent job is considered finished.
+
+## Why would you use it?
+
+- The Unix Agent relies on the shell invocation line in the first line of a script to determine how to run the script; without it, the agent cannot reliably start execution.
+- The agent reads the exit code returned by the script to determine whether the job succeeded or failed; if the script does not supply an exit code within the valid range of -127 to +127, the agent misinterprets the result and may report incorrect job status.
+
+Scripts run as OpCon jobs must meet the following requirements:
 
 * A shell invocation line in the first line of the script.
 

@@ -1,11 +1,36 @@
-# Operating the LSAM
+---
+sidebar_label: 'Operating the agent'
+title: Operating the agent
+description: "Start, stop, and verify the status of the Unix Agent using agent commands from the command line."
+tags:
+  - Procedural
+  - System Administrator
+  - Agents
+---
 
-The LSAM uses simple commands to control and check the status of the LSAM.
+# Operating the agent
 
-## Start the LSAM
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Start, stop, and verify the status of the Unix Agent using agent commands from the command line.
+
+The agent uses simple commands to control and check the status of the agent.
+
+## When would you use it?
+
+- Start the agent after a new or upgrade installation, or when the agent has been stopped for maintenance.
+- Check the agent status to confirm that the required processes (sma_lsam, sma_disp, sma_log) and any configured optional components are running before jobs are submitted.
+- Stop the agent when performing maintenance, applying configuration changes that require a full restart, or shutting down the host system.
+
+## Start the agent
+
+To start the agent, complete the following steps:
 
 1. Log in to the UNIX system as root.
-2. Change the directory to the LSAM's root directory. Use the following syntax:
+2. Change the directory to the agent's root directory. Use the following syntax:
 
 ```cd <LSAM _Root_Directory>```
 
@@ -21,7 +46,7 @@ After an upgrade installation, verify that the LSAM's tracking directory is empt
 
 :::
 
-3. Start the LSAM using the following syntax:
+3. Start the agent using the following syntax:
 
 ```lsam<SAM_Socket>start```
 
@@ -34,15 +59,17 @@ The following example shows the command for starting the LSAM using socket numbe
 :::
 
 
-4. The LSAM normally starts within 30 seconds, at which point all of the terminal output produced and redirected to the ```LSAM_output``` file will be dumped to the terminal. If it does not complete within five minutes, use the INT sequence (normally Cntrl_C) to stop the start-up procedure. 
+4. The agent normally starts within 30 seconds, at which point the agent displays all terminal output from the ```LSAM_output``` file on the terminal. If it does not complete within five minutes, use the INT sequence (normally Cntrl_C) to stop the start-up procedure. 
     * Then use the command ```cat LSAM_output_<SAM_socket>``` to view the terminal output that was produced. 
     * The ```LSAM_output``` file can be viewed at any time. To see terminal output as it is produced, use the command ```tail –f LSAM_output_<SAM_socket>```.
-5. Check the LSAM status before processing jobs.
+5. Check the agent status before processing jobs. The agent is started.
 
-## Check the LSAM Status
+## Check the agent status
+
+To check the agent status, complete the following steps:
 
 1. Log in to the UNIX system as root.
-2. Change the directory to the LSAM's bin directory. Use the following syntax:
+2. Change the directory to the agent's bin directory. Use the following syntax:
 
 ```cd <LSAM _Root_Directory>/bin```
 
@@ -68,7 +95,7 @@ cd /usr/local/lsam/bin; ./lsam3100 status
 If successful, the status command produces output similar to:
 
 ```
-Currently running LSAM services:
+Currently running agent services:
 
 --------------------------------
 
@@ -101,19 +128,34 @@ If the LSAM processes do not start as expected, examine the logfile, the errfile
 
 :::
 
+The agent status is displayed.
+
 ## Stop the LSAM
+
+To stop the agent, complete the following steps:
 
 1. Log in to the UNIX system as root.
 2. Change the directory to the LSAM's bin directory. Use the following syntax:
 
 ```cd <LSAM _Root_Directory>/bin```
 
-3. Stop the LSAM with the following syntax: ```lsam<SAM_Socket>``` stop.
+3. Stop the agent with the following syntax: ```lsam<SAM_Socket>``` stop.
 
 :::tip Example
 
-The following example shows the command for stopping the LSAM using SAM Socket number 3100:
+The following example shows the command for stopping the agent using SAM Socket number 3100:
 
 ```cd /usr/local/lsam/bin; ./lsam3100 stop```
 
 :::
+
+The agent is stopped.
+
+## Exception handling
+
+**The agent does not start within five minutes after running the start command.**
+The startup procedure has stalled or encountered an error. Use the INT sequence (normally Ctrl+C) to stop the startup procedure, then run `cat LSAM_output_<SAM_socket>` to view the terminal output that was produced during the attempt. Examine the output for error messages and resolve the reported condition before trying again.
+
+**The status command does not show the expected processes (sma_lsam, sma_disp, sma_log).**
+One or more required processes failed to start. Examine the logfile, the errfile, and the Terminal Output File for error messages. Use the file path defined in the `SMA_LOG_DIRECTORY` variable to locate these files. Resolve any reported errors and restart the agent.
+

@@ -1,6 +1,29 @@
-# Jobs in a Running State
+---
+title: Jobs in a Running State
+description: "Reference for status messages and job information displayed in Enterprise Manager Operation while Unix Agent jobs are actively running."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-Once jobs are built, the Enterprise Manager Operation screen contains different information depending on a job's status. In many cases, a specific failure message is returned from the LSAM and viewable in the Detailed Job Messages parameter in the Job Information screen>Configuration Tab>Operations Related Information Tab. For more information, refer to [Job Information](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Job-Information) in the Enterprise Manager online help. When UNIX jobs are processing, the status information includes the Process ID (pid) number or any optional status messages.
+# Jobs in a running state
+
+**Theme:** Troubleshoot  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for status messages and job information displayed in Enterprise Manager Operation while Unix Agent jobs are actively running.
+
+Once jobs are built, the Enterprise Manager Operation screen contains different information depending on a job's status. In many cases, a specific failure message is returned from the agent and viewable in the Detailed Job Messages parameter in the Job Information screen>Configuration Tab>Operations Related Information Tab. For more information, refer to [Job Information](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Job-Information) in the Enterprise Manager online help. When UNIX jobs are processing, the status information includes the Process ID (pid) number or any optional status messages.
+
+## When would you use it?
+
+- You need to understand the format of the status message displayed for a running UNIX job in Enterprise Manager Operation.
+- A running job shows an unexpected or unfamiliar status message and you need to identify its meaning.
+- You want to verify whether a job is reporting its PID or a custom status message written by the sma_status utility.
+- You are diagnosing a job that has stalled or terminated unexpectedly while in a running state.
 
 :::info Note
 
@@ -37,7 +60,7 @@ Ujob2 (Daily) (Job Running – Starting Step 1)
 
 :::
 
-## Status Messages 
+## Status messages 
 
 ### [x] multiply-defined	
 
@@ -130,7 +153,7 @@ Informational message to confirm that the LSAM started with the LSAM health moni
 
 ### No LSAM health monitor	
 
-Informational message to confirm that the LSAM started without the LSAM health monitor in proper operation. Execute the LSAM Configuration program to confirm that LSAM health monitoring has been disabled.
+Informational message to confirm that the LSAM started without the LSAM health monitor in proper operation. Run the LSAM Configuration program to confirm that LSAM health monitoring has been disabled.
 
 ### LSAM health monitor disabled	
 
@@ -182,7 +205,7 @@ The addition of the text for "Start Image" and "Parameters" in the Enterprise Ma
 
 ### Blank start image for [x]	
 
-The indicated job contained no start image, i.e., script or program to execute. Check the Job Details screen in the Enterprise Manager.
+The indicated job contained no start image, i.e., script or program to run. Check the Job Details screen in the Enterprise Manager.
 
 ### Job [x] contained no UID	
 
@@ -202,29 +225,29 @@ The indicate Group ID for the indicated job was either non-existent or incorrect
 
 ### Not allowed to start job [x] as 'root'	
 
-The LSAM is configured to not allow jobs to execute with 'root' privileges. This can be changed by running the LSAM Configuration program.
+The LSAM is configured to not allow jobs to run with 'root' privileges. This can be changed by running the LSAM Configuration program.
 
-### Unable to access start image [x1] for [x2]	The indicated Start Image could not be executed for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based.
+### Unable to access start image [x1] for [x2]	The indicated Start Image could not be run for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based.
 
-### Unable to execute [x1] for [x2]	
+### Unable to run [x1] for [x2]	
 
-The indicated item could not be executed for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based.
+The indicated item could not be run for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based.
 
 ### Unable to exec() [x1] to start [x2]	
 
-The indicated Start Image could not be executed for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based. If the LSAM determines that this was caused by an invalid reference to a shell/interpreter, e.g., the first line of the job script reads "!#/bin/bogus", an additional message will be generated to indicate this possibility.
+The indicated Start Image could not be run for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based. If the LSAM determines that this was caused by an invalid reference to a shell/interpreter, e.g., the first line of the job script reads "!#/bin/bogus", an additional message will be generated to indicate this possibility.
 
 ### Unable to 'cd' to $HOME for [x]	
 
-LSAM configuration parameter require_HOME_directory is enabled and the indicated job cannot be executed within the associated user's HOME directory. The most likely cause is an error defining the HOME directory when the user was added to the system, or that the HOME directory was either never created or it was deleted.
+LSAM configuration parameter require_HOME_directory is enabled and the indicated job cannot be run within the associated user's HOME directory. The most likely cause is an error defining the HOME directory when you was added to the system, or that the HOME directory was either never created or it was deleted.
 
 ### Received TX0 for pid = [x] - [x]	
 
-This is an informational message output to confirm receipt of a command from SAM to terminate the indicated job after the user executed the "Kill Job" command from the Enterprise Manager. This does not indicate that the job actually was terminated; that event/inability will be confirmed in a subsequent message.
+This is an informational message output to confirm receipt of a command from SAM to terminate the indicated job after you ran the "Kill Job" command from the Enterprise Manager. This does not indicate that the job actually was terminated; that event/inability will be confirmed in a subsequent message.
 
 ### Can't fork() for [x] - decrementing max jobs to [x]	
 
-The LSAM is unable to create a process in which to run the indicated job, and is decreasing the number of jobs it will attempt to simultaneously run in an effort to preclude further fork() errors. If this is a recurring problem, the LSAM Configuration program can be executed to lower the number of allowed jobs and/or the OS may need tuning to handle the load.
+The LSAM is unable to create a process in which to run the indicated job, and is decreasing the number of jobs it will attempt to simultaneously run in an effort to preclude further fork() errors. If this is a recurring problem, you can run the LSAM Configuration program to lower the number of allowed jobs and/or the OS may need tuning to handle the load.
 
 ### Job [x] completed	
 

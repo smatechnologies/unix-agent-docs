@@ -1,6 +1,31 @@
-# Job Resource-Usage Reporting
+---
+title: Job Resource-Usage Reporting
+description: "Reference for OpCon field codes and descriptions returned per job when Unix Agent resource-usage reporting is enabled via the LSAM_job_statistics configuration parameter."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The following table lists the OpCon Field Code and description for data returned with each job when job resource-usage reporting is enabled (LSAM configuration parameter LSAM_job_statistics set to 1):
+# Job resource-usage reporting
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for OpCon field codes and descriptions returned per job when Unix Agent resource-usage reporting is enabled via the LSAM_job_statistics configuration parameter.
+
+The following table lists the OpCon Field Code and description for data returned with each job when job resource-usage reporting is enabled (agent configuration parameter LSAM_job_statistics set to 1):
+
+## When would you use it?
+
+- You have enabled job resource-usage reporting (LSAM_job_statistics set to 1) and need to identify the meaning of a specific OpCon field code returned with a job.
+- You are interpreting CPU usage, memory, I/O, or wall-clock run-time values reported per job.
+- You need to determine which resource metrics are supported on your UNIX platform and which values may be reported as zero.
+- You are reviewing resource-usage statistics for an SMA File Transfer job running on a UNIX destination machine.
+
+
 
 | FC | 'struct rusage' | Description |
 | -- | --------------- | ----------- |
@@ -23,8 +48,8 @@ The following table lists the OpCon Field Code and description for data returned
 |6817 | ru_nivcsw | number of involuntary context switches; times the process was forced to relinquish control of the CPU because a higher priority process became run able or the current process used up its time slice |
 |6818 | n/a | wall-clock run time (seconds) |
 
-Except for "wall-clock run time", which is calculated by the LSAM, text appearing in column Descriptions was compiled from #include files on various systems. The items appearing in column 'struct rusage' indicate the member names for the data structure populated by the OS with the getrusage() system call.
+Except for "wall-clock run time", which is calculated by the agent, text appearing in column Descriptions was compiled from #include files on various systems. The items appearing in column 'struct rusage' indicate the member names for the data structure populated by the OS with the getrusage() system call.
 
-The above table represents the entire set of possible values which may be reported. Not all systems support the entire set. Values not supplied to the LSAM by the OS are reported as zero. At a minimum, all systems will report meaningful values for CPU usage (FC 6801 and 6802) and wall-clock run time (FC 6818).
+The above table represents the entire set of possible values which may be reported. Not all systems support the entire set. Values not supplied to the agent by the OS are reported as zero. At a minimum, all systems will report meaningful values for CPU usage (FC 6801 and 6802) and wall-clock run time (FC 6818).
 
 Job resource-usage stats are returned for SMA File Transfer (SMAFT) jobs as well as regular UNIX jobs when the destination machine is a UNIX machine. The resource-usage stats will reflect those of the Agent and not include any data from the Server (even if it's another UNIX box).

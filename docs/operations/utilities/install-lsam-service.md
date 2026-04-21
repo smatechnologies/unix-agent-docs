@@ -1,6 +1,23 @@
+---
+sidebar_label: 'install_lsam_service'
+title: install_lsam_service
+description: "Reference for the install_lsam_service script, which creates symbolic links in the system startup directory so the Unix Agent starts automatically on reboot."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # install_lsam_service
 
-The install_lsam_service script creates symbolic links in the start up directory, so the LSAM will be started automatically when the machine is rebooted. This script is valid on the following UNIX platforms: Linux, AIX, HP-UX, and Solaris.
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the install_lsam_service script, which creates symbolic links in the system startup directory so the Unix Agent starts automatically on reboot.
+
+The install_lsam_service script creates symbolic links in the start up directory, so the agent will be started automatically when the machine is rebooted. This script is valid on the following UNIX platforms: Linux, AIX, HP-UX, and Solaris.
 
 ## Syntax
 

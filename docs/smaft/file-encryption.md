@@ -1,16 +1,33 @@
+---
+title: File Encryption
+description: "SMAFT supports optional file encryption using DES, 3DES, and AES-128 algorithms in ECB and CBC modes, configurable per agent installation as PREFERRED or REQUIRED."
+tags:
+  - Conceptual
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # File Encryption
 
-By default, the SMA File Transfer (SMAFT) Server does not encrypt the Source File prior to its transfer to the Agent. Two additional options are available: PREFERRED and REQUIRED. If PREFERRED is selected, the file is transferred without encryption if the Server and Agent are unable to negotiate a compatible method of encrypting the file. If REQUIRED is selected and if an encryption method cannot be negotiated, the transfer is not performed and the job fails.
+**Theme:** Overview  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+SMAFT supports optional file encryption using DES, 3DES, and AES-128 algorithms in ECB and CBC modes, configurable per agent installation as PREFERRED or REQUIRED.
 
 By default, the SMA File Transfer (SMAFT) Server does not encrypt the Source File prior to its transfer to the Agent. Two additional options are available: PREFERRED and REQUIRED. If PREFERRED is selected, the file is transferred without encryption if the Server and Agent are unable to negotiate a compatible method of encrypting the file. If REQUIRED is selected and if an encryption method cannot be negotiated, the transfer is not performed and the job fails.
 
-During the LSAM installation, the LSAM is configured with support for all available encryption capabilities as outlined below. Each installation of the LSAM may subsequently be configured for encryption in SMAFT jobs (refer to [Updating the SMA File Transfer (SMAFT) Control Script)](../configuration/updating-smaft-control-script). Encryption support applies to both Server and Agent for an LSAM.
+By default, the SMA File Transfer (SMAFT) Server does not encrypt the Source File prior to its transfer to the Agent. Two additional options are available: PREFERRED and REQUIRED. If PREFERRED is selected, the file is transferred without encryption if the Server and Agent are unable to negotiate a compatible method of encrypting the file. If REQUIRED is selected and if an encryption method cannot be negotiated, the transfer is not performed and the job fails.
 
-Configuring encryption support involves entering a string of one or more comma-separated numbers. A simple zero disables encryption. If no encryption support is enabled, all SMAFT jobs which reference the LSAM (as either Source machine or Destination machine) FAIL(s) if encryption is REQUIRED or FAIL-PREFERRED.
+During the agent installation, the installation script configures the agent with support for all available encryption capabilities as outlined below. You can subsequently configure each installation of the agent for encryption in SMAFT jobs (refer to [Updating the SMA File Transfer (SMAFT) Control Script)](../configuration/updating-smaft-control-script). Encryption support applies to both Server and Agent for an agent.
 
-Configuration changes take effect immediately in the Agent; however, the LSAM must either be restarted or refreshed for the changes to become effective in the Server.
+Configuring encryption support involves entering a string of one or more comma-separated numbers. A simple zero disables encryption. If no encryption support is enabled, all SMAFT jobs which reference the agent (as either Source machine or Destination machine) FAIL(s) if encryption is REQUIRED or FAIL-PREFERRED.
 
-The UNIX LSAM supports three encryption algorithms in two modes of operation with two-variants per mode, for a total of fifteen (15) capabilities (not all possible combinations are used):
+Configuration changes take effect immediately in the Agent; however, the agent must either be restarted or refreshed for the changes to become effective in the Server.
+
+The Unix Agent supports three encryption algorithms in two modes of operation with two-variants per mode, for a total of fifteen (15) capabilities (not all possible combinations are used):
 
 * Algorithms (in increasing order of security)
     * 1: DES
@@ -37,7 +54,7 @@ Supported capabilities may be listed in any order. When UNIX is the Source machi
 
 When UNIX is the Destination machine; the Agent determines the algorithm, mode, and variant to be used for encrypting the file by searching its supported capabilities list against the Server's list of supported capabilities. The search is from left to right for the first match to a capability supported by the Server.
 
-Including all encryption capabilities currently available with the UNIX LSAM, the default supported capabilities list is:
+Including all encryption capabilities currently available with the Unix Agent, the default supported capabilities list is:
 
 ```
 
@@ -54,6 +71,54 @@ AES‑128/CBC‑CTS, AES‑128/CBC‑Bitstring AES‑128/CBC, 3DES‑CBC‑CTS, 
 
 ```
 
-Many factors, some of which were noted above in the discussion of algorithms, modes, and variants, go into the determination of which combinations offer the highest security. SMA Technologies makes no claim that the default order of precedence listed above offers the best level of security in all situations. LSAM Administrators must configure the supported capabilities and the capabilities' precedence according to their organization's security policies. Unless their organization's security policies require otherwise, SMA Technologies recommends that all supported capabilities be configured (in whatever precedence order is desired) to allow the greatest opportunity for completion cross-platform file transfers using encryption.
+Many factors, some of which were noted above in the discussion of algorithms, modes, and variants, go into the determination of which combinations offer the highest security. SMA Technologies makes no claim that the default order of precedence listed above offers the best level of security in all situations. agent Administrators must configure the supported capabilities and the capabilities' precedence according to their organization's security policies. Unless their organization's security policies require otherwise, SMA Technologies recommends that you configure all supported capabilities (in whatever precedence order is desired) to allow the greatest opportunity for completion cross-platform file transfers using encryption.
 
 In the default configuration listed above, SMA Technologies applies a higher precedence to 3DES/CBC than to AES-128/ECB, although AES‑128 is a more secure algorithm than 3DES. Reducing security risk, 3DES/CBC is preferable because of the ECB property of patterns of plaintext being evident in the ciphertext to eavesdroppers. The difference in the levels of security between 3DES and DES is too great to give DES/CBC a higher precedence than 3DES/ECB.
+
+## When would you use it?
+
+- Enable encryption when organizational security policies require that file contents be protected in transit between the Source and Destination machines.
+- Enable encryption as PREFERRED when you want to protect files in transit where possible but cannot guarantee that both the Server and Agent support a compatible encryption method, so that the transfer can still complete without encryption if negotiation fails.
+- Enable encryption as REQUIRED when your organization requires that all file transfers be encrypted and a transfer without encryption must not be allowed to complete.
+- Configure all supported capabilities in the desired precedence order when transferring files across platforms to allow the greatest opportunity for completing cross-platform file transfers using encryption.
+
+## Why would you use it?
+
+- Encryption protects file contents in transit between the Source and Destination machines, which is essential when files contain sensitive data that must not be readable by network eavesdroppers.
+- The PREFERRED option allows transfers to proceed without encryption when a compatible method cannot be negotiated, reducing job failures while still applying protection wherever it is available.
+- The REQUIRED option enforces a consistent security policy by failing the job immediately if no compatible encryption method can be negotiated, preventing unprotected files from reaching the Destination machine.
+- Configuring supported capabilities in priority order — for example, listing AES-128 combinations before 3DES and DES — ensures the most secure available algorithm is selected first during negotiation.
+
+## Algorithm comparison
+
+The following table describes the supported algorithms, modes, and their security characteristics as documented for the Unix Agent.
+
+| Algorithm | Description | Security level | Notes |
+|---|---|---|---|
+| DES | Data Encryption Standard; numeric code 1 | Low — now considered too insecure for most uses | Use only where legacy interoperability requires it. |
+| 3DES | Triple-DES; numeric code 2 | Moderate — still offers a reasonable level of security | Acceptable where AES is not available on the remote platform. |
+| AES-128 | Advanced Encryption Standard, 128-bit key; numeric code 3 | High — the new standard adopted by the United States government, expected to offer a high level of security for the foreseeable future | Recommended algorithm where supported. |
+| ECB mode | Electronic CodeBook; numeric code 100 | Lower — allows multiple instances of plaintext to be revealed in the ciphertext (the plaintext itself is not revealed, only that a pattern exists) | Avoid when pattern concealment is required. |
+| CBC mode | Cipher Block Chaining; numeric code 200 | Higher — keeps patterns in the plaintext from appearing in the ciphertext | Preferred mode for most transfers. |
+| CTS variant | Ciphertext Stealing; numeric code 10000 | Increases security — makes ciphertext length not always a multiple of the algorithm's block size, hiding this information from eavesdroppers | Add to an algorithm + mode sum to enable. |
+| Bitstring-padding variant | Bitstring padding; numeric code 20000 | No effect on security | Alternative to the default padding method; pads with a 1-bit followed by 0-bits. |
+
+A supported capability code is the sum of one algorithm code, one mode code, and one variant code. For example, AES-128/CBC-CTS = 3 + 200 + 10000 = 10203.
+
+## Examples
+
+An agent is configured with encryption REQUIRED, and the supported capabilities list is set to the default:
+
+```
+
+10203,20203,203,10202,20202,202,20103,103,20102,102,10201,20201,201,20101,101
+
+```
+
+When UNIX is the Destination machine, the Agent searches this list from left to right for the first capability that the Server also supports. In this configuration, the Agent attempts AES-128/CBC-CTS (10203) first. If the Server supports AES-128/CBC-CTS, the file is encrypted using AES-128 operating in CBC mode with Ciphertext Stealing. If the Server does not support that combination, the Agent moves to the next entry (AES-128/CBC-Bitstring, 20203), and so on. If no match is found and encryption is REQUIRED, the transfer is not performed and the job fails.
+
+## Glossary
+
+**Supported capability** — A numeric code representing a specific combination of encryption algorithm, mode, and variant supported by an agent installation. The code is the sum of one algorithm value (1 = DES, 2 = 3DES, 3 = AES-128), one mode value (100 = ECB, 200 = CBC), and one variant value (10000 = CTS, 20000 = Bitstring-padding). For example, AES-128/CBC-CTS = 3 + 200 + 10000 = 10203.
+
+**CBC (Cipher Block Chaining)** — An encryption mode, identified by numeric code 200, that keeps patterns in the plaintext from appearing in the ciphertext by chaining each encrypted block to the previous one. Preferred over ECB for most transfers because ECB allows repeated plaintext patterns to be visible in the ciphertext.

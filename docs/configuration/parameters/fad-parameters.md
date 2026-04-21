@@ -1,6 +1,28 @@
-# FAD Parameters
+---
+sidebar_label: 'FAD Parameters'
+title: FAD Parameters
+description: "Reference for the Unix Agent FAD parameter that controls whether the File Activity Detection monitor detects files created while the agent was down."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-The following parameters reference the FAD setting for the UNIX LSAM.
+# FAD parameters
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the Unix Agent FAD parameter that controls whether the File Activity Detection monitor detects files created while the agent was down.
+
+The following parameters reference the FAD setting for the Unix Agent. This setting controls whether the File Activity Detection monitor detects files that were created while the agent or FAD was down.
+
+## When would you use it?
+
+- When configuring File Activity Detection (FAD) startup behavior
+- When determining whether FAD should process files created during agent downtime
 
 ### fad_mon_start
 
@@ -8,8 +30,8 @@ The following parameters reference the FAD setting for the UNIX LSAM.
 
 **Description**:
 
-* When set to zero, FAD will detect files created after the LSAM or FAD have started.
-* When set to one, FAD will detect files that were created when the LSAM or FAD were down.
+* When set to zero, FAD will detect files created after the agent or FAD have started.
+* When set to one, FAD will detect files that were created when the agent or FAD were down.
 
 
 

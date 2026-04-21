@@ -1,8 +1,32 @@
-# TCP/IP Configuration Parameters
+---
+sidebar_label: 'TCP/IP Configuration Parameters'
+title: TCP/IP Configuration Parameters
+description: "Reference for Unix Agent TCP/IP configuration parameters, including allowed SMANetCom IP addresses, NIC binding, and TLS certificate settings."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
 
-## Configuration Parameters
+# TCP/IP configuration parameters
 
-The following parameters reference the TCP/IP settings for communication between the LSAM and SMANetCom.
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for Unix Agent TCP/IP configuration parameters, including allowed SMANetCom IP addresses, NIC binding, and TLS certificate settings.
+
+## When would you use it?
+
+- When configuring initial TCP/IP communication settings between the agent and SMANetCom
+- When restricting which SMANetCom IP addresses are allowed to connect to the agent
+- When binding the agent to a specific network interface card (NIC)
+- When enabling or configuring TLS encryption for agent communication
+
+## Configuration parameters
+
+The following parameters reference the TCP/IP settings for communication between the agent and SMANetCom. These settings control allowed SMANetCom IP addresses, NIC binding, and TLS certificate configuration.
 
 
 ### allowed_sam_ip_address_1
@@ -11,12 +35,12 @@ The following parameters reference the TCP/IP settings for communication between
 
 **Description**:
 
-* Determines if communication from SMANetCom to the LSAM is restricted to one or more TCP/IP addresses.
-* If ANY is specified, the LSAM accepts communication from any SMANetCom.
-* If a specific TCP/IP address is defined (e.g., 126.40.90.231), the LSAM only accepts SMANetCom communication from the specified address.
-* The LSAM refuses a connection if communication is attempted from another address.
+* Determines if communication from SMANetCom to the agent is restricted to one or more TCP/IP addresses.
+* If ANY is specified, the agent accepts communication from any SMANetCom.
+* If a specific TCP/IP address is defined (e.g., 126.40.90.231), the agent only accepts SMANetCom communication from the specified address.
+* The agent refuses a connection if communication is attempted from another address.
 * This definition enhances communication security.
-* If multiple SAMs are on a network, this address ensures the LSAM is only accepting messages from the intended SMANetCom.
+* If multiple SAMs are on a network, this address ensures the agent is only accepting messages from the intended SMANetCom.
 
 ### allowed_sam_ip_address_2
 
@@ -65,7 +89,7 @@ Same as address_1 explanation.
 
 **Description**:
 
-* Determines if communication from SMANetCom to the LSAM is using TLS.
+* Determines if communication from SMANetCom to the agent is using TLS.
 * When enabling TLS, ensure that the JORS and SMAFT ports are not configured to use the same port number in the lsam.config file.
 * If set to zero, TLS is disabled.
 * If set to non-zero, TLS is enabled.

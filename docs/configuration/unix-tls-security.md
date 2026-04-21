@@ -1,20 +1,53 @@
-# UNIX TLS Security Procedures
+---
+sidebar_label: 'UNIX TLS security'
+title: UNIX TLS Security Procedures
+description: "Procedures for enabling and configuring TLS-secured communication between the Unix Agent and OpCon/SAM, including certificate creation and lsam.conf file changes."
+tags:
+  - Procedural
+  - System Administrator
+  - Agents
+---
 
-When enabled, TLS (i.e., “use_TLS_SAM” parameter is set to '1' in lsam.conf file) allows secured communication between the agent and OpCon/SAM and JORS, and is supported since agent version 16.01. SMAFT TLS functionality is supported on versions greater than 19.1. Hence, with the new SMAFT_TLS feature, ensure that the “SMAFT TLS_socket” number is always different than the “SMAFT_socket” number in the lsam.conf file. Also notice that if “use_TLS_SAM” is enabled, SMAFT_socket (which doesn’t support TLS protocol) must be different than JORS_FT_socket, which uses TLS protocol to communicate with OpCon/SAM. If it is disabled, then JORS_FT_socket can be the same or different than the SMAFT_socket number. SMA Technologies recommends that all three sockets (SMAFT_socket, SMAFT_TLS_socket, and JORS_FT_socket) use different numbers to avoid possible conflicts.
+# UNIX TLS security procedures
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Procedures for enabling and configuring TLS-secured communication between the Unix Agent and OpCon/SAM, including certificate creation and lsam.conf file changes.
+
+## When would you use it?
+
+- When your organization's security policy requires encrypted communication between the Unix Agent and OpCon/SAM.
+- When deploying the agent across a network where traffic between the agent machine and the OpCon server could be intercepted.
+- When SMAFT file transfers must also be secured with TLS (agent version 19.1 or later).
+- When replacing an expiring certificate or switching from a self-signed to a CA-signed certificate.
+
+## How to implement it
+
+**Prerequisites:**
+- Agent version 16.01 or later for SAM/JORS TLS; version 19.1 or later for SMAFT TLS.
+- A valid certificate file (`.pem` format) available on the agent machine.
+- Write access to the `lsam.conf` configuration file.
+
+To enable TLS, complete the following steps:
+
+When enabled, TLS (i.e., "use_TLS_SAM" parameter is set to '1' in lsam.conf file) allows secured communication between the agent and OpCon/SAM and JORS, and has been supported since agent version 16.01. SMAFT TLS functionality is supported on versions greater than 19.1. Hence, with the new SMAFT_TLS feature, ensure that the "SMAFT TLS_socket" number is always different than the "SMAFT_socket" number in the lsam.conf file. Also notice that if "use_TLS_SAM" is enabled, SMAFT_socket (which doesn't support TLS protocol) must be different than JORS_FT_socket, which uses TLS protocol to communicate with OpCon/SAM. If it is disabled, then JORS_FT_socket can be the same or different than the SMAFT_socket number. SMA Technologies recommends that all three sockets (SMAFT_socket, SMAFT_TLS_socket, and JORS_FT_socket) use different numbers to avoid possible conflicts.
 
 The UNIX agent supports both trusted (signed by a trusted certificate authority – CA) and untrusted (self-signed) certificates. The agent performs the role of a TLS/SSL server (similar to a web server) and OpCon/SAM as the client (e.g., a web browser).
 
-For trusted certificates (e.g., signed by Verisign), the user can simply import it into the agent and configure the lsam.conf file to point to that certificate.
+For trusted certificates (e.g., signed by Verisign), you can simply import it into the agent and configure the lsam.conf file to point to that certificate.
 
-For self-signed certificates, besides configuring the lsam.conf file to point to it, the user must also import that file into the OpCon/SAM machine.
+For self-signed certificates, besides configuring the lsam.conf file to point to it, you must also import that file into the OpCon/SAM machine.
 
-It is the responsibility of the user to monitor the certificates' expiration dates. When the certificate expires communication between the agent and OpCon could stop (future versions will provide a script to monitor expiration dates and warn the users ahead of time via email).
+It is your responsibility to monitor the certificates' expiration dates. When the certificate expires communication between the agent and OpCon could stop (future versions will provide a script to monitor expiration dates and warn you ahead of time via email).
 
-To ease certificate management it is recommended that the user uses a wildcard certificate. Refer to this article for additional details:
+To ease certificate management it is recommended that you use a wildcard certificate. Refer to this article for additional details:
 
 [What is a Wildcard SSL Certificate?](https://www.godaddy.com/help/what-is-a-wildcard-ssl-certificate-567)
 
-## Lsam.conf File Changes
+## lsam.conf file changes
 
 Four new entries are added under TCP/IP configuration parameters:
 
@@ -87,9 +120,9 @@ For example, users could issue the following command to create a self-signed wil
 
 On a Windows machine, use IIS Manager to create a server certificate.
 
-### Common Name
+### Common name
 
-The most important configuration to configure is the “Common Name” field. By using wildcard ```*smausa.com``` in this field, we can make use of this one certificate file for all the servers that end with domain name “smausa.com”. In other words, there is no need to generate a unique certificate for each server.
+The most important configuration to configure is the "Common Name" field. By using wildcard ```*smausa.com``` in this field, we can make use of this one certificate file for all the servers that end with domain name "smausa.com". In other words, there is no need to generate a unique certificate for each server.
 
 ```
 
@@ -107,7 +140,7 @@ writing new private key to 'redhat5as.pem'
 
 ```
 
-### Distinguished Name
+### Distinguished name
 
 At this point, you will be asked to enter information that will be incorporated into your certificate request. What you are about to enter is what is called a Distinguished Name or a 'DN'.
 
@@ -143,9 +176,9 @@ redhat5as.pfx successfully created.
 
 ```
 
-### User Friendly Certificate Format
+### User friendly certificate format
 
-The following command can be used to display the certificate in a user’s friendly format:
+The following command lets you display the certificate in a user-friendly format:
 
 ```
 
@@ -340,3 +373,13 @@ E12Dqbm3Yt6iGk3QaJMwYodLmWdBp1G0NPlQB8HSLKACcw==
 -----END CERTIFICATE-----
 
 ```
+
+## Exception handling
+
+**TLS communication does not work after configuration** — On systems running HP-UX, SUSE, UBUNTU, or DEBIAN with agent version 16.2.0, TLS communication may not function correctly. This is a known issue for that release on those platforms. — Upgrade to a later agent version where this issue is resolved.
+
+**`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory` at agent startup** — The SSL library version the TLS-enabled agent binary requires is not present in the system library search path. The agent cannot start its daemons when this library is missing. — Run `ldconfig -p | grep libssl` to find the installed library version, then create a symbolic link from the expected version name to the installed path. Repeat using `libcrypto` in place of `libssl`. See [Installation Requirements](../installation/requirements) for the complete step-by-step procedure.
+
+**Agent and OpCon/SAM lose communication after the certificate expiration date** — The certificate configured in `Lsam_pem_file` has expired. Expired certificates cause TLS handshakes to fail, interrupting all communication between the agent and OpCon. — Use `bin/lsam<SAM_Socket> show_cert <certificate_file>` to check the `Not After` date. Generate a new certificate with `bin/lsam<SAM_Socket> create_cert <days>`, update the `Lsam_pem_file` and `Lsam_private_key_file` paths in `lsam.conf`, and, for self-signed certificates, import the new certificate into the OpCon/SAM machine.
+
+**SMAFT file transfers fail after enabling TLS** — When `use_TLS_SAM` is enabled, `SMAFT_socket` and `JORS_FT_socket` must use different port numbers. If they are set to the same value, SMAFT transfers conflict with TLS-protected JORS communication. — Verify in `lsam.conf` that `SMAFT_socket`, `SMAFT_TLS_socket`, and `JORS_FT_socket` are each assigned distinct port numbers.

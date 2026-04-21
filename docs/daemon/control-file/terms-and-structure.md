@@ -1,4 +1,20 @@
+---
+title: Terms and Structure
+description: "Reference for the XML terminology and nesting structure used in SMA FAD Control Files, including definitions of elements, tags, and parent-child relationships."
+tags:
+  - Reference
+  - System Administrator
+  - Agents
+---
+
 # Terms and Structure
+
+**Theme:** Configure  
+**Who Is It For?** System Administrator
+
+## What is it?
+
+Reference for the XML terminology and nesting structure used in SMA FAD Control Files, including definitions of elements, tags, and parent-child relationships.
 
 Familiarization with the following terms is helpful in creating Control Files:
 
