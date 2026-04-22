@@ -32,11 +32,11 @@ To start the agent, complete the following steps:
 1. Log in to the UNIX system as root.
 2. Change the directory to the agent's root directory. Use the following syntax:
 
-```cd <LSAM _Root_Directory>```
+```cd <LSAM_Root_Directory>```
 
 :::info Note
 
-After an upgrade installation, verify that the LSAM's tracking directory is empty before starting the LSAM.
+After an upgrade installation, verify that the agent's tracking directory is empty before starting the agent.
 
 1. List the contents of the tracking directory with the following command:
 ```cd ../tracking;ls```
@@ -71,7 +71,7 @@ To check the agent status, complete the following steps:
 1. Log in to the UNIX system as root.
 2. Change the directory to the agent's bin directory. Use the following syntax:
 
-```cd <LSAM _Root_Directory>/bin```
+```cd <LSAM_Root_Directory>/bin```
 
 3. Verify the LSAM status with the following command: ```lsam<SAM_Socket>status```. The command should display the following processes:
 * sma_disp
@@ -130,14 +130,14 @@ If the LSAM processes do not start as expected, examine the logfile, the errfile
 
 The agent status is displayed.
 
-## Stop the LSAM
+## Stop the agent
 
 To stop the agent, complete the following steps:
 
 1. Log in to the UNIX system as root.
-2. Change the directory to the LSAM's bin directory. Use the following syntax:
+2. Change the directory to the agent's bin directory. Use the following syntax:
 
-```cd <LSAM _Root_Directory>/bin```
+```cd <LSAM_Root_Directory>/bin```
 
 3. Stop the agent with the following syntax: ```lsam<SAM_Socket>``` stop.
 

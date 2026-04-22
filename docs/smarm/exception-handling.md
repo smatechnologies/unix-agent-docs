@@ -80,7 +80,7 @@ It is analogous to using the ampersand on a UNIX Shell command line to run somet
 
 ```<action>/usr/act/disk %MOUNT_POINT% "Status = ALARM" %USAGE%%% &<action>```
 
-Other than to launch it and to wait on it to terminate if it is not run asynchronously, there is no interaction between an action and SMA_RM. 
+Other than to start it and to wait on it to terminate if it is not run asynchronously, there is no interaction between an action and SMA_RM. 
 
 "```<sleep> # </sleep>```", where '#' is a positive integer, will cause SMA_RM to delay for the specified number of seconds. This will increase the time required to complete the current scan cycle by that number of seconds.
 

@@ -136,13 +136,13 @@ When switching the value for path_to _su, be sure to retest all jobs running thr
 
 :::
 
-When path_to_su is set to No, the LSAM will not load you profile when a job runs. The LSAM will use only you name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure you_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit you_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
+When path_to_su is set to No, the agent will not load your profile when a job runs. The agent will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
 
-If you set path_to_su to yes, the LSAM will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will run calling "su -" to perform you impersonation. The LSAM will load the profile for your default shell as well as your full group list. The su utility will then handle all command line interpretation, including special characters. Since the LSAM is not running as a logged in user, any command in the profile that requires a console to be logged in may not run successfully.
+If you set path_to_su to yes, the agent will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will run calling "su -" to perform user impersonation. The agent will load the profile for your default shell as well as your full group list. The su utility will then handle all command line interpretation, including special characters. Since the agent is not running as a logged in user, any command in the profile that requires a console to be logged in may not run successfully.
 
 :::tip Example
 
-Jack Henry provides for AIX servers for running Episys with a standard profile configuration with settings that require the UNIX LSAM to be configured with path_to_su set to no.
+Jack Henry provides for AIX servers for running Episys with a standard profile configuration with settings that require the Unix Agent to be configured with path_to_su set to no.
 
 :::
 

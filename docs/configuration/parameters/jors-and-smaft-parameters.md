@@ -59,7 +59,7 @@ The following parameters reference the settings to control how the agent handles
 **Description**:
 
 * The sma_logging process will run maintain_ofiles to clean up STDOUT and STDERR files that were created from job executions. The value specified by days_of_output_to_keep will be used as the argument to maintain_ofiles.
-* Setting the value to 0 will disable this feature. This means the agent will not perform any clean-up of STDOUT and STDERR files. You is responsible for its maintenance and disk usage. SMA Technologies does not recommend setting this option to 0.
+* Setting the value to 0 will disable this feature. This means the agent will not perform any clean-up of STDOUT and STDERR files. You are responsible for its maintenance and disk usage. SMA Technologies does not recommend setting this option to 0.
 
 ### restrict_output_file
 
@@ -69,7 +69,7 @@ The following parameters reference the settings to control how the agent handles
 
 * Enables/disables restricting access to job STDOUT and STDERR output files upon a job's termination.
 * Value is a standard 3-digit octal number as used on UNIX systems to set access permissions, i.e., 'ogw', where 'o', 'g', and 'w' are octal digits (digits in the range of 0 to 7) and correspond to the permissions for the file's owner, the group to which it is assigned, and everyone else. Within each octal digit, setting the 4-bit allows reading the file, setting the 2-bit allows writing to the file (including truncation and deletion), and setting the 1-bit tags the file as being executable (e.g., '764' would result in the file's owner having complete access, members of the group would be able to do everything except run it, while everyone else would only be able to read the file).
-* The default value of '000' disables access restriction, and a job's output files will be readable and writable by everyone, while you/group will continue to be root/root – which are the settings used to create the files when the job is launched.
+* The default value of '000' disables access restriction, and a job's output files will be readable and writable by everyone, while the user and group will continue to be root/root — which are the settings used to create the files when the job starts.
 * A value other than '000' will result in a job's output files access permissions being set upon its termination to this value, and their user/group will be set to the User and Group specified for the job in the Enterprise Manager's Job Details screen.
 
 ### JORS_FT socket number

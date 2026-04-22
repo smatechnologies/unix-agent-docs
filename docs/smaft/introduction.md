@@ -24,9 +24,9 @@ The receiving (Agent) and sending (Server) components are installed with file-tr
 
 After receiving instructions from the agent on the Destination machine, the Agent (also on the Destination machine) and Server (on the Source machine) determine the best method for transporting the file. After negotiating the file transfer settings with the Server, the Agent requests the file. The Server retrieves the file and sends it to the Agent according to the Agent's instructions.
 
-The agent will perform file transfer using the open standard SFTP between UNIX agents when you has configured the agent Configuration Parameter "sftp_port" to a non-zero value. If, for whatever reason the transfer failed, the agent will fallback to using SMAFT to perform the transfer.
+The agent will perform file transfer using the open standard SFTP between UNIX agents when you have configured the agent Configuration Parameter "sftp_port" to a non-zero value. If, for whatever reason the transfer fails, the agent will fall back to using SMAFT to perform the transfer.
 
-When the agent is installed, you has the option of choosing to use the /TMP partition or to use a TMP area in the same partition as the agent. File transfers may require anywhere from two to three times the size of the file being transferred in /TMP or TMP workspace designated when the agent was installed.
+When the agent is installed, you have the option of choosing to use the /TMP partition or to use a TMP area in the same partition as the agent. File transfers may require anywhere from two to three times the size of the file being transferred in /TMP or TMP workspace designated when the agent was installed.
 
 ## When would you use it?
 

@@ -8,13 +8,13 @@ tags:
   - Agents
 ---
 
-Agent configuration includes modification of the agent Control Script, modification of the agent configuration file, and configuration of the root profile. For information on configuring the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script). The initial execution of the agent configuration program, which is automatically run during the agent installation, creates the Unix Agent configuration file lsam.conf. The lsam.conf resides in directory "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/```". Except as noted in section "Hidden agent Configuration Parameters", lsam.conf should not be directly modified, i.e., all modifications to the agent's configuration should be made with the agent configuration program. For more information on Hidden agent Configuration Parameters, refer to [Hidden agent Configuration Parameters](../configuration/parameters/hidden-parameters).
+Agent configuration includes modification of the agent Control Script, modification of the agent configuration file, and configuration of the root profile. For information on configuring the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script). The initial execution of the agent configuration program, which is automatically run during the agent installation, creates the Unix Agent configuration file lsam.conf. The lsam.conf resides in directory "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/```". Except as noted in section "Hidden agent Configuration Parameters", do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration. For more information on Hidden agent Configuration Parameters, refer to [Hidden agent Configuration Parameters](../configuration/parameters/hidden-parameters).
 
 Beyond the core configuration file, you can configure TLS-secured communication between the agent and OpCon/SAM, define black list and white list rules to control which users are permitted to run jobs, run multiple independent agent instances on a single machine, and configure the agent to start and stop automatically during system boot and shutdown.
 
 :::info Note
 
-The lsam.conf should not be directly modified, i.e., all modifications to the agent's configuration should be made with the agent configuration program.
+Do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration.
 
 :::
 

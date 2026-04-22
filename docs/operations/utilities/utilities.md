@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Utilities overview'
-title: Utilties Overview
+title: Utilities Overview
 description: "Overview of the Unix Agent utility programs available in the agent bin directory, covering installation, job management, file checking, and status reporting tools."
 tags:
   - Reference

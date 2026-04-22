@@ -94,7 +94,7 @@ During the installation, the script will perform the following actions:
 
 * Create the symbolic link ```LSAM_LINK``` to the new version folder.
 * Create the symbolic link ```LSAM_LINK.old.YYYYMMDD``` pointing to the version being updated. This provides a convenient link to when the upgrade was performed.
-* Create a private key file (```sma_id_rsa```) and a public key file (```sma_id_rsa.pub```) under the root's .ssh directory, and then append the public key file to the root's .ssh/authorized_keys file. The purpose of the key is to allow SFTP to work without prompting you for a password. If you doesn't want to use SFTP for an OpCon File Transfer job, they can remove the appropriate entry in ```~root/.ssh/authorized_keys```.
+* Create a private key file (```sma_id_rsa```) and a public key file (```sma_id_rsa.pub```) under the root's .ssh directory, and then append the public key file to the root's .ssh/authorized_keys file. The purpose of the key is to allow SFTP to work without prompting you for a password. If you don't want to use SFTP for an OpCon File Transfer job, you can remove the appropriate entry in ```~root/.ssh/authorized_keys```.
 
 START_AGENT and START_SERVICE, as configured in the install_agent script.
 

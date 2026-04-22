@@ -52,7 +52,7 @@ All of the agent components have the following characteristics:
 * The processes should always be started from within the agent Control Script with the start argument. For information on agent commands, refer to [Unix Agent Commands](../operations/unix-lsam-commands).
 * All output bound for the terminal is redirected to file ```"LSAM_output_<SAM_socket>"``` in the agent root directory.
 
-The table below lists the continuous processes of the agent with a short description of each component. Click on the link for a more in-depth discussion of the component.
+The table below lists the continuous processes of the agent with a short description of each component. Select the link for a more in-depth discussion of the component.
 
 agent Continuous Processes
 
@@ -195,9 +195,9 @@ To configure the JORS and file transfer ports, complete the following steps:
 1. Use menu path: Start > Programs > OpConxps > Enterprise Manager. The OpCon Login screen displays.
 2. In the Username text box, enter a case-sensitive User Login ID (e.g., ocadm).
 3. In the Password text box, enter the case-sensitive password for you.
-4. In the Profile drop-down list, select the Profile.
+4. In the **Profile** list, select the profile.
 5. Select the Login button to log in to the Enterprise Manager.
-6. Double-click on Machines. The Machines screen displays.
+6. Select **Machines**. The Machines screen displays.
 7. In the Select Machine list, select the UNIX Machine.
 8. Select Open Advanced Settings Panel. The Advanced Machine Properties window displays.
 9. Select the Communication Settings tab.
@@ -213,7 +213,7 @@ For JORS and a File Transfer job to function properly, ensure that any firewall 
 12. Select the Update button.
 13. Select the File Transfer Settings tab in the Advanced Properties window.
 14. Select the File Transfer parameter.
-15. Select the desired operating mode (None, Send Only, Receive Only, or Two-way) from the drop-down list in the frame below the Advanced Machine Properties.
+15. Select the desired operating mode (None, Send Only, Receive Only, or Two-way) from the list in the frame below the Advanced Machine Properties.
 16. Select the Update button.
 17. Select the File Transfer IP Address parameter in the File Transfer Settings tab.
 * Enter the machine's IP address.
@@ -231,18 +231,18 @@ For JORS and a File Transfer job to function properly, ensure that any firewall 
 
 To view job output, complete the following steps:
 
-1. Under the Operation topic, double-click on List.
+1. Under the Operation topic, select **List**.
 2. Select the arrow to expand the specific date.
 3. Select the arrow to expand the specific schedule.
 4. Right-click on the desired job.
 5. Select View Job Output from the menu. The Job Output Retriever window displays.
-6. Double-click on the Output File(s) name to retrieve the output file information. The Log Viewer window displays.
+6. Select the Output File(s) name to retrieve the output file information. The Log Viewer window displays.
 7. *(Optional)* Select the Copy To Clipboard button.
 8. *(Optional)* Select the Open external editor button to open the file in an external editor (e.g., Notepad).
 9. Select the Close button to close the "Log Viewer" window.
 10. Select the Close button to close the "Job Output Retriever" window. The job output is displayed.
 
-### sma_RN
+### sma_RM
 
 The sma_RM process enables the LSAM to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](../smarm/introduction).
 

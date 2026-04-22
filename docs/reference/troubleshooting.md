@@ -18,7 +18,7 @@ Reference for common UNIX system error symbols returned by the Unix Agent, inclu
 
 ## When would you use it?
 
-- An error symbol (such as ENOENT, EACCES, or ETIMEDOUT) appears in the Enterprise Manager, agent log file, or agent error file and you need to identify its probable cause and corrective action.
+- An error symbol (such as ENOENT, EACCES, or ETIMEDOUT) appears in Solution Manager, the agent log file, or the agent error file and you need to identify its probable cause and corrective action.
 - A job fails with a UNIX system error and the agent-generated message includes an errno symbol you do not recognize.
 - You are diagnosing network, file, permission, or resource errors reported by the agent.
 - You need a quick-reference index to locate a specific error symbol by category before reading its full entry.
