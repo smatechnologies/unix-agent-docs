@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Procedures for enabling and configuring TLS-secured communication between the Unix Agent and OpCon/SAM, including certificate creation and lsam.conf file changes.
-
-## When would you use it?
 
 - When your organization's security policy requires encrypted communication between the Unix Agent and OpCon/SAM.
 - When deploying the agent across a network where traffic between the agent machine and the OpCon server could be intercepted.
@@ -165,7 +162,6 @@ Email Address []:support@smatechnologies.com
 redhat5as.pem successfully created.
 
  
-
 Exporting redhat5as.pem to Windows format PKCS#12 file redhat5as.pfx
 
 Enter Export Password:
@@ -255,7 +251,6 @@ fb:61:f5:f4:e7:52:81:fe:08:ec:72:1e:64:6d:34:
 93:ed
 
  
-
 Exponent: 65537 (0x10001)
 
 X509v3 extensions:
@@ -269,23 +264,19 @@ X509v3 Authority Key Identifier:
 keyid:27:D7:19:77:05:CA:F8:60:32:B9:24:A9:69:32:F9:2E:E8:AB:A6:AD
 
  
-
 DirName:/C=US/ST=TX/L=Kingwood/O=SMA Technologies/OU=Engineering/CN=*.smausa.com/emailAddress=support@smatechnologies.com
 
 serial:E5:C1:38:13:65:4E:8F:47
 
  
-
 X509v3 Basic Constraints:
 
 CA:TRUE
 
  
-
 Signature Algorithm: sha256WithRSAEncryption
 
  
-
 07:f7:7a:eb:69:89:48:5f:26:4a:03:de:57:17:be:3a:b1:b0:
 
 27:d0:3e:2c:7b:74:1e:c3:cb:e4:d4:32:13:f6:84:35:9a:24:
@@ -317,7 +308,6 @@ a5:ac:8a:9d:32:af:13:5d:83:a9:b9:b7:62:de:a2:1a:4d:d0:
 2c:a0:02:73
 
  
-
 -----BEGIN CERTIFICATE-----
 
 MIIEnjCCA4agAwIBAgIJAOXBOBNlTo9HMA0GCSqGSIb3DQEBCwUAMIGQMQswCQYD

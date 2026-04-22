@@ -13,7 +13,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 SMA_RM monitors system resources — including disk space, processes, and user-defined metrics — and triggers OpCon events or local actions when alarm conditions are detected.
 
 The SMA Resource Monitor (SMA_RM) allows for monitoring of system resources and generation of OpCon events and/or local processing actions as a resource is determined to have gone into or out of alarm per user-defined conditions. A log file is also kept in which data for monitored resources can be logged with each scanning cycle or as the determined alarm/normal status changes. Events sent to SAM and local processing actions initiated as a result of monitored conditions may also be logged. The log file is stored in the agent's log directory within sub-directory 'SMA_RM/', e.g., in "/usr/local/lsam/log/3100/SMA_RM/". The log file is named "yyyymmdd.log", where 'yyyymmdd' is the 4-digit year, 2-digit month, and 2-digit day-of-month of the current date, e.g., "20161005.log". At the beginning of every new day (if SMA_RM is in operation), the current log file will be closed and a new one, bearing the filename for the new date, will be opened. If a log file for the current day already exists when SMA_RM begins operation, data will be appended to it. To keep disk usage by log files from becoming excessive, old log files can be deleted via the agent utility 'maintain_ofiles' (refer to [maintain_ofiles](../operations/utilities/maintain-ofiles)).
@@ -30,15 +29,11 @@ Process monitoring uses output from the standard UNIX 'ps' command, and capabili
 
 User-defined monitors are user-written scripts or programs to be invoked by SMA_RM during each scan cycle to do whatever the scan requires to effect one scan of some resource and to return the normal/alarm status of the resource along with zero or more values which may be logged in the SMA_RM log file. Formatting requirements will be explained later in section "The ```<user_defined>``` Section". Data gathered by the script/program can be included via event variables in events to be sent to SAM.
 
-## When would you use it?
-
 - Use SMA Resource Monitor when you need to monitor disk space and trigger an OpCon event or local action — such as a cleanup job or an operator console alert — when disk usage meets or exceeds a defined percentage threshold.
 - Use SMA Resource Monitor when you need to verify that required processes are running (MUST_RUN) or that prohibited processes are not running (MUST_NOT_RUN), and send an event to SAM when the condition is violated.
 - Use SMA Resource Monitor when you need to detect CPU-hog processes — processes consuming an inordinate amount of CPU time — and generate escalating events as the condition worsens, using multiple alarm levels for the same resource.
 - Use SMA Resource Monitor when you need to monitor custom resources beyond disk and processes — such as the number of files in a directory, the number of records in a database, or the number of logged-in users — by configuring user-defined monitors that invoke your own scripts or programs during each scan cycle.
 - Use SMA Resource Monitor when you need to restrict monitoring to specific daily time windows, or to define exclusive windows so that monitoring occurs only outside a specified time period.
-
-## Why would you use it?
 
 - SMA_RM monitors disk space, processes, and user-defined metrics continuously during each scan cycle, sending OpCon events or running local actions the moment a resource crosses a defined threshold — without requiring a separate scheduled job for each check.
 - Daily time windows allow monitoring to be active only during business hours or only outside them, so alarm conditions are reported in the context where they are actionable rather than generating noise at all hours.

@@ -13,8 +13,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for SMA_RM exception-handling specifications, covering event, action, and sleep tags, as well as multi-level alarm processing for disk, process, and user-defined monitors.
+
+- Configuring exception handling for both alarm and return-to-normal transitions ensures that operators receive feedback in both directions — they are notified when a condition becomes critical and again when it resolves, preventing wasted effort or detrimental action taken after a condition has already cleared.
+- Using `<event>` tags in exception-handling specifications sends OpCon events directly to SAM, which allows SMA_RM alarms to trigger automated job chains — for example, launching a cleanup job when disk usage crosses 80 percent and notifying an operator via `$CONSOLE:DISPLAY` if usage reaches 90 percent.
+- Using `<action>` tags in exception-handling specifications initiates local shell scripts or programs in response to an alarm, enabling on-host remediation such as archiving or deleting files without requiring a full OpCon job definition.
+- Using `<sleep>` tags introduces deliberate delays between `<event>` and `<action>` steps, allowing time-sensitive sequences within a single exception-handling specification to pace correctly.
 
 ## When exception handling fires
 
@@ -22,13 +26,6 @@ Reference for SMA_RM exception-handling specifications, covering event, action, 
 - Exception handling fires when a monitored process violates its defined condition: for MUST_RUN, when a required process is absent; for MUST_NOT_RUN, when a prohibited process is detected; and for CPU_CHECK, when a process's CPU usage meets or exceeds the defined alarm boundary values.
 - Exception handling fires when a user-defined monitor's `<start_image>` returns ALARM on a scan where the previous result was NORMAL (or on the initial scan if the first result is ALARM), causing SMA_RM to run the associated `<alarm>` specification.
 - Exception handling also fires in the return direction: when a resource transitions from ALARM back to NORMAL, the associated `<normal>` specification runs, enabling all-clear notifications or cleanup actions to be sent.
-
-## Why would you use it?
-
-- Configuring exception handling for both alarm and return-to-normal transitions ensures that operators receive feedback in both directions — they are notified when a condition becomes critical and again when it resolves, preventing wasted effort or detrimental action taken after a condition has already cleared.
-- Using `<event>` tags in exception-handling specifications sends OpCon events directly to SAM, which allows SMA_RM alarms to trigger automated job chains — for example, launching a cleanup job when disk usage crosses 80 percent and notifying an operator via `$CONSOLE:DISPLAY` if usage reaches 90 percent.
-- Using `<action>` tags in exception-handling specifications initiates local shell scripts or programs in response to an alarm, enabling on-host remediation such as archiving or deleting files without requiring a full OpCon job definition.
-- Using `<sleep>` tags introduces deliberate delays between `<event>` and `<action>` steps, allowing time-sensitive sequences within a single exception-handling specification to pace correctly.
 
 ## Exception handling
 

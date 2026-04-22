@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for Unix Agent configuration parameters covering job handling, user impersonation, health monitoring, and privilege settings.
-
-## When would you use it?
 
 - When configuring the maximum number of jobs the agent can simultaneously manage
 - When setting job submission permissions, such as allowing or restricting root-level job runs
@@ -114,7 +111,6 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 This is the global configuration setting for how the agent will impersonate users when running jobs. For a full discussion of the options, please refer to "Considerations for path_to_su" below this table.
 
  
-
 The options for this setting include:
 
 * no: Setting the value to no causes the agent to use the legacy method of user impersonation for all jobs.

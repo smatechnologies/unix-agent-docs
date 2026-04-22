@@ -14,7 +14,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the maintain_ofiles utility, which deletes job output files, tracking files, and temporary agent files older than a specified number of days.
 
 The maintain_ofiles program prevents the accumulation of outdated job-related files. This program deletes files older than the specified number of days. It specifically deletes: job output files, job tracking files, and anything within the agent's tmp directory. For example, if the program's parameter indicates 10 days should be kept, it removes any job-related file older than midnight of 10 days ago.
@@ -33,12 +32,8 @@ This program will also delete any SMA Resource Monitor (SMA_RM) log files which 
 
 :::
 
-## When would you use it?
-
 - You need to prevent the accumulation of outdated job output files, tracking files, and agent temporary files on the agent machine.
 - You are scheduling a recurring maintenance job in OpCon to automatically clean up files older than a configured retention period.
-
-## Why would you use it?
 
 - Running maintain_ofiles on a regular schedule (daily or weekly) prevents disk space from being consumed by job-related files that are no longer needed.
 
@@ -57,6 +52,5 @@ This program will also delete any SMA Resource Monitor (SMA_RM) log files which 
 The environment variable `$SMA_BINDIR` is defined for use within OpCon jobs. If run from a context other than an OpCon job, `$SMA_BINDIR/` must be replaced by the appropriate path.
 
 :::
-
 
 

@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the SMA FAD event string variables and condition variables, including token substitutions for file path, name, and extension, as well as supported file condition types.
 
 The SMA FAD supports several variables in the event strings. Before sending the event string to the SAM for processing, SMA FAD replaces the variables with their current values. The variables retrieve values from the `<filemask>` element in the associated record block, allowing the forwarded OpCon events to include dynamic information — such as the full file path, the file name, or the file extension — that is only known at the time a monitored condition is detected.
-
-## When would you use it?
 
 - Use `%FULLNAME%` in an event string when the receiving OpCon event or SAM process needs the complete path and file name of the detected file — for example, to pass the exact file location to a downstream job.
 - Use `%PATHNAME%` when only the directory path (excluding the file name and trailing slash) is needed in the event string — for example, to reference the directory in which the file was detected.

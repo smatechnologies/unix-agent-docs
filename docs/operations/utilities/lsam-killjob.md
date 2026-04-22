@@ -14,15 +14,10 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the lsam_killjob command, which forcibly terminates a running OpCon job on the Unix Agent by sending a SIGKILL signal to the identified process.
-
-## When would you use it?
 
 - A running job must be terminated immediately and the Advanced Machine parameter "Allow Kill Job" is not set to TRUE, so termination through the Enterprise Manager Operation view is not available.
 - You need to terminate an SMA File Transfer (SMAFT) job that cannot be stopped through the normal OpCon job kill mechanism.
-
-## Why would you use it?
 
 - The command targets only jobs that were started by sma_lsam, reducing the risk of accidentally killing unrelated system processes.
 - lsam_killjob presents an interactive confirmation prompt for each matching process before sending the SIGKILL signal, giving you the opportunity to confirm the correct process before terminating it.

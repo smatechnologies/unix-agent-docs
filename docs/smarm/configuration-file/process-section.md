@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the SMA_RM PROCESS section, which configures process monitoring conditions — including IGNORE, MUST_RUN, MUST_NOT_RUN, and CPU_CHECK — along with alarm levels and event variables.
-
-## When would you use it?
 
 - Configure a `<process>` section with `<condition>MUST_RUN</condition>` when a specific process must always be running — for example, a data processing daemon — and you need SMA_RM to send an event to SAM the first time the process is not detected.
 - Configure a `<process>` section with `<condition>MUST_NOT_RUN</condition>` when a specific process must not be running — for example, game or unauthorized programs — and you need an event sent for each unique prohibited process that is detected.
@@ -111,11 +108,9 @@ The event variables available within the ```<exist_alarm>``` and ```<exist_clear
 ```<exist_alarm>``` and ```<exist_clear>``` specification may only appear if ```<condition> = MUST_RUN``` or ```MUST_NOT_RUN```.
 
  
-
 ```<name>``` and ```<UID>``` specify the process(es) to monitor per the indicated ```<condition>``` and are combined using an implied AND conjunction, i.e., a process must match both to be processed/ignored. If neither is specified, then this ```<process>``` section applies to all processes output by a 'ps' command. Processes are monitored by running a "ps –ef" command and capturing the output for inspection. ```<name>``` refers to the CMD field of the 'ps' output, ```<UID>``` refers to the UID field. For either, you can use an asterisk ('*') as a wildcard character at either the beginning or at the end: at the end it means "begins with", at the beginning it means "ends with", and at both ends means "contains". A lone '*' means "matches all", as does an unspecified ```<name>``` or ```<UID>```. The contents of the ```<name>``` and ```<UID>``` entities are case-sensitive. The CMD contents will be truncated at the first blank, so ```<name>``` is just the filename or pathname (as returned by a particular OS's version of 'ps'), and does not include any start parameters which might also appear in the 'ps' output.
 
  
-
 ```<C_alarm>``` and ```<T_alarm>```, which are integers and may only appear if ```<condition> = CPU_CHECK```, and get their default values and MIN/MAX value types from the same-named entities within the ```<config>``` section, detect whether a process is a CPU-hog. ```<C_alarm>``` relates to the "C" field of the 'ps' output, ```<T_alarm>``` relates to "TIME". ```<C_alarm>``` directly specifies a C value, while ```<T_alarm>``` specifies a percentage of TIME. MIN or MAX may be included with each value to set the type of the value, the default being MAX. If MIN or MAX is specified, at least one space must appear between the MIN or MAX and the value. Detection for processes being CPU-hogs works as follows:
 
 1. When a process first appears in the 'ps' output, 10 slots are created for each C and TIME (T) value. Each C slot is set to zero, except for the first, which is set to the scanned C value. Each T slot is set to the scanned value.

@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Overview of the Unix Agent utility programs available in the agent bin directory, covering installation, job management, file checking, and status reporting tools.
-
-## When would you use it?
 
 - Use `file_check` or `exit_codes` when you need to verify file criteria or debug the return values of a job before scheduling it in OpCon.
 - Use `lsam_killjob` when a running job must be forcibly terminated and the Enterprise Manager "Allow Kill Job" parameter is not enabled.
@@ -26,8 +23,6 @@ Overview of the Unix Agent utility programs available in the agent bin directory
 - Use `sma_job_step` when a job must support restart at a specific step without rerunning all preceding steps.
 - Use `install_lsam` or `install_lsam_service` during initial deployment or when configuring the agent to start automatically on system reboot.
 - Use `maintain_ofiles` to prevent accumulation of outdated job-related output files on the agent machine.
-
-## Why would you use it?
 
 - Utilities extend what jobs can communicate back to OpCon. Without `sma_status` and `sma_job_step`, operators would have no visibility into the internal progress of a running job.
 - Several utilities (`file_check`, `sma_ppscript`) allow jobs to enforce their own pre-conditions and post-processing logic, reducing dependency on manual operator intervention.
@@ -51,3 +46,4 @@ In the table that follows, a short description of each utility is provided.
 | sma_ppscript | Registers a post-processing script (ppscript) to analyze the standard out of a job |
 | sma_status | Sends message for the Enterprise Manager to display after the OpCon status message |
 | uninstall_lsam | Quickly removes an agent |
+

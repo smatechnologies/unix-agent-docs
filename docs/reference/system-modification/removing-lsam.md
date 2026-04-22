@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Steps to completely remove the Unix Agent from a system, including stopping the agent, deleting its directory, and disabling automatic startup.
-
-## When would you use it?
 
 - You are decommissioning a host and need to ensure the Unix Agent and all of its files are fully removed before the system is retired or repurposed.
 - You need to perform a clean reinstallation and want to eliminate any residual directories or configuration files from the previous installation before installing again.

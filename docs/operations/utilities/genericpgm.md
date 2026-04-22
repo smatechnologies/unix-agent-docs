@@ -14,17 +14,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the genericpgm utility, a dummy test program that sleeps for a configurable duration and exits with a specified exit code and signal disposition.
 
 The genericpgm program sleeps for the requested time (default 10 seconds) and then exits with the requested exit code (default zero [0]) and signal disposition (default zero [0]). Valid UNIX exit codes are restricted to the range -127 to 127.
 
-## When would you use it?
-
 - You are configuring or testing the agent and need a job that runs for a predictable duration and exits with a specific code, without requiring a real workload.
 - You are using exit_codes to test Failure Criteria and need a controlled program whose exit code and sleep duration you can specify precisely.
-
-## Why would you use it?
 
 - genericpgm produces repeatable, configurable output — a known exit code, signal disposition, and runtime — which removes variables when isolating agent configuration issues.
 

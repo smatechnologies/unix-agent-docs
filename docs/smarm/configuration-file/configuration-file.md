@@ -14,16 +14,11 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 The SMA_RM configuration file defines the structure and rules for disk, process, and user-defined monitoring sections, including window, log, and comment syntax.
-
-## When would you use it?
 
 - Edit the configuration file to add, modify, or remove `<disk>`, `<process>`, or `<user_defined>` monitoring sections when your organization's monitoring requirements change — for example, when new disks are mounted, new processes must be tracked, or user-defined monitors are added.
 - Edit the configuration file to change global parameters in the `<config>` section, such as the `<scan_interval>`, `<C_alarm>`, `<T_alarm>`, or `<user_defined_monitor>` timeout settings, when the current values no longer reflect your monitoring needs.
 - Edit the configuration file to replace its contents with an empty `<config></config>` block when you need to temporarily disable SMA_RM without stopping the agent, then overwrite it with the full configuration when you are ready to resume monitoring.
-
-## Why would you use it?
 
 - SMA_RM starts automatically at agent startup only if the configuration file is present and readable; configuring the file is required to activate disk, process, and user-defined monitoring without restarting the agent.
 - SMA_RM monitors the configuration file for changes and re-reads it when a change to its modification time is detected, allowing monitoring configuration to be updated on the fly without an agent restart; if the new file contains errors, SMA_RM logs the error and continues with the previous valid configuration.
@@ -62,7 +57,6 @@ The file is free-format, that is, you can use spaces, tabs, and line-feeds as de
 Except as noted, letter case is insignificant. That is, "```<user_defined>```" and "```<UseR_deFIned>```" are equivalent, as are ```MUST_RUN``` and ```must_run```.
 
  
-
 Comments can be included by beginning a line with a '#', as in:
 
 ```

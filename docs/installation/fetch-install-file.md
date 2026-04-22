@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Step-by-step procedures for placing the Unix Agent installation tar file onto the target UNIX machine via DVD copy or FTP transfer.
-
-## When would you use it?
 
 Use this procedure in the following situations:
 

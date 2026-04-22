@@ -14,17 +14,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Instructions for using SMA Technologies-provided setup scripts and the userinfo program to load a user's operating environment before the Unix Agent executes a job.
-
-## When would you use it?
 
 Set up environment variables when:
 
 - A job script requires the assigned user's operating environment — including variable definitions, PATH, UMASK, or special time zone settings — before it can run correctly under that User ID.
 - A job fails or produces unexpected results because environment variables such as `HOME`, `LOGNAME`, or `PATH` are not defined when the agent runs the script.
-
-## Why would you use it?
 
 - Loading a user's operating environment before a job runs ensures that programs and scripts behave the same way whether they are run manually by the user or run by the agent on that user's behalf.
 - Using the SMA Technologies-provided setup scripts and the `userinfo` program lets a single configured script work for any valid GID/UID the agent receives, reducing per-user maintenance.

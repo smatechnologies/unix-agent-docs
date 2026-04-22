@@ -14,7 +14,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 SMAFT supports optional file compression using the UNIX tar and gzip utilities, configurable as PREFERRED or REQUIRED for each agent installation.
 
 Both the UNIX SMA File Transfer (SMAFT) Agent and Server support file compression using the UNIX "tar" and "gzip" utilities. By default, the Server does not compress the Source File prior to its transfer to the Agent. Two additional options are available: PREFERRED and REQUIRED. If PREFERRED is selected, the file is transferred without compression if the Server and Agent are unable to negotiate a compatible compression method. If REQUIRED is selected and if a compression method cannot be negotiated, the transfer is not performed and the job fails.
@@ -29,13 +28,9 @@ During the agent installation, the installation script searches the system for t
 
 Configuration changes take effect immediately in the Agent; however, the agent must either be restarted or refreshed for the changes to become effective in the Server.
 
-## When would you use it?
-
 - Enable compression when transferring large files across platforms where reducing transfer size is beneficial, and the `tar` and `gzip` utilities are available on both the Source and Destination machines.
 - Enable compression as PREFERRED when you want to compress files in transit but cannot guarantee that both the Server and Agent support a compatible compression method, so that the transfer can still complete without compression if negotiation fails.
 - Enable compression as REQUIRED when your organization requires that all file transfers be compressed and a transfer without compression must not be allowed to complete.
-
-## Why would you use it?
 
 - Compression reduces the size of files in transit, which can lower the amount of time required to complete a transfer across slow or bandwidth-limited network connections.
 - The PREFERRED option provides a safe default: compression is used when both parties can negotiate a compatible method, but the transfer is not blocked when they cannot, reducing the risk of job failure.

@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Hardware, software, disk space, memory, and privilege requirements for installing the Unix Agent on a supported UNIX platform.
-
-## When would you use it?
 
 Consult this page in the following situations:
 
@@ -54,7 +51,6 @@ Use the following information to aid in the installation:
 Pre-start validation completed.
 
  
-
 --- Starting logging daemon
 
 /usr/lib/lsam-17.1.26/bin/sma_log: error while loading shared libraries: libssl.so.0.9.8: cannot open shared object file: No such file or directory
@@ -98,3 +94,4 @@ You must perform all operations on the target machine with SuperUser authority, 
 :::
 
 Perform the steps in sequence to install the Unix Agent properly. For a list of the files and directories installed with the agent, refer to Unix Agent Configuration. The agent installation should take approximately 10 minutes.
+

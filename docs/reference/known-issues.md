@@ -13,17 +13,13 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for known defects and limitations in Unix Agent versions, including affected platforms, symptoms, and available workarounds.
 
 Issues are listed by version and include workarounds where available.
 
-## When would you use it?
-
 - A job, file transfer, or agent startup behaves unexpectedly and you need to determine whether the behavior is a known defect in your installed version.
 - You are planning an upgrade and need to review defects and limitations in the version you are moving to or from.
 - You have encountered an error and need to check whether a workaround is available before contacting SMA Technologies Support.
-
 
 
 ---
@@ -105,3 +101,4 @@ Issues are listed by version and include workarounds where available.
 
 - **Affected versions:** All versions prior to 3.08.01
 - **Workaround:** If possible, upgrade to agent v3.08.01 or higher. Otherwise, configure the system to keep PIDs under 10 million, or if PIDs have reached 10 million, reboot the system prior to starting the agent.
+

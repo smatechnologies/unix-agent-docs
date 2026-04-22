@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for STDERR pre-processing error messages written when file transfer job requirements cannot be met before the transfer begins.
 
 Pre-processing errors are written to a job's STDERR file when the job requirements could not be met.
-
-## When would you use it?
 
 - A file transfer job fails before the transfer begins and you need to identify the pre-processing error written to the job's STDERR file.
 - A transfer is aborted due to access, permission, or path issues on the source or destination file.
@@ -105,5 +102,4 @@ The file transfer was aborted because the indicated data type is not supported.
 **Origination**: FTAgent
 
 FTAgent is unable to translate the intermediate character set chosen by the FTServer to affect the transfer when source and destinations data types differ.
-
 

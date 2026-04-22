@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for STDOUT messages output by the Unix Agent FTAgent component during file transfer operations, including backup, transfer result, and completion messages.
-
-## When would you use it?
 
 - A file transfer job completes or fails and you need to interpret the STDOUT messages written by FTAgent.
 - You need to confirm whether a destination file was backed up, overwritten, appended to, or created during a transfer.

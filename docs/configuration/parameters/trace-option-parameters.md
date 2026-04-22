@@ -14,12 +14,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for Unix Agent trace option parameters that enable or disable diagnostic tracing for the dispatcher, agent, and other internal processes.
 
 The following parameters reference the trace settings for troubleshooting the Unix Agent. These settings enable or disable diagnostic tracing for the dispatcher, internal agent process, JORS and SMAFT activities, Resource Monitor, and File Activity Daemon (FAD).
-
-## When would you use it?
 
 - When directed by SMA Technologies Support to enable diagnostic tracing for a specific agent process
 - When troubleshooting communication issues between the agent and SAM
@@ -86,5 +83,4 @@ Always leave the following flags set to zero unless otherwise instructed by SMA 
 * If set to non-zero, tracing occurs.
 * Trace setting applies to all FAD processes started with the agent.
 * Trace file name is "sma_FAD.trace".
-
 

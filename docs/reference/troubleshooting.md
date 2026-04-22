@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for common UNIX system error symbols returned by the Unix Agent, including probable causes and corrective actions for each error condition.
-
-## When would you use it?
 
 - An error symbol (such as ENOENT, EACCES, or ETIMEDOUT) appears in Solution Manager, the agent log file, or the agent error file and you need to identify its probable cause and corrective action.
 - A job fails with a UNIX system error and the agent-generated message includes an errno symbol you do not recognize.

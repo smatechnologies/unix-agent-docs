@@ -14,15 +14,10 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the sma_job_step utility, which logs named job steps to the SAM to enable job restart at a specific step from the OpCon Enterprise Manager.
-
-## When would you use it?
 
 - A job consists of multiple named steps and, after a failure, you need to restart the job from a specific step rather than rerunning all preceding steps.
 - You need to run only a subset of a job's steps by specifying a starting step (`sma_first`) and/or an ending step (`sma_last`) in the Job Details screen.
-
-## Why would you use it?
 
 - Logging steps with sma_job_step populates the Job Restart Step list in the Enterprise Manager, giving operators a named list of steps to choose from when restarting a failed job.
 - Defining start and end steps avoids reprocessing data that was already successfully handled in earlier steps, reducing runtime and preventing duplicate processing.

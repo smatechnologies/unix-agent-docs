@@ -14,15 +14,10 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the sma_ppscript utility, which registers a post-processing analysis script to determine job success or failure after the job's executable finishes.
-
-## When would you use it?
 
 - A job's success or failure cannot be determined solely by its exit code, and the content of the job's STDOUT or STDERR output must be analyzed to make that determination.
 - The standard Failure Criteria in the OpCon Job Details screen does not provide sufficient flexibility for the specific analysis the job requires.
-
-## Why would you use it?
 
 - sma_ppscript separates the job's executable from the logic used to evaluate its outcome, allowing you to update the analysis script independently without modifying the job's main program.
 - The analysis script receives the pathnames of the job's redirected STDOUT and STDERR files as arguments, giving it direct access to the job's output for detailed inspection.

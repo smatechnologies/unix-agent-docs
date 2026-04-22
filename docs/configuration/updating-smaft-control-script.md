@@ -15,17 +15,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference and procedures for reviewing and editing the SMAFT control script variables to ensure they match the Unix Agent control script settings.
-
-## When would you use it?
 
 Update the SMAFT control script when:
 
 - The `LSAM_ROOT`, `SAM_SOCKET`, `SMA_LSAM_INSTANCE`, or `PATH` values in the agent Control Script have changed and the SMAFT Control Script must be updated to match.
 - The SMAFT Control Script has been deleted and you need to verify the values that were automatically regenerated when the agent Control Script ran.
-
-## Why would you use it?
 
 - The SMAFT Control Script variables must match the corresponding values in the agent Control Script; mismatches prevent SMAFT jobs from locating the correct agent files and communicating on the correct socket.
 - Confirming the `PATH` variable in the SMAFT Control Script ensures that file transfer jobs can locate the `tar` and `gzip` compression utilities required to complete transfers.

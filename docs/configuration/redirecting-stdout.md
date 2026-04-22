@@ -15,17 +15,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for redirecting STDOUT output from Unix Agent jobs, including use of the captureSTDOUT script and behavior differences based on the path_to_su parameter.
-
-## When would you use it?
 
 Redirect STDOUT when:
 
 - The `path_to_su` parameter is set to No and a job must write its output to a specific file, because in this configuration the agent does not correctly interpret a redirection character (`>`) in a Start Image received from the Enterprise Manager.
 - A job's output would otherwise accumulate in the `LSAM_output_<SAM_socket>` file in the agent root directory, making it difficult to identify or archive output for individual jobs.
-
-## Why would you use it?
 
 - Redirecting STDOUT to a dedicated output file keeps job output separate from agent diagnostic output, making it easier to review results and diagnose job failures.
 - Using the `captureSTDOUT` script or a wrapper script provides a consistent, maintainable approach to output handling that works for any job without modifying the individual scripts themselves.

@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Step-by-step instructions for modifying the Unix Agent configuration file using the LSAM configuration program.
-
-## When would you use it?
 
 Modify the agent configuration file when:
 

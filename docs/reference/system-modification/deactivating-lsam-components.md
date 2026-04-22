@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Steps to deactivate the optional sma_cronmon and sma_filein components of the Unix Agent by commenting out lines in the start and stop scripts.
 
 The Unix Agent has two optional components that you can deactivate. These components are sma_cronmon, and sma_filein. The methodology of deactivating a component has two basic steps:
-
-## When would you use it?
 
 - You need to stop sma_cronmon or sma_filein from starting with the agent because those components are not required in your environment.
 - You are reducing the agent's resource footprint by disabling optional components.
@@ -43,7 +40,6 @@ To comment out a line, precede it with a pound (#) symbol.
 #!/bin/sh
 
  
-
 # START_IT="yes"
 
 # if [ -f ${CRON_PID} ]
@@ -99,7 +95,6 @@ To comment out a line, precede it with a pound (#) symbol.
 #!/bin/sh
 
  
-
 # ${ECHO} "- Stopping the CronMon : ${ENDER}"
 
 # if [ -f ${CRON_PID} ]
@@ -135,7 +130,6 @@ To comment out a line, precede it with a pound (#) symbol.
 #!/bin/sh
 
  
-
 # START_IT="yes"
 
 # if [ -f ${FLIN_PID} ]
@@ -189,7 +183,6 @@ To comment out a line, precede it with a pound (#) symbol.
 #!/bin/sh
 
  
-
 # ${ECHO} "- Stopping the Filein : ${ENDER}"
 
 # if [ -f ${FLIN_PID} ]

@@ -14,7 +14,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Guidelines and examples for formatting SMA FAD Control Files, including whitespace handling, comment syntax, and recommended layout for readability.
 
 The formatting of elements is not important to the daemon; however, SMA Technologies recommends the files be laid out for easiest readability. Carriage returns, line feeds, and non-significant spaces are optional and are ignored. Use a pound symbol (#) to "comment out" a line.
@@ -24,8 +23,6 @@ The formatting of elements is not important to the daemon; however, SMA Technolo
 Spaces in the data portion of an element are important and are considered part of the data for SMA FAD to interpret.
  
 :::
-
-## When would you use it?
 
 - When creating a new Control File and you want to lay out elements across multiple lines so the configuration is easier to read and maintain.
 - When you need to temporarily disable a specific line in a Control File — for example, to suppress an event or exclude a directory — without deleting the content.

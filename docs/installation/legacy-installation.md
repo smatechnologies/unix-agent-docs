@@ -13,7 +13,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Step-by-step procedures for performing a new or upgrade Unix Agent installation using the legacy manual method.
 
 :::info Note
@@ -21,8 +20,6 @@ Step-by-step procedures for performing a new or upgrade Unix Agent installation 
 The procedures in this section describe the legacy method for installing the Unix Agent. For the preferred method, refer to [Preferred Installation Procedures](../installation/preferred-installation).
 
 :::
-
-## When would you use it?
 
 Use the legacy installation method in the following situations:
 

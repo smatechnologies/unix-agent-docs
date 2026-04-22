@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the SMA_RM USER_DEFINED section, which allows custom scripts or programs to report normal/alarm status and return loggable values during each scan cycle.
-
-## When would you use it?
 
 - Use a `<user_defined>` section when you need to monitor a resource that SMA_RM's built-in disk and process monitoring cannot address — for example, the number of files in a directory, the number of records in a database, or the number of users currently logged in to the system.
 - Use a `<user_defined>` section when your monitoring logic requires a custom script or program to determine the normal/alarm status of a resource, and you want SMA_RM to send an OpCon event to SAM or run a local action when that status changes.
@@ -110,7 +107,6 @@ When the timestamp for the current scan is included, the monitor would run with 
 ```/usr/me/check this that "the other" "Tue Aug 14 11:50:07 CDT 2016"```
 
  
-
 If 'check' is a UNIX Shell script, it would see five command-line arguments:
 
 ```

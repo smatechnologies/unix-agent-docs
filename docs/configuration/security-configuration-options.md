@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for configuring black list and white list security settings in the Unix Agent to control which users are permitted to run jobs.
-
-## When would you use it?
 
 Configure black lists or white lists when:
 
@@ -60,3 +57,4 @@ It is highly advisable to periodically review agent log files and job files for 
 If white lists or black lists are modified while the agent is running, the agent will need to be restarted to read the new/modified parameters.
 
 :::
+

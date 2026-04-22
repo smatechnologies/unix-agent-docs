@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the required SMA_RM CONFIG section, which sets global parameters such as scan interval, CPU alarm thresholds, user-defined monitor timeouts, and log event behavior.
 
 The `<config>` section is the only required section in an SMA_RM configuration file and contains global parameters that control how SMA_RM operates across all monitoring sections. It sets values such as the scan interval, CPU alarm thresholds, user-defined monitor timeouts, and whether OpCon events are logged as they are sent to SAM. All entities within `<config>` are optional, so the section can be left empty to effectively disable SMA_RM without removing the configuration file.
-
-## When would you use it?
 
 - Modify `<scan_interval>` when the default one-second scan interval is too frequent for the monitored environment and you need to reduce the number of scans per minute to lower system overhead.
 - Modify `<C_alarm>` and `<T_alarm>` when the default global CPU-hog thresholds (MAX 10 and MAX 20, respectively) generate too many or too few events for the processes running on the system, and you need to tune the sensitivity before configuring individual `<process>` sections.

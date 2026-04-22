@@ -14,16 +14,11 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Describes the continuous daemon processes that make up the Unix Agent, including their roles in job submission, communication, logging, file monitoring, and job output retrieval.
-
-## When would you use it?
 
 - You are troubleshooting a missing or unexpectedly stopped process (for example, sma_disp, sma_log, or sma_lsam) and need to understand what each process is responsible for.
 - You are planning a deployment and need to decide which optional components (sma_fad, sma_filein, sma_cronmon, sma_JORS, sma_RM) to enable based on the features you require.
 - You are deactivating an optional component and need to confirm which processes are safe to remove without affecting core agent operation.
-
-## Why would you use it?
 
 - The agent is composed of interdependent processes. Knowing the role of each component helps you identify the source of a problem without restarting the entire agent unnecessarily.
 - The Required/Optional distinction lets you make informed decisions about which processes to include in your deployment, reducing resource usage on systems that do not need features such as file-event triggering (sma_fad), MSGIN event submission (sma_filein), or job output retrieval (sma_JORS).

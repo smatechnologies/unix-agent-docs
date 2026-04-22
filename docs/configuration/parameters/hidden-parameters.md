@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for Unix Agent hidden configuration parameters, including lsam_root_directory, check_CRC, and close_SAM_socket, which are only editable directly in the lsam.conf file.
-
-## When would you use it?
 
 - When directed by SMA Technologies Support to modify a hidden parameter directly in the `lsam.conf` file
 - When reviewing the `lsam.conf` file to understand the location of the installation directory, CRC checking status, or SAM socket behavior

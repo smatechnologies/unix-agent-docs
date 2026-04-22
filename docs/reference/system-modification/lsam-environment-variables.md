@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for Unix Agent environment variables passed to jobs at runtime, including path, job identity, schedule, and file I/O variables.
 
 So a job may adapt to its environment, the agent defines several environment variables for a started job. The following references these variables:
-
-## When would you use it?
 
 - You are writing a job script and need to reference the agent utilities directory, configuration file path, or job identity values at runtime.
 - A job fails with a "Missing environment variable" message and you need to identify what value the agent should have provided.
@@ -74,3 +71,4 @@ If a STDOUT file is not associated with the job, the variable contains "NONE".
 ### SMA_XML_FILE
 
 Used by SMA File Transfer (SMAFT).
+

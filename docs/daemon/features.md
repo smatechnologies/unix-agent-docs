@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference of all file monitoring capabilities supported by the SMA File Activity Detection Daemon, including file creation, deletion, size change, modification detection, and configurable event timing.
 
 The SMA File Activity Detection Daemon supports the following features.
-
-## When would you use it?
 
 - Use file name recognition with wildcards when a directory receives files with variable names that share a common pattern — for example, monitoring `/usr/local/test/*.txt` for any new text files rather than a single known filename.
 - Use file creation detection when downstream processing must begin as soon as an expected file arrives — the SMA FAD treats file existence the same as file creation, so the event fires whether the file is brand new or already present.
@@ -28,8 +25,6 @@ The SMA File Activity Detection Daemon supports the following features.
 - Use time-window support when external events must only be forwarded to the SAM during a defined period — for example, restricting monitoring to business hours using the `<window>` Control File element.
 - Use the configurable sleep interval when multiple events must fire for the same file condition and you need a pause between them to allow the SAM to process them in the intended order.
 - Use the configurable control file read interval when the default one-second polling rate is too frequent or too slow for your environment.
-
-## Why would you use it?
 
 - File name masks with wildcard support allow a single Control File record block to cover an entire class of files, reducing the number of record blocks you must maintain.
 - Overlapping file name or wildcard specifications let different events respond to the same file under different conditions without duplicating monitoring infrastructure.

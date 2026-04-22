@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Step-by-step procedure for starting the Unix Agent after a new or upgrade installation and verifying that all required processes are running.
-
-## When would you use it?
 
 Use this procedure in the following situations:
 

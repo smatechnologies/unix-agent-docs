@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Supplemental procedures for post-installation tasks such as migrating the Unix Agent to a different SAM socket number.
-
-## When would you use it?
 
 Use the procedures on this page in the following situations:
 

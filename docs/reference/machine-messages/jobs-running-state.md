@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for status messages and job information displayed in Enterprise Manager Operation while Unix Agent jobs are actively running.
 
 Once jobs are built, the Enterprise Manager Operation screen contains different information depending on a job's status. In many cases, a specific failure message is returned from the agent and viewable in the Detailed Job Messages parameter in the Job Information screen>Configuration Tab>Operations Related Information Tab. For more information, refer to [Job Information](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Job-Information) in the Enterprise Manager online help. When UNIX jobs are processing, the status information includes the Process ID (pid) number or any optional status messages.
-
-## When would you use it?
 
 - You need to understand the format of the status message displayed for a running UNIX job in Enterprise Manager Operation.
 - A running job shows an unexpected or unfamiliar status message and you need to identify its meaning.
@@ -256,3 +253,4 @@ Informational message upon proper termination of an OpCon job – doesn't reflec
 ### Data has not arrived in [x] seconds - closing socket	
 
 The LSAM has not received any communication from the SAM in the indicated amount of time. The LSAM will close the connection in preparation for SAM initiating a new connection. "[x]" can be set with the LSAM Configuration program.
+

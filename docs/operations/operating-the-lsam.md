@@ -14,12 +14,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Start, stop, and verify the status of the Unix Agent using agent commands from the command line.
 
 The agent uses simple commands to control and check the status of the agent.
-
-## When would you use it?
 
 - Start the agent after a new or upgrade installation, or when the agent has been stopped for maintenance.
 - Check the agent status to confirm that the required processes (sma_lsam, sma_disp, sma_log) and any configured optional components are running before jobs are submitted.

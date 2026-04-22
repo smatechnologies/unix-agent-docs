@@ -15,18 +15,13 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference and procedures for reviewing and editing the Unix Agent control script variables, including LSAM_ROOT, SAM_SOCKET, and PATH, after running the install_lsam installation script.
-
-## When would you use it?
 
 Update the agent control script when:
 
 - You have run the `install_lsam` script and need to confirm or adjust the default values for `LSAM_ROOT`, `SAM_SOCKET`, `SMA_LSAM_INSTANCE`, `SMA_LOG_DIRECTORY`, or `PATH` to match the target environment.
 - You are adding or removing compression utilities (`tar` or `gzip`) on the system and need the `PATH` variable to reflect the change so that SMA File Transfer jobs can locate those utilities.
 - You are setting up multiple agent instances on a single machine and need each instance's control script to reference a unique `SAM_SOCKET` and `SMA_LSAM_INSTANCE`.
-
-## Why would you use it?
 
 - The control script variables define the paths and socket numbers the agent uses to locate its files and communicate with OpCon; incorrect values prevent the agent from starting or processing jobs.
 - Keeping the `PATH` variable accurate ensures that SMA File Transfer operations can find the compression utilities they require, and that the SMAFT Control Script stays in sync with the agent's environment.

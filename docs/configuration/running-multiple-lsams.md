@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Instructions for simultaneously running multiple Unix Agent instances on a single system, covering environment variable configuration and OpCon machine registration for each instance.
-
-## When would you use it?
 
 Run multiple agents on one machine when:
 

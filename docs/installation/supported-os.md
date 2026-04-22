@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 A reference table of UNIX operating systems and processor architectures supported by the Unix Agent.
 
 The following table lists the UNIX operating systems and processor architectures on which the Unix Agent is supported. If your platform does not appear in this table, contact Continuous Support to inquire about a custom build.
-
-## When would you use it?
 
 Consult this page in the following situations:
 

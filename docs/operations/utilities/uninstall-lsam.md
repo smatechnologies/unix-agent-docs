@@ -14,16 +14,11 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the uninstall_lsam script, which removes a Unix Agent instance by deleting its output, tracking, and log directories along with its startup and SMAFT scripts.
 
 The uninstall_lsam script quickly removes an agent. According to the specified agent-socket combination, the script removes an agent's output, tracking, and log directories in addition to the agent startup and SMA File Transfer (SMAFT) scripts.
 
-## When would you use it?
-
 - You are decommissioning a Unix Agent instance and need to remove its output, tracking, log directories, and startup and SMAFT scripts.
-
-## Why would you use it?
 
 - uninstall_lsam removes all agent-managed directories and scripts for the specified socket in a single operation, avoiding the need to locate and delete each component manually.
 

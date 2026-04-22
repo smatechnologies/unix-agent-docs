@@ -14,17 +14,12 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Instructions for setting the TZ environment variable in the root profile or agent startup script to ensure the Unix Agent uses the correct time zone.
-
-## When would you use it?
 
 Configure the time zone when:
 
 - The `TZ` environment variable is not set in the root user's environment and you need the agent to use a time zone other than the default of `EST5EDT`.
 - The system operates in a time zone that differs from the default, and jobs must be scheduled or logged using the correct local time.
-
-## Why would you use it?
 
 - The agent uses the `TZ` environment variable to determine the local time for job scheduling and log timestamps; without a correctly set `TZ`, the agent defaults to `EST5EDT`, which may cause jobs to run at the wrong time on systems in other time zones.
 - Setting `TZ` in the agent startup script or the root profile ensures the agent always starts with the correct time zone regardless of how the system-wide default is configured.

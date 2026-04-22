@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for the SMA_RM DISK section, which specifies disk monitoring parameters including name, mount point, usage thresholds, alarm levels, and event variables.
-
-## When would you use it?
 
 - Configure a `<disk>` section when you need SMA_RM to send an OpCon event or run a local action when a specific disk's usage meets or exceeds a defined percentage threshold — for example, to trigger a cleanup job before a file system fills up.
 - Configure a `<disk>` section with a MIN threshold when you need to detect a disk that has dropped below a minimum expected usage level, such as monitoring a disk that should always contain data.

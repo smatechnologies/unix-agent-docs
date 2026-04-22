@@ -13,19 +13,14 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Overview of the SMA File Activity Detection Daemon (FAD), which monitors directories for file changes and forwards OpCon events to the SAM.
 
 The SMA File Activity Detection Daemon (SMA FAD) monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. The Control File contains the directories to be monitored and contains the external events to be forwarded to the SAM. SMA FAD writes all logging information through the sma_log process. For information on sma_log, refer to [sma_log](../operations/components#sma_log).
-
-## When would you use it?
 
 - Use FAD when you need to trigger OpCon events in response to file creation or deletion — for example, to start a dependent job as soon as an expected file arrives or to raise an alert when a required file is removed.
 - Use FAD when you need to monitor for changes in file size or file modification, and initiate associated events — for example, to detect when an in-progress file has stopped growing before allowing downstream processing to begin.
 - Use FAD when you need to restrict event initiation to specific time slots — for example, to forward external events to the SAM only during a defined processing window, using the `<window>` Control File element.
 - Use FAD when multiple directories require independent monitoring at different intervals — because multiple Control Files can exist in the control directory, each identifying a unique instance of the daemon with its own configuration.
-
-## Why would you use it?
 
 - FAD removes the need for polling scripts or manual checks — it monitors directories continuously and forwards OpCon events to the SAM the moment a defined condition is detected, reducing the lag between a file event and the downstream job that depends on it.
 - Because FAD writes all logging information through the sma_log process, monitoring and troubleshooting activity is consolidated in the same logging infrastructure used by the rest of the agent, keeping operational overhead low.

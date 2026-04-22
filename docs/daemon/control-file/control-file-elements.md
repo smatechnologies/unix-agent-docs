@@ -13,12 +13,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for all supported SMA FAD Control File XML elements, their nesting structure, required versus optional status, valid values, and a complete annotated example.
 
 The bulleted outlines in this section present the supported Control File elements and their descriptions. The outline itself indicates the nested structure of elements for the files. Not all elements define data items for storage in the database. Some elements merely group a set of logically related elements together.
-
-## When would you use it?
 
 - Configure `<waittimebetweenpasses>` when the default one-second polling interval is too frequent or too slow for your environment — for example, set it to a higher value to reduce system load in directories with infrequent file activity.
 - Configure `<window>` when events must only be forwarded to the SAM during a defined time period — for example, restricting monitoring to business hours so that file arrivals outside that window do not trigger events.
@@ -130,7 +127,6 @@ In the example below, the SMA FAD performs the following actions:
 The following example shows an SMA FAD Control File.
 
  
-
 Note: Although the ```<event>``` element is shown occupying multiple lines, it is for presentation purposes. In the actual file, it must be on a single line.
 
 ```
@@ -140,7 +136,6 @@ Note: Although the ```<event>``` element is shown occupying multiple lines, it i
 </config>
 
  
-
 <fileactivity>
 
 <id>5</id>
@@ -166,7 +161,6 @@ Note: Although the ```<event>``` element is shown occupying multiple lines, it i
 </fileactivity>
 
  
-
 <fileactivity>
 
 <id>10</id>
@@ -188,7 +182,6 @@ Note: Although the ```<event>``` element is shown occupying multiple lines, it i
 </fileactivity>
 
  
-
 <fileactivity>
 
 <id>15</id>

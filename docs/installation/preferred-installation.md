@@ -13,7 +13,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Step-by-step instructions for installing, upgrading, or adding Unix Agent instances using the install_agent script.
 
 :::info Note
@@ -23,8 +22,6 @@ The procedures in this section describe the preferred method for installing the 
 :::
 
 The Unix Agent installation is initiated by the install_agent script. The script lets you install, upgrade, or add one or more instance(s) of the agent at the same time.
-
-## When would you use it?
 
 Use the procedures on this page in the following situations:
 

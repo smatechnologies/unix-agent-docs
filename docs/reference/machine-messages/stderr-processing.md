@@ -13,10 +13,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for STDERR processing error messages output by FTServer and FTAgent during active file transfer operations, including network, file, and communication errors.
-
-## When would you use it?
 
 - A file transfer job fails or completes with warnings during the active transfer, and you need to identify the error written to the job's STDERR file.
 - You are diagnosing network, file I/O, or communication errors reported by FTServer or FTAgent during a transfer.
@@ -328,3 +325,4 @@ The data format from the FTServer was not as expected, when you specified that t
 **Origination**: FTServer
 
 You specified that the file be sent in a record-oriented format (by pre-pending a '=' to the source file name), and the associated index file (which contains the record structure) could not be found or was corrupted. The most likely cause for a missing index file is either that the source file was not previously saved by the FTAgent as a record-oriented destination file, or that the index file was accidentally deleted. A native, stream format, file cannot be sent as a record-oriented file unless it is first transferred to itself/another file/another UNIX system as a record-oriented destination file.
+

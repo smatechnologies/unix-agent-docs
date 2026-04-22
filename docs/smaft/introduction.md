@@ -13,7 +13,6 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 SMAFT reliably transfers files across multiple platforms as part of an OpCon job, with support for compression, encryption, SFTP fallback, and transfers larger than 2 GB.
 
 The SMA File Transfer (SMAFT) system reliably transfers files across multiple platforms via an OpCon job. Like file transfer protocol (ftp), SMAFT supports file compression and encryption but ensures that the file transfer completes before processing subsequent dependent jobs. SMAFT can support file transfers larger than two gigabytes as long as the underlying OS supports this feature. SMA Technologies does not recommend enabling encryption or compression for files larger than one gigabyte.
@@ -28,14 +27,10 @@ The agent will perform file transfer using the open standard SFTP between UNIX a
 
 When the agent is installed, you have the option of choosing to use the /TMP partition or to use a TMP area in the same partition as the agent. File transfers may require anywhere from two to three times the size of the file being transferred in /TMP or TMP workspace designated when the agent was installed.
 
-## When would you use it?
-
 - Use SMAFT when you need to transfer files between platforms as part of an OpCon job and must ensure that the transfer completes before dependent jobs begin processing.
 - Use SMAFT when transferred files require compression — for example, to reduce transfer size using the UNIX `tar` and `gzip` utilities, with the option to require compression or to prefer it and fall back gracefully if a compatible method cannot be negotiated.
 - Use SMAFT when transferred files must be encrypted in transit — for example, when organizational security policies require DES, 3DES, or AES-128 encryption, with the ability to set encryption as PREFERRED or REQUIRED for each agent installation.
 - Use SMAFT when transferring files from a non-UNIX platform to UNIX and then back to a non-UNIX platform, and you need to preserve the original record structure of the file so that it arrives at the destination with its record format intact.
-
-## Why would you use it?
 
 - SMAFT ensures that file transfers complete before dependent jobs begin processing, which prevents downstream jobs from running against incomplete or missing data.
 - SMAFT supports compression and encryption in a single transfer, reducing both the size of the file in transit and protecting its contents without requiring separate pre- and post-transfer steps.

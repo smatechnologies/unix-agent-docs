@@ -14,10 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-
 Reference for Unix Agent TCP/IP configuration parameters, including allowed SMANetCom IP addresses, NIC binding, and TLS certificate settings.
-
-## When would you use it?
 
 - When configuring initial TCP/IP communication settings between the agent and SMANetCom
 - When restricting which SMANetCom IP addresses are allowed to connect to the agent
