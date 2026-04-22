@@ -24,6 +24,10 @@ The Operations section covers how to manage the Unix Agent after installation. I
 - Looking up a specific agent command or utility program
 - Identifying which daemon processes are running and what each one does
 
+## Why would you use this section?
+
+- The Operations section consolidates the procedures and reference material needed to manage the agent after installation. Starting and stopping the agent, identifying daemon processes, and running utility programs are the routine tasks that System Administrators perform to keep the agent running and to respond to job failures.
+
 ## What is in this section?
 
 | Topic | Description |

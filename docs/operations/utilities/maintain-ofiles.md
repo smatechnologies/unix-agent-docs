@@ -33,13 +33,28 @@ This program will also delete any SMA Resource Monitor (SMA_RM) log files which 
 
 :::
 
+## When would you use it?
+
+- You need to prevent the accumulation of outdated job output files, tracking files, and agent temporary files on the agent machine.
+- You are scheduling a recurring maintenance job in OpCon to automatically clean up files older than a configured retention period.
+
+## Why would you use it?
+
+- Running maintain_ofiles on a regular schedule (daily or weekly) prevents disk space from being consumed by job-related files that are no longer needed.
+
 ## Syntax
 
 ```$SMA_BINDIR/maintain_ofiles <number of days to retain>```
 
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `<number of days to retain>` | Required | Number of days of files to keep. Files older than midnight of this many days ago are deleted. Default: 3. |
+
 :::info Note
 
-The environment variable ```$SMA_BINDIR``` is defined for use within OpCon jobs. If run from a context other than an OpCon job, "```$SMA_BINDIR/```" must be replaced by the appropriate path.
+The environment variable `$SMA_BINDIR` is defined for use within OpCon jobs. If run from a context other than an OpCon job, `$SMA_BINDIR/` must be replaced by the appropriate path.
 
 :::
 

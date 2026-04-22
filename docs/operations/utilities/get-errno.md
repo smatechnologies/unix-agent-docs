@@ -21,11 +21,25 @@ The get_errno program translates the numeric error indicator (returned by UNIX s
 
 Additionally, if run as an OpCon job, the utility writes to the Enterprise Manager in the Detailed Job Messages field in the Job Information screen>Configuration Tab>Operations Related Information Tab. For additional information, refer to [Job Information](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Job-Information) in the Enterprise Manager online help.
 
+## When would you use it?
+
+- A job fails with a numeric UNIX error code and you need to identify the corresponding symbolic constant and description before consulting the troubleshooting reference.
+- You are writing an OpCon job script and need to surface a UNIX error number as human-readable text in the Detailed Job Messages field.
+
+## Why would you use it?
+
+- get_errno maps a raw numeric errno value to its symbolic constant and description, which is the form referenced in the [UNIX Troubleshooting](../../reference/troubleshooting) reference page.
+- When called from within an OpCon job, the utility writes the translated error text directly to the Detailed Job Messages field, making the error visible to operators without requiring them to open a log file.
+
 ## Syntax
 
 ```get_errno error_number```
 
-```error_number``` is the numeric error indicator
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `error_number` | Required | Numeric UNIX error indicator returned by a system call. |
 
 :::info Note
 

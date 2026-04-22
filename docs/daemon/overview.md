@@ -24,6 +24,10 @@ The File Activity Detection (FAD) Daemon is a component of the Unix Agent that m
 - Reviewing the file monitoring capabilities the FAD Daemon supports
 - Understanding the directory layout the FAD Daemon uses for its configuration and runtime files
 
+## Why would you use this section?
+
+- The FAD Daemon section provides everything needed to configure event-driven job automation based on file system activity on Unix machines. System Administrators who need to trigger OpCon jobs when files are created, deleted, or modified will find the configuration reference and directory layout documentation here.
+
 ## What is in this section?
 
 | Topic | Description |

@@ -19,6 +19,15 @@ Reference for the install_lsam_service script, which creates symbolic links in t
 
 The install_lsam_service script creates symbolic links in the start up directory, so the agent will be started automatically when the machine is rebooted. This script is valid on the following UNIX platforms: Linux, AIX, HP-UX, and Solaris.
 
+## When would you use it?
+
+- You are deploying a Unix Agent on Linux, AIX, HP-UX, or Solaris and need the agent to start automatically when the machine is rebooted.
+- You have already run install_lsam and now need to register the agent with the system startup sequence.
+
+## Why would you use it?
+
+- Creating startup symbolic links ensures the agent resumes operation after a planned or unplanned reboot without requiring manual intervention from a system administrator.
+
 ## Syntax
 
 ```
@@ -27,4 +36,9 @@ cd <LSAM root directory>
 bin/install_lsam_service `pwd` <SAM_Socket>
 ```
 
-```<SAM_Socket>``` is a parameter that identifies the TCP/IP socket number the LSAM instance was installed to use.
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `pwd` | Required | Root directory of the agent installation, passed using the shell `pwd` command. |
+| `<SAM_Socket>` | Required | TCP/IP socket number the agent instance was installed to use. |

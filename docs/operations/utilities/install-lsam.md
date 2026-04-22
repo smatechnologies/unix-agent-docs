@@ -24,17 +24,30 @@ The install_lsam script quickly creates an operational agent without additional 
 * Creates an empty job tracking directory.
 * Automatically configures the agent with default values.
 
+## When would you use it?
+
+- You are deploying a new Unix Agent instance and need an operational agent quickly without running the full installation procedure.
+- You are installing multiple agent instances on the same machine and need to assign each a distinct socket number and instance name.
+- You are configuring a fail-over agent pair and need to ensure both instances share the same root directory and socket without an explicit instance name.
+
+## Why would you use it?
+
+- install_lsam automates the steps required to produce a runnable agent — copying the control script, setting permissions, creating the tracking directory, and applying default configuration — reducing the risk of missed steps in a manual setup.
+- Specifying `<LSAM_instance>` at installation time makes it straightforward to migrate the agent to a different SAM socket later without additional manual configuration.
+
 ## Syntax
 
 ```cd <LSAM root directory>```
 
 ```bin/install_lsam `pwd` <SAM_Socket> <LSAM_instance>```
 
-(Optional) ```<SAM_Socket>``` is a parameter that can be defined to identify the TCP/IP socket number the agent instance will use. If multiple agents will be installed on the same machine to the same parent directory, be sure to specify this parameter.
-(Optional) ```<LSAM_instance>``` is a parameter that can be defined to identify the name of the agent instance. 
+## Parameters
 
-This setting is useful for defining distinctly different operating environments (e.g., Production versus Development environments). Do not specify this parameter if fail-over agents will be installed.
-If not specified, ```<LSAM_instance>```, which provides the value for environment variable ```$SMA_LSAM_INSTANCE```, defaults to ```<SAM_Socket>```.
+| Parameter | Required | Description |
+|---|---|---|
+| `pwd` | Required | Root directory of the agent installation, passed using the shell `pwd` command. |
+| `<SAM_Socket>` | Optional | TCP/IP socket number the agent instance will use. Required when installing multiple agent instances on the same machine to the same parent directory. |
+| `<LSAM_instance>` | Optional | Name of the agent instance. Sets the `$SMA_LSAM_INSTANCE` environment variable. Defaults to `<SAM_Socket>` if not specified. Do not specify for fail-over agent installations. |
 
 :::info Note
 

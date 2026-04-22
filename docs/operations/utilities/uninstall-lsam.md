@@ -19,6 +19,21 @@ Reference for the uninstall_lsam script, which removes a Unix Agent instance by 
 
 The uninstall_lsam script quickly removes an agent. According to the specified agent-socket combination, the script removes an agent's output, tracking, and log directories in addition to the agent startup and SMA File Transfer (SMAFT) scripts.
 
+## When would you use it?
+
+- You are decommissioning a Unix Agent instance and need to remove its output, tracking, log directories, and startup and SMAFT scripts.
+
+## Why would you use it?
+
+- uninstall_lsam removes all agent-managed directories and scripts for the specified socket in a single operation, avoiding the need to locate and delete each component manually.
+
 ## Syntax
 
 ```uninstall_lsam <LSAM root directory> <SAM_Socket>```
+
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `<LSAM root directory>` | Required | Root directory path of the agent instance to remove. |
+| `<SAM_Socket>` | Required | TCP/IP socket number identifying the agent instance to remove. |

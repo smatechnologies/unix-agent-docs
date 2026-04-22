@@ -33,11 +33,12 @@ The sma_job_step utility instructs the agent to send a message to the SAM to log
 
 ```$SMA_BINDIR/sma_job_step <step_number> <step_label>```
 
-```<step_number>```, which must be an integer greater than or equal to 1, is a sequence number to be associated with ```<step_label>```. In the TJS, its value comes from Shell variable "step_number". If two calls within the same job to "sma_job_step" use the same ```<step_number>```, the latter ```<step_label>``` will overwrite the former. 
+## Parameters
 
-The Enterprise Manager does not display the step number along with the label, nor is the step number supplied to the agent in restarting a job; therefore, each step label encountered should only be sent once, or the Enterprise Manager and OpCon database will be needlessly cluttered.
-
-```<step_label>``` is the label of the step to be logged; in the SMA Technologies-supplied Template Job Script (TJS) the value comes from Shell variable "current_step".
+| Parameter | Required | Description |
+|---|---|---|
+| `<step_number>` | Required | Integer ≥ 1. Sequence number associated with the step label. If two calls within the same job use the same `<step_number>`, the later `<step_label>` overwrites the earlier one. |
+| `<step_label>` | Required | Label of the step to log. Up to 60 characters. First character must be a letter. Letters, digits, and underscores are recommended. Case-sensitive. Do not use the reserved labels `sma_first`, `sma_last`, or `sma_undefined`. |
 
 :::tip Example
 

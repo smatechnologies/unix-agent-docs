@@ -22,6 +22,11 @@ Reference for the exit_codes utility, which executes a job and displays its retu
 - You are configuring Failure Criteria for a job in OpCon and need to confirm what exit code the job's executable returns under normal and error conditions.
 - You are debugging a job that is reporting an unexpected status and want to verify the numeric exit code, exit signal, and whether a core image was created.
 
+## Why would you use it?
+
+- exit_codes runs the job and captures all return values — exit code, exit signal, and core image status — giving you the exact values to use when configuring Failure Criteria for the job in OpCon.
+- Displaying the complete job return information in a single command reduces the time needed to diagnose why a job is reporting an unexpected status.
+
 The exit_codes utility runs a job and displays the return values. Helpful for debugging, this information aids in determining the expected results for a job in OpCon.
 
 This utility displays the following information when a job completes:
@@ -41,9 +46,13 @@ For dependable results, the job specified in the Start Image must explicitly per
 
 ```exit_codes -u# -g# -s"<start image>"```
 
-```-u#```: This required parameter specifies the User ID under which the job runs.
-```-g#```: This required parameter specifies the Group ID under which the job runs.
-```-s"<start image>"```: This required parameter specifies the start image and arguments for the job.
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `-u#` | Required | User ID under which the job runs. |
+| `-g#` | Required | Group ID under which the job runs. |
+| `-s"<start image>"` | Required | Start image and arguments for the job. |
 
 :::tip Example
 

@@ -33,9 +33,15 @@ The sma_status utility sends a message for the Enterprise Manager to display aft
 
 ```$SMA_BINDIR/sma_status "<message>"```
 
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `"<message>"` | Required | Status text to display in the Enterprise Manager after the OpCon status message. Maximum 20 characters; messages longer than 20 characters are truncated without warning. |
+
 :::info Note
 
-The environment variable $SMA_BINDIR is defined for use within OpCon jobs. If run from a context other than an OpCon job, "$SMA_BINDIR/" must be replaced by the appropriate path.
+The environment variable `$SMA_BINDIR` is defined for use within OpCon jobs. If run from a context other than an OpCon job, `$SMA_BINDIR/` must be replaced by the appropriate path.
 
 The job status posted by this command remains in the Enterprise Manager until the job status changes or the job terminates.
 

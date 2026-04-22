@@ -19,10 +19,23 @@ Reference for the genericpgm utility, a dummy test program that sleeps for a con
 
 The genericpgm program sleeps for the requested time (default 10 seconds) and then exits with the requested exit code (default zero [0]) and signal disposition (default zero [0]). Valid UNIX exit codes are restricted to the range -127 to 127.
 
+## When would you use it?
+
+- You are configuring or testing the agent and need a job that runs for a predictable duration and exits with a specific code, without requiring a real workload.
+- You are using exit_codes to test Failure Criteria and need a controlled program whose exit code and sleep duration you can specify precisely.
+
+## Why would you use it?
+
+- genericpgm produces repeatable, configurable output — a known exit code, signal disposition, and runtime — which removes variables when isolating agent configuration issues.
+
 ## Syntax
 
 ```genericpgm [-e#] [-s#] [-t#]```
 
-* ```-e#```: An optional argument to set the exit code.
-* ```-s#```: An optional argument to set the signal disposition.
-* ```-t#```: An optional argument to set the sleep time in seconds.
+## Parameters
+
+| Parameter | Required | Default | Description |
+|---|---|---|---|
+| `-e#` | Optional | `0` | Exit code the program returns on completion. Valid range: -127 to 127. |
+| `-s#` | Optional | `0` | Signal disposition. |
+| `-t#` | Optional | `10` | Sleep time in seconds before the program exits. |

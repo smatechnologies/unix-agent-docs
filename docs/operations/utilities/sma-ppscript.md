@@ -35,9 +35,15 @@ When the job finishes, the agent runs the script. After analysis, the script ret
 
 ```$SMA_BINDIR/sma_ppscript <script_command>```
 
+## Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `<script_command>` | Required | Path and arguments for the analysis script to run after the job completes. The agent appends the pathnames of the job's redirected STDOUT and STDERR files to the end of this command when invoking the script. |
+
 :::info Note
 
-The environment variable $SMA_BINDIR is defined for use within OpCon jobs. If run from a context other than an OpCon job, "$SMA_BINDIR/" must be replaced by the appropriate path.
+The environment variable `$SMA_BINDIR` is defined for use within OpCon jobs. If run from a context other than an OpCon job, `$SMA_BINDIR/` must be replaced by the appropriate path.
 
 :::
 
