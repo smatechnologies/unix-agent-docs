@@ -1,40 +1,22 @@
 /* stylelint-disable docusaurus/copyright-header */
 /**
- * Global styles for unix-agent-docs.
- * Extends Infima (Docusaurus default) with Inter typography and
- * SMA component classes (callouts, settings tables, section dividers, etc.).
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
  */
 
-/* ── Inter font ─────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-/* ── Design tokens ──────────────────────────────────────────────────────────── */
+/* You can override the default Infima variables here. */
 :root {
-  --ifm-font-family-base: 'Inter', system-ui, sans-serif;
-  --ifm-color-primary: #007DB5;
-  --ifm-color-primary-dark: #006fa0;
-  --ifm-color-primary-darker: #006899;
-  --ifm-color-primary-darkest: #005580;
-  --ifm-color-primary-light: #1a8dc0;
-  --ifm-color-primary-lighter: #2f9bcc;
-  --ifm-color-primary-lightest: #5ab5d9;
+  --ifm-color-primary: #007DB5;;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
-
-  /* SMA palette */
-  --sma-body:       #132739;
-  --sma-dark:       #01111f;
-  --sma-blue:       #0f4bbd;
-  --sma-blue-light: #e3f1fd;
-  --sma-blue-border:#c5dff8;
-  --sma-orange:     #fa4716;
 }
 
-/* ── Apply Inter everywhere ─────────────────────────────────────────────────── */
-*, *::before, *::after {
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-/* ── Code block highlight ───────────────────────────────────────────────────── */
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
@@ -42,22 +24,23 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-/* ── Base markdown content ──────────────────────────────────────────────────── */
+/* ── Global doc page styles ───────────────────────────────────────────────── */
+
+/* Base body / paragraph text */
 .markdown {
-  font-size: 17px;
-  line-height: 1.75;
-  color: #132739;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .markdown p {
-  font-size: 17px;
-  line-height: 1.75;
-  color: #132739;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
 }
 
-/* ── Headings ───────────────────────────────────────────────────────────────── */
+/* ── Headings ─────────────────────────────────────────────────────────────── */
 
+/* H1 — page title */
 .markdown h1 {
   font-size: 1.75rem;
   font-weight: 700;
@@ -68,6 +51,7 @@
   padding-bottom: 0.5rem;
 }
 
+/* H2 — major sections */
 .markdown h2 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -79,6 +63,7 @@
   padding-bottom: 0.35rem;
 }
 
+/* H3 — subsections */
 .markdown h3 {
   font-size: 1rem;
   font-weight: 700;
@@ -91,6 +76,7 @@
   margin-bottom: 0.75rem;
 }
 
+/* H4 — sub-subsections */
 .markdown h4 {
   font-size: 0.95rem;
   font-weight: 700;
@@ -101,6 +87,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* H5 — fine-grained labels */
 .markdown h5 {
   font-size: 0.875rem;
   font-weight: 600;
@@ -110,6 +97,7 @@
   margin-bottom: 0.4rem;
 }
 
+/* H6 — rarely used, keep subtle */
 .markdown h6 {
   font-size: 0.85rem;
   font-weight: 600;
@@ -118,7 +106,7 @@
   margin-bottom: 0.35rem;
 }
 
-/* ── Lists ──────────────────────────────────────────────────────────────────── */
+/* ── Lists ────────────────────────────────────────────────────────────────── */
 
 .markdown ul {
   list-style: disc;
@@ -147,16 +135,15 @@
 }
 
 .markdown li {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 0.9rem;
+  line-height: 1.4;
   margin-bottom: 0.3rem;
-  color: #132739;
 }
 
-/* ── Tables (default Docusaurus tables) ─────────────────────────────────────── */
+/* ── Tables ───────────────────────────────────────────────────────────────── */
 
 .markdown table {
-  font-size: 15px;
+  font-size: 0.875rem;
   line-height: 1.5;
   width: 100%;
   border-collapse: collapse;
@@ -188,8 +175,9 @@
   vertical-align: top;
 }
 
-/* ── Code ───────────────────────────────────────────────────────────────────── */
+/* ── Code ─────────────────────────────────────────────────────────────────── */
 
+/* Inline code */
 .markdown code {
   font-size: 0.85rem;
   padding: 0.15em 0.4em;
@@ -198,6 +186,7 @@
   color: var(--ifm-color-primary-darkest);
 }
 
+/* Fenced code blocks */
 .markdown pre {
   font-size: 0.85rem;
   line-height: 1.55;
@@ -205,7 +194,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* ── Breadcrumbs ────────────────────────────────────────────────────────────── */
+/* ── Breadcrumbs ──────────────────────────────────────────────────────────── */
 
 .breadcrumbs__link {
   font-size: 0.8rem;
@@ -215,17 +204,20 @@
   font-size: 0.8rem;
 }
 
-/* ── Sidebar ────────────────────────────────────────────────────────────────── */
+/* ── Sidebar menu styles ──────────────────────────────────────────────────── */
 
+/* All sidebar links and labels */
 .menu__link {
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
+/* Spacing between sidebar items */
 .menu__list-item {
   margin-bottom: 0.3rem;
 }
 
+/* Category heading labels — uppercase + letter-spaced like h3 */
 .menu__list-item-collapsible > .menu__link,
 .menu__list > .menu__list-item > .menu__link:not(.menu__link--sublist) {
   text-transform: uppercase;
@@ -233,8 +225,7 @@
   color: var(--ifm-color-primary);
 }
 
-/* ── Index page card grid ───────────────────────────────────────────────────── */
-
+/* ── Index page column grid ───────────────────────────────────────────────── */
 .nav-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -261,300 +252,4 @@
 .nav-card ul ul {
   margin-top: 0.25rem;
   padding-left: 1rem;
-}
-
-/* ════════════════════════════════════════════════════════════════════════════
-   SMA COMPONENT CLASSES
-   Use these in MDX/HTML content to apply the design system.
-   ════════════════════════════════════════════════════════════════════════════ */
-
-/* ── Key term highlight ─────────────────────────────────────────────────────── */
-/* Usage: <strong class="key-term">term</strong> */
-
-.key-term {
-  color: #0f4bbd;
-  font-weight: 700;
-}
-
-/* ── Lesson header ──────────────────────────────────────────────────────────── */
-/*
-  Usage:
-  <div class="lesson-header">
-    <div class="lesson-header__path">Course › Module</div>
-    <h1 class="lesson-header__title">Lesson Title</h1>
-    <div class="lesson-header__meta">
-      <span>⏱ 15 min</span><span>👤 System Administrator</span>
-    </div>
-  </div>
-*/
-
-.lesson-header {
-  background: linear-gradient(135deg, #01111f 0%, #132739 65%, #0f4bbd 100%);
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
-  color: #ffffff;
-  margin-bottom: 2rem;
-}
-
-.lesson-header__path {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #e3f1fd;
-  margin-bottom: 0.75rem;
-}
-
-.lesson-header__title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  line-height: 1.2;
-  color: #ffffff;
-  margin: 0 0 1rem;
-  border: none;
-  padding: 0;
-}
-
-.lesson-header__meta {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  font-size: 0.8rem;
-  color: #e3f1fd;
-  font-weight: 500;
-}
-
-/* ── Section divider ────────────────────────────────────────────────────────── */
-/*
-  Usage: <div class="section-divider">Section Label</div>
-*/
-
-.section-divider {
-  background-color: #01111f;
-  padding: 0.5rem 1.25rem;
-  margin: 2.5rem 0 1.25rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e3f1fd;
-}
-
-/* ── Callout boxes ──────────────────────────────────────────────────────────── */
-/*
-  Usage:
-  <div class="callout callout--note">
-    <strong class="callout__label">&#8505; Note:</strong> Your text here.
-  </div>
-
-  Types: callout--note | callout--why | callout--warning | callout--tip | callout--security
-*/
-
-.callout {
-  border-radius: 6px;
-  padding: 0.9rem 1.25rem;
-  margin: 1.25rem 0;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #132739;
-}
-
-.callout p {
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  margin: 0;
-}
-
-.callout--note {
-  background: #e3f1fd;
-  border-left: 4px solid #0f4bbd;
-}
-
-.callout--why {
-  background: #fdf1ec;
-  border-left: 4px solid #fa4716;
-}
-
-.callout--warning {
-  background: #fff8e1;
-  border-left: 4px solid #f59e0b;
-}
-
-.callout--tip {
-  background: #f0fdf4;
-  border-left: 4px solid #22c55e;
-}
-
-.callout--security {
-  background: #fdf1ec;
-  border-left: 4px solid #fa4716;
-}
-
-/* Callout labels — apply to the <strong> inside a .callout */
-.callout--note    > strong:first-child,
-.callout--note    .callout__label { color: #0f4bbd; font-weight: 700; }
-
-.callout--why     > strong:first-child,
-.callout--why     .callout__label { color: #fa4716; font-weight: 700; }
-
-.callout--warning > strong:first-child,
-.callout--warning .callout__label { color: #b45309; font-weight: 700; }
-
-.callout--tip     > strong:first-child,
-.callout--tip     .callout__label { color: #15803d; font-weight: 700; }
-
-.callout--security > strong:first-child,
-.callout--security .callout__label { color: #fa4716; font-weight: 700; }
-
-/* ── Comparison table ───────────────────────────────────────────────────────── */
-/*
-  Usage: <div class="comparison-table"> ... markdown table ... </div>
-  Background must be on <td>, never on <tr> or wrapper elements.
-*/
-
-.comparison-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.25rem;
-}
-
-.comparison-table thead th {
-  background-color: #01111f;
-  color: #ffffff;
-  padding: 0.65rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  border: none;
-}
-
-.comparison-table tbody td {
-  background-color: #e3f1fd;
-  padding: 0.65rem 1rem;
-  vertical-align: top;
-  border: 1px solid #c5dff8;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* ── Settings table ─────────────────────────────────────────────────────────── */
-/*
-  Usage: <div class="settings-table"> ... markdown table ... </div>
-  Alternating #e3f1fd / #ffffff rows on <td>; first column bold #0f4bbd.
-*/
-
-.settings-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.25rem;
-}
-
-.settings-table thead th {
-  background-color: #01111f;
-  color: #ffffff;
-  padding: 0.65rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  border: none;
-}
-
-.settings-table tbody tr:nth-child(odd) td {
-  background-color: #e3f1fd;
-}
-
-.settings-table tbody tr:nth-child(even) td {
-  background-color: #ffffff;
-}
-
-.settings-table tbody td {
-  padding: 0.55rem 1rem;
-  vertical-align: top;
-  border-bottom: 1px solid #c5dff8;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.settings-table tbody td:first-child {
-  color: #0f4bbd;
-  font-weight: 700;
-}
-
-/* ── Key terms / Quick Recap table ──────────────────────────────────────────── */
-/*
-  Usage: <div class="key-terms-table"> ... markdown table ... </div>
-  Same style as settings-table.
-*/
-
-.key-terms-table table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.25rem;
-}
-
-.key-terms-table thead th {
-  background-color: #01111f;
-  color: #ffffff;
-  padding: 0.65rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  border: none;
-}
-
-.key-terms-table tbody tr:nth-child(odd) td {
-  background-color: #e3f1fd;
-}
-
-.key-terms-table tbody tr:nth-child(even) td {
-  background-color: #ffffff;
-}
-
-.key-terms-table tbody td {
-  padding: 0.55rem 1rem;
-  vertical-align: top;
-  border-bottom: 1px solid #c5dff8;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.key-terms-table tbody td:first-child {
-  color: #0f4bbd;
-  font-weight: 700;
-}
-
-/* ── Bullet link list ───────────────────────────────────────────────────────── */
-/*
-  Usage: <ul class="link-list"> <li><a href="...">Label</a></li> </ul>
-  For "For More Information" and related-links sections.
-*/
-
-.link-list {
-  list-style: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.link-list li {
-  margin-bottom: 0.4rem;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.link-list a {
-  color: #0f4bbd;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.link-list a:hover {
-  text-decoration: underline;
 }
