@@ -15,7 +15,6 @@ tags:
 ## What is it?
 Reference for STDERR processing error messages output by FTServer and FTAgent during active file transfer operations, including network, file, and communication errors.
 
-- A file transfer job fails or completes with warnings during the active transfer, and you need to identify the error written to the job's STDERR file.
 - You are diagnosing network, file I/O, or communication errors reported by FTServer or FTAgent during a transfer.
 - A transfer completes but STDERR contains messages indicating marginal operating conditions.
 - You need to understand the meaning of an indicator field included in a processing error message.

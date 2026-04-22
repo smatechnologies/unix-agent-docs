@@ -17,8 +17,7 @@ Reference for JORS and FTServer error messages recorded in the UNIXLSAM log file
 
 The UNIXLSAM.log file contains these errors:
 
-- You are reviewing the UNIXLSAM.log file and need to identify a JORS or FTServer error entry.
-- A file transfer or JORS request fails and you need to determine whether the socket initialization or child-process spawning failed.
+- A file transfer or JORS request fails and you need to determine whether socket initialization or child-process spawning failed.
 - You are diagnosing communications channel errors reported by FTServer during startup or operation.
 
 

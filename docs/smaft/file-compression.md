@@ -28,13 +28,8 @@ During the agent installation, the installation script searches the system for t
 
 Configuration changes take effect immediately in the Agent; however, the agent must either be restarted or refreshed for the changes to become effective in the Server.
 
-- Enable compression when transferring large files across platforms where reducing transfer size is beneficial, and the `tar` and `gzip` utilities are available on both the Source and Destination machines.
-- Enable compression as PREFERRED when you want to compress files in transit but cannot guarantee that both the Server and Agent support a compatible compression method, so that the transfer can still complete without compression if negotiation fails.
-- Enable compression as REQUIRED when your organization requires that all file transfers be compressed and a transfer without compression must not be allowed to complete.
-
-- Compression reduces the size of files in transit, which can lower the amount of time required to complete a transfer across slow or bandwidth-limited network connections.
-- The PREFERRED option provides a safe default: compression is used when both parties can negotiate a compatible method, but the transfer is not blocked when they cannot, reducing the risk of job failure.
-- The REQUIRED option enforces a consistent policy across all agents by failing the job immediately if compression cannot be negotiated, rather than silently transferring an uncompressed file.
+- Enable compression when transferring large files across slow or bandwidth-limited networks, provided the `tar` and `gzip` utilities are available on both the Source and Destination machines.
+- Compression reduces the size of files in transit, which can lower transfer time on slow or bandwidth-limited network connections.
 
 ## Compression options reference
 

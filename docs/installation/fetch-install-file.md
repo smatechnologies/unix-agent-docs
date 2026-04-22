@@ -17,7 +17,6 @@ Step-by-step procedures for placing the Unix Agent installation tar file onto th
 
 Use this procedure in the following situations:
 
-- Before performing a new or upgrade installation of the Unix Agent, to place the installation tar file into `/tmp` on the target UNIX machine.
 - When the UNIX machine has a DVD-ROM drive and the OpCon installation media is available locally, to copy the tar file directly from the DVD.
 - When the UNIX machine does not have a DVD-ROM drive but has a network connection to a Windows machine that holds the installation media, to transfer the tar file to the UNIX machine using FTP.
 

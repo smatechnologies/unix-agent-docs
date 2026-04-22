@@ -26,8 +26,6 @@ The install_lsam script quickly creates an operational agent without additional 
 - You are deploying a new Unix Agent instance and need an operational agent quickly without running the full installation procedure.
 - You are installing multiple agent instances on the same machine and need to assign each a distinct socket number and instance name.
 - You are configuring a fail-over agent pair and need to ensure both instances share the same root directory and socket without an explicit instance name.
-
-- install_lsam automates the steps required to produce a runnable agent — copying the control script, setting permissions, creating the tracking directory, and applying default configuration — reducing the risk of missed steps in a manual setup.
 - Specifying `<LSAM_instance>` at installation time makes it straightforward to migrate the agent to a different SAM socket later without additional manual configuration.
 
 ## Syntax

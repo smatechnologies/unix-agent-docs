@@ -19,9 +19,6 @@ Reference for the sma_job_step utility, which logs named job steps to the SAM to
 - A job consists of multiple named steps and, after a failure, you need to restart the job from a specific step rather than rerunning all preceding steps.
 - You need to run only a subset of a job's steps by specifying a starting step (`sma_first`) and/or an ending step (`sma_last`) in the Job Details screen.
 
-- Logging steps with sma_job_step populates the Job Restart Step list in the Enterprise Manager, giving operators a named list of steps to choose from when restarting a failed job.
-- Defining start and end steps avoids reprocessing data that was already successfully handled in earlier steps, reducing runtime and preventing duplicate processing.
-
 The sma_job_step utility instructs the agent to send a message to the SAM to log a job step for later use in restarting the job.
 
 ## Syntax

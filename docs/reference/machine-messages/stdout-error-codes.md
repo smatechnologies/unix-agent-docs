@@ -15,10 +15,8 @@ tags:
 ## What is it?
 Reference for STDOUT messages output by the Unix Agent FTAgent component during file transfer operations, including backup, transfer result, and completion messages.
 
-- A file transfer job completes or fails and you need to interpret the STDOUT messages written by FTAgent.
 - You need to confirm whether a destination file was backed up, overwritten, appended to, or created during a transfer.
-- A transfer reports "File transfer did not complete!" and you need to know to check the STDERR output for additional detail.
-- You are reviewing JORS output and need to understand the transfer result messages produced by FTAgent.
+- A transfer reports "File transfer did not complete!" and you need to check the STDERR output for additional detail.
 
 ## Original destination file [dest] backed-up to [backup]
 

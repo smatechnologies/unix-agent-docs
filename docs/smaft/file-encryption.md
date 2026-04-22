@@ -72,15 +72,8 @@ Many factors, some of which were noted above in the discussion of algorithms, mo
 
 In the default configuration listed above, SMA Technologies applies a higher precedence to 3DES/CBC than to AES-128/ECB, although AES‑128 is a more secure algorithm than 3DES. Reducing security risk, 3DES/CBC is preferable because of the ECB property of patterns of plaintext being evident in the ciphertext to eavesdroppers. The difference in the levels of security between 3DES and DES is too great to give DES/CBC a higher precedence than 3DES/ECB.
 
-- Enable encryption when organizational security policies require that file contents be protected in transit between the Source and Destination machines.
-- Enable encryption as PREFERRED when you want to protect files in transit where possible but cannot guarantee that both the Server and Agent support a compatible encryption method, so that the transfer can still complete without encryption if negotiation fails.
-- Enable encryption as REQUIRED when your organization requires that all file transfers be encrypted and a transfer without encryption must not be allowed to complete.
-- Configure all supported capabilities in the desired precedence order when transferring files across platforms to allow the greatest opportunity for completing cross-platform file transfers using encryption.
-
-- Encryption protects file contents in transit between the Source and Destination machines, which is essential when files contain sensitive data that must not be readable by network eavesdroppers.
-- The PREFERRED option allows transfers to proceed without encryption when a compatible method cannot be negotiated, reducing job failures while still applying protection wherever it is available.
-- The REQUIRED option enforces a consistent security policy by failing the job immediately if no compatible encryption method can be negotiated, preventing unprotected files from reaching the Destination machine.
-- Configuring supported capabilities in priority order — for example, listing AES-128 combinations before 3DES and DES — ensures the most secure available algorithm is selected first during negotiation.
+- Enable encryption when organizational security policies require that file contents be protected in transit.
+- Configure supported capabilities in priority order — for example, listing AES-128 combinations before 3DES and DES — to ensure the most secure available algorithm is selected first during negotiation.
 
 ## Algorithm comparison
 

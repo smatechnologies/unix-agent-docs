@@ -21,8 +21,6 @@ The install_lsam_service script creates symbolic links in the start up directory
 - You are deploying a Unix Agent on Linux, AIX, HP-UX, or Solaris and need the agent to start automatically when the machine is rebooted.
 - You have already run install_lsam and now need to register the agent with the system startup sequence.
 
-- Creating startup symbolic links ensures the agent resumes operation after a planned or unplanned reboot without requiring manual intervention from a system administrator.
-
 ## Syntax
 
 ```

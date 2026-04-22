@@ -32,10 +32,7 @@ This program will also delete any SMA Resource Monitor (SMA_RM) log files which 
 
 :::
 
-- You need to prevent the accumulation of outdated job output files, tracking files, and agent temporary files on the agent machine.
-- You are scheduling a recurring maintenance job in OpCon to automatically clean up files older than a configured retention period.
-
-- Running maintain_ofiles on a regular schedule (daily or weekly) prevents disk space from being consumed by job-related files that are no longer needed.
+- Schedule this utility as a recurring OpCon job (daily or weekly) to automatically remove job output, tracking, and temporary files older than the configured retention period.
 
 ## Syntax
 

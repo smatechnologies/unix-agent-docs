@@ -17,8 +17,7 @@ Steps to deactivate the optional sma_cronmon and sma_filein components of the Un
 
 The Unix Agent has two optional components that you can deactivate. These components are sma_cronmon, and sma_filein. The methodology of deactivating a component has two basic steps:
 
-- You need to stop sma_cronmon or sma_filein from starting with the agent because those components are not required in your environment.
-- You are reducing the agent's resource footprint by disabling optional components.
+- You are reducing the agent's resource footprint by disabling optional components that are not required in your environment.
 
 To deactivate a component, complete the following steps:
 

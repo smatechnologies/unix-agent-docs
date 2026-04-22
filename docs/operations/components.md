@@ -20,9 +20,6 @@ Describes the continuous daemon processes that make up the Unix Agent, including
 - You are planning a deployment and need to decide which optional components (sma_fad, sma_filein, sma_cronmon, sma_JORS, sma_RM) to enable based on the features you require.
 - You are deactivating an optional component and need to confirm which processes are safe to remove without affecting core agent operation.
 
-- The agent is composed of interdependent processes. Knowing the role of each component helps you identify the source of a problem without restarting the entire agent unnecessarily.
-- The Required/Optional distinction lets you make informed decisions about which processes to include in your deployment, reducing resource usage on systems that do not need features such as file-event triggering (sma_fad), MSGIN event submission (sma_filein), or job output retrieval (sma_JORS).
-
 ## Process dependencies
 
 The table below summarizes which processes are always required and which are optional. The three required processes — sma_lsam, sma_disp, and sma_log — must run for the agent to submit jobs, communicate with the SAM, and write log entries. The remaining processes are optional and only need to run when their specific feature is in use.

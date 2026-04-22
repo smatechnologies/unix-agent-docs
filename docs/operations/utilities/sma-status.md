@@ -19,9 +19,6 @@ Reference for the sma_status utility, which sends a short status message from a 
 - A job runs multiple discrete steps and operators monitoring the Enterprise Manager need to know which step is currently running without examining log files.
 - A job invokes sma_ppscript and the analysis script needs to report a human-readable status to the Enterprise Manager alongside the pass/fail result.
 
-- The status message remains visible in the Enterprise Manager until the job status changes or the job terminates, giving operators continuous visibility into a long-running job's progress.
-- Embedding sma_status calls at key points in a job script reduces the need for operators to consult log files to determine how far a job has progressed.
-
 The sma_status utility sends a message for the Enterprise Manager to display after the OpCon status message. The message's maximum is twenty-characters. Without warning you, the agent truncates messages longer than the maximum.
 
 ## Syntax

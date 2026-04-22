@@ -18,8 +18,6 @@ Reference for the lsam_killjob command, which forcibly terminates a running OpCo
 
 - A running job must be terminated immediately and the Advanced Machine parameter "Allow Kill Job" is not set to TRUE, so termination through the Enterprise Manager Operation view is not available.
 - You need to terminate an SMA File Transfer (SMAFT) job that cannot be stopped through the normal OpCon job kill mechanism.
-
-- The command targets only jobs that were started by sma_lsam, reducing the risk of accidentally killing unrelated system processes.
 - lsam_killjob presents an interactive confirmation prompt for each matching process before sending the SIGKILL signal, giving you the opportunity to confirm the correct process before terminating it.
 
 The lsam_killjob command forcibly terminates a job. The Enterprise Manager displays the status "Failed: Killed by Sys Admin" for the terminated job.

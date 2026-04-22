@@ -24,10 +24,10 @@ Spaces in the data portion of an element are important and are considered part o
  
 :::
 
-- When creating a new Control File and you want to lay out elements across multiple lines so the configuration is easier to read and maintain.
-- When you need to temporarily disable a specific line in a Control File — for example, to suppress an event or exclude a directory — without deleting the content.
-- When troubleshooting a Control File and you want to isolate individual record blocks by commenting out lines to narrow the scope of active configuration.
-- When reviewing or auditing a Control File and you want to confirm that spaces within data values are intentional, since non-significant whitespace is ignored but data-portion spaces are preserved.
+- You are creating or editing a Control File and want to lay out elements across multiple lines for readability.
+- You need to temporarily disable a specific line — for example, to suppress an event or exclude a directory — without deleting the content.
+- You are troubleshooting a Control File and want to isolate individual record blocks by commenting out lines.
+- You are auditing a Control File and need to confirm that spaces within data values are intentional, since non-significant whitespace is ignored but data-portion spaces are preserved.
 
 :::tip Example 
 

@@ -26,11 +26,9 @@ This feature is invoked by pre-pending an equals sign ('=') to either the Source
 
 When '=' is pre-pended to the Source filename, it instructs the Server to send the record-structure data with the file. This means that the file must have first been transferred to the system and processed by the Agent as a record file (so that an ".idx" file exists). If the Server detects that this is not the case, it will abort the transfer with an appropriate message to the requesting Agent (which will be shared in some form with you). The file may still be sent as a stream file by not pre-pending an equal sign to the Source filename.
 
-- Use the `=` prefix on the Destination filename when receiving a file from a non-UNIX platform (for example, OS2200) and you need to preserve the record structure of the file so that it can later be transferred back to a non-UNIX system with the original record format intact.
-- Use the `=` prefix on the Source filename when retrieving a file that was previously stored on UNIX with record-structure data (that is, when an `.idx` file exists alongside the data file) and the destination system requires the record structure to be present.
-
-- UNIX stores all files as streams of bytes and has no knowledge of record structure; without the `=` prefix, any record structure transmitted by the Server during an incoming transfer is discarded, and the file is stored as a plain stream file. Using the `=` prefix on the Destination filename causes the Agent to retain that structure alongside the file.
-- When the same file must make a round trip — from a record-based platform to UNIX and then back to a record-based platform — preserving record structure ensures the receiving system can reconstruct the file in the format its applications expect, rather than receiving a structureless stream of bytes.
+- Use the `=` prefix on the Destination filename when receiving a file from a non-UNIX platform and you need to preserve the record structure for a later transfer back to a non-UNIX system.
+- Use the `=` prefix on the Source filename when retrieving a file that was previously stored on UNIX with record-structure data (when an `.idx` file exists alongside the data file) and the destination system requires the record structure.
+- Preserving record structure on round-trip transfers ensures the receiving system can reconstruct the file in the format its applications expect, rather than receiving a structureless stream of bytes.
 
 ## Examples
 

@@ -18,8 +18,6 @@ Reference for Unix Agent logging configuration parameters, including log file ro
 
 The following parameters reference the logging settings for troubleshooting the Unix Agent. These settings control log file rollover size and the maximum number of archived log and error files retained on the system.
 
-- When configuring log file size limits to prevent accumulation of log messages in a single file
-- When setting the maximum number of archived log and error files to manage disk usage
 - When troubleshooting agent behavior that requires reviewing log file retention settings
 
 ## log_file_rollover_size

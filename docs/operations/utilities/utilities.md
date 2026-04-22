@@ -24,9 +24,6 @@ Overview of the Unix Agent utility programs available in the agent bin directory
 - Use `install_lsam` or `install_lsam_service` during initial deployment or when configuring the agent to start automatically on system reboot.
 - Use `maintain_ofiles` to prevent accumulation of outdated job-related output files on the agent machine.
 
-- Utilities extend what jobs can communicate back to OpCon. Without `sma_status` and `sma_job_step`, operators would have no visibility into the internal progress of a running job.
-- Several utilities (`file_check`, `sma_ppscript`) allow jobs to enforce their own pre-conditions and post-processing logic, reducing dependency on manual operator intervention.
-
 The programs in this section do not use the agent Control Script. All utilities are located in the ```<LSAM root path>/bin/``` directory. All require root privileges, except file_check, maintain_ofiles, sma_ppscript, and sma_status, which are available to be called from any OpCon job. 
 
 In the table that follows, a short description of each utility is provided. 

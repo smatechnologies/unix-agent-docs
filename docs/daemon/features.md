@@ -26,13 +26,6 @@ The SMA File Activity Detection Daemon supports the following features.
 - Use the configurable sleep interval when multiple events must fire for the same file condition and you need a pause between them to allow the SAM to process them in the intended order.
 - Use the configurable control file read interval when the default one-second polling rate is too frequent or too slow for your environment.
 
-- File name masks with wildcard support allow a single Control File record block to cover an entire class of files, reducing the number of record blocks you must maintain.
-- Overlapping file name or wildcard specifications let different events respond to the same file under different conditions without duplicating monitoring infrastructure.
-- Separating modification detection from size change detection gives you precise control over which type of file activity triggers each event, avoiding unintended double-firing.
-- Time-window support prevents events from being forwarded outside of the intended processing period, reducing noise and unintended downstream effects.
-- The configurable sleep element between events allows the SAM to process events in the desired order even though the SAM does not guarantee processing sequence.
-- A configurable control file read interval lets administrators balance responsiveness against system load for their specific environment.
-
 ## SMA File Activity Daemon features and descriptions
 
 ### Recognition of file names

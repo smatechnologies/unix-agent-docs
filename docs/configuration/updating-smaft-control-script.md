@@ -22,7 +22,6 @@ Update the SMAFT control script when:
 - The `LSAM_ROOT`, `SAM_SOCKET`, `SMA_LSAM_INSTANCE`, or `PATH` values in the agent Control Script have changed and the SMAFT Control Script must be updated to match.
 - The SMAFT Control Script has been deleted and you need to verify the values that were automatically regenerated when the agent Control Script ran.
 
-- The SMAFT Control Script variables must match the corresponding values in the agent Control Script; mismatches prevent SMAFT jobs from locating the correct agent files and communicating on the correct socket.
 - Confirming the `PATH` variable in the SMAFT Control Script ensures that file transfer jobs can locate the `tar` and `gzip` compression utilities required to complete transfers.
 
 The SMA File Transfer (SMAFT) Control Script contains several variables necessary for the proper operation of SMAFT jobs. Since the installation script "install_lsam" easily creates a new Unix Agent (and updates the SMAFT Control Script), further modification of the SMAFT Control Script is not necessary. If changes need to be made, proceed as directed below under "Editing the SMAFT Control Script".

@@ -19,7 +19,6 @@ The following table lists the UNIX operating systems and processor architectures
 
 Consult this page in the following situations:
 
-- Before installing the Unix Agent, to confirm that the target operating system and processor architecture are supported.
 - When planning an upgrade, to verify that the new agent version supports the platform currently in use.
 - When diagnosing platform-specific issues, to determine whether the affected operating system is in the supported matrix.
 

@@ -29,16 +29,12 @@ Process monitoring uses output from the standard UNIX 'ps' command, and capabili
 
 User-defined monitors are user-written scripts or programs to be invoked by SMA_RM during each scan cycle to do whatever the scan requires to effect one scan of some resource and to return the normal/alarm status of the resource along with zero or more values which may be logged in the SMA_RM log file. Formatting requirements will be explained later in section "The ```<user_defined>``` Section". Data gathered by the script/program can be included via event variables in events to be sent to SAM.
 
-- Use SMA Resource Monitor when you need to monitor disk space and trigger an OpCon event or local action — such as a cleanup job or an operator console alert — when disk usage meets or exceeds a defined percentage threshold.
-- Use SMA Resource Monitor when you need to verify that required processes are running (MUST_RUN) or that prohibited processes are not running (MUST_NOT_RUN), and send an event to SAM when the condition is violated.
-- Use SMA Resource Monitor when you need to detect CPU-hog processes — processes consuming an inordinate amount of CPU time — and generate escalating events as the condition worsens, using multiple alarm levels for the same resource.
-- Use SMA Resource Monitor when you need to monitor custom resources beyond disk and processes — such as the number of files in a directory, the number of records in a database, or the number of logged-in users — by configuring user-defined monitors that invoke your own scripts or programs during each scan cycle.
-- Use SMA Resource Monitor when you need to restrict monitoring to specific daily time windows, or to define exclusive windows so that monitoring occurs only outside a specified time period.
-
-- SMA_RM monitors disk space, processes, and user-defined metrics continuously during each scan cycle, sending OpCon events or running local actions the moment a resource crosses a defined threshold — without requiring a separate scheduled job for each check.
-- Daily time windows allow monitoring to be active only during business hours or only outside them, so alarm conditions are reported in the context where they are actionable rather than generating noise at all hours.
-- User-defined monitors extend built-in disk and process monitoring to any resource that a custom script or program can measure, including the number of files in a directory, records in a database, or logged-in users, using the same alarm/normal event model as built-in monitors.
-- The log file records scanned values and alarm transitions with per-day rotation, giving administrators an audit trail of resource behavior that can be reviewed after an incident.
+- Use SMA Resource Monitor to monitor disk space and trigger an OpCon event or local action — such as a cleanup job or an operator console alert — when usage meets or exceeds a defined threshold.
+- Use SMA Resource Monitor to verify that required processes are running (MUST_RUN) or that prohibited processes are not running (MUST_NOT_RUN).
+- Use SMA Resource Monitor to detect CPU-hog processes and generate escalating events using multiple alarm levels for the same resource.
+- Use SMA Resource Monitor to monitor custom resources — such as files in a directory, records in a database, or logged-in users — by configuring user-defined monitors that invoke your own scripts during each scan cycle.
+- Use SMA Resource Monitor when monitoring should be restricted to specific daily time windows or to periods outside a specified time range.
+- The log file records scanned values and alarm transitions with per-day rotation, providing an audit trail of resource behavior.
 
 ## Examples
 

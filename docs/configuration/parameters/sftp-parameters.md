@@ -18,8 +18,6 @@ Reference for the Unix Agent SFTP parameter that configures the port used for SF
 
 The following parameters reference the SFTP setting for the Unix Agent. This setting controls whether SFTP is enabled for file transfers and specifies the port used, with automatic fallback to SMAFT if SFTP fails.
 
-- When enabling SFTP-based file transfer for the agent
-- When configuring the SSH port used for SFTP connections
 - When troubleshooting file transfer behavior, including SFTP-to-SMAFT fallback
 
 ### sftp_port

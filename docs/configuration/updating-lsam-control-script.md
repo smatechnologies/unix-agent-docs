@@ -23,7 +23,6 @@ Update the agent control script when:
 - You are adding or removing compression utilities (`tar` or `gzip`) on the system and need the `PATH` variable to reflect the change so that SMA File Transfer jobs can locate those utilities.
 - You are setting up multiple agent instances on a single machine and need each instance's control script to reference a unique `SAM_SOCKET` and `SMA_LSAM_INSTANCE`.
 
-- The control script variables define the paths and socket numbers the agent uses to locate its files and communicate with OpCon; incorrect values prevent the agent from starting or processing jobs.
 - Keeping the `PATH` variable accurate ensures that SMA File Transfer operations can find the compression utilities they require, and that the SMAFT Control Script stays in sync with the agent's environment.
 
 The agent Control Script contains several variables necessary for the proper processing of agent commands and of agent components. Since the installation script "install_lsam" easily creates a new Unix Agent (and updates the agent Control Script), further modification of the agent Control Script is not necessary. For information on the install_lsam script, refer to [install_lsam](../operations/utilities/install-lsam). SMA Technologies recommends confirming that the following variables are set to the correct values for the environment after running install_lsam. If changes need to be made, proceed as directed below under "Editing the agent Control Script."

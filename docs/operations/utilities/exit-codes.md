@@ -19,9 +19,6 @@ Reference for the exit_codes utility, which executes a job and displays its retu
 - You are configuring Failure Criteria for a job in OpCon and need to confirm what exit code the job's executable returns under normal and error conditions.
 - You are debugging a job that is reporting an unexpected status and want to verify the numeric exit code, exit signal, and whether a core image was created.
 
-- exit_codes runs the job and captures all return values — exit code, exit signal, and core image status — giving you the exact values to use when configuring Failure Criteria for the job in OpCon.
-- Displaying the complete job return information in a single command reduces the time needed to diagnose why a job is reporting an unexpected status.
-
 The exit_codes utility runs a job and displays the return values. Helpful for debugging, this information aids in determining the expected results for a job in OpCon.
 
 This utility displays the following information when a job completes:

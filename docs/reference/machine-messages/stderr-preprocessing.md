@@ -17,10 +17,8 @@ Reference for STDERR pre-processing error messages written when file transfer jo
 
 Pre-processing errors are written to a job's STDERR file when the job requirements could not be met.
 
-- A file transfer job fails before the transfer begins and you need to identify the pre-processing error written to the job's STDERR file.
 - A transfer is aborted due to access, permission, or path issues on the source or destination file.
 - Compression or encryption settings cannot be met by both machines and you need to understand the resulting error message.
-- You need to determine why a file transfer job was aborted before any data was transferred.
 
 ### User does not have required access to Source File [file]	
 

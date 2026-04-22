@@ -25,9 +25,6 @@ The Unix Agent installation is initiated by the install_agent script. The script
 
 Use the procedures on this page in the following situations:
 
-- When performing a new Unix Agent installation on a UNIX machine, to create one or more agent instances using the install_agent script.
-- When upgrading from an older version of the agent to a newer version, to stop the existing agent, convert the configuration file format, and carry forward existing configuration and job data.
-- When adding another agent instance to an existing agent version, to create an additional agent instance with a new SAM socket number on the same machine.
 - When the installing account does not have root privileges and the system administrator has configured sudo access, to perform the installation using the sudo command.
 
 ## Transferring the installation files

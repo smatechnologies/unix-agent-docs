@@ -17,7 +17,6 @@ Reference for OpCon field codes and descriptions returned per job when Unix Agen
 
 The following table lists the OpCon Field Code and description for data returned with each job when job resource-usage reporting is enabled (agent configuration parameter LSAM_job_statistics set to 1):
 
-- You have enabled job resource-usage reporting (LSAM_job_statistics set to 1) and need to identify the meaning of a specific OpCon field code returned with a job.
 - You are interpreting CPU usage, memory, I/O, or wall-clock run-time values reported per job.
 - You need to determine which resource metrics are supported on your UNIX platform and which values may be reported as zero.
 - You are reviewing resource-usage statistics for an SMA File Transfer job running on a UNIX destination machine.

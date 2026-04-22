@@ -16,11 +16,9 @@ tags:
 ## What is it?
 Reference for the sma_ppscript utility, which registers a post-processing analysis script to determine job success or failure after the job's executable finishes.
 
-- A job's success or failure cannot be determined solely by its exit code, and the content of the job's STDOUT or STDERR output must be analyzed to make that determination.
+- A job's success or failure cannot be determined solely by its exit code and the job's STDOUT or STDERR output must be analyzed instead.
 - The standard Failure Criteria in the OpCon Job Details screen does not provide sufficient flexibility for the specific analysis the job requires.
-
-- sma_ppscript separates the job's executable from the logic used to evaluate its outcome, allowing you to update the analysis script independently without modifying the job's main program.
-- The analysis script receives the pathnames of the job's redirected STDOUT and STDERR files as arguments, giving it direct access to the job's output for detailed inspection.
+- The analysis script receives the pathnames of the job's redirected STDOUT and STDERR files as arguments, giving it direct access to the job's output.
 
 The sma_ppscript utility provides an alternative method to the Job Details screen's "Failure Criteria" for determining a job's success or failure. A Job's executable invokes sma_ppscript telling the agent the job needs post-processing with a user-supplied analysis script. 
 

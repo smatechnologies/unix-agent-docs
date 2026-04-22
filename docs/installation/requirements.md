@@ -17,7 +17,6 @@ Hardware, software, disk space, memory, and privilege requirements for installin
 
 Consult this page in the following situations:
 
-- Before performing a new installation of the Unix Agent, to confirm that the target machine meets the minimum disk space, memory, and privilege requirements.
 - Before performing an upgrade installation, to verify that root or sudo access is available and that the correct SSL and Crypto library versions are in place.
 - When the agent fails to start after installation and the system displays `error while loading shared libraries` messages, to follow the SSL and Crypto library resolution procedure.
 

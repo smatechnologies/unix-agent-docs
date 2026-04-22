@@ -17,7 +17,6 @@ Reference for status messages and job information displayed in Enterprise Manage
 
 Once jobs are built, the Enterprise Manager Operation screen contains different information depending on a job's status. In many cases, a specific failure message is returned from the agent and viewable in the Detailed Job Messages parameter in the Job Information screen>Configuration Tab>Operations Related Information Tab. For more information, refer to [Job Information](https://help.smatechnologies.com/opcon/core/Files/UI/Enterprise-Manager/Job-Information) in the Enterprise Manager online help. When UNIX jobs are processing, the status information includes the Process ID (pid) number or any optional status messages.
 
-- You need to understand the format of the status message displayed for a running UNIX job in Enterprise Manager Operation.
 - A running job shows an unexpected or unfamiliar status message and you need to identify its meaning.
 - You want to verify whether a job is reporting its PID or a custom status message written by the sma_status utility.
 - You are diagnosing a job that has stalled or terminated unexpectedly while in a running state.

@@ -18,7 +18,6 @@ Reference for Unix Agent dispatcher configuration parameters, including the mess
 
 The following parameters reference the dispatcher setting for the agent's internal communication. This setting controls the timeout behavior of the TCP/IP socket when SMANetCom communication is delayed.
 
-- When configuring the timeout period the agent waits for a message from SMANetCom
 - When troubleshooting communication issues related to the agent dropping or resetting TCP/IP socket connections
 
 ### msg_timeout_in_seconds

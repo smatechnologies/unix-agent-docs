@@ -36,7 +36,6 @@ In this case, you should check what was entered for "Start Image" on the Job Det
 
 There are currently over 500 messages which might be output, making a listing of each impractical. The following table lists the messages which address conditions that can generally be understood and/or corrected by you without intervention of SMA Technologies Support personnel. Within the Message Text, "[x]" indicates variable data.
 
-- A message appears in the agent log or error file and you need to identify its ID or understand its meaning.
 - A process fails to start or terminates abnormally and you need to identify the relevant health-monitor message.
 - A job fails because of a missing environment variable, invalid UID/GID, or an inaccessible start image.
 - A socket-based communication error occurs and you need to determine whether it originates from the agent or the network.

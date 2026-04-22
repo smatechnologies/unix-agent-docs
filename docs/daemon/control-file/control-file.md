@@ -21,12 +21,7 @@ The Control File contains all the parameters the daemon needs to monitor the dir
 - Create a Control File when you need to set up a new instance of the SMA FAD — each Control File in the `control` subdirectory identifies a unique daemon instance with its own configuration.
 - Create an additional Control File when different directories must be monitored at different intervals — multiple Control Files can coexist in the control directory, each configuring an independent daemon instance.
 - Modify a Control File when the directories to monitor, the conditions to detect, the events to forward, or the timing settings for an existing daemon instance need to change.
-- Modify the Control File when you need to add, remove, or adjust record blocks — each block targets a specific file mask and condition, so changes to monitoring scope require editing the file directly.
-
-- The Control File provides a single, human-readable XML configuration point for all parameters an SMA FAD instance needs — the directories to watch, the conditions to detect, the external events to forward to the SAM, and the timing controls.
-- Storing configuration in a plain ASCII text file means any standard editor (for example, vi) can be used to create or modify it without specialized tooling.
-- Supporting multiple Control Files in the same `control` subdirectory allows independent monitoring instances to run with different configurations, giving administrators granular control over how different directories are monitored.
-- Commenting out lines with a `#` as the first non-blank character lets administrators disable individual lines for testing or troubleshooting without deleting content.
+- Comment out lines with a `#` as the first non-blank character to disable individual lines for testing or troubleshooting without deleting content.
 
 ## Creating a Control File
 

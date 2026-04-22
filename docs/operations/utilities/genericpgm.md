@@ -21,8 +21,6 @@ The genericpgm program sleeps for the requested time (default 10 seconds) and th
 - You are configuring or testing the agent and need a job that runs for a predictable duration and exits with a specific code, without requiring a real workload.
 - You are using exit_codes to test Failure Criteria and need a controlled program whose exit code and sleep duration you can specify precisely.
 
-- genericpgm produces repeatable, configurable output — a known exit code, signal disposition, and runtime — which removes variables when isolating agent configuration issues.
-
 ## Syntax
 
 ```genericpgm [-e#] [-s#] [-t#]```

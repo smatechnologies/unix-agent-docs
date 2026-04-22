@@ -18,9 +18,6 @@ Reference for the Unix Agent FAD parameter that controls whether the File Activi
 
 The following parameters reference the FAD setting for the Unix Agent. This setting controls whether the File Activity Detection monitor detects files that were created while the agent or FAD was down.
 
-- When configuring File Activity Detection (FAD) startup behavior
-- When determining whether FAD should process files created during agent downtime
-
 ### fad_mon_start
 
 **Default Value**: 0

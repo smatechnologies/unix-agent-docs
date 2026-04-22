@@ -17,7 +17,6 @@ Supplemental procedures for post-installation tasks such as migrating the Unix A
 
 Use the procedures on this page in the following situations:
 
-- After a new or upgrade installation, when it becomes necessary to have the agent communicate with the SAM on a socket number different from the one specified during the original installation.
 - When the agent was originally installed with an explicit `<LSAM_instance>` parameter, enabling a straightforward socket migration by re-running the install_lsam script with the same instance name and the new socket number.
 - When setting up multiple agent instances on the same machine with different SAM socket numbers, to create separate agent control scripts for each instance.
 

@@ -27,15 +27,9 @@ The agent will perform file transfer using the open standard SFTP between UNIX a
 
 When the agent is installed, you have the option of choosing to use the /TMP partition or to use a TMP area in the same partition as the agent. File transfers may require anywhere from two to three times the size of the file being transferred in /TMP or TMP workspace designated when the agent was installed.
 
-- Use SMAFT when you need to transfer files between platforms as part of an OpCon job and must ensure that the transfer completes before dependent jobs begin processing.
-- Use SMAFT when transferred files require compression — for example, to reduce transfer size using the UNIX `tar` and `gzip` utilities, with the option to require compression or to prefer it and fall back gracefully if a compatible method cannot be negotiated.
-- Use SMAFT when transferred files must be encrypted in transit — for example, when organizational security policies require DES, 3DES, or AES-128 encryption, with the ability to set encryption as PREFERRED or REQUIRED for each agent installation.
-- Use SMAFT when transferring files from a non-UNIX platform to UNIX and then back to a non-UNIX platform, and you need to preserve the original record structure of the file so that it arrives at the destination with its record format intact.
-
-- SMAFT ensures that file transfers complete before dependent jobs begin processing, which prevents downstream jobs from running against incomplete or missing data.
-- SMAFT supports compression and encryption in a single transfer, reducing both the size of the file in transit and protecting its contents without requiring separate pre- and post-transfer steps.
-- When both agents support SFTP, SMAFT uses that open standard automatically and falls back to its own protocol if the SFTP transfer fails, minimizing manual intervention.
-- SMAFT can transfer files larger than two gigabytes when the underlying operating system supports it, removing size-based limitations that affect simpler transfer utilities.
+- Use SMAFT when transferred files require compression or encryption, with PREFERRED or REQUIRED options per agent installation.
+- Use SMAFT when transferring files from a non-UNIX platform to UNIX and back, and you need to preserve the original record structure so the file arrives with its record format intact.
+- SMAFT supports compression and encryption in a single transfer without requiring separate pre- and post-transfer steps.
 
 ## Examples
 

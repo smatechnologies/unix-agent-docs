@@ -16,13 +16,9 @@ tags:
 ## What is it?
 The SMA_RM configuration file defines the structure and rules for disk, process, and user-defined monitoring sections, including window, log, and comment syntax.
 
-- Edit the configuration file to add, modify, or remove `<disk>`, `<process>`, or `<user_defined>` monitoring sections when your organization's monitoring requirements change — for example, when new disks are mounted, new processes must be tracked, or user-defined monitors are added.
-- Edit the configuration file to change global parameters in the `<config>` section, such as the `<scan_interval>`, `<C_alarm>`, `<T_alarm>`, or `<user_defined_monitor>` timeout settings, when the current values no longer reflect your monitoring needs.
-- Edit the configuration file to replace its contents with an empty `<config></config>` block when you need to temporarily disable SMA_RM without stopping the agent, then overwrite it with the full configuration when you are ready to resume monitoring.
-
-- SMA_RM starts automatically at agent startup only if the configuration file is present and readable; configuring the file is required to activate disk, process, and user-defined monitoring without restarting the agent.
-- SMA_RM monitors the configuration file for changes and re-reads it when a change to its modification time is detected, allowing monitoring configuration to be updated on the fly without an agent restart; if the new file contains errors, SMA_RM logs the error and continues with the previous valid configuration.
-- The order in which sections appear in the configuration file controls the order in which they are processed during each scan cycle, which is significant for process sections — for example, `<process>` sections that ignore certain processes must appear before sections that would otherwise apply to those processes.
+- Edit the configuration file to add, modify, or remove `<disk>`, `<process>`, or `<user_defined>` monitoring sections when your organization's monitoring requirements change.
+- Edit the configuration file to change global parameters in the `<config>` section, such as `<scan_interval>`, `<C_alarm>`, `<T_alarm>`, or `<user_defined_monitor>` timeout settings.
+- Replace the file contents with an empty `<config></config>` block to temporarily disable SMA_RM without stopping the agent.
 
 The configuration file consists of one ```<config>``` section, followed in any order by any number of optional ```<disk>```, ```<process>```, or <user_defined> sections, to be discussed in that order. Although ```<disk>```,``` <process>```, or ```<user_defined>``` sections may appear in any order, the order in which they appear is significant in that their order within the file is also the order in which they are processed during each scan. 
 

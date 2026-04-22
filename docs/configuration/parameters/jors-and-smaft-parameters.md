@@ -18,9 +18,6 @@ Reference for Unix Agent JORS and SMAFT parameters, including settings that cont
 
 The following parameters reference the settings to control how the agent handles STDOUT and STDERR, and defines capabilities and operating parameters for the Job Output Retrieval System (JORS) and SMA File Transfer (SMAFT). These settings include socket port numbers, file transfer bandwidth limits, encryption support, and output file retention.
 
-- When configuring JORS or SMAFT socket port numbers for communication with the Enterprise Manager
-- When setting STDOUT and STDERR redirection behavior or output file retention policies
-- When enabling or configuring encryption and bandwidth limits for file transfers
 - When troubleshooting JORS or SMAFT timeout and retry behavior
 
 ### redirect_stdout

@@ -16,7 +16,6 @@ tags:
 ## What is it?
 Reference for Unix Agent TCP/IP configuration parameters, including allowed SMANetCom IP addresses, NIC binding, and TLS certificate settings.
 
-- When configuring initial TCP/IP communication settings between the agent and SMANetCom
 - When restricting which SMANetCom IP addresses are allowed to connect to the agent
 - When binding the agent to a specific network interface card (NIC)
 - When enabling or configuring TLS encryption for agent communication

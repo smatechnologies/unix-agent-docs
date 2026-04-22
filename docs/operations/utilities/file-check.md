@@ -18,8 +18,6 @@ Reference for the file_check utility, which validates that specified files meet 
 
 - Configure file_check as a prerun job in OpCon when a downstream job requires a specific file to exist, be readable, or meet a minimum size or age before the job starts.
 - Use file_check to verify that files placed in a shared directory by an upstream process are present and fully written before a dependent job reads them.
-
-- Running file_check as a prerun job prevents downstream jobs from failing partway through because a required file was missing or incomplete at start time.
 - The utility returns structured exit codes (100–105) that map directly to specific failure conditions, making it straightforward to diagnose why a prerun check failed.
 
 The file_check utility checks if specified file(s) meet the requested criteria. The file_check utility is useful as a prerun job in OpCon when a job requires a specific file to meet some criteria before the job runs.

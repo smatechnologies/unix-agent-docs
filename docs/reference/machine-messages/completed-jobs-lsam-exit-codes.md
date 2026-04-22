@@ -18,7 +18,6 @@ Reference for Unix Agent-specific exit codes returned when jobs complete, includ
 When a job completes, the OpCon status changes to either Finished OK or Failed. The 20-character message text changes to include the exit codes from the job.
 
 - A job fails with an exit code and you need to determine whether it is an agent-specific code or a UNIX system code.
-- You are interpreting the job completion status shown in the 20-character message text in Enterprise Manager.
 - A File Arrival job fails and you need to identify the specific exit code returned.
 - You need to understand the breakdown of the exit code sections (job exit code, signal value, and core dump indicator).
 

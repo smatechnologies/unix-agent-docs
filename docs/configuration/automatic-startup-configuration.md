@@ -21,7 +21,6 @@ Configure automatic startup when:
 - The Unix Agent must resume operation without manual intervention after a system reboot or scheduled maintenance window.
 - The production environment requires the agent to be available as soon as the operating system reaches multi-user mode, without waiting for an administrator to issue a start command.
 
-- Configuring automatic startup ensures the agent is consistently available after any reboot, reducing the risk of missed job schedules caused by a forgotten manual start.
 - Placing the agent near the end of the system boot sequence (and near the beginning of the shutdown sequence) prevents erratic behavior that can occur when the agent starts before dependent system services are ready.
 
 To ensure that the agent automatically starts and stops, create a symbolic link from the agent Control Script (e.g., lsam3100) to the system's init.d directory. Then make symbolic links from the init.d link to the rc<#>.d directories.
