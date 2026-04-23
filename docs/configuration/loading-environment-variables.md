@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'Loading environment variables'
 title: Loading Environment Variables
-description: "Instructions for using SMA Technologies-provided setup scripts and the userinfo program to load a user's operating environment before the Unix Agent executes a job."
+description: "Instructions for using SMA Technologies-provided setup scripts and the userinfo program to load a user's operating environment before the Unix Agent runs a job."
 tags:
   - Procedural
   - System Administrator
@@ -14,7 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-Instructions for using SMA Technologies-provided setup scripts and the userinfo program to load a user's operating environment before the Unix Agent executes a job.
+Instructions for using SMA Technologies-provided setup scripts and the userinfo program to load a user's operating environment before the Unix Agent runs a job.
 
 Set up environment variables when:
 

@@ -119,7 +119,7 @@ On a Windows machine, use IIS Manager to create a server certificate.
 
 ### Common name
 
-The most important configuration to configure is the "Common Name" field. By using wildcard ```*smausa.com``` in this field, we can make use of this one certificate file for all the servers that end with domain name "smausa.com". In other words, there is no need to generate a unique certificate for each server.
+The most important field to configure is the "Common Name" field. By using wildcard ```*smausa.com``` in this field, you can use this one certificate file for all servers whose domain name ends with "smausa.com", removing the need to generate a unique certificate for each server.
 
 ```
 

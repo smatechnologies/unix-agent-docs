@@ -18,7 +18,7 @@ Reference for the Unix Agent sma_filein parameter that defines the sleep interva
 
 The following parameters reference the sma_filein setting for the sleep time. This setting controls how frequently the agent checks the MSGIN directory for incoming messages.
 
-## sma_filein_sleep_time
+### sma_filein_sleep_time
 
 **Default Value**: 5
 

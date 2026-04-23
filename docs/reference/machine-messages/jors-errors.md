@@ -22,7 +22,7 @@ The UNIXLSAM.log file contains these errors:
 
 
 * **Unable to open master socket (return : return errno : errno)**
-* **Select on master socket failed (errmo : errno)**
+* **Select on master socket failed (errno : errno)**
 * **Accept on master socket failed (errno : errno)**
 * **Could not set buffer size**
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'exit_codes'
 title: exit_codes
-description: "Reference for the exit_codes utility, which executes a job and displays its return values, exit code, exit signal, and core image status for debugging purposes."
+description: "Reference for the exit_codes utility, which runs a job and displays its return values, exit code, exit signal, and core image status for debugging purposes."
 tags:
   - Reference
   - System Administrator
@@ -14,7 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-Reference for the exit_codes utility, which executes a job and displays its return values, exit code, exit signal, and core image status for debugging purposes.
+Reference for the exit_codes utility, which runs a job and displays its return values, exit code, exit signal, and core image status for debugging purposes.
 
 - You are configuring Failure Criteria for a job in OpCon and need to confirm what exit code the job's executable returns under normal and error conditions.
 - You are debugging a job that is reporting an unexpected status and want to verify the numeric exit code, exit signal, and whether a core image was created.
@@ -46,6 +46,14 @@ For dependable results, the job specified in the Start Image must explicitly per
 | `-g#` | Required | Group ID under which the job runs. |
 | `-s"<start image>"` | Required | Start image and arguments for the job. |
 
+## Exception handling
+
+**Job always returns exit code 0 regardless of the actual outcome** — The job's executable does not explicitly call `exit()`, and some UNIX implementations return 0 when a process completes normally regardless of the program's intent. — Modify the script to explicitly call `exit()` with a meaningful code. If exit codes are not available, use STDOUT redirection with Failure Criteria instead.
+
+**Exit code is not in the expected range** — An exit code outside the -127 to +127 range was specified. UNIX truncates codes outside this range, producing unexpected values. — Ensure all `exit()` calls in the job use a code within -127 to +127.
+
+## Examples
+
 :::tip Example
 
 The following example shows the command to run the agent's generic program, genericpgm, from the /usr/local/lsam/bin directory. The generic program's parameters cause the job to run for two seconds and to terminate with an exit code of three:
@@ -73,3 +81,11 @@ Core image created : 0
 ```
 
 :::
+
+## Glossary
+
+**exit code** — A numeric value returned by a process when it completes. The Unix Agent reads this value to determine whether an OpCon job succeeded or failed. Valid range: -127 to +127.
+
+**exit signal** — A numeric value indicating whether the process was terminated by a signal (non-zero) or exited normally (0). Displayed alongside the exit code in exit_codes output.
+
+**core image** — A file written to disk when a process terminates abnormally. Displayed in binary format by exit_codes (1 = created, 0 = not created).

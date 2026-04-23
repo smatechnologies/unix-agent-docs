@@ -78,3 +78,11 @@ If ```<LSAM_instance>``` is not specified at the time the agent is installed, ch
 The job output files will need to be copied after setting-up the appropriate directory structure. And, the job tracking files will need to be copied. SMA Technologies therefore recommends that ```<LSAM_instance>``` always be specified at agent installation. 
 
 If it should become necessary to change SAM sockets for an agent installed without an explicit ```<LSAM_instance>```, please contact your SMA Technologies support representative to help you accomplish the aforementioned operations.
+
+## Glossary
+
+**SAM socket** — The TCP/IP port number the Unix Agent uses to communicate with the SAM. Specified as `<SAM_Socket>` in the `install_lsam` command and used to name the agent Control Script (for example, `lsam3100`).
+
+**agent instance** — A single running installation of the Unix Agent identified by its `$SMA_LSAM_INSTANCE` environment variable. Multiple agent instances can run on the same machine using different socket numbers and instance names.
+
+**fail-over configuration** — An agent deployment in which two instances on different machines share the same root directory and socket number. Omit the `<LSAM_instance>` parameter when installing agents intended for fail-over to avoid configuration conflicts during switchover.

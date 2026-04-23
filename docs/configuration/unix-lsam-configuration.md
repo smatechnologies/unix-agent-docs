@@ -8,28 +8,22 @@ tags:
   - Agents
 ---
 
-Agent configuration includes modification of the agent Control Script, modification of the agent configuration file, and configuration of the root profile. For information on configuring the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script). The initial execution of the agent configuration program, which is automatically run during the agent installation, creates the Unix Agent configuration file lsam.conf. The lsam.conf resides in directory "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/```". Except as noted in section "Hidden agent Configuration Parameters", do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration. For more information on Hidden agent Configuration Parameters, refer to [Hidden agent Configuration Parameters](../configuration/parameters/hidden-parameters).
+## What is it?
+Agent configuration includes modification of the agent Control Script, modification of the agent configuration file, and configuration of the root profile. For information on configuring the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script). The initial run of the agent configuration program, which is automatically run during agent installation, creates the Unix Agent configuration file lsam.conf. The lsam.conf resides in directory "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/```". Except as noted in [Hidden agent Configuration Parameters](../configuration/parameters/hidden-parameters), do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration.
 
 Beyond the core configuration file, you can configure TLS-secured communication between the agent and OpCon/SAM, define black list and white list rules to control which users are permitted to run jobs, run multiple independent agent instances on a single machine, and configure the agent to start and stop automatically during system boot and shutdown.
+
+- You are setting up the Unix Agent for the first time and need to understand which configuration areas to address and in what order.
+- You are troubleshooting a configuration issue and need to identify which file or program controls a specific behavior, such as TLS security, user access rules, or time zone settings.
+- You are planning to run multiple agent instances on a single machine and need an overview of all configuration components before diving into individual procedures.
+- Agent configuration spans multiple files and programs; a single overview helps you locate the correct configuration area without searching through unrelated documentation.
+- Understanding the relationship between the agent Control Script, `lsam.conf`, and supplementary configuration areas (TLS, security, multiple instances, automatic startup) reduces the risk of applying changes in the wrong file or the wrong order.
 
 :::info Note
 
 Do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration.
 
 :::
-
-## When would you use it?
-
-Refer to this page when:
-
-- You are setting up the Unix Agent for the first time and need to understand which configuration areas to address and in what order.
-- You are troubleshooting a configuration issue and need to identify which file or program controls a specific behavior, such as TLS security, user access rules, or time zone settings.
-- You are planning to run multiple agent instances on a single machine and need an overview of all configuration components before diving into individual procedures.
-
-## Why would you use it?
-
-- Agent configuration spans multiple files and programs; a single overview helps you locate the correct configuration area without searching through unrelated documentation.
-- Understanding the relationship between the agent Control Script, `lsam.conf`, and supplementary configuration areas (TLS, security, multiple instances, automatic startup) reduces the risk of applying changes in the wrong file or the wrong order.
 
 ## Configuration areas
 

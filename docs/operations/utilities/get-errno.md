@@ -39,6 +39,8 @@ Additionally, if run as an OpCon job, the utility writes to the Enterprise Manag
 
 :::
 
+## Examples
+
 :::tip Example
 
 The following example shows the use of get_errno for retrieving two error codes.
@@ -88,3 +90,15 @@ $SMA_BINDIR/get_errno $?
 ```
 
 :::
+
+## Exception handling
+
+**`Command not found` when running get_errno as an OpCon job** — The utility was invoked without the `$SMA_BINDIR/` prefix. When run as an OpCon job, the agent does not add the `bin` directory to the `PATH` automatically. — Prefix the command with `$SMA_BINDIR/`: `$SMA_BINDIR/get_errno error_number`.
+
+**Same error condition returns different errno numbers on different platforms** — UNIX errno values are not standardized across operating systems. The same error (for example, `ECONNREFUSED`) may have different numeric values on AIX versus HP-UX. — Use `get_errno` to translate the numeric value to its symbolic constant, then look up the symbolic constant in the troubleshooting reference rather than the numeric value.
+
+## Glossary
+
+**errno** — A numeric error indicator returned by UNIX system calls when an operation fails. The numeric value is platform-specific but maps to a symbolic constant that is consistent across platforms.
+
+**symbolic constant** — A human-readable identifier (such as `EACCES` or `ECONNREFUSED`) that represents a specific UNIX error condition. `get_errno` translates numeric errno values to their symbolic constants and descriptions.

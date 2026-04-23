@@ -26,7 +26,7 @@ The lsam_killjob command runs a "ps –ef" command to display every running proc
 
 :::tip Example
 
-The following example shows execution of lsam_killjob:
+The following example shows running lsam_killjob:
 
 ```
 # lsam_killjob fail
@@ -79,3 +79,15 @@ For information on this parameter, refer to [Administrative Machine Information]
 | Parameter | Required | Description |
 |---|---|---|
 | `<Search_Text>` | Required | Text used to identify the job to terminate. Matched against the output of `ps -ef`; typically the Start Image and Parameters from the OpCon Job Details screen. Only as much text as needed to identify the job is required. Enclose in quotes if the text contains embedded spaces. For SMAFT jobs, specify `SMAFTScript<SAM_socket>` (for example, `SMAFTScript3100`). |
+
+## Exception handling
+
+**No processes found (that were started by sma_lsam)** — The `<Search_Text>` did not match any running OpCon job process in the `ps -ef` output. — Verify the search text matches the Start Image and Parameters from the OpCon Job Details screen. Run `ps -ef | grep <Search_Text>` to confirm the process is visible before invoking `lsam_killjob`.
+
+**`Kill? (*n/y)` prompt appears for the wrong process** — The search text matched a process that is not the intended job. — Use a more specific search text, such as a unique portion of the job's full path or arguments, to narrow the match to the correct process.
+
+## Glossary
+
+**SIGKILL** — A Unix signal that immediately and unconditionally terminates a process. It cannot be caught, blocked, or ignored by the receiving process.
+
+**Search Text** — The string `lsam_killjob` matches against `ps -ef` output to identify the target process. Typically the Start Image and Parameters from the OpCon Job Details screen.

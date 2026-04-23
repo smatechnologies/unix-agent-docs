@@ -30,7 +30,7 @@ The following sections show the lines needing to be "commented out" to deactivat
 
 ## Deactivating sma_cronmon
 
-### Changes to #{LSAM_ROOT}/bin/start_lsam
+### Changes to ${LSAM_ROOT}/bin/start_lsam
 
 To comment out a line, precede it with a pound (#) symbol.
 

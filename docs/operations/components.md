@@ -185,8 +185,8 @@ By default, the LSAM sets the JORS_FT Socket number to the sum of ten plus the L
 To configure the JORS and file transfer ports, complete the following steps:
 
 1. Use menu path: Start > Programs > OpConxps > Enterprise Manager. The OpCon Login screen displays.
-2. In the Username text box, enter a case-sensitive User Login ID (e.g., ocadm).
-3. In the Password text box, enter the case-sensitive password for you.
+2. In the **Username** field, enter a case-sensitive User Login ID (e.g., ocadm).
+3. In the **Password** field, enter the case-sensitive password for you.
 4. In the **Profile** list, select the profile.
 5. Select the Login button to log in to the Enterprise Manager.
 6. Select **Machines**. The Machines screen displays.
@@ -215,7 +215,7 @@ For JORS and a File Transfer job to function properly, ensure that any firewall 
 * Select the Update button.
 19. Select the Save button to save and close the Advanced Settings Panel. The JORS and file transfer ports are configured.
 20. *(Optional)* Start communication with the machine by:
-* Right-clicking over the graphic to enable the menu in the Communication Status frame.
+* Right-select the graphic to enable the menu in the Communication Status frame.
 * Selecting Start Communication from the menu.
 21. Select the x to the right of the Machines tab to close the Machines screen.
 
@@ -226,7 +226,7 @@ To view job output, complete the following steps:
 1. Under the Operation topic, select **List**.
 2. Select the arrow to expand the specific date.
 3. Select the arrow to expand the specific schedule.
-4. Right-click on the desired job.
+4. Right-select the desired job.
 5. Select View Job Output from the menu. The Job Output Retriever window displays.
 6. Select the Output File(s) name to retrieve the output file information. The Log Viewer window displays.
 7. *(Optional)* Select the Copy To Clipboard button.

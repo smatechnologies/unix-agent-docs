@@ -21,6 +21,7 @@ The sma_LSAM_feedback utility instructs the agent to send a message to be displa
 Note that this should not be used in the place of regular job output files to log job execution data, as indiscriminate use can quickly result in large amounts of data getting added to the OpCon database – its primary use is intended to be for the agent to communicate non-job-specific error conditions to SAM.
 
 - A job needs to surface a non-job-specific error condition or status message in the agent Feedback or Detailed Job Messages field in OpCon without operators opening a log file.
+- The agent encounters a condition unrelated to the job's primary function — such as a missing dependency or an unexpected environment state — and needs to surface it in OpCon without requiring operators to access the agent machine directly.
 
 ## Syntax
 
@@ -32,6 +33,8 @@ Note that this should not be used in the place of regular job output files to lo
 |---|---|---|
 | `"Message"` | Required | Text to display in the agent Feedback or Detailed Job Messages field for the job. Each call to sma_LSAM_feedback creates one entry. |
 
+
+## Examples
 
 :::tip Example
 
@@ -46,3 +49,9 @@ $SMA_BINDIR/sma_LSAM_feedback "Unable to open PRD file"
 ```
 
 :::
+
+## Glossary
+
+**agent Feedback** — A field in the OpCon Job Configuration view that displays messages sent by the Unix Agent during job execution. One entry is created for each call to `sma_LSAM_feedback`.
+
+**Detailed Job Messages** — A field in the OpCon Job Configuration view (Operations Related Information tab) that lists messages accumulated during a job's execution. Used for SMAFT-type jobs.

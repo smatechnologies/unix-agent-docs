@@ -8,7 +8,7 @@ tags:
   - Agents
 ---
 
-# Utilties Overview
+# Utilities Overview
 
 **Theme:** Configure  
 **Who Is It For?** System Administrator

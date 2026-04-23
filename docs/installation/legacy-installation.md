@@ -139,7 +139,7 @@ If a script issues a job-status message via the command:
 
 They should change the command to read:
 
-```$SMA_BINDIR/sma_startus "Starting Phase 1"```
+```$SMA_BINDIR/sma_status "Starting Phase 1"```
 
 :::
 

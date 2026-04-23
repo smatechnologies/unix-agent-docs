@@ -109,14 +109,14 @@ The description may be presented in a language other than English.
 
 ### EACCES - Permission denied
 
-* **CAUSE**: You is not authorized for the access requested for the indicated resource.
+* **CAUSE**: You are not authorized for the access requested for the indicated resource.
 * **FIX**: Check the Job Details (in the Enterprise Manager) for errors and/or consult the System Administrator to determine if access can be granted.
 
 ### EPERM 
 
 - Not owner	
 
-* **CAUSE**: You is not listed as the "owner" of the indicated resource and you cannot be given the access requested.
+* **CAUSE**: You are not listed as the "owner" of the indicated resource and you cannot be given the access requested.
 * **FIX**: Check the Job Details (in the Enterprise Manager) for errors and/or consult the System Administrator to determine if access can be granted.
 
 ### EROFS - Read-only file system

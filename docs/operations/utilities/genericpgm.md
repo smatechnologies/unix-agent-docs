@@ -32,3 +32,25 @@ The genericpgm program sleeps for the requested time (default 10 seconds) and th
 | `-e#` | Optional | `0` | Exit code the program returns on completion. Valid range: -127 to 127. |
 | `-s#` | Optional | `0` | Signal disposition. |
 | `-t#` | Optional | `10` | Sleep time in seconds before the program exits. |
+
+## Examples
+
+:::tip Example
+
+The following example runs genericpgm for 5 seconds and exits with code 1 to verify an OpCon job's Failure Criteria threshold:
+
+```
+genericpgm -t5 -e1
+```
+
+**Outcome**: The program sleeps for 5 seconds, then exits with code 1. Use this with the `exit_codes` utility to confirm that OpCon reports the job as Failed when the Failure Criteria threshold is set to flag non-zero exit codes.
+
+:::
+
+## Glossary
+
+**exit code** — A numeric value (in the range -127 to 127) returned by the program when it exits. The Unix Agent reads this value to determine job success or failure.
+
+**signal disposition** — A numeric value specifying whether the program simulates termination by a Unix signal. A value of 0 means the program exits normally without signal termination.
+
+**sleep time** — The number of seconds the program waits before exiting. Controls how long the simulated job appears to run.

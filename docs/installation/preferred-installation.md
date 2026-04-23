@@ -220,7 +220,7 @@ The installation completes with sudo privileges.
 
 ## Exception handling
 
-**`install_agent: Permission denied` when running the script** — The install_agent script does not have execute permission. — Run `chmod +x install_agent` before invoking the script.
+**`install_agent: Permission denied` when running the script** — The install_agent script does not have run permission. — Run `chmod +x install_agent` before invoking the script.
 
 **`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory`** — The SSL or Crypto library version the agent was built against is not present in the system library path. This error appears for each agent daemon (`sma_log`, `sma_lsam`, `sma_disp`, etc.) that fails to start. — Run `ldconfig -p | grep libssl` to locate the installed SSL library version, then create a symbolic link from the expected version name to the installed version (for example, `ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.0.9.8`). Repeat the same steps using `libcrypto` in place of `libssl` to resolve the Crypto library. See [Installation Requirements](../installation/requirements) for the complete procedure.
 
