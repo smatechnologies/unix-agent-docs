@@ -10,6 +10,35 @@ tags:
 
 # Unix Agent release notes
 
+## 26
+
+### 26.0.0
+
+2026 April
+
+eight_spoked_asterisk: **OCAG-61**: Log rotation no longer assumes file handles can be reused, which could cause logging to stop.
+
+eight_spoked_asterisk: **OCAG-7**: Added option restrict_SAM_port_single_connection to reject connection attempts when SAM is already connected to agent.
+
+eight_spoked_asterisk: **OCAG-16**: New option apply_sam_ip_whitelist_to_all_ports now enforces whitelist options on all ports not just base SAM port.
+
+eight_spoked_asterisk: **OCAG-502**: Duplicate file arrival completed events are no longer sent to SAM.
+
+eight_spoked_asterisk: **OCAG-562**: Fixed an issue where SMA_filein only processed a portion of events in list.
+
+eight_spoked_asterisk: **OCAG-632**: XML entities in embedded scripts now properly decoded.
+
+eight_spoked_asterisk: **OCAG-709**: bound_NIC_adapter_ip preferred over loopback for socket binding, allowing duplicate port range to function on separate NICs.
+
+eight_spoked_asterisk: **OCAG-738**: Incorrect message size parsing causes spurious unauthorized-message log entries.
+
+eight_spoked_asterisk: **OCAG-764**: AF_UNIX socket files now created in /run or /var/run instead of /tmp, where available.
+
+eight_spoked_asterisk: **OCAG-767**: Added per-socket localhost binding flags bind_localhost_*.
+
+eight_spoked_asterisk: **OCAG-809**: New tls_min_version and tls_max_version options can be used to expliclty override system-wide TLS settings.
+
+
 ## 24
 
 ### 24.0.0
