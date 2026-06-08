@@ -22,7 +22,7 @@ The following table lists the OpCon Field Code and description for data returned
 - You are reviewing resource-usage statistics for an SMA File Transfer job running on a UNIX destination machine.
 
 
-| FC | 'struct rusage' | Description |
+| FC | OS metric name | Description |
 | -- | --------------- | ----------- |
 | 6801 | ru_utime | CPU usage - user code (milliseconds) |
 | 6802 | ru_stime | CPU usage - system code (milliseconds) |
@@ -43,7 +43,7 @@ The following table lists the OpCon Field Code and description for data returned
 |6817 | ru_nivcsw | number of involuntary context switches; times the process was forced to relinquish control of the CPU because a higher priority process became run able or the current process used up its time slice |
 |6818 | n/a | wall-clock run time (seconds) |
 
-Except for "wall-clock run time", which is calculated by the agent, text appearing in column Descriptions was compiled from #include files on various systems. The items appearing in column 'struct rusage' indicate the member names for the data structure populated by the OS with the getrusage() system call.
+Except for "wall-clock run time", which is calculated by the agent, the descriptions above reflect standard POSIX resource usage metrics. The OS metric names in the second column are the standard POSIX identifiers for each metric and can be referenced in the `getrusage(2)` manual page for your platform to understand platform-specific behavior and units.
 
 The above table represents the entire set of possible values which may be reported. Not all systems support the entire set. Values not supplied to the agent by the OS are reported as zero. At a minimum, all systems will report meaningful values for CPU usage (FC 6801 and 6802) and wall-clock run time (FC 6818).
 

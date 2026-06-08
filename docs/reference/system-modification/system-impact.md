@@ -30,7 +30,7 @@ The initial run of the agent creates these directories and files.
 
 ## Internal socket files
 
-The agent uses AF_UNIX (local) sockets for internal communication between its daemon processes, including the logging and dispatcher ports (`LSAM_PORT+5` and `LSAM_PORT+6`).
+The agent uses Unix domain sockets for internal communication between its daemon processes, including the logging and dispatcher ports (`LSAM_PORT+5` and `LSAM_PORT+6`).
 
 **Agent version 26.0.0 and later (OCAG-764):** Socket files are created in `/run` or `/var/run` when those directories are available. This change reduces inadvertent interference from TLS security scanners that scan `/tmp`.
 
