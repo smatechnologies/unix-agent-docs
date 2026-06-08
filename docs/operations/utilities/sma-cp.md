@@ -35,7 +35,7 @@ sma_cp <from_file> <to_file>
 
 ## Behavior
 
-1. `sma_cp` acquires a write lock (`F_WRLCK`) on the destination file.
+1. `sma_cp` acquires an exclusive write lock on the destination file.
 2. If the lock is not available within 5 seconds, `sma_cp` exits with an error.
 3. Once the lock is held, the source file is copied to the destination byte-by-byte.
 4. The destination file is truncated to the source file size after copying.

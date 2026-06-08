@@ -50,7 +50,7 @@ validate_startup [port_number]
 
 :::info Note
 
-`validate_startup` uses a boolean return value (`TRUE=1`, `FALSE=0`) rather than the standard Unix convention of `0` for success. The calling Control Script interprets these values accordingly.
+`validate_startup` exits with `1` on success and `0` on failure, which is the reverse of the standard Unix convention. The agent Control Script interprets these values accordingly.
 
 :::
 

@@ -30,7 +30,7 @@ The Embedded Script job type was introduced in agent version 18.1. Support for d
 
 ## How it works
 
-1. OpCon sends the job start request to the agent. The job action field (`FC 6012`) is set to `E`, identifying the job as an Embedded Script.
+1. OpCon sends the job start request to the agent, identifying the job as an Embedded Script.
 2. The agent receives the script content in the start image field of the job definition.
 3. The agent constructs the script as a temporary file and passes it to the system shell for execution.
 4. The agent monitors the resulting process, tracks its status through the standard tracking file mechanism, and reports completion and exit code to OpCon.
@@ -98,6 +98,6 @@ Embedded Script jobs report the exit code returned by the shell when the script 
 
 ## Glossary
 
-**Embedded Script job** — A Unix Agent job type (job action code `E`) in which the script content is provided inside the OpCon job definition and executed by the agent at run time without requiring a pre-deployed script file on the agent machine.
+**Embedded Script job** — A Unix Agent job type in which the script content is provided inside the OpCon job definition and executed by the agent at run time without requiring a pre-deployed script file on the agent machine.
 
 **Start image** — The field in the OpCon job definition that holds the script content for an Embedded Script job, or the program path for a Run Program job.
