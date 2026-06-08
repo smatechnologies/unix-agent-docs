@@ -92,9 +92,9 @@ Embedded Script jobs report the exit code returned by the shell when the script 
 
 **Script fails with "Blank start image" (exit code 86)** — The script content field in the OpCon job definition is empty. — Verify that the script body is present in the OpCon job definition and that it was saved correctly before the job ran.
 
-**Script runs but environment variables are not set** — Embedded Script jobs receive environment variables only when the agent is configured to load them. If `path_to_su` is set to `no`, the user's login profile is not loaded, and only the variables the agent injects directly (listed above) are available. — Use the `user_setup.ksh`/`.sh`/`.csh` setup scripts to inject additional environment variables for the run-as user. Refer to [Loading Environment Variables](../../configuration/loading-environment-variables).
+**Script runs but environment variables are not set** — Embedded Script jobs receive environment variables only when the agent is configured to load them. If `path_to_su` is set to `no`, the user's login profile is not loaded, and only the variables the agent injects directly (listed above) are available. — Use the `user_setup.ksh`/`.sh`/`.csh` setup scripts to inject additional environment variables for the run-as user. Refer to [Loading Environment Variables](../configuration/loading-environment-variables).
 
-**Encrypted token arrives as ciphertext, not plaintext** — The agent installation does not include SSL support. Encrypted tokens require the SSL libraries to be present on the agent machine. — Install the SSL-labeled agent tar file and ensure the SSL and Crypto libraries are in the system library search path. Refer to [Installation Requirements](../../installation/requirements).
+**Encrypted token arrives as ciphertext, not plaintext** — The agent installation does not include SSL support. Encrypted tokens require the SSL libraries to be present on the agent machine. — Install the SSL-labeled agent tar file and ensure the SSL and Crypto libraries are in the system library search path. Refer to [Installation Requirements](../installation/requirements).
 
 ## Glossary
 
