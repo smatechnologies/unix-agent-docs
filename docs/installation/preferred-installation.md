@@ -116,7 +116,7 @@ During the install, the script expects absolute pathname for the directories.
 
 ### Performing a new installation
 
-The "new" option not only allows you to create a new LSAM installation, but also create multiple agent instances at once. To perform a new installation, use syntax:
+The "new" option not only allows you to create a new agent installation, but also create multiple agent instances at once. To perform a new installation, use syntax:
 
 ```./install_agent [new]```
 
@@ -133,7 +133,7 @@ If installing multiple instances at once, add the additional instance numbers to
 
 :::
 
-The new LSAM installation is created.
+The new agent installation is created.
 
 ### Performing an upgrade installation
 
@@ -149,7 +149,7 @@ The "upgrade" options allows you to upgrade from an older version of the agent. 
 
 :::tip Example
 
-The following example shows the syntax for upgrading from version 05.20.01 of the LSAM to version 15.00.01:
+The following example shows the syntax for upgrading from version 05.20.01 of the agent to version 15.00.01:
 
 ```./install_agent upgrade /usr/local/lsam-15.00.01 /usr/local/lsam-05.20.01```
 
@@ -172,7 +172,7 @@ The "add" option allows you to add another instance of the agent to an existing 
 
 :::tip Example
 
-The following example shows the syntax for adding another agent instance 6100 to version 15.00.01 of the LSAM:
+The following example shows the syntax for adding another agent instance 6100 to version 15.00.01 of the agent:
 
 ```./install_agent add /usr/local/lsam-15.00.01 6100```
 

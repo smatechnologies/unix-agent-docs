@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'SFTP Parameters'
 title: SFTP Parameters
-description: "Reference for the Unix Agent SFTP parameter that configures the port used for SFTP-based file transfer, including fallback behavior to SMAFT."
+description: "Historical reference for the Unix Agent sftp_port parameter. SFTP-based file transfer was removed in agent version 24.0.0; this page is retained for reference when working with agent versions earlier than 24."
 tags:
   - Reference
   - System Administrator
@@ -14,14 +14,19 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-Reference for the Unix Agent SFTP parameter that configures the port used for SFTP-based file transfer, including fallback behavior to SMAFT.
+Historical reference for the Unix Agent `sftp_port` parameter. SFTP-based file transfer options were removed in agent version 24.0.0 (UNIX-395). This page applies only to agent versions earlier than 24.0.0.
 
-The following parameters reference the SFTP setting for the Unix Agent. This setting controls whether SFTP is enabled for file transfers and specifies the port used, with automatic fallback to SMAFT if SFTP fails.
+:::warning
 
-- When troubleshooting file transfer behavior, including SFTP-to-SMAFT fallback
+The SFTP configuration options documented on this page were removed in **agent version 24.0.0**. If you are running agent version 24.0.0 or later, the `sftp_port` parameter has no effect and SFTP-based file transfer is no longer available. All file transfers use SMAFT. Refer to [SMA File Transfer Overview](../../smaft/introduction) for current file transfer capabilities.
+
+:::
+
+- When troubleshooting file transfer behavior on agent versions earlier than 24.0.0
 
 ### sftp_port
 
+**Applies to:** Agent versions earlier than 24.0.0  
 **Default Value**: 0
 
 **Description**: 

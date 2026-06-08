@@ -111,7 +111,7 @@ SMA Technologies recommends that [both] step-indicator parameters be appended to
 
 ## Job script requirements
 
-In order to make use of either the Job Restart Step or the Job Start/End Step capability, users' top level job scripts will need to meet certain requirements as set forth here. SMA Technologies includes a Template Job Script (TJS) with the LSAM distribution. It is reproduced below and edited to make a complete job script (edits shown in **bold** text beginning about half way down the script):
+In order to make use of either the Job Restart Step or the Job Start/End Step capability, users' top level job scripts will need to meet certain requirements as set forth here. SMA Technologies includes a Template Job Script (TJS) with the agent distribution. It is reproduced below and edited to make a complete job script (edits shown in **bold** text beginning about half way down the script):
 
 ---
 

@@ -23,9 +23,13 @@ The receiving (Agent) and sending (Server) components are installed with file-tr
 
 After receiving instructions from the agent on the Destination machine, the Agent (also on the Destination machine) and Server (on the Source machine) determine the best method for transporting the file. After negotiating the file transfer settings with the Server, the Agent requests the file. The Server retrieves the file and sends it to the Agent according to the Agent's instructions.
 
-The agent will perform file transfer using the open standard SFTP between UNIX agents when you have configured the agent Configuration Parameter "sftp_port" to a non-zero value. If, for whatever reason the transfer fails, the agent will fall back to using SMAFT to perform the transfer.
-
 When the agent is installed, you have the option of choosing to use the /TMP partition or to use a TMP area in the same partition as the agent. File transfers may require anywhere from two to three times the size of the file being transferred in /TMP or TMP workspace designated when the agent was installed.
+
+:::info Note
+
+SFTP-based file transfer was available in agent versions earlier than 24.0.0 via the `sftp_port` configuration parameter. That option was removed in version 24.0.0 (UNIX-395). All file transfers in version 24.0.0 and later use SMAFT exclusively.
+
+:::
 
 - Use SMAFT when transferred files require compression or encryption, with PREFERRED or REQUIRED options per agent installation.
 - Use SMAFT when transferring files from a non-UNIX platform to UNIX and back, and you need to preserve the original record structure so the file arrives with its record format intact.
@@ -33,7 +37,7 @@ When the agent is installed, you have the option of choosing to use the /TMP par
 
 ## Examples
 
-A Unix Agent is installed on both the Source and Destination machines with the `sftp_port` configuration parameter set to a non-zero value. A file transfer job is defined in OpCon between these two agents. When the job runs, the agents negotiate the transfer and use SFTP. If the SFTP transfer fails for any reason, the agents fall back to SMAFT to complete the transfer. Dependent jobs defined in OpCon do not start until the transfer completes successfully.
+A Unix Agent is installed on both the Source and Destination machines. A file transfer job is defined in OpCon between these two agents. When the job runs, the agents negotiate the transfer using SMAFT. Dependent jobs defined in OpCon do not start until the transfer completes successfully.
 
 ## Glossary
 

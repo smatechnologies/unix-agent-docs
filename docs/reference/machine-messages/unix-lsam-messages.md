@@ -40,7 +40,7 @@ There are currently over 500 messages which might be output, making a listing of
 - A job fails because of a missing environment variable, invalid UID/GID, or an inaccessible start image.
 - A socket-based communication error occurs and you need to determine whether it originates from the agent or the network.
 
-## UNIX LSAM messages
+## Unix Agent messages
 
 ### [x] multiply-defined	
 
@@ -77,23 +77,23 @@ The Infinite loop detected applies only to jobs based on the SMA Technologies-su
 
 ### Unable to change access for [x]	
 
-Access permissions for the indicated job stdout/dtderr output file could not be restricted per the LSAM Configuration setting.
+Access permissions for the indicated job stdout/dtderr output file could not be restricted per the agent configuration setting.
 
 ### Unable to change ownership for [x]	
 
-Ownership of the indicated job stdout/dtderr output file could not be changed from 'root/root' per the LSAM Configuration setting.
+Ownership of the indicated job stdout/dtderr output file could not be changed from 'root/root' per the agent configuration setting.
 
 ### Process [x] did not start	
 
-The LSAM health monitor has determined that the indicated LSAM process did not start (or started but them immediately terminated). Stop the LSAM. If the cause for the lost process cannot be determined from other error messages, corrected, and the LSAM successfully re-started, then wait five minutes and re-start the LSAM. It should then start and run properly if the cause was of a momentary nature.
+The agent health monitor has determined that the indicated agent process did not start (or started but them immediately terminated). Stop the agent. If the cause for the lost process cannot be determined from other error messages, corrected, and the agent successfully re-started, then wait five minutes and re-start the agent. It should then start and run properly if the cause was of a momentary nature.
 
 ### Process [x] has terminated	
 
-The LSAM health monitor has determined that the indicated LSAM process abnormally terminated. Stop the LSAM. If the cause for the lost process cannot be determined from other error messages, corrected, and the LSAM successfully re-started, then wait five minutes and re-start the LSAM. It should then start and run properly if the cause was of a momentary nature.
+The agent health monitor has determined that the indicated agent process abnormally terminated. Stop the agent. If the cause for the lost process cannot be determined from other error messages, corrected, and the agent successfully re-started, then wait five minutes and re-start the agent. It should then start and run properly if the cause was of a momentary nature.
 
-### Sending SIGUSR1 (die) to all LSAM processes	
+### Sending SIGUSR1 (die) to all agent processes	
 
-The "```bin/lsam<SAM_Socket> stop"``` command was given; this message is confirmation that the LSAM is in normal termination processing.
+The "```bin/lsam<SAM_Socket> stop"``` command was given; this message is confirmation that the agent is in normal termination processing.
 
 ### Unable to find [x]	
 
@@ -127,58 +127,58 @@ A socket-based connection cannot be made to the indicated remote service or syst
 
 A message "[x1]" cannot be sent over the socket-based connection to the indicated remote service or system ("[x2]"). Determine if the indicated system or service is up-and-running, and/or if the network is operational, and correct the condition.
 
-### LSAM health monitor operating	
+### Agent health monitor operating	
 
-Informational message to confirm that the LSAM started with the LSAM health monitor in proper operation.
+Informational message to confirm that the agent started with the agent health monitor in proper operation.
 
 
-### No LSAM health monitor	
+### No agent health monitor	
 
-Informational message to confirm that the LSAM started without the LSAM health monitor in proper operation. Run the LSAM Configuration program to confirm that LSAM health monitoring has been disabled.
+Informational message to confirm that the agent started without the agent health monitor in proper operation. Run the agent configuration program to confirm that agent health monitoring has been disabled.
 
-### LSAM health monitor disabled	
+### Agent health monitor disabled	
 
-The LSAM health monitor has ceased operation. This is normal after issuance of the "LSAM stop" command.
+The agent health monitor has ceased operation. This is normal after issuance of the "agent stop" command.
 
-### Sender not allowed by the LSAM configuration	
+### Sender not allowed by the agent configuration	
 
-The portion of the LSAM which communicates with the SAM has received a message over a socket-based connection from an address not configured to be acceptable. The received message was ignored. It may be necessary to run the LSAM Configuration program to update the LSAM's configuration.
+The portion of the agent which communicates with the SAM has received a message over a socket-based connection from an address not configured to be acceptable. The received message was ignored. It may be necessary to run the agent configuration program to update the agent's configuration.
 
 ### Received unauthorized message	
 
-Some portion of the LSAM has received a message over a socket-based connection from an unexpected address. The received message was ignored. It may be necessary to run the LSAM Configuration program to update the LSAM's configuration.
+Some portion of the agent has received a message over a socket-based connection from an unexpected address. The received message was ignored. It may be necessary to run the agent configuration program to update the agent's configuration.
 
 ### Received a message with a blank machine name	
 
-The portion of the LSAM which communicates with the SAM has received a message without the required machine name which identifies to the LSAM the intended recipient for the message. Mark the LSAM down in the Enterprise Manager and stop the LSAM. Wait five minutes, then re-start the LSAM and mark it back up in the Enterprise Manager.
+The portion of the agent which communicates with the SAM has received a message without the required machine name which identifies to the agent the intended recipient for the message. Mark the agent down in the Enterprise Manager and stop the agent. Wait five minutes, then re-start the agent and mark it back up in the Enterprise Manager.
 
 ### Received a message from SAM with invalid action specified	
 
-The portion of the LSAM which communicates with the SAM has received a message with an invalid action specified. Mark the LSAM down in the Enterprise Manager and stop the LSAM. Wait five minutes, then re-start the LSAM and mark it back up in the Enterprise Manager.
+The portion of the agent which communicates with the SAM has received a message with an invalid action specified. Mark the agent down in the Enterprise Manager and stop the agent. Wait five minutes, then re-start the agent and mark it back up in the Enterprise Manager.
 
 ### Received a duplicate message from SAM	
 
-The LSAM has received a duplicate message from SAM. If this happens only occasionally, it indicates timing issues which sometimes arise in distributed processing systems like OpCon, and is not indicative of a problem. If it happens in a series over a few minutes, it indicates an acute problem with the SAM or the intervening network hardware.
+The agent has received a duplicate message from SAM. If this happens only occasionally, it indicates timing issues which sometimes arise in distributed processing systems like OpCon, and is not indicative of a problem. If it happens in a series over a few minutes, it indicates an acute problem with the SAM or the intervening network hardware.
 
 ### Missing environment variable [x]	
 
-The indicated UNIX shell environment variable is not defined. The variable may be either expected to be defined at the system level, or it may be an LSAM-defined variable which is not getting passed around as required.
+The indicated UNIX shell environment variable is not defined. The variable may be either expected to be defined at the system level, or it may be an agent-defined variable which is not getting passed around as required.
 
 ### Environment variable [x] is not defined	
 
-The indicated UNIX shell environment variable is not defined. The variable may be either expected to be defined at the system level, or it may be an LSAM-defined variable which is not getting passed around as required.
+The indicated UNIX shell environment variable is not defined. The variable may be either expected to be defined at the system level, or it may be an agent-defined variable which is not getting passed around as required.
 
 ### Received a SIGUSR1	
 
-Each process in the LSAM should output this message during normal termination of the LSAM. If the "```bin/lsam<SAM_Socket> stop```" command was not given, then some process or user on the system issued a "kill" command on the indicated process.
+Each process in the agent should output this message during normal termination of the agent. If the "```bin/lsam<SAM_Socket> stop```" command was not given, then some process or user on the system issued a "kill" command on the indicated process.
 
 ### 
 
-Received order to stop LSAM Health Monitor	This message is output during normal termination processing.
+Received order to stop agent Health Monitor	This message is output during normal termination processing.
 
 ### [x] Operational	
 
-Each process in the LSAM should output this message during normal start-up of the LSAM.
+Each process in the agent should output this message during normal start-up of the agent.
 
 ### Too many arguments for [x]	
 
@@ -206,7 +206,7 @@ The indicate Group ID for the indicated job was either non-existent or incorrect
 
 ### Not allowed to start job [x] as 'root'	
 
-The LSAM is configured to not allow jobs to run with 'root' privileges. This can be changed by running the LSAM Configuration program.
+The agent is configured to not allow jobs to run with 'root' privileges. This can be changed by running the agent configuration program.
 
 ### Unable to access start image [x1] for [x2]	
 
@@ -218,11 +218,11 @@ The indicated item could not be run for the indicated job. The parenthesized por
 
 ### Unable to exec() [x1] to start [x2]	
 
-The indicated Start Image could not be run for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based. If the LSAM determines that this was caused by an invalid reference to a shell/interpreter, e.g., the first line of the job script reads, "!#/bin/bogus", an additional message will be generated to indicate this possibility.
+The indicated Start Image could not be run for the indicated job. The parenthesized portion of the message provides additional details, on which corrective action can be based. If the agent determines that this was caused by an invalid reference to a shell/interpreter, e.g., the first line of the job script reads, "!#/bin/bogus", an additional message will be generated to indicate this possibility.
 
 ### Unable to 'cd' to $HOME for [x]	
 
-LSAM configuration parameter require_HOME_directory is enabled and the indicated job cannot be run within the associated user's HOME directory. The most likely cause is an error defining the HOME directory when you was added to the system, or that the HOME directory was either never created or it was deleted.
+Agent configuration parameter require_HOME_directory is enabled and the indicated job cannot be run within the associated user's HOME directory. The most likely cause is an error defining the HOME directory when you was added to the system, or that the HOME directory was either never created or it was deleted.
 
 ### Received TX0 for pid = [x] - [x]	
 
@@ -230,7 +230,7 @@ This is an informational message output to confirm receipt of a command from SAM
 
 ### Can't fork() for [x] - decrementing max jobs to [x]	
 
-The LSAM is unable to create a process in which to run the indicated job, and is decreasing the number of jobs it will attempt to simultaneously run in an effort to preclude further fork() errors. If this is a recurring problem, you can run the LSAM Configuration program to lower the number of allowed jobs and/or the OS may need tuning to handle the load.
+The agent is unable to create a process in which to run the indicated job, and is decreasing the number of jobs it will attempt to simultaneously run in an effort to preclude further fork() errors. If this is a recurring problem, you can run the agent configuration program to lower the number of allowed jobs and/or the OS may need tuning to handle the load.
 
 ### Job [x] completed	
 
@@ -238,4 +238,4 @@ Informational message upon proper termination of an OpCon job – doesn't reflec
 
 ### Data has not arrived in [x] seconds - closing socket	
 
-The LSAM has not received any communication from the SAM in the indicated amount of time. The LSAM will close the connection in preparation for SAM initiating a new connection. "[x]" can be set with the LSAM Configuration program.
+The agent has not received any communication from the SAM in the indicated amount of time. The agent will close the connection in preparation for SAM initiating a new connection. "[x]" can be set with the agent configuration program.

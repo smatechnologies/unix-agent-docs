@@ -40,12 +40,12 @@ Assuming a ```<SAM_Socket>``` of 3100 and an ```<LSAM_instance>``` of "prod", th
 
 :::
 
-2. Start the LSAM. Use the following syntax: ```bin/lsam<SAM_Socket>``` start.
-For information on operating the LSAM, refer to [Operating the LSAM](../operations/operating-the-lsam).
+2. Start the agent. Use the following syntax: ```bin/lsam<SAM_Socket>``` start.
+For information on operating the agent, refer to [Operating the agent](../operations/operating-the-lsam).
 
 :::tip Example
 
-The following example shows the command for starting the LSAM using SAM Socket number 3100:
+The following example shows the command for starting the agent using SAM Socket number 3100:
 
 ```bin/lsam3100 start```
 
@@ -53,17 +53,17 @@ The following example shows the command for starting the LSAM using SAM Socket n
 
 :::info Note
 
-During start-up (and in other situations) the agent produces output to the terminal. To make it available in resolving support issues, terminal output is automatically redirected to file "```LSAM_output_<SAM_socket>```" within the LSAM root directory. Prior to version 3.07.01 of the LSAM, the output during the LSAM's start-up would appear on the terminal in real time. Now it is delayed until the start-up procedure has been completed, at which point the LSAM_output file is dumped to the terminal. The start-up procedure normally completes in less than 30 seconds. If it takes more than five minutes, the start-up procedure may be interrupted with ```Cntrl_C``` (or the system's assigned INT sequence) and the command entered to see the terminal output that was produced.
+During start-up (and in other situations) the agent produces output to the terminal. To make it available in resolving support issues, terminal output is automatically redirected to file "```LSAM_output_<SAM_socket>```" within the agent root directory. Prior to version 3.07.01 of the agent, the output during the agent's start-up would appear on the terminal in real time. Now it is delayed until the start-up procedure has been completed, at which point the agent output file is dumped to the terminal. The start-up procedure normally completes in less than 30 seconds. If it takes more than five minutes, the start-up procedure may be interrupted with ```Cntrl_C``` (or the system's assigned INT sequence) and the command entered to see the terminal output that was produced.
 
 ```cat LSAM_output_<SAM_socket>```
 
 (e.g., "```cat LSAM_output_3100```")
 
-The LSAM output file may be inspected at any time (via the 'cat', tail', 'vi' or other text-viewing commands). The command "```tail –f LSAM_output_<SAM_socket>```" allows real-time viewing of LSAM terminal output.
+The agent output file may be inspected at any time (via the 'cat', tail', 'vi' or other text-viewing commands). The command "```tail –f LSAM_output_<SAM_socket>```" allows real-time viewing of agent terminal output.
 
 :::
 
-3. Verify the LSAM status with the following command: ```bin/lsam<SAM_Socket> status```. The command should display the following processes:
+3. Verify the agent status with the following command: ```bin/lsam<SAM_Socket> status```. The command should display the following processes:
 * sma_disp
 * sma_log
 * sma_lsam
@@ -75,7 +75,7 @@ The LSAM output file may be inspected at any time (via the 'cat', tail', 'vi' or
 
 :::tip Example
 
-The following example shows the command to verify the status of the LSAM using SAM Socket number 3100:
+The following example shows the command to verify the status of the agent using SAM Socket number 3100:
 
 ```bin/lsam3100 status```
 
@@ -83,7 +83,7 @@ The following example shows the command to verify the status of the LSAM using S
 If successful, the status command produces output similar to:
 
 ```
-Currently running LSAM services:
+Currently running agent services:
 
 --------------------------------
 

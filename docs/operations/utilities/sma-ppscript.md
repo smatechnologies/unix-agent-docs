@@ -46,13 +46,13 @@ To create an Analysis Script, write a shell script (or compiled program) to do t
 
 :::info Note
 
-If the LSAM is not configured to redirect STDOUT and/or STDERR to files, the script sees "NONE" for the/each pathname.
+If the agent is not configured to redirect STDOUT and/or STDERR to files, the script sees "NONE" for the/each pathname.
 
 :::
 
 :::tip Example
 
-The following example shows the analysis script "/usr/home/john/check_ls" which uses the LSAM file_check utility. The script determines whether the job's redirected STDOUT exists and is of sufficient length. If so, the script exits with a zero; otherwise, the script returns a non-zero value.
+The following example shows the analysis script "/usr/home/john/check_ls" which uses the agent file_check utility. The script determines whether the job's redirected STDOUT exists and is of sufficient length. If so, the script exits with a zero; otherwise, the script returns a non-zero value.
 
 ```
 

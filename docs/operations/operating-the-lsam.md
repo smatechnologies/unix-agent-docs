@@ -49,7 +49,7 @@ After an upgrade installation, verify that the agent's tracking directory is emp
 
 :::tip Example
 
-The following example shows the command for starting the LSAM using socket number 3100:
+The following example shows the command for starting the agent using socket number 3100:
 
 ```cd /usr/local/lsam/; bin/lsam3100 start```
 
@@ -70,7 +70,7 @@ To check the agent status, complete the following steps:
 
 ```cd <LSAM_Root_Directory>/bin```
 
-3. Verify the LSAM status with the following command: ```lsam<SAM_Socket>status```. The command should display the following processes:
+3. Verify the agent status with the following command: ```lsam<SAM_Socket>status```. The command should display the following processes:
 * sma_disp
 * sma_log
 * sma_lsam
@@ -83,7 +83,7 @@ and any of the following optional components that have been configured to run:
 
 :::tip Example
 
-The following example shows the command to verify the status of the LSAM using socket number 3100:
+The following example shows the command to verify the status of the agent using socket number 3100:
 
 ```
 cd /usr/local/lsam/bin; ./lsam3100 status
@@ -121,7 +121,7 @@ root 1927 1 0 Oct 20 ? 0:12 /usr/local/prod/lsam/bin/sma_filein
 
 :::info Note
 
-If the LSAM processes do not start as expected, examine the logfile, the errfile and the Terminal Output File files for error messages. Use the file path defined in the ```SMA_LOG_DIRECTORY``` variable. For information on the ```SMA_LOG_DIRECTORY``` variable, refer to [SMA_LOG_DIRECTORY](../configuration/updating-lsam-control-script#sma-log-directory).
+If the agent processes do not start as expected, examine the logfile, the errfile and the Terminal Output File files for error messages. Use the file path defined in the ```SMA_LOG_DIRECTORY``` variable. For information on the ```SMA_LOG_DIRECTORY``` variable, refer to [SMA_LOG_DIRECTORY](../configuration/updating-lsam-control-script#sma-log-directory).
 
 :::
 
