@@ -32,8 +32,8 @@ validate_startup [port_number]
 
 - `validate_startup` attempts to bind to each of the agent's required consecutive sockets starting from the `SAM_socket` value in `lsam.conf`.
 - Each socket is tested with a 5-second timeout.
-- If all sockets are available, `validate_startup` closes them and exits with code `0`, allowing the agent start to proceed.
-- If any socket is unavailable, `validate_startup` exits with code `1`, and the agent start is aborted.
+- If all sockets are available, `validate_startup` closes them and exits with code `1`, allowing the agent start to proceed.
+- If any socket is unavailable, `validate_startup` exits with code `0`, and the agent start is aborted.
 
 :::info Note
 
@@ -45,9 +45,15 @@ validate_startup [port_number]
 
 | Code | Condition |
 |---|---|
-| `0` | All required sockets are available — agent startup can proceed |
-| `1` | One or more required sockets are unavailable — agent startup is aborted |
+| `1` | All required sockets are available — agent startup can proceed |
+| `0` | One or more required sockets are unavailable — agent startup is aborted |
+
+:::info Note
+
+`validate_startup` uses a boolean return value (`TRUE=1`, `FALSE=0`) rather than the standard Unix convention of `0` for success. The calling Control Script interprets these values accordingly.
+
+:::
 
 ## Exception handling
 
-**Agent startup fails with `EADDRINUSE` and validate_startup exits `1`** — The SAM socket number or one of the consecutive ports is already in use by another process. — Identify the conflicting process using `netstat -an | grep <SAM_Socket>`, resolve the conflict (stop the conflicting process or choose a different `SAM_socket` number), then retry the agent start.
+**Agent startup fails with `EADDRINUSE` and validate_startup exits `0`** — The SAM socket number or one of the consecutive ports is already in use by another process. — Identify the conflicting process using `netstat -an | grep <SAM_Socket>`, resolve the conflict (stop the conflicting process or choose a different `SAM_socket` number), then retry the agent start.

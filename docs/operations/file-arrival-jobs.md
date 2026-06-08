@@ -64,6 +64,20 @@ The file pattern supports wildcards. The file's creation timestamp is compared a
 | `-1` | Generic error, or the end time is earlier than the start time in the job definition. |
 | `128 + signal` | The job was terminated by a system signal (for example, `SIGKILL` produces exit code `137`). |
 
+:::info Note
+
+When a File Arrival job succeeds, OpCon populates the following Job Instance properties with the matched file's details. These can be referenced in downstream jobs using the `[[JI.$ARRIVED FILE NAME]]` token syntax:
+
+| Property | Value |
+|---|---|
+| `JI.$ARRIVED FILE NAME` | Full path and file name (e.g., `/data/inbound/feed_20240506.csv`) |
+| `JI.$ARRIVED SHORT FILE NAME` | File name and extension only (e.g., `feed_20240506.csv`) |
+| `JI.$ARRIVED BASE FILE NAME` | File name without extension (e.g., `feed_20240506`) |
+| `JI.$ARRIVED FILE EXTENSION` | Extension only (e.g., `.csv`) |
+| `JI.$ARRIVED FILE PATH` | Directory path only (e.g., `/data/inbound`) |
+
+:::
+
 ## Exception handling
 
 **File Arrival job fails with exit code `2`** — The directory path specified in the job definition does not exist on the agent machine, or the run-as user does not have access to it. — Verify that the directory exists and that the user the job runs as has read and execute permissions on the path.
