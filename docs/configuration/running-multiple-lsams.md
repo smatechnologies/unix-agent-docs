@@ -35,7 +35,7 @@ Multiple agents may be simultaneously run on a single system. It is possible to 
 
 ## Environmental variables
 
-Environment variables ```$LSAM_ROOT```, ```$SAM_SOCKET```, and ```$SMA_LSAM_INSTANCE``` define each instance of an LSAM. ```$LSAM_ROOT``` specifies the root location of the executable, configuration, and data files. ```$SAM_SOCKET``` identifies the socket number over which the LSAM communicates with the SAM. Since the socket used by SAM to communicate with an LSAM must be unique to a host system, no two running LSAMs can share the same ```$SAM_SOCKET```. ```$SMA_LSAM_INSTANCE``` identifies the location within ```$LSAM_ROOT``` of a particular instance of the agent's configuration and data files.
+Environment variables ```$LSAM_ROOT```, ```$SAM_SOCKET```, and ```$SMA_LSAM_INSTANCE``` define each instance of an agent. ```$LSAM_ROOT``` specifies the root location of the executable, configuration, and data files. ```$SAM_SOCKET``` identifies the socket number over which the agent communicates with the SAM. Since the socket used by SAM to communicate with an agent must be unique to a host system, no two running agents can share the same ```$SAM_SOCKET```. ```$SMA_LSAM_INSTANCE``` identifies the location within ```$LSAM_ROOT``` of a particular instance of the agent's configuration and data files.
 
 | Variable | Purpose | Example value |
 |---|---|---|
@@ -44,13 +44,13 @@ Environment variables ```$LSAM_ROOT```, ```$SAM_SOCKET```, and ```$SMA_LSAM_INST
 | `$SMA_LSAM_INSTANCE` | Identifies the instance-specific configuration and data directory within `$LSAM_ROOT` | `general` |
 | `$SMA_BINDIR` | Points to the `bin/` directory containing agent utilities; lets jobs resolve the correct agent version | `/usr/local/lsam/bin` |
 
-If two agents share the same ```$LSAM_ROOT```, they run the same code. To operate multiple versions of the LSAM (Scenario 1), place the LSAMs in separate directories and set the respective ```$LSAM_ROOT``` variable to the appropriate path (e.g., ```/usr/local/prod-lsam/``` and ```/usr/local/dev-lsam/```). To implement multiple configurations of a single version of the LSAM (Scenario 2), run the "install_lsam" script, specifying the appropriate ```$SAM_SOCKET``` and ```$SMA_LSAM_INSTANCE```, e.g., "```install_lsam `pwd` 3100 general```" and "```install_lsam `pwd` 3200 critical```".
+If two agents share the same ```$LSAM_ROOT```, they run the same code. To operate multiple versions of the agent (Scenario 1), place the agents in separate directories and set the respective ```$LSAM_ROOT``` variable to the appropriate path (e.g., ```/usr/local/prod-lsam/``` and ```/usr/local/dev-lsam/```). To implement multiple configurations of a single version of the agent (Scenario 2), run the "install_lsam" script, specifying the appropriate ```$SAM_SOCKET``` and ```$SMA_LSAM_INSTANCE```, e.g., "```install_lsam `pwd` 3100 general```" and "```install_lsam `pwd` 3200 critical```".
 
 :::tip Example
 
 Assume that one instance of the agent operating on host "unix_system" is for general users (configured with a small max_number_of_jobs and small max_bandwidth). A second instance of the agent is configured to allow full system utilization for critical jobs.
 
-The OpCon machine names could be named "unix_general" and "unix_critical". Access to "unix_critical" is restricted to the OpCon users with the correct privileges. Both "unix_general" and "unix_critical" would resolve to the IP address of "unix_system". A job available to both "unix_general" and "unix_critical" could query environment variable ```$SMA_LSAM_INSTANCE``` to determine on which LSAM instance it is currently running (Is the value of ```$SMA_LSAM_INSTANCE``` "general" or "critical"?) and act accordingly.
+The OpCon machine names could be named "unix_general" and "unix_critical". Access to "unix_critical" is restricted to the OpCon users with the correct privileges. Both "unix_general" and "unix_critical" would resolve to the IP address of "unix_system". A job available to both "unix_general" and "unix_critical" could query environment variable ```$SMA_LSAM_INSTANCE``` to determine on which agent instance it is currently running (Is the value of ```$SMA_LSAM_INSTANCE``` "general" or "critical"?) and act accordingly.
 
 :::
 

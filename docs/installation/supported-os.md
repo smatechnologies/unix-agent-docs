@@ -28,7 +28,7 @@ Consult this page in the following situations:
 | CentOS 7 to 8 | x64 architecture |
 | Debian 8 and higher | x86 architecture |
 | Fedora 37 and higher | x64 architecture |
-| Oracle 7.9 | x64 architecture |
+| Oracle Linux 7.9, 8.10, 9.4 | x64 architecture |
 | Redhat RHEL 6, 7, 8, 9 | x64 architecture |
 | Open SUSE 15.1 | x64 architecture |
 | Solaris 10 | x86 architecture |

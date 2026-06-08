@@ -128,7 +128,7 @@ Before deciding to change from the default of "No" for the path_to_su configurat
 
 :::caution
 
-When switching the value for path_to _su, be sure to retest all jobs running through this LSAM. Differences in behavior can cause jobs to start failing that previously were finishing OK.
+When switching the value for path_to _su, be sure to retest all jobs running through this agent. Differences in behavior can cause jobs to start failing that previously were finishing OK.
 
 :::
 
@@ -144,6 +144,6 @@ Jack Henry provides for AIX servers for running Episys with a standard profile c
 
 :::info Note
 
-If the LSAM is configured to use "su" to run the jobs, and the su executable is not found on start up, the LSAM will log an error and stop.
+If the agent is configured to use "su" to run the jobs, and the su executable is not found on start up, the agent will log an error and stop.
 
 :::

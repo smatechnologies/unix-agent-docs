@@ -94,7 +94,7 @@ The following example shows the syntax for the FTP command to FTP to a machine c
 
 :::info Note
 
-The LSAM tar file name varies depending both on the UNIX platform type and on the operating system version.
+The agent tar file name varies depending both on the UNIX platform type and on the operating system version.
 
 :::
 

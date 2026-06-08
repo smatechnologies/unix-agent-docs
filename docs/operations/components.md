@@ -46,7 +46,7 @@ All of the agent components have the following characteristics:
 
 The table below lists the continuous processes of the agent with a short description of each component. Select the link for a more in-depth discussion of the component.
 
-agent Continuous Processes
+### Agent continuous processes
 
 | Process | Required | Short Description |
 | ------- | -------- | ----------------- |
@@ -115,7 +115,7 @@ The sma_disp process sends the event(s) to the SAM when files meet defined crite
 
 ### sma_filein
 
-The sma_filein process monitors a MSGIN directory for files containing valid OpCon events to be sent to the SAM. The location of the directory is ```<LSAM root path>/MSGIN/<SMA_LSAM_INSTANCE>``` on the machine where the UNIX LSAM resides. Any external program/application may generate and place an ASCII file in this directory. For the SAM to process the event, these ASCII files must contain a properly formatted OpCon event with a User Login ID and event password. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help.
+The sma_filein process monitors a MSGIN directory for files containing valid OpCon events to be sent to the SAM. The location of the directory is ```<LSAM root path>/MSGIN/<SMA_LSAM_INSTANCE>``` on the machine where the Unix Agent resides. Any external program/application may generate and place an ASCII file in this directory. For the SAM to process the event, these ASCII files must contain a properly formatted OpCon event with a User Login ID and event password. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help.
 
 :::info Note 
 
@@ -127,14 +127,14 @@ The sma_filein process watches the MSGIN directory for any text file. Following 
 
 #### Characteristics
 
-* The sma_filein process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](../reference/system-modification/deactivating-lsam-components).
+* The sma_filein process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components).
 * Reads the sma_filein_sleep_time from the configuration file to determine the time to wait between file checks.
 * Processes and deletes all files in the MSGIN directory.
 * After sma_filein reads the file, the sma_disp process sends the event to the SAM.
 
 ### sma_cronmon
 
-The sma_cronmon process enables the LSAM to send external events to the SAM based on cron-activated processes. This process searches the cron log for a user-defined string and then sends a user-defined event to SAM.
+The sma_cronmon process enables the agent to send external events to the SAM based on cron-activated processes. This process searches the cron log for a user-defined string and then sends a user-defined event to SAM.
 
 The cronmon.conf file contains all cron search strings and events. When editing the cronmon.conf file, use the following syntax:
 
@@ -164,79 +164,68 @@ jobtest#e#$THRESHOLD:SET,findtest,3
 
 ### sma_JORS
 
-The sma_JORS (Job Output Retrieval System) process allows you to view UNIX LSAM job output from the Enterprise Manager, and acts as FTServer during execution of SMA File Transfer (SMAFT) jobs.
+The sma_JORS (Job Output Retrieval System) process allows you to view Unix Agent job output from the Enterprise Manager, and acts as FTServer during execution of SMA File Transfer (SMAFT) jobs.
 
 #### Characteristics
 
 * Regarding job output, the only available output files are for the last execution.
-* If the UNIX LSAM is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on LSAM STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](../configuration/parameters/jors-and-smaft-parameters).
+* If the Unix Agent is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on agent STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](../configuration/parameters/jors-and-smaft-parameters).
 * The socket number specified in the configuration file must match both the JORS Port Number and the File Transfer Port Number specified in the Enterprise Manager.
 
 ##### Configure the JORS and file transfer ports in the Enterprise Manager
 
-For the Enterprise Manager to connect to the LSAM for job output and/or File Transfer, configure the JORS and File Transfer Port Numbers to match the JORS_FT Socket configured through the LSAM.
+For the Enterprise Manager to connect to the agent for job output and/or File Transfer, configure the JORS and File Transfer Port Numbers to match the JORS_FT Socket configured through the agent.
 
 :::info Note 
 
-By default, the LSAM sets the JORS_FT Socket number to the sum of ten plus the LSAM's socket number.
+By default, the agent sets the JORS_FT Socket number to the sum of ten plus the agent's socket number.
 
 :::
 
 To configure the JORS and file transfer ports, complete the following steps:
 
-1. Use menu path: Start > Programs > OpConxps > Enterprise Manager. The OpCon Login screen displays.
-2. In the **Username** field, enter a case-sensitive User Login ID (e.g., ocadm).
-3. In the **Password** field, enter the case-sensitive password for you.
-4. In the **Profile** list, select the profile.
-5. Select the Login button to log in to the Enterprise Manager.
-6. Select **Machines**. The Machines screen displays.
-7. In the Select Machine list, select the UNIX Machine.
-8. Select Open Advanced Settings Panel. The Advanced Machine Properties window displays.
-9. Select the Communication Settings tab.
-10. Select the JORS Port Number parameter.
-11. Enter the same value entered for the JORS Socket in the LSAM Configuration in the Modify Parameter frame at the bottom of the screen. For information on the JORS Socket in the LSAM Configuration, refer to [JORS_FT socket number](../configuration/parameters/jors-and-smaft-parameters#jors-ft-socket-number).
+1. Open the Enterprise Manager and log in with a case-sensitive User Login ID (for example, ocadm) and the corresponding password.
+2. Select **Machines**. The Machines screen displays.
+3. In the **Select Machine** list, select the UNIX machine.
+4. Select **Open Advanced Settings Panel**. The Advanced Machine Properties window displays.
+5. Select the **Communication Settings** tab.
+6. Select the **JORS Port Number** parameter.
+7. In the **Modify Parameter** frame, enter the same value configured for the JORS Socket in the agent configuration. For information on the JORS Socket, refer to [JORS_FT socket number](../configuration/parameters/jors-and-smaft-parameters#jors-ft-socket-number).
 
 :::caution 
 
-For JORS and a File Transfer job to function properly, ensure that any firewall on the UNIX machine allows the JORS Port Number (and the matching File Transfer Port Number below) to be open.
+For JORS and a File Transfer job to function properly, ensure that any firewall on the UNIX machine allows the JORS Port Number (and the matching File Transfer Port Number) to be open.
 
 :::
 
-12. Select the Update button.
-13. Select the File Transfer Settings tab in the Advanced Properties window.
-14. Select the File Transfer parameter.
-15. Select the desired operating mode (None, Send Only, Receive Only, or Two-way) from the list in the frame below the Advanced Machine Properties.
-16. Select the Update button.
-17. Select the File Transfer IP Address parameter in the File Transfer Settings tab.
-* Enter the machine's IP address.
-* Select the Update button.
-18. Select the File Transfer Port Number parameter in the File Transfer Settings tab.
-* Enter the same value entered for JORS Port Number in step 10-a.
-* Select the Update button.
-19. Select the Save button to save and close the Advanced Settings Panel. The JORS and file transfer ports are configured.
-20. *(Optional)* Start communication with the machine by:
-* Right-select the graphic to enable the menu in the Communication Status frame.
-* Selecting Start Communication from the menu.
-21. Select the x to the right of the Machines tab to close the Machines screen.
+8. Select **Update**.
+9. Select the **File Transfer Settings** tab.
+10. Select the **File Transfer** parameter and choose the desired operating mode (**None**, **Send Only**, **Receive Only**, or **Two-way**) from the list.
+11. Select **Update**.
+12. Select the **File Transfer IP Address** parameter, enter the machine's IP address, and select **Update**.
+13. Select the **File Transfer Port Number** parameter, enter the same value used for the JORS Port Number in step 7, and select **Update**.
+14. Select **Save** to save and close the Advanced Settings Panel. The JORS and file transfer ports are configured.
+15. *(Optional)* To start communication with the machine, select the graphic in the **Communication Status** frame to open the context menu, then select **Start Communication**.
+16. Select the **x** to the right of the Machines tab to close the Machines screen.
 
 ##### View job output in the Enterprise Manager
 
 To view job output, complete the following steps:
 
-1. Under the Operation topic, select **List**.
+1. Under the **Operation** topic, select **List**.
 2. Select the arrow to expand the specific date.
 3. Select the arrow to expand the specific schedule.
-4. Right-select the desired job.
-5. Select View Job Output from the menu. The Job Output Retriever window displays.
-6. Select the Output File(s) name to retrieve the output file information. The Log Viewer window displays.
-7. *(Optional)* Select the Copy To Clipboard button.
-8. *(Optional)* Select the Open external editor button to open the file in an external editor (e.g., Notepad).
-9. Select the Close button to close the "Log Viewer" window.
-10. Select the Close button to close the "Job Output Retriever" window. The job output is displayed.
+4. Select the context menu for the desired job.
+5. Select **View Job Output** from the menu. The Job Output Retriever window displays.
+6. Select the output file name to retrieve the output file information. The Log Viewer window displays.
+7. *(Optional)* Select **Copy To Clipboard**.
+8. *(Optional)* Select **Open external editor** to open the file in an external editor.
+9. Select **Close** to close the Log Viewer window.
+10. Select **Close** to close the Job Output Retriever window. The job output is displayed.
 
 ### sma_RM
 
-The sma_RM process enables the LSAM to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](../smarm/introduction).
+The sma_RM process enables the agent to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](../smarm/introduction).
 
 :::info Note 
 
@@ -246,7 +235,7 @@ The SMA Resource Monitor is a beta program.
 
 #### Characteristics
 
-This process is optional. For information on Deactivating LSAM Components, refer to [Deactivating LSAM Components](../reference/system-modification/deactivating-lsam-components). It reads all of the file dependency criteria and events from its Control File:
+This process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components). It reads all of the file dependency criteria and events from its Control File:
 
 ```LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/SMA_RM.conf```
 

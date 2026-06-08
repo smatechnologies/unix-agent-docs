@@ -83,7 +83,7 @@ JOB:RELEASE,[[\$DATE]],UnixSched,Ujob2,batchuser,batchpasswd ↵
 
 ### lsam config
 
-The config command starts an interactive LSAM configuration program. Use file path: ```<LSAM root path>/config/<SMA_LSAM_INSTANCE>/lsam.conf```. For information on LSAM Configuration, refer to UNIX LSAM Configuration.
+The config command starts an interactive agent configuration program. Use file path: ```<LSAM root path>/config/<SMA_LSAM_INSTANCE>/lsam.conf```. For information on agent configuration, refer to Unix Agent Configuration.
 
 #### Syntax
 
@@ -171,7 +171,7 @@ redhat5as.pfx successfully created.
 
 ### lsam _delete_logs
 
-The delete_logs command removes all but the current log file and error files. For the LSAM to automatically maintain its logs, create a script containing the delete_logs command, and create and schedule the maintenance job through OpCon.
+The delete_logs command removes all but the current log file and error files. For the agent to automatically maintain its logs, create a script containing the delete_logs command, and create and schedule the maintenance job through OpCon.
 
 #### Syntax
 
@@ -187,7 +187,7 @@ The dumptracking command reads the agent's job tracking directory and displays t
 
 ### lsam kill_jobs
 
-The kill_jobs command terminates any running jobs. You can use this command when the LSAM is active or inactive; however, logging of a job killed occurs only when LSAM is active. Once SAM receives the job status update from the LSAM, the Enterprise Manager displays the status "Failed: Killed by Sys Admin" for all killed jobs. If the LSAM is inactive when the job is killed, the job's status is updated when an LSAM is restarted.
+The kill_jobs command terminates any running jobs. You can use this command when the agent is active or inactive; however, logging of a job killed occurs only when the agent is active. Once SAM receives the job status update from the agent, the Enterprise Manager displays the status "Failed: Killed by Sys Admin" for all killed jobs. If the agent is inactive when the job is killed, the job's status is updated when an agent is restarted.
 
 #### Syntax
 
@@ -203,11 +203,11 @@ The log_break command writes a line of asterisks (*) in the log file to delimit 
 
 ### lsam refresh
 
-The refresh command causes the LSAM to reread the configuration file following modification. To modify the configuration, run the LSAM Configuration program. For information on LSAM configuration, refer to [UNIX LSAM Configuration](../configuration/unix-lsam-configuration). After saving the changes to the LSAM configuration file, run the refresh command for the LSAM to recognize the changes.
+The refresh command causes the agent to reread the configuration file following modification. To modify the configuration, run the agent configuration program. For information on agent configuration, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration). After saving the changes to the agent configuration file, run the refresh command for the agent to recognize the changes.
 
 :::info Note
 
-This command only refreshes the LSAM processes "sma_lsam" and "sma_JORS", and the SMAFT Agent. If configuration changes affect other LSAM processes (e.g., "sma_fad"), restart the LSAM.
+This command only refreshes the agent processes "sma_lsam" and "sma_JORS", and the SMAFT Agent. If configuration changes affect other agent processes (e.g., "sma_fad"), restart the agent.
 
 :::
 
@@ -421,7 +421,7 @@ The command places all troubleshooting information in a compressed tar file in t
 * System configuration (i.e., hostname, uname)
 * Resource usage (i.e., df, netstat)
 * The output of the lsam status command
-* The LSAM_output file
+* The agent output file
 * All log files and error files
 * All trace files
 * Contents of all configuration files
@@ -432,7 +432,7 @@ The command places all troubleshooting information in a compressed tar file in t
 
 ### lsam start
 
-The start command systematically runs the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the LSAM to a fully operational status.
+The start command systematically runs the sma_log, sma_lsam, sma_disp, sma_cronmon, sma_filein, and sma_JORS processes to bring the agent to a fully operational status.
 
 #### Syntax
 
@@ -449,7 +449,7 @@ The start_fad command starts the SMA File Activity Detection Daemon(s) (SMA FAD)
 
 ### lsam status
 
-The status command displays currently active LSAM components and LSAM-initiated processes.
+The status command displays currently active agent components and agent-initiated processes.
 
 #### Syntax
 

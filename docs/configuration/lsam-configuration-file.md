@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'Agent configuration file'
 title: Agent Configuration File
-description: "Step-by-step instructions for modifying the Unix Agent configuration file using the LSAM configuration program."
+description: "Step-by-step instructions for modifying the Unix Agent configuration file using the agent configuration program."
 tags:
   - Reference
   - System Administrator
@@ -14,7 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-Step-by-step instructions for modifying the Unix Agent configuration file using the LSAM configuration program.
+Step-by-step instructions for modifying the Unix Agent configuration file using the agent configuration program.
 
 Modify the agent configuration file when:
 
@@ -38,11 +38,11 @@ The following example shows the syntax for getting to the agent's bin directory,
 
 :::
 
-3. Start the LSAM configuration program. Use the following syntax: ```./lsam<SAM_Socket> config```
+3. Start the agent configuration program. Use the following syntax: ```./lsam<SAM_Socket> config```
 
 :::tip Example
 
-The following example shows the syntax for starting the LSAM configuration program. The LSAM's SAM Socket number (```<SAM_Socket>```) is 3100:
+The following example shows the syntax for starting the agent configuration program. The agent's SAM Socket number (```<SAM_Socket>```) is 3100:
 
 ```./lsam3100 config```
 

@@ -36,4 +36,4 @@ The Machine Messages section catalogs the messages, codes, and status indicators
 | STDOUT Error Codes | Reference for STDOUT messages output by the Unix Agent FTAgent component during file transfer operations, including backup, transfer result, and completion messages. |
 | STDERR - Pre-processing Errors | Reference for STDERR pre-processing error messages written when file transfer job requirements cannot be met before the transfer begins. |
 | STDERR - Processing Errors | Reference for STDERR processing error messages output by FTServer and FTAgent during active file transfer operations, including network, file, and communication errors. |
-| JORS/FTServer Errors | Reference for JORS and FTServer error messages recorded in the UNIXLSAM log file, including socket initialization and process spawning failures. |
+| JORS/FTServer Errors | Reference for JORS and FTServer error messages recorded in the Unix Agent log file, including socket initialization and process spawning failures. |

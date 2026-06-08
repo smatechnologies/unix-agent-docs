@@ -62,7 +62,7 @@ If ```<LSAM_instance>``` is not specified at the time the agent is installed, ch
 * Copying the job output files after setting-up the appropriate directory structure.
 * Copying the job tracking files.
 
-SMA Technologies recommends that ```<LSAM_instance>``` always be specified during the LSAM installation. If it is necessary to change SAM sockets for an LSAM installed without an explicit ```<LSAM_instance>```, please contact the SMA Technologies support representative to help accomplish the above mentioned operations.
+SMA Technologies recommends that ```<LSAM_instance>``` always be specified during the agent installation. If it is necessary to change SAM sockets for an agent installed without an explicit ```<LSAM_instance>```, please contact the SMA Technologies support representative to help accomplish the above mentioned operations.
 
 ## Exception handling
 

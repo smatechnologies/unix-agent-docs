@@ -30,17 +30,27 @@ In the table that follows, a short description of each utility is provided.
 
 | Utility | Short Description |
 | ------- | ----------------- |
+| bw_count | Counts the number of whitelist and blacklist user entries in the agent configuration file |
+| chgexec | Sets correct ownership and permissions on agent binary executables; called by installation scripts |
+| compare_perms | Checks or restores agent file permissions and ownership against a saved baseline |
 | exit_codes | Displays the return values of a process |
 | file_check | Checks if specified file(s) meet certain criteria |
 | genericpgm | A dummy program used to test the agent |
 | get_errno | Translates a UNIX error number into meaningful text |
 | install_lsam | Quickly creates an operational agent without additional configuration or extensive installation steps |
 | install_lsam_service | This script creates symbolic links in the start up directory, so the agent will be started automatically when the machine is rebooted |
+| list_perms | Reads filenames from stdin and outputs a permissions baseline for use with compare_perms |
 | lsam_killjob | Sends a SIGKILL signal to terminate specified job |
 | maintain_ofiles | Prevents the accumulation of outdated job-related files |
+| sma_cp | Lock-safe file copy for agent configuration files actively read by running processes |
+| sma_cronmon | Monitors the system cron log for user-defined search strings and forwards matching OpCon events to the SAM |
+| sma_delete_file | Switches user/group identity before deleting a file, enabling deletion of files owned by another user |
 | sma_job_step | Called to have the agent advise SAM that a Job Step is about to be run |
 | sma_LSAM_feedback | Called to have agent report text to be added to a job's "Detailed Job Message" list in Enterprise Manager |
 | sma_ppscript | Registers a post-processing script (ppscript) to analyze the standard out of a job |
 | sma_status | Sends message for the Enterprise Manager to display after the OpCon status message |
+| sma_truncate | Truncates a specified agent trace file to zero length |
+| sma_which | Searches PATH to return the full path of a specified executable |
 | uninstall_lsam | Quickly removes an agent |
+| validate_startup | Verifies that required TCP sockets are available before agent daemon processes start |
 

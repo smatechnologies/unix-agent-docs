@@ -8,6 +8,8 @@ tags:
   - Agents
 ---
 
+# Unix Agent configuration
+
 ## What is it?
 Agent configuration includes modification of the agent Control Script, modification of the agent configuration file, and configuration of the root profile. For information on configuring the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script). The initial run of the agent configuration program, which is automatically run during agent installation, creates the Unix Agent configuration file lsam.conf. The lsam.conf resides in directory "```$LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/```". Except as noted in [Hidden agent Configuration Parameters](../configuration/parameters/hidden-parameters), do not directly modify lsam.conf. Use the agent configuration program to make all modifications to the agent's configuration.
 

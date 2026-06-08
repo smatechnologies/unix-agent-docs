@@ -49,7 +49,7 @@ To set up the agent installation directory for a new installation, complete the 
 
 :::tip Example
 
-The following example shows the syntax for creating an LSAM installation directory for LSAM version 4.01:
+The following example shows the syntax for creating an agent installation directory for agent version 4.01:
 
 ```mkdir /usr/local/lsam-4.01```
 
@@ -61,7 +61,7 @@ The following example shows the syntax for creating an LSAM installation directo
 
 :::tip Example
 
-The following example shows the syntax for creating a symbolic link from the new LSAM installation directory to the LSAM root directory:
+The following example shows the syntax for creating a symbolic link from the new agent installation directory to the agent root directory:
 
 ```ln -s /usr/local/lsam-4.01 /usr/local/lsam```
 
@@ -89,7 +89,7 @@ To set up the agent installation directory for an upgrade installation, complete
 
 :::tip Example
 
-The following example shows the syntax for creating an LSAM installation directory for LSAM version 4.01:
+The following example shows the syntax for creating an agent installation directory for agent version 4.01:
 
 ```mkdir /usr/local/lsam-4.01```
 
@@ -113,7 +113,7 @@ The following example shows the syntax for an installation upgrade:
 
 :::tip Example
 
-The following example shows the syntax for creating a symbolic link from the new LSAM installation directory to the LSAM root directory:
+The following example shows the syntax for creating a symbolic link from the new agent installation directory to the agent root directory:
 
 ```ln -s /usr/local/lsam-4.01 /usr/local/lsam```
 
@@ -143,22 +143,22 @@ They should change the command to read:
 
 :::
 
-## Installing the LSAM
+## Installing the agent
 
 Whether performing a new install or an upgrade, the following procedure:
 
-* Installs the LSAM with the default configuration.
-* Allows review and revision of the LSAM's configuration.
+* Installs the agent with the default configuration.
+* Allows review and revision of the agent's configuration.
 
-### Install the UNIX LSAM
+### Install the Unix Agent
 
-To install the UNIX LSAM, complete the following steps:
+To install the Unix Agent, complete the following steps:
 
-1. Go to the LSAM root directory with the following syntax:
+1. Go to the agent root directory with the following syntax:
 
 :::tip Example 
 
-The following example shows the command for navigating to the LSAM root directory:
+The following example shows the command for navigating to the agent root directory:
 
 ```cd /usr/local/lsam```
 
@@ -200,13 +200,13 @@ The following example shows the command for extracting the 11_00.tar file on an 
 
 ```./bin/install_lsam `pwd`<SAM_Socket> <LSAM_instance>```
 
-* (Optional) ```<SAM_Socket> ```is a parameter that you can define to identify the TCP/IP socket number the LSAM instance will use. If multiple LSAMs will be installed on the same machine to the same parent directory, be sure to specify this parameter.
+* (Optional) ```<SAM_Socket> ```is a parameter that you can define to identify the TCP/IP socket number the agent instance will use. If multiple agents will be installed on the same machine to the same parent directory, be sure to specify this parameter.
 
-* (Optional) ```<LSAM_instance> ```is a parameter that you can define to identify the name of the LSAM instance. This setting is useful for defining distinctly different operating environments (e.g., Production versus Development environments). Do not specify this parameter if fail-over LSAMs will be installed.
+* (Optional) ```<LSAM_instance> ```is a parameter that you can define to identify the name of the agent instance. This setting is useful for defining distinctly different operating environments (e.g., Production versus Development environments). Do not specify this parameter if fail-over agents will be installed.
 
 :::info Note
 
- If planning to install fail-over LSAMs, SMA Technologies recommends specifying the same ```<LSAM root directory>``` and ```<SAM_socket>```, but omitting the ```<LSAM_instance>``` parameter from the install_lsam command on each machine involved in the fail-over configuration.
+ If planning to install fail-over agents, SMA Technologies recommends specifying the same ```<LSAM root directory>``` and ```<SAM_socket>```, but omitting the ```<LSAM_instance>``` parameter from the install_lsam command on each machine involved in the fail-over configuration.
 
 :::
 
@@ -218,7 +218,7 @@ Use the UNIX "pwd" command in back-quotes (`) as the ```<LSAM root directory>```
 
 :::tip Example 
 
-The following example shows the command for setting the SAM Socket Number to 3100 and the LSAM Instance identifier to "prod":
+The following example shows the command for setting the SAM Socket Number to 3100 and the agent Instance identifier to "prod":
 
 ```bin/install_lsam `pwd` 3100 prod```
 
@@ -236,7 +236,7 @@ The installation process generates and runs the ```lsam<SAM_Socket>``` script (e
 
 :::tip Example
 
-The following example shows the command for creating the symbolic links for startup of an LSAM using SAM Socket number 3100:
+The following example shows the command for creating the symbolic links for startup of an agent using SAM Socket number 3100:
 
 ```bin/install_lsam_service `pwd` 3100```
 
@@ -248,7 +248,7 @@ The following example shows the command for creating the symbolic links for star
 
 :::tip Example
 
-The following example shows the command for starting the configuration program for the LSAM using SAM Socket number 3100:
+The following example shows the command for starting the configuration program for the agent using SAM Socket number 3100:
 
 ```bin/lsam3100 config```
 
@@ -258,7 +258,7 @@ The following example shows the command for starting the configuration program f
 * Enter ```s``` to save the file.
 * Enter ```q``` to quit the configuration program.
 
-The LSAM is installed and configured.
+The agent is installed and configured.
 
 ## Exception handling
 

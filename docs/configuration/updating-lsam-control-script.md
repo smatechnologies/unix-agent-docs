@@ -118,7 +118,7 @@ To add or remove the path to compression utilities, complete the following steps
 
     ```rm SMAFTScript<SAM_Socket>```
 
-    * Issue an LSAM 'status' command (refer to [lsam status](../operations/unix-lsam-commands#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
+    * Issue a `status` command (refer to [lsam status](../operations/unix-lsam-commands#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
 
     ```lsam<SAM_Socket> status```
 

@@ -30,19 +30,24 @@ Procedures for enabling and configuring TLS-secured communication between the Un
 
 To enable TLS, complete the following steps:
 
-When enabled, TLS (i.e., "use_TLS_SAM" parameter is set to '1' in lsam.conf file) allows secured communication between the agent and OpCon/SAM and JORS, and has been supported since agent version 16.01. SMAFT TLS functionality is supported on versions greater than 19.1. Hence, with the new SMAFT_TLS feature, ensure that the "SMAFT TLS_socket" number is always different than the "SMAFT_socket" number in the lsam.conf file. Also notice that if "use_TLS_SAM" is enabled, SMAFT_socket (which doesn't support TLS protocol) must be different than JORS_FT_socket, which uses TLS protocol to communicate with OpCon/SAM. If it is disabled, then JORS_FT_socket can be the same or different than the SMAFT_socket number. SMA Technologies recommends that all three sockets (SMAFT_socket, SMAFT_TLS_socket, and JORS_FT_socket) use different numbers to avoid possible conflicts.
+1. Verify that your agent version meets the minimum requirements: version 16.01 or later for SAM and JORS TLS; version 19.1 or later for SMAFT TLS.
+2. Obtain or generate a certificate file in `.pem` format. The agent supports both trusted certificates (signed by a certificate authority such as Verisign) and self-signed certificates.
+   - For a **trusted certificate**: import the certificate file onto the agent machine and note its path.
+   - For a **self-signed certificate**: generate the certificate using the `create_cert` command (see [lsam create_cert](../operations/unix-lsam-commands#lsam-create_cert)), then import the resulting `.pem` file into the OpCon/SAM machine.
+3. Open `lsam.conf` using the agent configuration program: `lsam<SAM_Socket> config`.
+4. Set `use_TLS_SAM` to `1` to enable encrypted communication between the agent and OpCon/SAM and JORS.
+5. Set `lsam_pem_file` to the absolute path of the public certificate file.
+6. Set `lsam_private_key_file` to the absolute path of the private key file. This path may be the same as `lsam_pem_file` if the file contains both the certificate and private key.
+7. If SMAFT TLS is required, verify that `SMAFT_TLS_socket`, `SMAFT_socket`, and `JORS_FT_socket` are each set to different port numbers in `lsam.conf`. SMA Technologies recommends that all three use distinct values to avoid conflicts.
+8. Save the configuration and restart the agent: `lsam<SAM_Socket> restart`.
 
-The UNIX agent supports both trusted (signed by a trusted certificate authority – CA) and untrusted (self-signed) certificates. The agent performs the role of a TLS/SSL server (similar to a web server) and OpCon/SAM as the client (e.g., a web browser).
+:::info Note
 
-For trusted certificates (e.g., signed by Verisign), you can simply import it into the agent and configure the lsam.conf file to point to that certificate.
+Monitor certificate expiration dates manually. When a certificate expires, TLS handshakes fail and communication between the agent and OpCon stops. Use `lsam<SAM_Socket> show_cert <certificate_file>` to display the `Not After` date. To ease management, consider using a wildcard certificate that covers all servers in your domain.
 
-For self-signed certificates, besides configuring the lsam.conf file to point to it, you must also import that file into the OpCon/SAM machine.
+:::
 
-It is your responsibility to monitor the certificates' expiration dates. When the certificate expires communication between the agent and OpCon could stop (future versions will provide a script to monitor expiration dates and warn you ahead of time via email).
-
-To ease certificate management it is recommended that you use a wildcard certificate. Refer to this article for additional details:
-
-[What is a Wildcard SSL Certificate?](https://www.godaddy.com/help/what-is-a-wildcard-ssl-certificate-567)
+TLS is enabled and the agent communicates with OpCon/SAM over an encrypted connection.
 
 ## lsam.conf file changes
 
@@ -363,6 +368,42 @@ E12Dqbm3Yt6iGk3QaJMwYodLmWdBp1G0NPlQB8HSLKACcw==
 -----END CERTIFICATE-----
 
 ```
+
+## TLS version control
+
+Two parameters added in agent version 26.0.0 let you override the system-wide OpenSSL TLS version settings for the agent's connections:
+
+### tls_min_version
+
+**Default Value**: system default
+
+**Description**:
+
+* Sets the minimum TLS protocol version the agent accepts for incoming and outgoing connections.
+* When not set, the agent inherits the system-wide OpenSSL minimum version.
+* Accepted values are TLS version strings recognized by the installed OpenSSL library (for example, `TLSv1.2`, `TLSv1.3`).
+
+:::info Note
+
+Added in agent version 26.0.0 (OCAG-809). Use this parameter to enforce a minimum TLS version when the system-wide OpenSSL configuration allows versions your security policy prohibits.
+
+:::
+
+### tls_max_version
+
+**Default Value**: system default
+
+**Description**:
+
+* Sets the maximum TLS protocol version the agent uses for incoming and outgoing connections.
+* When not set, the agent inherits the system-wide OpenSSL maximum version.
+* Accepted values are TLS version strings recognized by the installed OpenSSL library (for example, `TLSv1.2`, `TLSv1.3`).
+
+:::info Note
+
+Added in agent version 26.0.0 (OCAG-809). Use this parameter when a specific TLS version ceiling is required for compatibility with an older component or a compliance policy that restricts newer TLS versions.
+
+:::
 
 ## Exception handling
 

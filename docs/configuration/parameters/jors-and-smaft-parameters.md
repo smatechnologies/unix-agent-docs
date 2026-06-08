@@ -30,8 +30,8 @@ The following parameters reference the settings to control how the agent handles
 ```<LSAM root path>/STDOUT/<SMA_LSAM_INSTANCE>/<yyyymmdd>/<job name>_<Internal Number>.<hhmmss>```
 * If set to zero, STDOUT is not redirected.
 * If set to one:
-    * The LSAM redirects STDOUT messages for each job.
-    * The LSAM adds an environment variable to each job called SMA_STDOUT. The value for SMA_STDOUT is the complete path to the file containing this job's standard output.
+    * The agent redirects STDOUT messages for each job.
+    * The agent adds an environment variable to each job called SMA_STDOUT. The value for SMA_STDOUT is the complete path to the file containing this job's standard output.
 
 ### redirect_stderr
 
