@@ -104,13 +104,23 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 
 ### LSAM_0_255
 
+**Default Value**: 0
+
+**Description**:
+
+Controls how the agent reports job exit codes in the range 128–255 to OpCon.
+
+* If set to zero (default), exit codes in the range 128–255 are reported as negative values (for example, exit code 255 is reported as -1, and exit code 128 is reported as -128).
+* If set to one, exit codes are reported in the 0–255 range without conversion.
+
+### path_to_su
+
 **Default Value**: yes
 
 **Description**:
 
 This is the global configuration setting for how the agent will impersonate users when running jobs. For a full discussion of the options, please refer to "Considerations for path_to_su" below this table.
 
- 
 The options for this setting include:
 
 * no: Setting the value to no causes the agent to use the legacy method of user impersonation for all jobs.
