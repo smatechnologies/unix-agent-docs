@@ -6,6 +6,9 @@ module.exports = {
   baseUrl: '/opcon/agents/unix/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    format: "md",
+  },
   favicon: 'img/favicon.ico',
   organizationName: 'smatechnologies',
   projectName: 'unix-agent-docs',
