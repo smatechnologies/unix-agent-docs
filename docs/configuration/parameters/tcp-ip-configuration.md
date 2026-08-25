@@ -32,7 +32,7 @@ The following parameters reference the TCP/IP settings for communication between
 **Description**:
 
 * Determines if communication from SMANetCom to the agent is restricted to one or more TCP/IP addresses.
-* If ANY is specified, the agent accepts communication from any SMANetCom.
+* If `any` is specified, the agent accepts communication from any SMANetCom.
 * If a specific TCP/IP address is defined (e.g., 126.40.90.231), the agent only accepts SMANetCom communication from the specified address.
 * The agent refuses a connection if communication is attempted from another address.
 * This definition enhances communication security.
