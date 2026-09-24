@@ -17,7 +17,7 @@ Step-by-step instructions for installing, upgrading, or adding Unix Agent instan
 
 :::info Note
 
-The procedures in this section describe the preferred method for installing the Unix Agent. For the legacy method, refer to [Legacy Installation Procedures](../installation/legacy-installation).
+The procedures in this section describe the preferred method for installing the Unix Agent. For the legacy method, refer to [Legacy Installation Procedures](../installation/legacy-installation.md).
 
 :::
 
@@ -31,7 +31,7 @@ Use the procedures on this page in the following situations:
 
 Transferring the installation files is the preferred installation method. For the initial release, you will need to transfer the script to the target machine. To transfer the installation files, complete the following steps:
 
-1. Transfer the script and binary tar file (e.g., ```LSAM_15.00.01.24_Redhat_AS_5_0.tar```) to the UNIX machine. For the recommended file transfer procedures, refer to [Fetching the agent Installation File](../installation/fetch-install-file).
+1. Transfer the script and binary tar file (e.g., ```LSAM_15.00.01.24_Redhat_AS_5_0.tar```) to the UNIX machine. For the recommended file transfer procedures, refer to [Fetching the agent Installation File](../installation/fetch-install-file.md).
 
 :::info Note
 
@@ -222,7 +222,7 @@ The installation completes with sudo privileges.
 
 **`install_agent: Permission denied` when running the script** — The install_agent script does not have run permission. — Run `chmod +x install_agent` before invoking the script.
 
-**`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory`** — The SSL or Crypto library version the agent was built against is not present in the system library path. This error appears for each agent daemon (`sma_log`, `sma_lsam`, `sma_disp`, etc.) that fails to start. — Run `ldconfig -p | grep libssl` to locate the installed SSL library version, then create a symbolic link from the expected version name to the installed version (for example, `ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.0.9.8`). Repeat the same steps using `libcrypto` in place of `libssl` to resolve the Crypto library. See [Installation Requirements](../installation/requirements) for the complete procedure.
+**`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory`** — The SSL or Crypto library version the agent was built against is not present in the system library path. This error appears for each agent daemon (`sma_log`, `sma_lsam`, `sma_disp`, etc.) that fails to start. — Run `ldconfig -p | grep libssl` to locate the installed SSL library version, then create a symbolic link from the expected version name to the installed version (for example, `ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.0.9.8`). Repeat the same steps using `libcrypto` in place of `libssl` to resolve the Crypto library. See [Installation Requirements](../installation/requirements.md) for the complete procedure.
 
 **Script fails or behaves unexpectedly when locating the tar file** — More than one `.tar` file is present in the working directory. The install_agent script searches for a single file with the `.tar` extension rather than a specific filename. — Remove any extra `.tar` files from the working directory before running the script, leaving only the agent binary tar file.
 

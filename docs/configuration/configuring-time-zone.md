@@ -27,8 +27,30 @@ Configure the time zone when:
 
 To configure the time zone for the Unix Agent, complete the following steps:
 
-- [Set `TZ` in the root user profile](#configuring-the-time-zone-in-the-root-profile) — edit the root user's `.profile` or `.cshrc` to export the `TZ` variable, or set it system-wide through the appropriate system configuration file for your UNIX variant.
-- [Set `TZ` in the agent startup script](#configuring-the-time-zone-in-the-root-profile) — add a `TZ=<identifier>; export TZ` line to the `lsam<SAM_Socket>` file in `$LSAM_ROOT/bin/` so the agent always starts with the correct time zone regardless of the user environment.
+- [Set `TZ` in the root user profile](#set-tz-in-the-root-user-profile) — edit the root user's `.profile` or `.cshrc` to export the `TZ` variable, or set it system-wide through the appropriate system configuration file for your UNIX variant.
+- [Set `TZ` in the agent startup script](#set-tz-in-the-agent-startup-script) — add a `TZ=<identifier>; export TZ` line to the `lsam<SAM_Socket>` file in `$LSAM_ROOT/bin/` so the agent always starts with the correct time zone regardless of the user environment.
+
+### Set TZ in the root user profile
+
+Before starting the Unix Agent, set the TZ (time zone) environment variable in the root user's environment. To verify the current setting, log in as the root user and enter "env". If the TZ environment variable is not set, the agent uses a default time zone of EST5EDT.
+
+* To set the TZ environment variable for root, edit the .profile (or .cshrc depending on which shell is used) file in the home directory of the root user.
+
+* To set the TZ environment variable for all users, consult the system administrator. The system wide setting for the TZ environment variable is different for different versions of UNIX. (For example, AIX keeps its system wide environment settings in /etc/environment. Linux keeps its system wide environment settings in /etc/profile.)
+
+### Set TZ in the agent startup script
+
+* To set the TZ environment variable in the agent startup script, edit the ```lsam<SAM_Socket>``` file in the $LSAM_ROOT/bin directory. Add a line to the agent startup script that looks like the following:
+
+```TZ=<identifier>; export TZ```
+    
+* `<identifier>` is the identifier for the desired time zone.
+
+:::info Note
+
+Time zone identifiers vary on different versions of UNIX. For a list of valid identifiers, see the system administrator.
+
+:::
 
 ## Exception handling
 
@@ -37,21 +59,3 @@ To configure the time zone for the Unix Agent, complete the following steps:
 **`TZ` identifier is rejected or the agent still defaults to `EST5EDT`** — The time zone identifier supplied is not valid for the UNIX variant in use; identifier formats differ across AIX, Linux, Solaris, and HP-UX. — Consult the system administrator for a list of valid identifiers for the installed UNIX version, or check the system's `zoneinfo` database (typically located in `/usr/share/zoneinfo/`).
 
 **Setting `TZ` in `.profile` has no effect when the agent starts automatically** — When the agent starts through the init system at boot, it may not source the root user's `.profile`, so the profile-level `TZ` setting is never applied. — Set the `TZ` variable directly in the agent startup script (`lsam<SAM_Socket>` in `$LSAM_ROOT/bin/`) to ensure the value is always present regardless of how the agent is started.
-
-Before starting the Unix Agent, set the TZ (time zone) environment variable in the root user's environment. To verify the current setting, log in as the root user and enter "env". If the TZ environment variable is not set, the agent uses a default time zone of EST5EDT.
-
-* To set the TZ environment variable for root, edit the .profile (or .cshrc depending on which shell is used) file in the home directory of the root user.
-
-* To set the TZ environment variable for all users, consult the system administrator. The system wide setting for the TZ environment variable is different for different versions of UNIX. (For example, AIX keeps its system wide environment settings in /etc/environment. Linux keeps its system wide environment settings in /etc/profile.)
-
-* To set the TZ environment variable in the agent startup script, edit the ```lsam<SAM_Socket>``` file in the $LSAM_ROOT/bin directory. Add a line to the agent startup script that looks like the following:
-
-```TZ=xxxxxxxxxx; export TZ```
-    
-* xxxxxxxxx is the identifier for the desired time zone.
-
-:::info Note
-
-Time zone identifiers vary on different versions of UNIX. For a list of valid identifiers, see the system administrator.
-
-:::

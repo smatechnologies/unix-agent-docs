@@ -33,7 +33,7 @@ The following parameters reference the TCP/IP settings for communication between
 
 * Determines if communication from SMANetCom to the agent is restricted to one or more TCP/IP addresses.
 * If `any` is specified, the agent accepts communication from any SMANetCom.
-* If a specific TCP/IP address is defined (e.g., 126.40.90.231), the agent only accepts SMANetCom communication from the specified address.
+* If a specific TCP/IP address is defined (e.g., 192.0.2.10), the agent only accepts SMANetCom communication from the specified address.
 * The agent refuses a connection if communication is attempted from another address.
 * This definition enhances communication security.
 * If multiple SAMs are on a network, this address ensures the agent is only accepting messages from the intended SMANetCom.
@@ -126,13 +126,13 @@ Reserved for future use.
 
 ### restrict_SAM_port_single_connection
 
-**Default Value**: 0
+**Default Value**: 1
 
 **Description**:
 
 * Rejects a new connection attempt from SMANetCom when a connection on the SAM port is already active.
 * If set to zero, multiple connection attempts on the SAM port are allowed.
-* If set to one, only one connection at a time is accepted on the SAM port; subsequent attempts are rejected until the current connection closes.
+* If set to one (the default), only one connection at a time is accepted on the SAM port; subsequent attempts are rejected until the current connection closes.
 
 :::info Note
 
@@ -148,13 +148,37 @@ Added in agent version 26.0.0 (OCAG-7).
 
 * Extends the `allowed_sam_ip_address_*` whitelist enforcement to all agent ports, not only the base SAM port.
 * If set to zero, whitelist filtering applies only to the base SAM communication port.
-* If set to one, whitelist filtering applies to all ports the agent listens on.
+* If set to one, whitelist filtering applies to all ports the agent listens on. When the agent reads the configuration file, it copies the SAM allowed addresses onto every [per-port allowed IP address](#per-port-allowed-ip-addresses) list, replacing any value set there.
 
 :::info Note
 
 Added in agent version 26.0.0 (OCAG-16).
 
 :::
+
+### Per-port allowed IP addresses
+
+**Default Value**: unused
+
+**Description**:
+
+* Restricts connections on an individual agent port to a list of addresses. Each port has its own parameter:
+
+| Parameter | Port it restricts |
+|---|---|
+| `allowed_ip_addresses_for_DISP` | Dispatcher (DISP) socket |
+| `allowed_ip_addresses_for_LSAM` | Agent job-submission socket |
+| `allowed_ip_addresses_for_JOB_STATUS` | Job status reporting socket |
+| `allowed_ip_addresses_for_ALT_JOB_STATUS` | Alternate job status socket |
+| `allowed_ip_addresses_for_JORS` | JORS socket |
+| `allowed_ip_addresses_for_SMAFT` | SMAFT socket |
+| `allowed_ip_addresses_for_TLS_SMAFT` | SMAFT TLS socket |
+
+* The value is a comma-separated list of IPv4 addresses with no spaces — for example, `192.0.2.10,192.0.2.11`. The agent reads only the first word after the parameter name, so any address after a space is ignored.
+* If the value is `unused`, `any`, or empty, the port accepts connections from any address.
+* Connections from the loopback range, `127.0.0.0/8`, are always accepted.
+* If `apply_sam_ip_whitelist_to_all_ports` is set to one, the agent replaces all seven lists with the SAM allowed addresses, so values set here have no effect.
+* The agent writes one of these parameters to the configuration file only when its value differs from the SAM allowed addresses.
 
 ### bind_localhost_DISP
 

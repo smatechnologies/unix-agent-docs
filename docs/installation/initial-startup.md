@@ -23,7 +23,7 @@ Use this procedure in the following situations:
 
 ## How to implement it
 
-**Prerequisites:** The Unix Agent must be installed (new or upgrade) and the agent Control Script must be configured. The `SMA_LOG_DIRECTORY` variable in the agent Control Script defines the path to the log file and error file used to diagnose start-up failures. For information on editing the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script).
+**Prerequisites:** The Unix Agent must be installed (new or upgrade) and the agent Control Script must be configured. The `SMA_LOG_DIRECTORY` variable in the agent Control Script defines the path to the log file and error file used to diagnose start-up failures. For information on editing the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script.md).
 
 To start the agent and verify that all required processes are running, complete the following steps:
 
@@ -41,7 +41,7 @@ Assuming a ```<SAM_Socket>``` of 3100 and an ```<LSAM_instance>``` of "prod", th
 :::
 
 2. Start the agent. Use the following syntax: ```bin/lsam<SAM_Socket>``` start.
-For information on operating the agent, refer to [Operating the agent](../operations/operating-the-lsam).
+For information on operating the agent, refer to [Operating the agent](../operations/operating-the-lsam.md).
 
 :::tip Example
 
@@ -108,11 +108,11 @@ root 1929 1 0 Oct 20 ? 0:00 /usr/local/prod/lsam/bin/sma_JORS
 
 :::info Note
 
-If the agent processes do not start as expected, examine the logfile and the errfile files for error messages. Use the file path defined in the SMA_LOG_DIRECTORY variable in the agent Control Script. For information on editing the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script).
+If the agent processes do not start as expected, examine the logfile and the errfile files for error messages. Use the file path defined in the SMA_LOG_DIRECTORY variable in the agent Control Script. For information on editing the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script.md).
 
 :::
 
-4. To begin using the agent, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration) to configure and operate the agent.
+4. To begin using the agent, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration.md) to configure and operate the agent.
 
 The agent is started and all required processes are running.
 

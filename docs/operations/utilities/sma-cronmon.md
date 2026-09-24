@@ -20,7 +20,7 @@ The cron monitor allows the Unix Agent to react to cron-activated processes by w
 
 - Use sma_cronmon when you need OpCon to react to a cron job that fires on a schedule you cannot or prefer not to replicate inside OpCon.
 - Use sma_cronmon when a cron job produces a predictable log entry and you want to trigger a downstream OpCon job, threshold update, or console alert in response.
-- sma_cronmon is optional. If cron-based event triggering is not required, leave it deactivated. For instructions on deactivating optional components, refer to [Deactivating agent Components](../../reference/system-modification/deactivating-lsam-components).
+- sma_cronmon is optional. If cron-based event triggering is not required, leave it deactivated. For instructions on deactivating optional components, refer to [Deactivating agent Components](../../reference/system-modification/deactivating-lsam-components.md).
 
 ## Configuration file
 
@@ -89,7 +89,7 @@ For a complete list of valid OpCon event strings, refer to [OpCon Events — Int
 
 :::info Note
 
-sma_cronmon is an optional component. It starts automatically when the agent starts if `cronmon.conf` is present and the component is not deactivated. For instructions on starting and stopping the agent, refer to [Operating the agent](../operating-the-lsam).
+sma_cronmon is an optional component. It starts automatically when the agent starts if `cronmon.conf` is present and the component is not deactivated. For instructions on starting and stopping the agent, refer to [Operating the agent](../operating-the-lsam.md).
 
 :::
 

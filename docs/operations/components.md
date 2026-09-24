@@ -41,7 +41,7 @@ All of the agent components have the following characteristics:
 
 * The processes read the agent configuration file to initialize system parameters.
 * The processes run as daemon processes with root authority.
-* The processes should always be started from within the agent Control Script with the start argument. For information on agent commands, refer to [Unix Agent Commands](../operations/unix-lsam-commands).
+* The processes should always be started from within the agent Control Script with the start argument. For information on agent commands, refer to [Unix Agent Commands](../operations/unix-lsam-commands.md).
 * All output bound for the terminal is redirected to file ```"LSAM_output_<SAM_socket>"``` in the agent root directory.
 
 The table below lists the continuous processes of the agent with a short description of each component. Select the link for a more in-depth discussion of the component.
@@ -71,7 +71,7 @@ The sma_lsam process works in the following way:
 
 #### Characteristics
 
-The sma_lsam rereads the agent configuration parameter max_number_of_jobs_to_run from the configuration file when the agent Control Script is run with the refresh argument. For information on the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script).
+The sma_lsam rereads the agent configuration parameter max_number_of_jobs_to_run from the configuration file when the agent Control Script is run with the refresh argument. For information on the agent Control Script, refer to [Updating the agent Control Script](../configuration/updating-lsam-control-script.md).
 
 ### sma_disp
 
@@ -102,12 +102,12 @@ The sma_log process provides continuous and dependable logging of the agent.
 
 ### sma_fad
 
-The sma_fad process enables the agent to send external events to the SAM when certain files meet defined criteria. Additionally, sma_fad offers more features and a dramatic increase in event throughput. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help. For more information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon).
+The sma_fad process enables the agent to send external events to the SAM when certain files meet defined criteria. Additionally, sma_fad offers more features and a dramatic increase in event throughput. For a list of valid OpCon Events, refer to [Introduction](https://help.smatechnologies.com/opcon/core/events/introduction) in the OpCon Events online help. For more information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon.md).
 
 
 #### Characteristics
 
-This process is optional. For information on [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components), refer to Deactivating agent Components. It reads all of the file dependency criteria and events from a Control File:
+This process is optional. For information on [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components.md), refer to Deactivating agent Components. It reads all of the file dependency criteria and events from a Control File:
 
 ```LSAM_ROOT/fad/<SMA_LSAM_INSTANCE>/control/<Control file>```
 
@@ -127,7 +127,7 @@ The sma_filein process watches the MSGIN directory for any text file. Following 
 
 #### Characteristics
 
-* The sma_filein process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components).
+* The sma_filein process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components.md).
 * Reads the sma_filein_sleep_time from the configuration file to determine the time to wait between file checks.
 * Processes and deletes all files in the MSGIN directory.
 * After sma_filein reads the file, the sma_disp process sends the event to the SAM.
@@ -141,7 +141,7 @@ The cronmon.conf file contains all cron search strings and events. When editing 
 ```<regular expression search string>#e#<event string>```
 
 Characteristics
-The sma_cronmon process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components).
+The sma_cronmon process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components.md).
 Reads all of the process dependency criteria from the cronmon.conf file:
 ```<LSAM root path>/config/<SMA_LSAM_INSTANCE>/cronmon.conf```
 Searches for the ```<regular expression search string>``` in the following possible locations for the cron log: ```/var/log/cron```, ```/var/cron/log```, and ```/var/adm/cron/log```.
@@ -169,7 +169,7 @@ The sma_JORS (Job Output Retrieval System) process allows you to view Unix Agent
 #### Characteristics
 
 * Regarding job output, the only available output files are for the last execution.
-* If the Unix Agent is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on agent STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](../configuration/parameters/jors-and-smaft-parameters).
+* If the Unix Agent is not configured with STDOUT and/or STDERR capture turned on, no job output is available for users to view; consequently, users receive a message indicating the absence of STDOUT and STDERR files when attempting to view job output in the Enterprise Manager. For more information on agent STDOUT and STDERR redirection setting, refer to [JORS and SMAFT Parameters](../configuration/parameters/jors-and-smaft-parameters.md).
 * The socket number specified in the configuration file must match both the JORS Port Number and the File Transfer Port Number specified in the Enterprise Manager.
 
 ##### Configure the JORS and file transfer ports in the Enterprise Manager
@@ -190,7 +190,7 @@ To configure the JORS and file transfer ports, complete the following steps:
 4. Select **Open Advanced Settings Panel**. The Advanced Machine Properties window displays.
 5. Select the **Communication Settings** tab.
 6. Select the **JORS Port Number** parameter.
-7. In the **Modify Parameter** frame, enter the same value configured for the JORS Socket in the agent configuration. For information on the JORS Socket, refer to [JORS_FT socket number](../configuration/parameters/jors-and-smaft-parameters#jors-ft-socket-number).
+7. In the **Modify Parameter** frame, enter the same value configured for the JORS Socket in the agent configuration. For information on the JORS Socket, refer to [JORS_FT socket number](../configuration/parameters/jors-and-smaft-parameters.md#jors_ft-socket-number).
 
 :::caution 
 
@@ -225,7 +225,7 @@ To view job output, complete the following steps:
 
 ### sma_RM
 
-The sma_RM process enables the agent to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](../smarm/introduction).
+The sma_RM process enables the agent to send external events to the SAM when certain resource-related criteria are met. For a list of valid OpCon Events, refer to Introduction in the OpCon Events online help. For more information on the SMA Resource Monitor, refer to [SMA Resource Monitor (SMA_RM)](../smarm/introduction.md).
 
 :::info Note 
 
@@ -235,7 +235,7 @@ The SMA Resource Monitor is a beta program.
 
 #### Characteristics
 
-This process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components). It reads all of the file dependency criteria and events from its Control File:
+This process is optional. For information on Deactivating agent Components, refer to [Deactivating agent Components](../reference/system-modification/deactivating-lsam-components.md). It reads all of the file dependency criteria and events from its Control File:
 
 ```LSAM_ROOT/config/<SMA_LSAM_INSTANCE>/SMA_RM.conf```
 

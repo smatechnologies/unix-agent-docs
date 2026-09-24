@@ -21,7 +21,7 @@ Consult this page in the following situations:
 - When the agent fails to start after installation and the system displays `error while loading shared libraries` messages, to follow the SSL and Crypto library resolution procedure.
 
 1. Installation of the agent for UNIX requires an installer with root privileges. As long as your account has a UID of ```0```, it does not matter what the account name is. You must have root access because the agent must do user impersonation (by calling ```setuid ()``` and ```setgid()``` ).
-    * Installers without root privileges may be able to perform a sudo installation. For information, refer to [Performing a Sudo Installation](../installation/preferred-installation#performing-a-sudo-installation).
+    * Installers without root privileges may be able to perform a sudo installation. For information, refer to [Performing a Sudo Installation](../installation/preferred-installation.md#performing-a-sudo-installation).
 
 2. All Unix agents require a minimum of 2.10 MB disk space and 2.6 MB memory. These requirements apply to all supported operating systems regardless of version.
 

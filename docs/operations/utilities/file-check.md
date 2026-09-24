@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'file_check'
 title: file_check
-description: "Reference for the file_check utility, which validates that specified files meet existence, access, size, and age criteria before an OpCon job executes."
+description: "Reference for the file_check utility, which validates that specified files meet existence, access, size, and age criteria before an OpCon job runs."
 tags:
   - Reference
   - System Administrator
@@ -14,7 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-Reference for the file_check utility, which validates that specified files meet existence, access, size, and age criteria before an OpCon job executes.
+Reference for the file_check utility, which validates that specified files meet existence, access, size, and age criteria before an OpCon job runs.
 
 - Configure file_check as a prerun job in OpCon when a downstream job requires a specific file to exist, be readable, or meet a minimum size or age before the job starts.
 - Use file_check to verify that files placed in a shared directory by an upstream process are present and fully written before a dependent job reads them.

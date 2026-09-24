@@ -1,5 +1,5 @@
 ---
-title: Fetching agent Installation File
+title: Fetching the agent installation file
 description: "Step-by-step procedures for placing the Unix Agent installation tar file onto the target UNIX machine via DVD copy or FTP transfer."
 tags:
   - Procedural
