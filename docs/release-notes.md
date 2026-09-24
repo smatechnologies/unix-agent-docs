@@ -50,19 +50,19 @@ This page lists changes for each Unix Agent release. Each entry is prefixed with
 
 2024 September
 
-:eight_spoked_asterisk: **UNIX-395**: Removed options for enabling and configuring SFTP transfers.
+:white_check_mark: **UNIX-395**: Removed options for enabling and configuring SFTP transfers.
 
-:eight_spoked_asterisk: **UNIX-398**: lsamport.service file now contains correct LF line endings instead of CRLF.
+:white_check_mark: **UNIX-398**: lsamport.service file now contains correct LF line endings instead of CRLF.
 
-:eight_spoked_asterisk: **UNIX-416**: Updated agent by reenabling legacy providers for SMAFT transfers.
+:white_check_mark: **UNIX-416**: Updated agent by reenabling legacy providers for SMAFT transfers.
 
-:eight_spoked_asterisk: **UNIX-418**: systemd service now installs correctly even if /etc/init.d directory exists.
+:white_check_mark: **UNIX-418**: systemd service now installs correctly even if /etc/init.d directory exists.
 
-:eight_spoked_asterisk: **UNIX-420**: TLS version settings now respect system-wide OpenSSL config.
+:white_check_mark: **UNIX-420**: TLS version settings now respect system-wide OpenSSL config.
 
-:eight_spoked_asterisk: **UNIX-453**: Internal logging ports LSAM_PORT+5 and LSAM_PORT+6 now use local UNIX sockets instead of TCP sockets to mitigate inadvertent DoS from TLS security scans.
+:white_check_mark: **UNIX-453**: Internal logging ports LSAM_PORT+5 and LSAM_PORT+6 now use local UNIX sockets instead of TCP sockets to mitigate inadvertent DoS from TLS security scans.
 
-:eight_spoked_asterisk: **UNIX-426**: Added support for Debian12.
+:white_check_mark: **UNIX-426**: Added support for Debian12.
 
 ## 22
 
@@ -86,7 +86,7 @@ This page lists changes for each Unix Agent release. Each entry is prefixed with
 
 :white_check_mark: **UNIX-375**: Fixed an issue in UNIX agent where a Symitar Print job did not run successfully due to incorrect handling of environment variable addresses.
 
-:eight_spoked_asterisk: **UNIX-382**: Allows running of maintain_ofiles at a user configured time, when no jobs are running so it does not fail due to conflicts.
+:white_check_mark: **UNIX-382**: Allows running of maintain_ofiles at a user configured time, when no jobs are running so it does not fail due to conflicts.
 
 :white_check_mark: **UNIX-388**: Fixed an issue in UNIX agent where the buffer size for environment variables was increased to 2K from 1K to accommodate larger variables.
 
