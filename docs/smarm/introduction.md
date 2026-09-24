@@ -25,7 +25,7 @@ SMA_RM.conf is located in the same directory as the agent configuration file `ls
 
 ## Log file
 
-SMA_RM writes a daily log file to the agent's log directory under the `SMA_RM/` subdirectory — for example, `/usr/local/lsam/log/3100/SMA_RM/`. The log file is named `yyyymmdd.log`. A new log file is created at the start of each day. To prevent excessive disk usage, delete old log files using the [maintain_ofiles](../operations/utilities/maintain-ofiles) utility.
+SMA_RM writes a daily log file to the agent's log directory under the `SMA_RM/` subdirectory — for example, `/usr/local/lsam/log/3100/SMA_RM/`. The log file is named `yyyymmdd.log`. A new log file is created at the start of each day. To prevent excessive disk usage, delete old log files using the [maintain_ofiles](../operations/utilities/maintain-ofiles.md) utility.
 
 ## Disk monitoring
 
@@ -48,7 +48,7 @@ Processes can be identified by name and/or UID, with support for limited wildcar
 
 ## User-defined monitors
 
-User-defined monitors are scripts or programs you write and configure SMA_RM to invoke during each scan cycle. Each script performs one scan of a custom resource and returns the normal/alarm status, along with zero or more values to be logged. Data gathered by the script can be included in events forwarded to the SAM via event variables. For configuration details, refer to [User-defined section](./configuration-file/user-defined-section).
+User-defined monitors are scripts or programs you write and configure SMA_RM to invoke during each scan cycle. Each script performs one scan of a custom resource and returns the normal/alarm status, along with zero or more values to be logged. Data gathered by the script can be included in events forwarded to the SAM via event variables. For configuration details, refer to [User-defined section](./configuration-file/user-defined-section.md).
 
 ## Time windows and scan interval
 

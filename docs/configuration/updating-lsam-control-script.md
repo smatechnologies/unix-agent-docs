@@ -25,7 +25,7 @@ Update the agent control script when:
 
 - Keeping the `PATH` variable accurate ensures that SMA File Transfer operations can find the compression utilities they require, and that the SMAFT Control Script stays in sync with the agent's environment.
 
-The agent Control Script contains several variables necessary for the proper processing of agent commands and of agent components. Since the installation script "install_lsam" easily creates a new Unix Agent (and updates the agent Control Script), further modification of the agent Control Script is not necessary. For information on the install_lsam script, refer to [install_lsam](../operations/utilities/install-lsam). SMA Technologies recommends confirming that the following variables are set to the correct values for the environment after running install_lsam. If changes need to be made, proceed as directed below under "Editing the agent Control Script."
+The agent Control Script contains several variables necessary for the proper processing of agent commands and of agent components. Since the installation script "install_lsam" easily creates a new Unix Agent (and updates the agent Control Script), further modification of the agent Control Script is not necessary. For information on the install_lsam script, refer to [install_lsam](../operations/utilities/install-lsam.md). SMA Technologies recommends confirming that the following variables are set to the correct values for the environment after running install_lsam. If changes need to be made, proceed as directed below under "Editing the agent Control Script."
 
 ## Agent control script variables
 
@@ -118,7 +118,7 @@ To add or remove the path to compression utilities, complete the following steps
 
     ```rm SMAFTScript<SAM_Socket>```
 
-    * Issue a `status` command (refer to [lsam status](../operations/unix-lsam-commands#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
+    * Issue a `status` command (refer to [lsam status](../operations/unix-lsam-commands.md#lsam-status)) to automatically update the PATH statement in the SMAFT Control Script.
 
     ```lsam<SAM_Socket> status```
 

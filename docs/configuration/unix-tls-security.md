@@ -33,7 +33,7 @@ To enable TLS, complete the following steps:
 1. Verify that your agent version meets the minimum requirements: version 16.01 or later for SAM and JORS TLS; version 19.1 or later for SMAFT TLS.
 2. Obtain or generate a certificate file in `.pem` format. The agent supports both trusted certificates (signed by a certificate authority such as Verisign) and self-signed certificates.
    - For a **trusted certificate**: import the certificate file onto the agent machine and note its path.
-   - For a **self-signed certificate**: generate the certificate using the `create_cert` command (see [lsam create_cert](../operations/unix-lsam-commands#lsam-create_cert)), then import the resulting `.pem` file into the OpCon/SAM machine.
+   - For a **self-signed certificate**: generate the certificate using the `create_cert` command (see [lsam create_cert](../operations/unix-lsam-commands.md#lsam-create_cert)), then import the resulting `.pem` file into the OpCon/SAM machine.
 3. Open `lsam.conf` using the agent configuration program: `lsam<SAM_Socket> config`.
 4. Set `use_TLS_SAM` to `1` to enable encrypted communication between the agent and OpCon/SAM and JORS.
 5. Set `lsam_pem_file` to the absolute path of the public certificate file.
@@ -409,7 +409,7 @@ Added in agent version 26.0.0 (OCAG-809). Use this parameter when a specific TLS
 
 **TLS communication does not work after configuration** — On systems running HP-UX, SUSE, UBUNTU, or DEBIAN with agent version 16.2.0, TLS communication may not function correctly. This is a known issue for that release on those platforms. — Upgrade to a later agent version where this issue is resolved.
 
-**`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory` at agent startup** — The SSL library version the TLS-enabled agent binary requires is not present in the system library search path. The agent cannot start its daemons when this library is missing. — Run `ldconfig -p | grep libssl` to find the installed library version, then create a symbolic link from the expected version name to the installed path. Repeat using `libcrypto` in place of `libssl`. See [Installation Requirements](../installation/requirements) for the complete step-by-step procedure.
+**`error while loading shared libraries: libssl.so.x.x.x: cannot open shared object file: No such file or directory` at agent startup** — The SSL library version the TLS-enabled agent binary requires is not present in the system library search path. The agent cannot start its daemons when this library is missing. — Run `ldconfig -p | grep libssl` to find the installed library version, then create a symbolic link from the expected version name to the installed path. Repeat using `libcrypto` in place of `libssl`. See [Installation Requirements](../installation/requirements.md) for the complete step-by-step procedure.
 
 **Agent and OpCon/SAM lose communication after the certificate expiration date** — The certificate configured in `Lsam_pem_file` has expired. Expired certificates cause TLS handshakes to fail, interrupting all communication between the agent and OpCon. — Use `bin/lsam<SAM_Socket> show_cert <certificate_file>` to check the `Not After` date. Generate a new certificate with `bin/lsam<SAM_Socket> create_cert <days>`, update the `Lsam_pem_file` and `Lsam_private_key_file` paths in `lsam.conf`, and, for self-signed certificates, import the new certificate into the OpCon/SAM machine.
 

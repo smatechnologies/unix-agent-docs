@@ -17,7 +17,7 @@ Step-by-step procedures for performing a new or upgrade Unix Agent installation 
 
 :::info Note
 
-The procedures in this section describe the legacy method for installing the Unix Agent. For the preferred method, refer to [Preferred Installation Procedures](../installation/preferred-installation).
+The procedures in this section describe the legacy method for installing the Unix Agent. For the preferred method, refer to [Preferred Installation Procedures](../installation/preferred-installation.md).
 
 :::
 
@@ -242,7 +242,7 @@ The following example shows the command for creating the symbolic links for star
 
 :::
 
-8. Start the agent Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the agent, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration). Use the following syntax:
+8. Start the agent Configuration program to verify the JORS and SMAFT parameters defined in step 6, and to modify any other values as may be necessary. For information on configuring the agent, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration.md). Use the following syntax:
 
 ```bin/lsam<SAM_Socket> config```
 
@@ -266,4 +266,4 @@ The agent is installed and configured.
 
 **Ownership or permission errors after extracting the tar file** — The files in the bin directory may not be owned by root after extraction, which prevents the agent from performing user impersonation. — Run `chown 0 bin/*` to set ownership to root and `chgrp 0 bin/*` to set the group to root, as shown in steps 4 and 5 of the installation procedure.
 
-**The agent fails to start and displays `error while loading shared libraries`** — The SSL or Crypto library version the agent was built against is not present in the system library path. — Run `ldconfig -p | grep libssl` to locate the installed SSL library version, then create a symbolic link from the expected version name to the installed version. Repeat the same steps using `libcrypto` in place of `libssl`. See [Installation Requirements](../installation/requirements) for the complete procedure.
+**The agent fails to start and displays `error while loading shared libraries`** — The SSL or Crypto library version the agent was built against is not present in the system library path. — Run `ldconfig -p | grep libssl` to locate the installed SSL library version, then create a symbolic link from the expected version name to the installed version. Repeat the same steps using `libcrypto` in place of `libssl`. See [Installation Requirements](../installation/requirements.md) for the complete procedure.

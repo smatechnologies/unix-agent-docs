@@ -39,7 +39,7 @@ Any other available shells may also be invoked.
 
 * If the script starts other scripts, the parent script must wait for all child scripts to finish.
 * 
-The script must supply an exit code. The valid Exit Code range is –127 to +127. The agent misinterprets any codes falling outside this range. If using STDOUT to communicate exit conditions, refer to [Redirecting STDOUT](redirecting-stdout).
+The script must supply an exit code. The valid Exit Code range is –127 to +127. The agent misinterprets any codes falling outside this range. If using STDOUT to communicate exit conditions, refer to [Redirecting STDOUT](redirecting-stdout.md).
 
 ## When these requirements apply
 

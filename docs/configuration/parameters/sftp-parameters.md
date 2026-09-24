@@ -18,7 +18,7 @@ Historical reference for the Unix Agent `sftp_port` parameter. SFTP-based file t
 
 :::warning
 
-The SFTP configuration options documented on this page were removed in **agent version 24.0.0**. If you are running agent version 24.0.0 or later, the `sftp_port` parameter has no effect and SFTP-based file transfer is no longer available. All file transfers use SMAFT. Refer to [SMA File Transfer Overview](../../smaft/introduction) for current file transfer capabilities.
+The SFTP configuration options documented on this page were removed in **agent version 24.0.0**. If you are running agent version 24.0.0 or later, the `sftp_port` parameter has no effect and SFTP-based file transfer is no longer available. All file transfers use SMAFT. Refer to [SMA File Transfer Overview](../../smaft/introduction.md) for current file transfer capabilities.
 
 :::
 

@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Agent Configuration Parameters'
-title: agent Configuration Parameters
+title: Agent configuration parameters
 description: "Reference for Unix Agent configuration parameters covering job handling, user impersonation, health monitoring, and privilege settings."
 tags:
   - Reference
@@ -41,7 +41,7 @@ The machine's capabilities (e.g., memory, processor speed, and so forth) determi
 :::
 
 * Typical customer usage ranges from 10 to 30 jobs.
-* The agent can detect a change to this setting when the agent is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the agent refresh command, refer to [lsam refresh](../../operations/unix-lsam-commands#lsam-refresh).
+* The agent can detect a change to this setting when the agent is refreshed with the lsam ```<SAM_Socket>``` refresh command. For information on the agent refresh command, refer to [lsam refresh](../../operations/unix-lsam-commands.md#lsam-refresh).
 
 :::warning
 
@@ -49,13 +49,14 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 
 :::
 
-### allowed_privileged_runs
+### allow_privileged_runs
 
 **Default Value**: 1
 
 **Description**:
 
 * Enables/Disables the processing of jobs submitted as root ```(0/0)```.
+* The parameter name is `allow_privileged_runs`. The agent ignores any line it does not recognize, so a misspelled name such as `allowed_privileged_runs` has no effect and root jobs continue to run.
 * If set to zero, the agent does not process jobs submitted as root ```(0/0)```.
 * If set to one, the agent processes jobs submitted as root ```(0/0)```.
 
@@ -66,7 +67,7 @@ If setting the MAX_NUMBER_OF_JOBS_TO_RUN parameter to a high value (i.e., greate
 **Description**: 
 
 * Enables/Disables the requirement that all users who submit OpCon jobs have $HOME directories on the system.
-* If set to zero, the agent attempts to issue a UNIX "cd $HOME" command before starting a job. The job proceeds without indicating if the "cd" command was successful. This is the traditional behavior of the agent. If the "cd" command fails, the job executes at the root ("/").
+* If set to zero, the agent attempts to issue a UNIX "cd $HOME" command before starting a job. The job proceeds without indicating if the "cd" command was successful. This is the traditional behavior of the agent. If the "cd" command fails, the job runs at the root ("/").
 * If set to one, the agent aborts jobs submitted by a user with no $HOME directory (i.e., the "cd $HOME" command fails).
 
 ### LSAM_job_statistics
@@ -113,6 +114,27 @@ Controls how the agent reports job exit codes in the range 128–255 to OpCon.
 * If set to zero (default), exit codes in the range 128–255 are reported as negative values (for example, exit code 255 is reported as -1, and exit code 128 is reported as -128).
 * If set to one, exit codes are reported in the 0–255 range without conversion.
 
+### prioritize_processes
+
+**Default Value**: 0
+
+**Description**:
+
+* Lowers the scheduling priority of the processes the agent starts for jobs, so that jobs do not compete with the agent's own processes for processor time.
+* If set to zero, job processes run at normal priority.
+* If set to a non-zero value, the agent applies that value as a `nice` increment to the processes it starts for each job. If the job definition also sets a nice value, that value is applied in addition.
+
+### xml_unescape_field_values
+
+**Default Value**: 1
+
+**Description**:
+
+* Determines whether the agent converts XML character references in job field values received from OpCon back into the characters they represent — for example, `&lt;` to `<` and `&amp;` to `&`.
+* If set to one, the references are converted before the agent uses the value.
+* If set to zero, field values are used exactly as received.
+* The agent writes this parameter to the configuration file only when it is set to zero.
+
 ### path_to_su
 
 **Default Value**: yes
@@ -134,15 +156,15 @@ Full path Examples:
 
 ## Considerations for path_to_su
 
-Before deciding to change from the default of "No" for the path_to_su configuration setting, it is important to consider the differences in behavior between the options.
+Before deciding to change from the default of "yes" for the path_to_su configuration setting, it is important to consider the differences in behavior between the options.
 
 :::caution
 
-When switching the value for path_to _su, be sure to retest all jobs running through this agent. Differences in behavior can cause jobs to start failing that previously were finishing OK.
+When switching the value for path_to_su, be sure to retest all jobs running through this agent. Differences in behavior can cause jobs to start failing that previously were finishing OK.
 
 :::
 
-When path_to_su is set to No, the agent will not load your profile when a job runs. The agent will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](../../configuration/loading-environment-variables#edit-user_setup-script).
+When path_to_su is set to No, the agent will not load your profile when a job runs. The agent will use only the user name/id and group name/id passed with the job to determine permissions for the job execution. If a user is a member of multiple groups, only the group defined in the job will be honored. You can also configure the user_setup script to emulate a profile script for all things except interactive commands. For more information refer to [Edit the user_setup Script](../../configuration/loading-environment-variables.md#edit-the-user-setup-script).
 
 If you set path_to_su to yes, the agent will search in default directories for the su program at startup and log the location where it is found. If either su method is used, all jobs will run calling "su -" to perform user impersonation. The agent will load the profile for your default shell as well as your full group list. The su utility will then handle all command line interpretation, including special characters. Since the agent is not running as a logged in user, any command in the profile that requires a console to be logged in may not run successfully.
 

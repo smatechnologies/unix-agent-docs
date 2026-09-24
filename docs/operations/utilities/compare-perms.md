@@ -18,7 +18,7 @@ tags:
 
 Use `compare_perms` after an unexpected permission change on agent files, after a system upgrade that may have reset ownership or modes, or as part of a routine security audit to verify that agent file permissions have not drifted from their expected values.
 
-`compare_perms` is used with [`list_perms`](./list-perms), which generates the baseline file that `compare_perms` reads.
+`compare_perms` is used with [`list_perms`](./list-perms.md), which generates the baseline file that `compare_perms` reads.
 
 ## Syntax
 

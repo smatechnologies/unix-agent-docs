@@ -66,7 +66,7 @@ Must match definition for ```SMA_LSAM_INSTANCE``` in agent Control Script.
 
 * Includes the path to the agent bin directory, and to the 'tar' and 'gzip' compression utilities if installed on the system.
 * Should match the definition for ```PATH``` in agent Control Script.
-* Do not modify this file if only modifying the PATH variable. Modify the agent Control Script instead. For information on editing the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script).
+* Do not modify this file if only modifying the PATH variable. Modify the agent Control Script instead. For information on editing the agent Control Script, refer to [Updating the agent Control Script](updating-lsam-control-script.md).
 
 
 ## Editing the SMAFT control script
@@ -105,4 +105,4 @@ PATH=/usr/bin:/usr/sbin:/sbin:/usr/local/lsam/bin:/usr/bin:/usr/contrib/bin; exp
 
 **The SMAFT Control Script is missing after a manual deletion and SMAFT jobs cannot run** — The script was deleted but the agent Control Script has not been run since then, so a replacement has not yet been generated. — Run the agent Control Script (for example, `lsam3100 status`) to trigger automatic regeneration of the SMAFT Control Script, then verify its contents match the agent Control Script values as described above.
 
-**File transfer jobs cannot locate `tar` or `gzip` after the `PATH` was updated in the agent Control Script** — The `PATH` variable in the SMAFT Control Script was not updated to match, because modifying PATH must be done through the agent Control Script (not directly in the SMAFT Control Script), as noted on this page. — Follow the compression utility steps in [Updating the agent Control Script](updating-lsam-control-script) to add or remove the `#got_tar` / `#got_gzip` markers, delete the SMAFT Control Script, and let it regenerate with the correct `PATH`.
+**File transfer jobs cannot locate `tar` or `gzip` after the `PATH` was updated in the agent Control Script** — The `PATH` variable in the SMAFT Control Script was not updated to match, because modifying PATH must be done through the agent Control Script (not directly in the SMAFT Control Script), as noted on this page. — Follow the compression utility steps in [Updating the agent Control Script](updating-lsam-control-script.md) to add or remove the `#got_tar` / `#got_gzip` markers, delete the SMAFT Control Script, and let it regenerate with the correct `PATH`.

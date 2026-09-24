@@ -66,6 +66,16 @@ The following parameters reference the settings to control how the agent handles
 * The default value of '000' disables access restriction, and a job's output files will be readable and writable by everyone, while the user and group will continue to be root/root — which are the settings used to create the files when the job starts.
 * A value other than '000' will result in a job's output files access permissions being set upon its termination to this value, and their user/group will be set to the User and Group specified for the job in the Enterprise Manager's Job Details screen.
 
+### view_logfile
+
+**Default Value**: 1
+
+**Description**:
+
+* Determines whether the agent's own logfile and errfile are offered for viewing through JORS.
+* If set to one, users who can view a job's output in OpCon are also offered the agent's logfile and errfile, from `$LSAM_ROOT/log/<LSAM_instance>/`, alongside the job's STDOUT and STDERR files.
+* If set to zero, only the job's STDOUT and STDERR files are offered.
+
 ### JORS_FT socket number
 
 **Default Value**: ```<SAM_Socket> + 10```
@@ -112,7 +122,7 @@ For a File Transfer job to function properly, ensure that any firewall on the UN
 
 **Description**:
 
-* For both JORS and SMAFT, sets the maximum wait time in seconds for a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components#sma_jors).
+* For both JORS and SMAFT, sets the maximum wait time in seconds for a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components.md#sma_jors).
 * During performance of the JORS function, if the peer (SAM) side does not respond within this wait time, JORS logs the error in the agent log and error file.
 * During execution of a SMAFT job, if the peer (FTAgent) side does not respond within this wait time, FTServer logs the error in the agent log and error file.
 * During execution of a SMAFT job, if the peer (FTServer) side does not respond within this wait time, FTAgent exits with an error.
@@ -129,18 +139,18 @@ SMA Technologies does not recommend changing this parameter to less than 60 beca
 
 **Description**:
 
-* For both JORS and SMAFT, sets the maximum number of times a message is sent without getting a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components#sma_jors).
+* For both JORS and SMAFT, sets the maximum number of times a message is sent without getting a response during a file transfer. For information on sma_JORS, refer to [sma_JORS](../../operations/components.md#sma_jors).
 * If a message is sent this many times without receipt of a response, on the next attempt to send, JORS logs the error in the agent log and error file.
 * If a message is sent this many times without receipt of a response, on the next attempt to send, FTAgent exits with an error.
 
 ### encryption_support
 
-**Default Value**: All supported capabilities - Refer to [File Encryption](../../smaft/file-encryption)
+**Default Value**: All supported capabilities - Refer to [File Encryption](../../smaft/file-encryption.md)
 
 **Description**:
 
 * Indicates if encryption is available for use during execution of a SMAFT job.
-* If encryption is available, also indicates the preferred priority order of supported capabilities. Refer to [File Encryption](../../smaft/file-encryption) for a complete discussion on entering this value.
+* If encryption is available, also indicates the preferred priority order of supported capabilities. Refer to [File Encryption](../../smaft/file-encryption.md) for a complete discussion on entering this value.
 * Before the file transfer, the FTServer encrypts the file. The FTAgent, on the peer side, decrypts the file before saving it to the specified location.
 * If set to zero, encryption is not available.
 
@@ -152,7 +162,7 @@ If file encryption is not required, this parameter may be set to zero although e
 
 ### max_bandwidth
 
-**Default Value**: 65536
+**Default Value**: 999999
 
 **Description**:
 
@@ -164,7 +174,7 @@ If file encryption is not required, this parameter may be set to zero although e
 
 ### max_packet_size
 
-**Default Value**: 65536
+**Default Value**: 999999
 
 **Description**:
 

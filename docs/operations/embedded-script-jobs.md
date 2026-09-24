@@ -1,7 +1,7 @@
 ---
 sidebar_label: 'Embedded Script Jobs'
 title: Embedded Script Jobs
-description: "Reference for the Unix Agent Embedded Script job type, which executes an inline script defined directly in OpCon rather than a pre-existing file on the agent machine."
+description: "Reference for the Unix Agent Embedded Script job type, which runs an inline script defined directly in OpCon rather than a pre-existing file on the agent machine."
 tags:
   - Reference
   - System Administrator
@@ -14,9 +14,9 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-The Embedded Script job type executes an inline script defined directly in OpCon rather than referencing a pre-existing file on the agent machine.
+The Embedded Script job type runs an inline script defined directly in OpCon rather than referencing a pre-existing file on the agent machine.
 
-With an Embedded Script job, the script content is stored inside the OpCon job definition and sent to the Unix Agent at run time. The agent writes the script to a temporary file and executes it through the system shell. This removes the need to pre-deploy script files to agent machines before scheduling jobs.
+With an Embedded Script job, the script content is stored inside the OpCon job definition and sent to the Unix Agent at run time. The agent writes the script to a temporary file and runs it through the system shell. This removes the need to pre-deploy script files to agent machines before scheduling jobs.
 
 - Use an Embedded Script job when you want to manage the script in OpCon's central repository rather than maintaining separate copies on each agent machine.
 - Use an Embedded Script job for short, self-contained scripts that do not depend on files or utilities that must be installed on the agent.
@@ -70,7 +70,7 @@ echo "Report written to ${OUTPUT_FILE}"
 
 ## Encrypted arguments
 
-Encrypted property values passed in the job definition are automatically decrypted by the agent before the script is executed. The script receives the plaintext value at run time. To use encrypted tokens, the agent installation must use an SSL-enabled tar file (the agent does not need TLS communication enabled — only the SSL libraries must be present).
+Encrypted property values passed in the job definition are automatically decrypted by the agent before the script runs. The script receives the plaintext value at run time. To use encrypted tokens, the agent installation must use an SSL-enabled tar file (the agent does not need TLS communication enabled — only the SSL libraries must be present).
 
 :::info Note
 
@@ -92,12 +92,12 @@ Embedded Script jobs report the exit code returned by the shell when the script 
 
 **Script fails with "Blank start image" (exit code 86)** — The script content field in the OpCon job definition is empty. — Verify that the script body is present in the OpCon job definition and that it was saved correctly before the job ran.
 
-**Script runs but environment variables are not set** — Embedded Script jobs receive environment variables only when the agent is configured to load them. If `path_to_su` is set to `no`, the user's login profile is not loaded, and only the variables the agent injects directly (listed above) are available. — Use the `user_setup.ksh`/`.sh`/`.csh` setup scripts to inject additional environment variables for the run-as user. Refer to [Loading Environment Variables](../configuration/loading-environment-variables).
+**Script runs but environment variables are not set** — Embedded Script jobs receive environment variables only when the agent is configured to load them. If `path_to_su` is set to `no`, the user's login profile is not loaded, and only the variables the agent injects directly (listed above) are available. — Use the `user_setup.ksh`/`.sh`/`.csh` setup scripts to inject additional environment variables for the run-as user. Refer to [Loading Environment Variables](../configuration/loading-environment-variables.md).
 
-**Encrypted token arrives as ciphertext, not plaintext** — The agent installation does not include SSL support. Encrypted tokens require the SSL libraries to be present on the agent machine. — Install the SSL-labeled agent tar file and ensure the SSL and Crypto libraries are in the system library search path. Refer to [Installation Requirements](../installation/requirements).
+**Encrypted token arrives as ciphertext, not plaintext** — The agent installation does not include SSL support. Encrypted tokens require the SSL libraries to be present on the agent machine. — Install the SSL-labeled agent tar file and ensure the SSL and Crypto libraries are in the system library search path. Refer to [Installation Requirements](../installation/requirements.md).
 
 ## Glossary
 
-**Embedded Script job** — A Unix Agent job type in which the script content is provided inside the OpCon job definition and executed by the agent at run time without requiring a pre-deployed script file on the agent machine.
+**Embedded Script job** — A Unix Agent job type in which the script content is provided inside the OpCon job definition and run by the agent at run time without requiring a pre-deployed script file on the agent machine.
 
 **Start image** — The field in the OpCon job definition that holds the script content for an Embedded Script job, or the program path for a Run Program job.
