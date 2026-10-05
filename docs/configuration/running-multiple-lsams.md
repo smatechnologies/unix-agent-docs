@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Running multiple agents'
-title: Running Multiple agents on One Machine
+title: Running multiple agents on one machine
 description: "Instructions for simultaneously running multiple Unix Agent instances on a single system, covering environment variable configuration and OpCon machine registration for each instance."
 tags:
   - Procedural

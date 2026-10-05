@@ -43,13 +43,13 @@ This section covers the end-to-end process for installing the Unix Agent on a su
 A typical installation takes approximately 10 minutes.
 
 **Do I need root access to install the agent?**  
-Yes. The agent requires root or sudo access because it must call `setuid()` and `setgid()` to impersonate users when running jobs. If your account does not have root access, ask your UNIX administrator to configure sudo access for the installing account. Refer to [Preferred Installation Procedures](./preferred-installation#performing-a-sudo-installation) for the sudo installation steps.
+Yes. The agent requires root or sudo access because it must call `setuid()` and `setgid()` to impersonate users when running jobs. If your account does not have root access, ask your UNIX administrator to configure sudo access for the installing account. Refer to [Preferred Installation Procedures](./preferred-installation.md#performing-a-sudo-installation) for the sudo installation steps.
 
 **What is a SAM Socket Number?**  
 The SAM Socket Number is the starting port number of eleven consecutive sockets the agent uses to communicate with the SAM, JORS, SMAFT, and running jobs. For example, if the SAM Socket Number is 3100, the agent uses ports 3100 through 3110. SMA Technologies recommends reserving 15 consecutive sockets.
 
 **Can I run more than one agent instance on the same machine?**  
-Yes. Each instance requires a unique SAM Socket Number and a unique `SMA_LSAM_INSTANCE` value. Refer to [Running multiple agents](../configuration/running-multiple-lsams) for the complete procedure.
+Yes. Each instance requires a unique SAM Socket Number and a unique `SMA_LSAM_INSTANCE` value. Refer to [Running multiple agents](../configuration/running-multiple-lsams.md) for the complete procedure.
 
 **Which SSL/TLS tar file should I use?**  
-Use an SSL-labeled tar file when you require TLS communication between the agent and OpCon/SAM, encrypted tokens in job arguments, or SMAFT with TLS. The SSL libraries must be installed on the target machine. Refer to [Installation Requirements](./requirements) for the library resolution procedure if startup errors reference a missing `libssl.so` file.
+Use an SSL-labeled tar file when you require TLS communication between the agent and OpCon/SAM, encrypted tokens in job arguments, or SMAFT with TLS. The SSL libraries must be installed on the target machine. Refer to [Installation Requirements](./requirements.md) for the library resolution procedure if startup errors reference a missing `libssl.so` file.

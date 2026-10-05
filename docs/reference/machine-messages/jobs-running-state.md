@@ -23,7 +23,7 @@ Once jobs are built, the Enterprise Manager Operation screen contains different 
 
 :::info Note
 
-Scripts using the sma_status utility can use the 20-character message area to display any desired text; otherwise, the PID displays in the message area. For further information, refer to the example that shows a script using the sma_status utility on [sma_status](../../operations/utilities/sma-status).
+Scripts using the sma_status utility can use the 20-character message area to display any desired text; otherwise, the PID displays in the message area. For further information, refer to the example that shows a script using the sma_status utility on [sma_status](../../operations/utilities/sma-status.md).
 
 :::
 
@@ -197,7 +197,7 @@ Each process in the agent should output this message during normal start-up of t
 
 ### Too many arguments for [x]	
 
-The addition of the text for "Start Image" and "Parameters" in the Enterprise Manager resulted in > 100 arguments. An "argument" is any text but a space. For example, the Start Image/Parameters combination "/usr/john/job x y abc123 1", the start image is "/usr/john/job", and the four arguments are "x", "y", "abc123", and "1". (It is possible to include parameters in the "Start Image" text box in the Enterprise Manager.)
+The addition of the text for "Start Image" and "Parameters" in the Enterprise Manager resulted in > 100 arguments. An "argument" is any text but a space. For example, the Start Image/Parameters combination "/usr/john/job x y abc123 1", the start image is "/usr/john/job", and the four arguments are "x", "y", "abc123", and "1". (It is possible to include parameters in the "Start Image" field in the Enterprise Manager.)
 
 ### Blank start image for [x]	
 

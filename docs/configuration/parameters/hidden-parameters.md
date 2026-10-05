@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Hidden Agent Configuration Parameters'
-title: Hidden agent Configuration Parameters
+title: Hidden agent configuration parameters
 description: "Reference for Unix Agent hidden configuration parameters, including lsam_root_directory, check_CRC, and close_SAM_socket, which are only editable directly in the lsam.conf file."
 tags:
   - Reference
@@ -34,4 +34,6 @@ There are three agent configuration parameters which are not meant to be changed
 * Keep socket to SAM open across messages, or close after each message.
 
 
-Each parameter in the file appears on a line by itself, of the form "Parameter = value", e.g., "check_CRC = 1". The file also contains comments, indicated by a '#', with the '#' and the remainder of the line being ignored by the agent as it processes the file.
+Each parameter in the file appears on a line by itself: the parameter name, one or more spaces, then the value — for example, `check_CRC 1`. Do not put an equals sign between the name and the value. The agent separates the parts of each line by spaces, so in `check_CRC = 1` it reads `=` as the value: that line turns CRC checking off, and `lsam_root_directory = /usr/local/lsam` sets the installation directory to `=`.
+
+The file also contains comments, indicated by a '#', with the '#' and the remainder of the line being ignored by the agent as it processes the file.

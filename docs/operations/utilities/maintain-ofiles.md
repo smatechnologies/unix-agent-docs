@@ -24,7 +24,7 @@ If the command is issued at 10:21 AM on Oct 20th with the number of days to reta
 
 :::
 
-SMA Technologies recommends scheduling this program in OpCon and running the job daily or weekly to remove job-related files older than the configured days to retain. The default number of days to retain is 3.
+SMA Technologies recommends scheduling this program in OpCon and running the job daily or weekly to remove job-related files older than the configured days to retain. If the number of days to retain is not specified, the default is 10.
 
 :::info Note
 

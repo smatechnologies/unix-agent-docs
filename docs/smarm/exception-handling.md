@@ -16,7 +16,7 @@ tags:
 Reference for SMA_RM exception-handling specifications, covering event, action, and sleep tags, as well as multi-level alarm processing for disk, process, and user-defined monitors.
 
 - Configuring exception handling for both alarm and return-to-normal transitions ensures that operators receive feedback in both directions — they are notified when a condition becomes critical and again when it resolves, preventing wasted effort or detrimental action taken after a condition has already cleared.
-- Using `<event>` tags in exception-handling specifications sends OpCon events directly to SAM, which allows SMA_RM alarms to trigger automated job chains — for example, launching a cleanup job when disk usage crosses 80 percent and notifying an operator via `$CONSOLE:DISPLAY` if usage reaches 90 percent.
+- Using `<event>` tags in exception-handling specifications sends OpCon events directly to SAM, which allows SMA_RM alarms to trigger automated job chains — for example, starting a cleanup job when disk usage crosses 80 percent and notifying an operator via `$CONSOLE:DISPLAY` if usage reaches 90 percent.
 - Using `<action>` tags in exception-handling specifications initiates local shell scripts or programs in response to an alarm, enabling on-host remediation such as archiving or deleting files without requiring a full OpCon job definition.
 - Using `<sleep>` tags introduces deliberate delays between `<event>` and `<action>` steps, allowing time-sensitive sequences within a single exception-handling specification to pace correctly.
 
@@ -43,7 +43,7 @@ Would get sent to SAM as:
 
 Assuming ```%MOUNT_POINT% = "/usr" ```and ```%USAGE% = "80"```.
 
-"```<action> filename [ parameter(s) ] </action>```" specifies local processing to be initiated. Filename is the complete pathname of a Shell script or program to run. Parameter(s) is text that is to be passed to the Shell script or program as it is launched. 
+"```<action> filename [ parameter(s) ] </action>```" specifies local processing to be initiated. Filename is the complete pathname of a Shell script or program to run. Parameter(s) is text that is to be passed to the Shell script or program when it starts. 
 
 As with an event_string, the '%' character must either be doubled to have a single '%' passed to the script/program, or two '%' characters reference an event variable. 
 

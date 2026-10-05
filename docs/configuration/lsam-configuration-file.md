@@ -48,16 +48,16 @@ The following example shows the syntax for starting the agent configuration prog
 
 :::
 
-4. Select an option from the menu and make any necessary modifications to the displayed values. For complete information on the lsam.conf settings, refer to the [TCP/IP Configuration Parameters](../configuration/parameters/tcp-ip-configuration) tables.
+4. Select an option from the menu and make any necessary modifications to the displayed values. For complete information on the lsam.conf settings, refer to the [TCP/IP Configuration Parameters](../configuration/parameters/tcp-ip-configuration.md) tables.
 5. Repeat step 3 until all agent options are set correctly.
 6. Enter s to save the configuration changes.
 7. Enter q to quit the configuration program.
-8. If the agent was running when performing step 3, refresh the agent after saving the configuration file. For information on refreshing the agent, refer to [lsam refresh](../operations/unix-lsam-commands#lsam-refresh).
+8. If the agent was running when performing step 3, refresh the agent after saving the configuration file. For information on refreshing the agent, refer to [lsam refresh](../operations/unix-lsam-commands.md#lsam-refresh).
 
 The agent configuration file is saved.
 
 ## Exception handling
 
-**The configuration program will not start** — The `$LSAM_ROOT` environment variable is not set, or the working directory is not the agent's `bin/` directory when invoking `./lsam<SAM_Socket> config`. — Confirm that `$LSAM_ROOT` is correctly defined in the agent Control Script and that you have changed to the `$LSAM_ROOT/bin` directory before running the command. For information on verifying these variables, refer to [Updating the agent Control Script](updating-lsam-control-script).
+**The configuration program will not start** — The `$LSAM_ROOT` environment variable is not set, or the working directory is not the agent's `bin/` directory when invoking `./lsam<SAM_Socket> config`. — Confirm that `$LSAM_ROOT` is correctly defined in the agent Control Script and that you have changed to the `$LSAM_ROOT/bin` directory before running the command. For information on verifying these variables, refer to [Updating the agent Control Script](updating-lsam-control-script.md).
 
 **`EADDRINUSE - Address already in use` after saving a socket number change** — The new socket number is already bound by another process on the system. — Identify the process using the socket (for example, with `netstat -an | grep <SAM_Socket>`), resolve the conflict, or choose a different socket number. After resolving the conflict, restart the agent.

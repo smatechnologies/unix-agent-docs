@@ -68,7 +68,7 @@ There are two sections of user_setup script requiring review: Setting Environmen
 
 :::caution
 
-If your .profile or .cshrc is an interactive script, user_setup script does not work. For these cases, also review the third section Set Environmental Values. Replace the line in the third section that executes the .profile (i.e., . ./.profile) with definitions of all environment variables, aliases, and so forth that are required to run this user's scripts. The following excerpt is the portion of the script that executes the .profile.
+If your .profile or .cshrc is an interactive script, user_setup script does not work. For these cases, also review the third section Set Environmental Values. Replace the line in the third section that runs the .profile (i.e., . ./.profile) with definitions of all environment variables, aliases, and so forth that are required to run this user's scripts. The following excerpt is the portion of the script that runs the .profile.
 
 ```
 # ************************************************************

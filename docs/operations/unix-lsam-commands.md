@@ -169,7 +169,7 @@ redhat5as.pfx successfully created.
 
 :::
 
-### lsam _delete_logs
+### lsam delete_logs
 
 The delete_logs command removes all but the current log file and error files. For the agent to automatically maintain its logs, create a script containing the delete_logs command, and create and schedule the maintenance job through OpCon.
 
@@ -203,7 +203,7 @@ The log_break command writes a line of asterisks (*) in the log file to delimit 
 
 ### lsam refresh
 
-The refresh command causes the agent to reread the configuration file following modification. To modify the configuration, run the agent configuration program. For information on agent configuration, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration). After saving the changes to the agent configuration file, run the refresh command for the agent to recognize the changes.
+The refresh command causes the agent to reread the configuration file following modification. To modify the configuration, run the agent configuration program. For information on agent configuration, refer to [Unix Agent Configuration](../configuration/unix-lsam-configuration.md). After saving the changes to the agent configuration file, run the refresh command for the agent to recognize the changes.
 
 :::info Note
 
@@ -221,7 +221,7 @@ The restart command systematically stops all of the agent processes, then runs t
 
 #### Syntax
 
-```lsam<SAM_Socket> restart```
+```lsam<SAM_Socket> restart [newlog]```
 
 ### lsam show_cert certificate_file
 
@@ -436,12 +436,12 @@ The start command systematically runs the sma_log, sma_lsam, sma_disp, sma_cronm
 
 #### Syntax
 
-```lsam<SAM_Socket> start```
+```lsam<SAM_Socket> start [newlog]```
 
 
 ### lsam start_fad
 
-The start_fad command starts the SMA File Activity Detection Daemon(s) (SMA FAD). SMA FAD monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon).
+The start_fad command starts the SMA File Activity Detection Daemon(s) (SMA FAD). SMA FAD monitors directories specified for any relevant changes and forwards defined OpCon events to the SAM. For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon.md).
 
 #### Syntax
 
@@ -465,7 +465,7 @@ The stop command systematically stops all of the agent processes.
 
 ### lsam stop_fad
 
-The stop_fad command stops the SMA File Activity Detection Daemon(s) (SMA FAD). For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon).
+The stop_fad command stops the SMA File Activity Detection Daemon(s) (SMA FAD). For information on the SMA File Activity Detection Daemon, refer to [SMA File Activity Detection Daemon](../daemon/file-activity-detection-daemon.md).
 
 #### Syntax
 

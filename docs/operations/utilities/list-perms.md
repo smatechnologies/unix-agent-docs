@@ -14,7 +14,7 @@ tags:
 **Who Is It For?** System Administrator
 
 ## What is it?
-`list_perms` reads filenames from standard input and writes each file's permissions, group ID, user ID, and name to standard output in the four-line format required by [`compare_perms`](./compare-perms).
+`list_perms` reads filenames from standard input and writes each file's permissions, group ID, user ID, and name to standard output in the four-line format required by [`compare_perms`](./compare-perms.md).
 
 Use `list_perms` to capture a permissions baseline for the agent installation that you can later compare against using `compare_perms`.
 
@@ -47,7 +47,7 @@ Generate a baseline of all files in the current agent installation directory:
 find . -name "*" | list_perms > /tmp/agent_baseline.txt
 ```
 
-The resulting `agent_baseline.txt` can be used as the input to `compare_perms CHECK` or `compare_perms CORRECT`. Refer to [compare_perms](./compare-perms) for the full workflow.
+The resulting `agent_baseline.txt` can be used as the input to `compare_perms CHECK` or `compare_perms CORRECT`. Refer to [compare_perms](./compare-perms.md) for the full workflow.
 
 :::
 
