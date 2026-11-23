@@ -116,6 +116,28 @@ Defines the absolute path of the public certificate file.
 
 Defines the absolute path of the private key file (the path may be the same as the public certificate file).
 
+### SMAFT_pass_client_key
+
+**Default Value**: 0
+
+**Description**:
+
+Determines whether the agent passes the private key in `lsam_private_key_file` to SMAFT file transfer jobs, so that the SMAFT Agent can present the certificate in `lsam_pem_file` as its TLS client certificate.
+
+* If set to `1`, the agent passes the private key to SMAFT file transfer jobs
+* If set to `0`, SMAFT file transfer jobs that run as a non-root user connect without a TLS client certificate. Jobs that run as root present the certificate regardless of this setting
+
+Set this parameter to `1` only when both of the following are true:
+
+* The destination Windows Agent requires a TLS client certificate (`TLSClientValidation=TRUE`)
+* SMAFT file transfer jobs on this agent run as non-root users
+
+:::caution
+
+When this parameter is set to `1`, the agent's private key is available to the file transfer process, which runs as the job's user. Enable this setting only if every user permitted to run file transfer jobs on this agent can be trusted with the agent's private key.
+
+:::
+
 ### netcom_pem_file
 
 **Default Value**: none

@@ -39,7 +39,8 @@ To enable TLS, complete the following steps:
 5. Set `lsam_pem_file` to the absolute path of the public certificate file.
 6. Set `lsam_private_key_file` to the absolute path of the private key file. This path may be the same as `lsam_pem_file` if the file contains both the certificate and private key.
 7. If SMAFT TLS is required, verify that `SMAFT_TLS_socket`, `SMAFT_socket`, and `JORS_FT_socket` are each set to different port numbers in `lsam.conf`. SMA Technologies recommends that all three use distinct values to avoid conflicts.
-8. Save the configuration and restart the agent: `lsam<SAM_Socket> restart`.
+8. If SMAFT file transfers run as non-root users to a Windows Agent that requires a TLS client certificate, set `SMAFT_pass_client_key` to `1`. Review the caution in [SMAFT_pass_client_key](./parameters/tcp-ip-configuration.md#smaft_pass_client_key) before you change this setting.
+9. Save the configuration and restart the agent: `lsam<SAM_Socket> restart`.
 
 :::info Note
 
@@ -414,3 +415,5 @@ Added in agent version 26.0.0 (OCAG-809). Use this parameter when a specific TLS
 **Agent and OpCon/SAM lose communication after the certificate expiration date** — The certificate configured in `Lsam_pem_file` has expired. Expired certificates cause TLS handshakes to fail, interrupting all communication between the agent and OpCon. — Use `bin/lsam<SAM_Socket> show_cert <certificate_file>` to check the `Not After` date. Generate a new certificate with `bin/lsam<SAM_Socket> create_cert <days>`, update the `Lsam_pem_file` and `Lsam_private_key_file` paths in `lsam.conf`, and, for self-signed certificates, import the new certificate into the OpCon/SAM machine.
 
 **SMAFT file transfers fail after enabling TLS** — When `use_TLS_SAM` is enabled, `SMAFT_socket` and `JORS_FT_socket` must use different port numbers. If they are set to the same value, SMAFT transfers conflict with TLS-protected JORS communication. — Verify in `lsam.conf` that `SMAFT_socket`, `SMAFT_TLS_socket`, and `JORS_FT_socket` are each assigned distinct port numbers.
+
+**SMAFT TLS file transfers fail when the destination Windows Agent requires a TLS client certificate** — The SMAFT Agent presents the certificate in `lsam_pem_file` as its TLS client certificate. For jobs that run as a non-root user, the SMAFT Agent can present the certificate only when `SMAFT_pass_client_key` is set to `1`. Without a client certificate, the Windows Agent rejects the connection. — Verify that `lsam_pem_file` and `lsam_private_key_file` are set in `lsam.conf`. Then either run the job as root, or set [SMAFT_pass_client_key](./parameters/tcp-ip-configuration.md#smaft_pass_client_key) to `1` after you review its caution.
